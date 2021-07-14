@@ -17,11 +17,11 @@ export default {
   props: {
     yacht: Object,
   },
-  data(){
-    return{
-yacht: ()
-    }
-  },
+//   data(){
+//     return{
+// yacht: ()
+//     }
+//   },
   created() {
     console.log(this.yacht,'hi');
  
