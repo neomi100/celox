@@ -1,32 +1,20 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/explorer">Explorer</router-link>
+    <div class="wrapper main-layout">
+      <header class="header full">
+       <router-link to="/"> <img class="logo" src="@/assets/logo.png" alt="" /></router-link>
+        <nav id="nav">
+          <router-link to="/explore">Explore</router-link> |
+          <router-link to="/become-host">Become Host </router-link> 
+        </nav>
+      </header>
     </div>
-    <router-view/>
+     <img class="main-img" src="@/assets/main-img.jpg"/>
+    <footer class="footer full">footer &copy;</footer>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
+<script>
+export default {};
+</script>
