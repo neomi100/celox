@@ -8,8 +8,8 @@
           <router-link to="/become-host">Become Host </router-link> 
         </nav>
       </header>
+   <router-view/>
     </div>
-     <img class="main-img" src="@/assets/main-img.jpg"/>
     <footer class="footer full">footer &copy;</footer>
   </div>
 </template>
