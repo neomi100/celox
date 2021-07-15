@@ -1,29 +1,32 @@
 <template>
   <router-link :to="'/yacht-details/' + yacht._id">
     <section class="yacht-preview">
+      <img class="yacht-img" :src="yacht.imgUrls[currentSrc]"  />
       <p>
         <span class="yacht-name">{{ yacht.name }}</span>
       </p>
       <p>
         <span class="yacht-price">Daily price:{{ yacht.price }}</span>
       </p>
-      <img class="yacht-img" :src="yacht.imgUrl" />
+      
+     
     </section>
   </router-link>
 </template>
-
+// @click="changeImage"
 <script>
 export default {
   props: {
     yacht: Object,
   },
-//   data(){
-//     return{
-// yacht: ()
-//     }
-//   },
+  data(){
+return{
+  // imgs:this.yacht.imgUrls
+  currentSrc: 0
+}
+  },
   created() {
-    console.log(this.yacht,'hi');
+    // console.log(this.yacht,'hi');
  
   },
 };

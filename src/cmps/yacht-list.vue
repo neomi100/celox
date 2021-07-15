@@ -1,7 +1,7 @@
 <template>
   <section>
     <ul class="yacht-list" v-if="yachts">
-      <li v-for="yacht in yachts" :key="yacht._id" class="yacht-preview-container">
+      <li v-for="yacht in yachts" :key="yacht._id" >
         <yacht-preview :yacht="yacht" />
       </li>
     </ul>

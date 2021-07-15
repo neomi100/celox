@@ -1,0 +1,16 @@
+.yacht-preview {
+    // width: 150px;
+    // border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+
+    // padding: 10px;
+    // margin: 10px;
+    // justify-content: space-between;
+    
+    .yacht-img{
+        height: 395.47px;
+        width:395.47px;
+        border-radius: 4px;
+    }
+}

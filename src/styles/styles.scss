@@ -8,5 +8,7 @@
 @import 'basics/helpers';
 @import 'basics/layout';
 // CMPS
-@import 'cmps/app';
-@import 'cmps/home';
+@import 'cmps/app.scss';
+@import 'cmps/home.scss';
+@import 'cmps/yacht-list.scss';
+@import 'cmps/yacht-preview.scss';
