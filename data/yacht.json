@@ -62,7 +62,7 @@
     "reviews": [{
         "id": "madeId",
         "txt": "Very helpful hosts. Cooked traditional...",
-        "rate": 4,
+        "rate": 5,
         "by": {
             "_id": "u102",
             "fullname": "user2",
@@ -96,7 +96,7 @@
     "reviews": [{
         "id": "madeId",
         "txt": "Very helpful hosts. Cooked traditional...",
-        "rate": 4,
+        "rate":2,
         "by": {
             "_id": "u102",
             "fullname": "user2",
