@@ -1,113 +1,106 @@
-[
-{"yacht": [{
-    "_id": "10006546",
-    "name": "Katrina",
-    "imgUrls": ["https://unsplash.com/photos/Zexjl0v3MRU", "https://unsplash.com/photos/yDUnJ7EHCas"],
-    "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
-    "price": 1800,
-    "size": "medium",
-    "amenities": [
-        "TV",
-        "Wifi",
-        "Kitchen",
-        "PetsAllowed"
-    ],
-    "owner": {
-        "_id": "51399391",
-        "fullname": "Davit Pok",
-        "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+[{
+        "_id": "10006546",
+        "name": "Katrina",
+        "imgUrls": ["https://unsplash.com/photos/Zexjl0v3MRU", "https://unsplash.com/photos/yDUnJ7EHCas"],
+        "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
+        "price": 1800,
+        "size": "medium",
+        "amenities": [
+            "TV",
+            "Wifi",
+            "Kitchen",
+            "PetsAllowed"
+        ],
+        "owner": {
+            "_id": "51399391",
+            "fullname": "Davit Pok",
+            "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+        },
+        "loc": {
+            "country": "Portugal",
+            "countryCode": "PT",
+            "address": "Porto, Portugal",
+            "lat": -8.61308,
+            "lng": 41.1413
+        },
+        "reviews": [{
+            "id": "madeId",
+            "txt": "Very helpful hosts. Cooked traditional...",
+            "rate": 4,
+            "by": {
+                "_id": "u102",
+                "fullname": "user2",
+                "imgUrl": "/img/img2.jpg"
+            }
+        }]
     },
-    "loc": {
-        "country": "Portugal",
-        "countryCode": "PT",
-        "address": "Porto, Portugal",
-        "lat": -8.61308,
-        "lng": 41.1413
+    {
+        "_id": "10008743",
+        "name": "JEANNEAU — SUN ODYSSEY",
+        "imgUrls": ["https://unsplash.com/photos/86wR5GZJZdQ", "https://unsplash.com/photos/Mn5vLHPLTuw"],
+        "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
+        "price": 1800,
+        "size": "small",
+        "amenities": [
+            "TV",
+            "Wifi",
+            "WaterSlide"
+        ],
+        "owner": {
+            "_id": "51397865",
+            "fullname": "Gilad Bashan",
+            "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+        },
+        "loc": {
+            "country": "Morocco",
+            "countryCode": "MA",
+            "address": "Marina Smir",
+            "lat": -5.3109449,
+            "lng": 35.7353565
+        },
+        "reviews": [{
+            "id": "madeId",
+            "txt": "Very helpful hosts. Cooked traditional...",
+            "rate": 4,
+            "by": {
+                "_id": "u102",
+                "fullname": "user2",
+                "imgUrl": "/img/img2.jpg"
+            }
+        }]
     },
-    "reviews": [{
-        "id": "madeId",
-        "txt": "Very helpful hosts. Cooked traditional...",
-        "rate": 4,
-        "by": {
-            "_id": "u102",
-            "fullname": "user2",
-            "imgUrl": "/img/img2.jpg"
-        }
-    }]
-}]},
-{"yacht": [{
-    "_id": "10008743",
-    "name": "JEANNEAU — SUN ODYSSEY",
-    "imgUrls": ["https://unsplash.com/photos/86wR5GZJZdQ", "https://unsplash.com/photos/Mn5vLHPLTuw"],
-    "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
-    "price": 1800,
-    "size": "small",
-    "amenities": [
-        "TV",
-        "Wifi",
-        "WaterSlide"
-    ],
-    "owner": {
-        "_id": "51397865",
-        "fullname": "Gilad Bashan",
-        "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
-    },
-    "loc": {
-        "country": "Morocco",
-        "countryCode": "MA",
-        "address": "Marina Smir",
-        "lat": -5.3109449,
-        "lng": 35.7353565
-    },
-    "reviews": [{
-        "id": "madeId",
-        "txt": "Very helpful hosts. Cooked traditional...",
-        "rate": 4,
-        "by": {
-            "_id": "u102",
-            "fullname": "user2",
-            "imgUrl": "/img/img2.jpg"
-        }
-    }]
-}]},
-{"yacht": [{
-    "_id": "10005432",
-    "name": "LA PERLA",
-    "imgUrls": ["https://unsplash.com/photos/sql39w5NXN8", "https://unsplash.com/photos/Fyo5wzMR9JE"],
-    "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
-    "price": 1800,
-    "size": "small",
-    "amenities": [
-        "TV",
-        "Wifi"
-    ],
-    "owner": {
-        "_id": "51394987",
-        "fullname": "Shos Gon",
-        "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
-    },
-    "loc": {
-        "country": "Acre",
-        "countryCode": "IL",
-        "address": "Acre Port, Leopold II",
-        "lat": 35.0713933,
-        "lng": 32.9192379
-    },
-    "reviews": [{
-        "id": "madeId",
-        "txt": "Very helpful hosts. Cooked traditional...",
-        "rate": 4,
-        "by": {
-            "_id": "u102",
-            "fullname": "user2",
-            "imgUrl": "/img/img2.jpg"
-        }
-    }]
-}]}
-
-
-
-
-
-
+    {
+        "_id": "10005432",
+        "name": "LA PERLA",
+        "imgUrls": ["https://unsplash.com/photos/sql39w5NXN8", "https://unsplash.com/photos/Fyo5wzMR9JE"],
+        "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
+        "price": 1800,
+        "size": "small",
+        "amenities": [
+            "TV",
+            "Wifi"
+        ],
+        "owner": {
+            "_id": "51394987",
+            "fullname": "Shos Gon",
+            "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+        },
+        "loc": {
+            "country": "Acre",
+            "countryCode": "IL",
+            "address": "Acre Port, Leopold II",
+            "lat": 35.0713933,
+            "lng": 32.9192379
+        },
+        "reviews": [{
+            "id": "madeId",
+            "txt": "Very helpful hosts. Cooked traditional...",
+            "rate": 4,
+            "by": {
+                "_id": "u102",
+                "fullname": "user2",
+                "imgUrl": "/img/img2.jpg"
+            }
+        }]
+    }
 ]

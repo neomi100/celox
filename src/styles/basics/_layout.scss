@@ -4,25 +4,26 @@
 
 .main-layout {
     display: grid;
-    grid-template-columns: 2rem 1fr 2rem;
-    grid-template-rows:  80px 1fr;
-    >* {
-        grid-column: 2;
-    }
-    >.full {
-        grid-column: 1 / -1;
-    }
-    @include for-narrow-layout {
-        @include layout-columns($break-narrow);
-    }
-    @include for-narrow-layout {
-        @include layout-columns($break-narrow);
-    }
-    @include for-normal-layout {
-        @include layout-columns($break-normal);
-    }
-    @include for-wide-layout {
-        @include layout-columns($break-wide);
-    }
+    // grid-template-columns: minmax(2rem, 1fr) minmax(auto, 1100px) minmax( 2rem, 1fr);
+    //     // @include for-narrow-layout {
+    //     //     grid-template-columns:
+    //     // }
+    //     // @include for-normal-layout {
+    //     //     grid-template-columns: 
+    //     // }
+    //     // @include for-wide-layout {
+    //     //     grid-template-columns:      
+    //     // }
 }
 
+.card-grid {
+    display: grid;
+    // grid-template-columns: repeat(auto-fill, minmax(237px, 1fr));
+    // grid-gap: 
+    // grid-auto-flow: dense;
+    // grid-auto-rows: 300px;
+    >* {
+        @include aspect-ratio(1, 0.8);
+        border-radius: 18px;
+    }
+}

@@ -1,32 +1,45 @@
-// const { error } = require('console');
-// const fs = require('fs')
-// import { storageService } from './async-storage.service.js'
+import { storageService } from './async-storage.service.js'
 const gYacht = require('../../data/yacht.json')
-
-// const PAGE_SIZE = 5;
 
 export const yachtService = {
     query,
-    // getById,
-    // remove,
-    // save
+    getById,
+    remove,
+    save
 }
 
+query()
 
 function query() {
-    // return storageService.query(gYacht)
-    // const regex = new RegExp(filterBy.txt, 'i')
-    // const startIdx = filterBy.pageIdx * PAGE_SIZE
-    // let bugsToSend = gBugs.filter(bug => regex.test(bug.vendor))
-    // bugsToSend = bugsToSend.slice(startIdx, startIdx + PAGE_SIZE)
     return Promise.resolve(gYacht)
-    // return axios.get('/yachtPage').then(res => res.data)
 }
 
-// function getById(bugId) {
-//     const bug = gBugs.find(bug => bug._id === bugId)
-//     return Promise.resolve(bug)
+// function getById(yachtId) {
+//     const yacht = storageService.get('yacht', yachtId)
+//     return yacht
 // }
+
+function remove(yachtId) {
+    return storageService.delete('yacht', yachtId)
+
+}
+
+
+function getById(yachtId) {
+    const yacht = gYacht.find(yacht => yacht._id === yachtId)
+    return Promise.resolve(yacht)
+}
+
+
+async function save(yacht) {
+    if (yacht._id) {
+        return storageService.put('yacht', yacht)
+    } else {
+        return storageService.post('yacht', yacht)
+    }
+}
+
+
 
 // function remove(bugId, user) {
 //     console.log('user._id :>> ', user._id);
