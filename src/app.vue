@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="wrapper main-layout">
+    <div class="wrapper main-layout2">
       <header class="header full">
        <router-link to="/"> <img class="logo" src="@/assets/logo.png" alt="" /></router-link>
         <nav id="nav">

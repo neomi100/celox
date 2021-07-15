@@ -1,7 +1,7 @@
 <template>
   <section
     v-if="yacht"
-    class="yacht-details-container main-layout layout-change"
+    class="yacht-details-container "
   >
     <div class="full-width img-container">
       <yacht-img-gallery
@@ -57,33 +57,38 @@
         </div>
       </div>
     </div>
-    <yacht-img-gallery class="img-gallery img-grid-wide-view" :imgs="yacht.imgUrls" />
+    <yacht-img-gallery
+      class="img-gallery img-grid-wide-view"
+      :imgs="yacht.imgUrls"
+    />
     <div class="flex space-between yacht-description-wrapper">
       <div class="bottom-border yacht-description">
         <div class="flex space-between bottom-border yacht-desctiption-title">
           <div>
-            <h2 class="ownered-by">{{ yacht.name }} ownered by {{ yacht.owner.fullname }}</h2>
+            <h2 class="ownered-by">
+              {{ yacht.name }} ownered by {{ yacht.owner.fullname }}
+            </h2>
             <p>Up to {{ 12 }}</p>
           </div>
-           <img class="thumb-img" :src="yacht.owner.imgUrl" />
+          <img class="thumb-img" :src="yacht.owner.imgUrl" />
         </div>
         <div class="description-section flex column bottom-border">
           <div class="description-txt">
-            Come to discover my appartment in the middle of
-            {{ yacht.loc.address }}. It is located in near the park and close to
-            several bus stations. This apartment can accommodate up to
+            Come to see my yacht in the middle of
+            {{ yacht.loc.address }}. It is located in near the bay.
+             This apartment can accommodate up to
             <span>{{ 12 }}</span> people, it is on the
-            {{ yacht.capacity + 3 }}th floor (with a large lift) and is very well
-            equipped. This accommodation is surrounded by shops for shopping,
-            bakeries, groceries but also restaurants and bars ... Do not
-            hesitate any more!
+            {{ yacht.capacity + 3 }}th floor (with a large lift) and is very
+            well equipped. This accommodation is surrounded by shops for
+            shopping, bakeries, groceries but also restaurants and bars ... Do
+            not hesitate any more!
           </div>
           <p class="contact-owner-btn underline">Contact owner</p>
         </div>
         <div>
           <yacht-amenities :yacht="yacht" />
         </div>
-        </div>
+      </div>
       <!-- <trip-settings class="trip-settings" :yacht="yacht" /> -->
     </div>
 
@@ -94,7 +99,10 @@
     </div>
 
     <yacht-map id="location" :location="yacht.loc" />
-  <trip-settings-mobile class="trip-settings-mobile full-width" :yacht="yacht" />
+    <trip-settings-mobile
+      class="trip-settings-mobile full-width"
+      :yacht="yacht"
+    />
   </section>
 </template> 
 

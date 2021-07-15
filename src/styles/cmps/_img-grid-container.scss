@@ -1,8 +1,13 @@
 .yacht-details-img-grid-container {
-    mix-blend-mode: multiply;
-    filter: grayscale(1);
+    // height: 100%;
+    //   object-fit: cover
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-auto-rows: 300px;
+    grid-auto-flow: dense;
     .yacht-img {
         height: 100%;
-        object-fit: cover
+        // object-fit: cover
     }
 }
