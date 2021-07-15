@@ -1,7 +1,15 @@
 <template>
 <div class="continer">
+<div class="continer">
   <router-link :to="'/details/' + yacht._id">
     <section class="yacht-preview">
+      <!-- <el-carousel class="yacht-details-img-carousel-container" :autoplay="false" height="200px" indicator-position="none">
+      <el-carousel-item style="background-color: #fff" v-for="(img, idx) in imgs" :key="idx" >
+          <img class="yacht-img-prev yacht-details-img-prev" :src= imgs[idx] />
+      </el-carousel-item>
+      
+    </el-carousel> -->
+
       <img class="yacht-img" :src="yacht.imgUrls[currentSrc]"/>
       <!-- <button class="right"></button><img/> --> 
     </section>
@@ -16,6 +24,7 @@
         <span class="yacht-price">Daily price: {{ yacht.price }}$</span>
 </div>
   </router-link>
+</div>
 </div>
 </template>
 
