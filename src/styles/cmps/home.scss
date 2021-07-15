@@ -4,34 +4,159 @@
     gap: 100px;
     align-items: center;
     padding: 10px 0;
+    // background-image: url('../../assets/images/main-img.jpg');
+
     .main-img {
         position: inherit;
         height: 450px;
         width: 100%;
         top: 65px
     }
-
 }
 
-.top-rated-yachts{
-    display:flex;
+
+///////////////////////////////
+//Search Box
+
+
+div.searchBox {
+    margin: 0 auto;
+    background-color: white;
+    width: 50%;
+    height: 64px;
+    border-radius: 25px;
+    margin-bottom: 100px;
+    padding: 17px 20px;
+    font-size: 0.85rem;
+    margin-top: -506px;
+}
+
+    div.searchBox img {
+        display: inline-block;
+        width: 32px;
+        margin-bottom: -4px;
+        padding: 4px;
+    }
+
+    div.searchBox span {
+        display: inline-block;
+    }
+
+    div.searchBox .sb-input {
+        display: inline-block;
+        /*background-color: yellow;*/
+        width: 28%;
+        height: 100%;
+        padding-right: 10px;
+        text-align: center;
+    }
+
+        div.searchBox .sb-input:not(:last-of-type) {
+            border-right-style: ridge;
+            /*border-right-color: black;*/
+        }
+
+        div.searchBox .sb-input:hover {
+            background-color: wheat;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+
+        div.searchBox .sb-input .sb-input-title {
+            display: block;
+        }
+
+        div.searchBox .sb-input .sb-input-data {
+            color: gray;
+        }
+
+
+    /*  div.searchBox .div0 span {
+        display: inline-block;
+    }
+*/
+
+
+    div.searchBox .di1 {
+    }
+
+    div.searchBox .di2 {
+    }
+
+
+
+div.pickDate {
+    display: none;
+}
+
+
+div.pickLocation {
+    display: none;
+}
+
+div.random-search {
+    text-align: center;
+}
+
+    div.random-search .rs-title {
+        display: block;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+
+    div.random-search .rs-inner {
+        margin: 0 auto;
+        background-color: white;
+        width: 15%;
+        /*height: 32px;*/
+        border-radius: 25px;
+        margin-bottom: 100px;
+        padding: 10px 20px;
+        /*font-size: 0.85rem;*/
+        text-align: center;
+    }
+
+///////////////////////////////
+
+
+
+.top-rated-yachts {
+    display: flex;
     justify-content: space-evenly;
-
 }
 
-.top-destinations{
+    .top-rated-yachts img {
+        width: 400px;
+        height: 200px;
+    }
+
+    .top-rated-yachts h3 {
+        font-size:1.6rem;
+        margin-top: -67px;
+        color:black;
+    }
+
+    .top-rated-yachts h4 {
+        font-size:1.2rem;
+        margin-top: -20px;
+        color:black;
+    }
+
+.top-destinations {
     display: flex;
     justify-content: space-around;
 }
 
-.destination{
+.destination {
     background-color: cornflowerblue;
     margin: 5px;
     padding: 20px;
 }
 
-.yacht{
-    padding:30px;
+.yacht {
+    padding: 30px;
     margin: 5px;
     background-color: crimson;
 }
