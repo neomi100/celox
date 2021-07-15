@@ -10,4 +10,28 @@
         width: 100%;
         top: 65px
     }
+
+}
+
+.top-rated-yachts{
+    display:flex;
+    justify-content: space-evenly;
+
+}
+
+.top-destinations{
+    display: flex;
+    justify-content: space-around;
+}
+
+.destination{
+    background-color: cornflowerblue;
+    margin: 5px;
+    padding: 20px;
+}
+
+.yacht{
+    padding:30px;
+    margin: 5px;
+    background-color: crimson;
 }
