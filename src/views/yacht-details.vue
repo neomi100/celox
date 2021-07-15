@@ -1,131 +1,106 @@
 <template>
-  <section>
-    <div class="container">
-      <header class="header">
-        <h1 class="yacht-name">Sailboat Jeanneau Sun Odyssey 509 (2014)</h1>
-      </header>
-
-      <div class="images-Container">
-        <!-- <img src="./assets/logo.jpg" />
-        <img src="./assets/logo.jpg" />
-        <img src="./assets/logo.jpg" /> -->
-      </div>
-
-      <div class="productView__article">
-        <section class="productView__block">
-          <section class="productGeneral">
-            <div class="productGeneral__rowContainer">
-              <h1 class="productGeneral__boat">
-                Yacht charter in Tivat
-                <br />
-                <span class="productGeneral__title js-product-title">
-                  SAVER — Open 580 (2017)
-                </span>
-              </h1>
-
-              <div
-                class="productGeneral__imgContainer"
-                data-module="profile"
-                data-action="display"
-                data-account-id="89396"
-                data-product-id="19123"
-              >
-                <img
-                  data-src="//static1.clickandboat.com/v1/a/g6I2tztu0epIlJlBmrx6wTMHF4EKrogC.big.jpg"
-                  alt="Dean"
-                  class="productGeneral__img lazy"
-                />
-              </div>
-            </div>
-
-            <div class="productGeneral__rowContainer">
-              <div class="productGeneral__informations">
-                <div class="productGeneral__reviews">
-                  <a
-                    href=""
-                    class="productGeneral__stars js-anchor"
-                    data-anchor-selector="#global-review"
-                    data-action="scroll"
-                    data-speed="slow"
-                  >
-                    <div class="newRatingStarsContainer--medium">
-                      <img
-                        loading="lazy"
-                        src="//static1.clickandboat.com/v1/o/img/svg/stars~ebed3586da.svg.gz#star-5"
-                        alt="rating-stars"
-                      />
-                    </div>
-                  </a>
-
-                  <a
-                    href=""
-                    class="productGeneral__text js-anchor"
-                    data-anchor-selector="#commentaires"
-                    data-action="scroll"
-                    data-speed="slow"
-                  >
-                    (41)
-                  </a>
-                </div>
-
-                <div class="productGeneral__infos">
-                  <div
-                    class="productGeneral__owner"
-                    data-module="profile"
-                    data-action="display"
-                    data-account-id="89396"
-                    data-product-id="19123"
-                  >
-                    Offered by
-                    <a
-                      href="#"
-                      class="productGeneral__text--mgleft js-owner-name"
-                      >Dean</a
-                    >
-                  </div>
-
-                  <div class="productGeneral__text--grey">Tivat, Tivat</div>
-                </div>
-              </div>
-
-              <div
-                class="productGeneral__imgContainer--onMobile"
-                data-module="profile"
-                data-action="display"
-                data-account-id="89396"
-                data-product-id="19123"
-              >
-                <img
-                  data-src="//static1.clickandboat.com/v1/a/g6I2tztu0epIlJlBmrx6wTMHF4EKrogC.big.jpg"
-                  alt="Dean"
-                  class="productGeneral__img lazy"
-                />
-              </div>
-            </div>
-
-            <div class="productGeneral__equipments">
-              <div class="productGeneral__text--med bht-boat-capacity">
-                6 people
-              </div>
-
-              <div class="productGeneral__text--med">
-                &nbsp;· 100 horsepower
-              </div>
-              <div class="productGeneral__text--med">&nbsp;· 5.8 metres</div>
-            </div>
-          </section>
-        </section>
-
-        <section class="productView__block"></section>
-        <section class="productView__block"></section>
-        <section class="productView__block"></section>
-        <section class="productView__block"></section>
-        <section class="productView__block"></section>
-      </div>
+  <section v-if="yacht" class="yacht-details-container">
+    <h1>{{ yacht.summary }}</h1>
+    <!-- TODO: finish routerLink -->
+    <div>
+      <star-rating :reviews="yacht.reviews" />
+      <router-link to="/yacht/:id/:location?">{{yacht.loc.address}}</router-link>
     </div>
+
+    <div>
+      <i class="share-btn btn fas fa-share-square">Share</i>
+
+      <i class="save-btn btn fas fa-heart" style="color: #ca4c4c" v-if="isLiked" @click="toggleLike()">Save</i>
+
+      <i class="save-btn btn far fa-heart" v-if="!isLiked" @click="toggleLike()">Save</i>
+    </div>
+
+    <div class="img-gallery" :imgs="yacht.imgUrls" />
+
+    <h1>{{ yacht.name }} ownered by {{ yacht.owner.fullname }}</h1>
+
+    <p>Up to {{ guestAmount }}</p>
+
+    <img class="thumb-img" :src="yacht.owner.imgUrl" />
+
+    <yacht-amenities :yacht="yacht" />
+
+
+    <review-list :reviews="yacht.reviews" />
+
+    <review-categories :reviews="yacht.reviews" />
+
+    <div>
+      Contact owner
+      <el-input
+        type="textarea"
+        :rows="2"
+        placeholder="Please input"
+        v-model="textarea"
+      >
+      </el-input>
+
+      <button class="call-to-action-btn">Send message</button>
+    </div>
+
+    <yacht-map :location="yacht.loc" />
   </section>
 </template>
 
 <script>
-export default {};
+import yachtAmenities from "../cmps/yacht-amenities.vue";
+// import yachtImgGallery from "../cmps/yacht-img-gallery.vue";
+import reviewList from "../cmps/review-list.vue";
+import reviewCategories from "../cmps/review-categories.vue";
+import starRating from "../cmps/star-rating.vue";
+import yachtMap from "../cmps/yacht-map.vue";
+import { yachtService } from "../services/yacht-service.js";
+
+export default {
+  name: "yacht-details",
+  data() {
+    return {
+      yacht: null,
+      textarea: "",
+      isLiked: false,
+    };
+  },
+  methods: {
+    toggleLike() {
+      this.isLiked = !this.isLike;
+      if (this.isLiked) {
+        this.class = "save-btn btn fas fa-heart";
+        this.$store.dispatch("saveyacht", this.yacht.id);
+      } else {
+        this.class = "save-btn btn far fa-heart";
+        this.$store.dispatch("unsaveyacht", this.yacht._id);
+      }
+    },
+  },
+  computed: {
+    // guestAmount() {
+    //   if (this.yacht.capacity > 1) {
+    //     return this.yacht.capacity.toString() + " guests";
+    //   } else {
+    //     return this.yacht.capacity.toString() + " guest";
+    //   }
+    // },
+  },
+  created() {
+    const _id = this.$route.params.id;
+    yachtService.getById(_id)
+    .then((yacht) => {
+      console.log(yacht);
+      this.yacht = yacht;
+    });
+  },
+  components: {
+    // yachtImgGallery,
+    reviewList,
+    yachtMap,
+    reviewCategories,
+    starRating,
+    yachtAmenities,
+  },
+};
 </script>
