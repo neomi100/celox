@@ -16,10 +16,10 @@
     </div>
 
     <div class="img-gallery" :imgs="yacht.imgUrls" />
-
+<yacht-img-gallery/>
     <h1>{{ yacht.name }} ownered by {{ yacht.owner.fullname }}</h1>
 
-    <p>Up to {{ guestAmount }}</p>
+    <!-- <p>Up to {{ guestAmount }}</p> -->
 
     <img class="thumb-img" :src="yacht.owner.imgUrl" />
 
@@ -49,7 +49,7 @@
 
 <script>
 import yachtAmenities from "../cmps/yacht-amenities.vue";
-// import yachtImgGallery from "../cmps/yacht-img-gallery.vue";
+import yachtImgGallery from "../cmps/yacht-img-gallery.vue";
 import reviewList from "../cmps/review-list.vue";
 import reviewCategories from "../cmps/review-categories.vue";
 import starRating from "../cmps/star-rating.vue";
@@ -92,10 +92,11 @@ export default {
     .then((yacht) => {
       console.log(yacht);
       this.yacht = yacht;
+      console.log(this.yacht.imgUrls,'imgs?');
     });
   },
   components: {
-    // yachtImgGallery,
+    yachtImgGallery,
     reviewList,
     yachtMap,
     reviewCategories,

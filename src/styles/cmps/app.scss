@@ -1,6 +1,7 @@
 #app {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    margin: 0 10px;
     // text-align: center;
     .wrapper {
         position: relative;
@@ -22,6 +23,7 @@
                 a {
                     font-weight: bold;
                     color: $clr2;
+                    color: inherit;
                 }
                 a.router-link-exact-active {
                     color: $clr4;

@@ -1,18 +1,22 @@
 <template>
-  <router-link :to="'/yacht-details/' + yacht._id">
+<div class="continer">
+  <router-link :to="'/details/' + yacht._id">
     <section class="yacht-preview">
       <img class="yacht-img" :src="yacht.imgUrls[currentSrc]"/>
       <!-- <button class="right"></button><img/> --> 
+    </section>
+<div class="main">
       <div class="yacht-up">    
       <p class="right-up">
-        <span class="icon"></span><span>     {{capacity}}</span><span class="country">   {{yacht.loc.country }}</span>
+        <span class="icon" title="Max pepole"></span><span>     {{capacity}}</span><span class="country">   {{yacht.loc.country }}</span>
       </p>
       <span>{{rate}}</span> 
         </div>  
         <span class="yacht-name">{{ yacht.name }}</span>
         <span class="yacht-price">Daily price: {{ yacht.price }}$</span>
-    </section>
+</div>
   </router-link>
+</div>
 </template>
 
 <script>
