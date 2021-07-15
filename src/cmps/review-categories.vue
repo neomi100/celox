@@ -1,17 +1,26 @@
 <template>
   <section>
-    <h1>review categories</h1>
-    <ul>
-        <li v-for="(cat,idx) in categories" :key="idx">
+    <div class="review-section-title flex align-center">
+      <i class="fas fa-star"></i> 
+      <span>{{avgRateFromAllReviewers}}</span>
+      <span>({{reviews.length}} reviews)</span>
+    </div>
+    <ul class="two-column-grid-categories">
+        <li v-for="(cat,idx) in categories" :key="idx" class="clean-list two-column-grid">
             <p>{{categories[idx][0]}}</p>
-            <el-progress :show-text="false" color="#ca4c4c" :stroke-width="8" :percentage="starNum(idx)"></el-progress>
-            <p>{{categories[idx][1]}}</p>
+            <div class="bar flex">
+            <p class="score">{{(categories[idx][1]).toFixed(1)}}</p>
+            <el-progress class="progress-bar" :show-text="false" color="#FF385C" :stroke-width="8" :percentage="starNum(idx)"></el-progress>
+            </div>
         </li>
     </ul>
+    <star-rating/>
   </section>
 </template>
 <script>
+import starRating from './star-rating.vue';
 export default {
+  components: { starRating },
   name: "review-category",
   props: {
     reviews: Array,
@@ -48,5 +57,18 @@ export default {
       this.categories = categoriesToRender;
     }
   },
+  computed:{
+     avgRateFromAllReviewers() {
+      if (this.reviews) {
+        let sum = this.reviews.reduce((acc, currVal) => {
+          acc += currVal.avgRate;
+          return acc;
+        }, 0);
+        return parseFloat(sum / this.reviews.length).toFixed(1);
+      }else{
+         return 0;
+    }
+  },
+  }
 };
 </script>

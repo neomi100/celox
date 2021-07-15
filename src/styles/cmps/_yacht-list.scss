@@ -11,4 +11,8 @@
     gap: 50px;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     grid-auto-flow: dense;
+    li{
+       max-width: 378px;    
+    max-height: 378px;
+   } 
 }

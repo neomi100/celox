@@ -14,7 +14,7 @@
         "owner": {
             "_id": "51399391",
             "fullname": "Davit Pok",
-            "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+            "imgUrl": "https://randomuser.me/api/portraits/men/1.jpg"
         },
         "loc": {
             "country": "Portugal",
@@ -49,7 +49,7 @@
         "owner": {
             "_id": "51397865",
             "fullname": "Gilad Bashan",
-            "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+            "imgUrl": "https://randomuser.me/api/portraits/men/1.jpg"
         },
         "loc": {
             "country": "Morocco",
@@ -83,7 +83,7 @@
         "owner": {
             "_id": "51394987",
             "fullname": "Shos Gon",
-            "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+            "imgUrl": "https://randomuser.me/api/portraits/men/1.jpg"
         },
         "loc": {
             "country": "Acre",
@@ -102,5 +102,76 @@
                 "imgUrl": "/img/img2.jpg"
             }
         }]
+    },
+    {
+        "_id": "10007852",
+        "name": "LAGOON43 ",
+        "imgUrls": ["https://images.unsplash.com/photo-1621277224630-81d9af65e40c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60", "https://images.unsplash.com/photo-1559385301-0187cb6eff46?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjN8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"],
+        "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
+        "price": 1250,
+        "size": "small",
+        "amenities": [
+            "TV",
+            "Wifi"
+        ],
+        "owner": {
+            "_id": "51395833",
+            "fullname": "Adam Honlol",
+            "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+        },
+        "loc": {
+            "country": "Gourbeyre",
+            "countryCode": "IL",
+            "address": "Marina Riviere Sens, Gourbeyre",
+            "lat": -64.5336044,
+            "lng":18.0553084
+        },
+        "reviews": [{
+            "id": "madeId",
+            "txt": "Very helpful hosts. Cooked traditional...",
+            "rate": 5,
+            "by": {
+                "_id": "u102",
+                "fullname": "user2",
+                "imgUrl": "/img/img2.jpg"
+            }
+        }]
+    },
+    {
+        "_id": "10009921",
+        "name": "MULTICAP ",
+        "imgUrls": ["https://images.unsplash.com/photo-1517988368819-88f4eacfef44?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTR8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60", "https://images.unsplash.com/photo-1586398449328-69bf1b779f0b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzN8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"],
+        "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
+        "price": 2000,
+        "size": "Large",
+        "amenities": [
+            "TV",
+            "Wifi",
+            "Kitchen",
+            "PetsAllowed"
+        ],
+        "owner": {
+            "_id": "51394568",
+            "fullname": "Jon Moader",
+            "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
+        },
+        "loc": {
+            "country": "Guadeloupe",
+            "countryCode": "IL",
+            "address": "Deshaies, Guadeloupe",
+            "lat": -61.2718324,
+            "lng":16.3154298
+        },
+        "reviews": [{
+            "id": "madeId",
+            "txt": "Very helpful hosts. Cooked traditional...",
+            "rate": 4,
+            "by": {
+                "_id": "u102",
+                "fullname": "user2",
+                "imgUrl": "/img/img2.jpg"
+            }
+        }]
     }
+
 ]
