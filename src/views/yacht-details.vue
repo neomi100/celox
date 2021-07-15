@@ -99,10 +99,10 @@
     </div>
 
     <yacht-map id="location" :location="yacht.loc" />
-    <trip-settings-mobile
+    <!-- <trip-settings-mobile
       class="trip-settings-mobile full-width"
       :yacht="yacht"
-    />
+    /> -->
   </section>
 </template> 
 
@@ -153,7 +153,7 @@ export default {
     yachtService.getById(_id).then((yacht) => {
       console.log(yacht);
       this.yacht = yacht;
-      console.log(this.yacht.imgUrls,'imgs?');
+      this.reviews = yacht.reviews;
     });
   },
   components: {
