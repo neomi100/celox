@@ -1,7 +1,6 @@
 <template>
   <section>
-    <h1>Reviews</h1>
-    <ul class="review-card-grid">
+    <ul class="review-card-grid two-column-grid clean-list">
       <li v-for="review in reviews" :key="review._id">
         <review-preview :review="review"></review-preview>
       </li>
