@@ -1,51 +1,113 @@
 <template>
-  <section v-if="yacht" class="yacht-details-container">
-    <h1>{{ yacht.summary }}</h1>
-    <!-- TODO: finish routerLink -->
-    <div>
-      <star-rating :reviews="yacht.reviews" />
-      <router-link to="/yacht/:id/:location?">{{yacht.loc.address}}</router-link>
+  <section
+    v-if="yacht"
+    class="yacht-details-container "
+  >
+    <div class="full-width img-container">
+      <yacht-img-gallery
+        @toggleLike="toggleLike()"
+        class="img-gallery yacht-details-img-carousel-container full-width"
+        :imgs="yacht.imgUrls"
+        :isLiked="this.isLiked"
+      />
+      <div class="heart-btn">
+        <img
+          v-if="!isLiked"
+          title="Save To Favorites"
+          @click="toggleLike()"
+          class="like-btn"
+          src="../assets/imgs/icons/heart.png"
+        />
+        <img
+          v-else
+          title="Remove From Favorites"
+          @click="toggleLike()"
+          class="like-btn"
+          src="../assets/imgs/icons/fillheart.png"
+        />
+      </div>
     </div>
 
-    <div>
-      <i class="share-btn btn fas fa-share-square">Share</i>
-
-      <i class="save-btn btn fas fa-heart" style="color: #ca4c4c" v-if="isLiked" @click="toggleLike()">Save</i>
-
-      <i class="save-btn btn far fa-heart" v-if="!isLiked" @click="toggleLike()">Save</i>
+    <div class="yacht-details-title flex column">
+      <div class="yacht-title-primary">{{ yacht.summary }}</div>
+      <div class="yacht-title-secondary flex space-between center">
+        <div class="left flex space-between center">
+          <star-rating :reviews="this.reviews" /> <span> · </span>
+          <a class="link" href="#location">{{ yacht.loc.address }}</a>
+        </div>
+        <div class="right flex space-between">
+          <button class="btn flex center space-evenly action-btn">
+            <i class="share-btn btn fas fa-share-square"></i><span>Share</span>
+          </button>
+          <button
+            class="btn flex center space-evenly action-btn"
+            v-if="isLiked"
+            @click="toggleLike()"
+          >
+            <i class="save-btn btn fas fa-heart" style="color: #ca4c4c"></i
+            ><span>Save</span>
+          </button>
+          <button
+            class="btn flex center space-evenly action-btn"
+            v-if="!isLiked"
+            @click="toggleLike()"
+          >
+            <i class="save-btn btn far fa-heart"></i><span>Save</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <yacht-img-gallery
+      class="img-gallery img-grid-wide-view"
+      :imgs="yacht.imgUrls"
+    />
+    <div class="flex space-between yacht-description-wrapper">
+      <div class="bottom-border yacht-description">
+        <div class="flex space-between bottom-border yacht-desctiption-title">
+          <div>
+            <h2 class="ownered-by">
+              {{ yacht.name }} ownered by {{ yacht.owner.fullname }}
+            </h2>
+            <p>Up to {{ 12 }}</p>
+          </div>
+          <img class="thumb-img" :src="yacht.owner.imgUrl" />
+        </div>
+        <div class="description-section flex column bottom-border">
+          <div class="description-txt">
+            Come to see my yacht in the middle of
+            {{ yacht.loc.address }}. It is located in near the bay.
+             This apartment can accommodate up to
+            <span>{{ 12 }}</span> people, it is on the
+            {{ yacht.capacity + 3 }}th floor (with a large lift) and is very
+            well equipped. This accommodation is surrounded by shops for
+            shopping, bakeries, groceries but also restaurants and bars ... Do
+            not hesitate any more!
+          </div>
+          <p class="contact-owner-btn underline">Contact owner</p>
+        </div>
+        <div>
+          <yacht-amenities :yacht="yacht" />
+        </div>
+      </div>
+      <!-- <trip-settings class="trip-settings" :yacht="yacht" /> -->
     </div>
 
-    <div class="img-gallery" :imgs="yacht.imgUrls" />
-<yacht-img-gallery/>
-    <h1>{{ yacht.name }} ownered by {{ yacht.owner.fullname }}</h1>
-
-    <!-- <p>Up to {{ guestAmount }}</p> -->
-
-    <img class="thumb-img" :src="yacht.owner.imgUrl" />
-
-    <yacht-amenities :yacht="yacht" />
-
-
-    <review-list :reviews="yacht.reviews" />
-
-    <review-categories :reviews="yacht.reviews" />
-
-    <div>
-      Contact owner
-      <el-input
-        type="textarea"
-        :rows="2"
-        placeholder="Please input"
-        v-model="textarea"
-      >
-      </el-input>
-
-      <button class="call-to-action-btn">Send message</button>
+    <div class="review-section bottom-border">
+      <review-categories :reviews="this.reviews" />
+      <review-list :reviews="this.reviews" />
+      <review-add @postReview="postReview"></review-add>
     </div>
 
-    <yacht-map :location="yacht.loc" />
+    <yacht-map id="location" :location="yacht.loc" />
+    <trip-settings-mobile
+      class="trip-settings-mobile full-width"
+      :yacht="yacht"
+    />
   </section>
-</template>
+</template> 
+
+
+   
 
 <script>
 import yachtAmenities from "../cmps/yacht-amenities.vue";
@@ -88,8 +150,7 @@ export default {
   },
   created() {
     const _id = this.$route.params.id;
-    yachtService.getById(_id)
-    .then((yacht) => {
+    yachtService.getById(_id).then((yacht) => {
       console.log(yacht);
       this.yacht = yacht;
       console.log(this.yacht.imgUrls,'imgs?');

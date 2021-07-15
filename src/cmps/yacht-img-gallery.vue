@@ -1,20 +1,16 @@
 <template>
   <section class="img-grid-container">
-    <img
-      class="main-img"
-      :src="imgs[0]"
-     
-    />
-    <div class="secondary-imgs">
-      <!-- <ul class="yacht-details-img-grid-container">
-        <li v-for="img in secondaryImgs" :key="img">
-          <img
-            class="yacht-img"
-            :src="require(`@/assets/imgs/yacht-imgs/${img}.jpg`)"
-          />
-        </li>
-      </ul> -->
-    </div>
+      
+    <el-carousel class="yacht-details-img-carousel-container" :autoplay="false" height="200px" indicator-position="none">
+      <el-carousel-item style="background-color: #fff" v-for="(img, idx) in imgs" :key="idx" >
+          <img class="yacht-img-prev yacht-details-img-prev" :src= imgs[idx] />
+      </el-carousel-item>
+      
+    </el-carousel>
+      <ul class="yacht-details-img-grid-container">
+        <img v-for="(img,idx) in imgs" :key="idx" class="yacht-img"
+            :src="imgs[idx]">
+      </ul>
   </section>
 </template>
 
@@ -24,14 +20,9 @@ export default {
   props: {
     imgs: Array,
   },
-  data() {
-    return {
-      // primaryImg: this.imgs[0],
-      // secondaryImgs : imgs.slice(1,imgs.length-1)
-    };
-  },
-  created(){
-    console.log(this.imgs, 'imgs');
+
+  methods:{
+   
   }
 };
 </script>
