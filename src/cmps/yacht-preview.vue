@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="'/yacht-details/' + yacht._id">
+  <router-link :to="'/details/' + yacht._id">
     <section class="yacht-preview">
       <img class="yacht-img" :src="yacht.imgUrls[currentSrc]"  />
       <p>

@@ -10,9 +10,11 @@
 // CMPS
 @import 'cmps/app';
 @import 'cmps/home';
+@import 'cmps/img-grid-container';
+@import 'cmps/star-rating';
 //VIEWS
-@import 'views/yacht-details.scss';
 @import 'cmps/app.scss';
 @import 'cmps/home.scss';
 @import 'cmps/yacht-list.scss';
 @import 'cmps/yacht-preview.scss';
+@import 'views/yacht-details.scss';
