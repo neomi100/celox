@@ -40,7 +40,7 @@
     "name": "JEANNEAU — SUN ODYSSEY",
     "imgUrls": ["https://images.unsplash.com/photo-1604671801989-586dde3c1574?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDZ8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60", "https://images.unsplash.com/photo-1600177897995-e67c73ed44e9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTJ8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"],
     "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
-    "price": 1800,
+    "price": 1200,
     "size": "small",
     "amenities": [
         "TV",
@@ -75,7 +75,7 @@
     "name": "LA PERLA",
     "imgUrls": ["https://images.unsplash.com/photo-1592437111271-239fa8dcb401?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjZ8fHlhY2h0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60", "https://images.unsplash.com/photo-1615210466215-44e337bf95ac?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzF8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"],
     "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
-    "price": 1800,
+    "price": 1000,
     "size": "small",
     "amenities": [
         "TV",

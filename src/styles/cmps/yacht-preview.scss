@@ -1,14 +1,27 @@
 .yacht-preview {
     display: flex;
     flex-direction: column;
-    font-family: Blinker;   
+    font-family: Blinker; 
+    // height: 478px;
+    // width: 395.47px;  
         .yacht-img{
         height: 395.47px;
         width:395.47px;
-        border-radius: 4px;
+        border-radius: 12px;
     }
         .yacht-up{
         font-size: small;
+        flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // .right-up{
+    //     display: flex;
+    // justify-content: space-between;
+    // }
+    .country{
+        padding: 30px;
+    }
          .icon::after{
         font-family: fa-solid;
         content: "\f0c0";
