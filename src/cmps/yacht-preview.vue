@@ -1,16 +1,18 @@
 <template>
-<div class="continer">
+
 <div class="continer">
   <router-link :to="'/details/' + yacht._id">
     <section class="yacht-preview">
-      <!-- <el-carousel class="yacht-details-img-carousel-container" :autoplay="false" height="200px" indicator-position="none">
+
+      <!-- <img class="yacht-img" :src="yacht.imgUrls[currentSrc]"/> -->
+      <img v-for="(img,idx) in imgs" :key="idx"  class="yacht-img" :src="imgs[idx]"/>
+      <img class="yacht-details-img-grid-container" :src="imgs[idx]"/>
+      <el-carousel class="yacht-details-img-carousel-container" :autoplay="false" height="200px" indicator-position="none">
       <el-carousel-item style="background-color: #fff" v-for="(img, idx) in imgs" :key="idx" >
           <img class="yacht-img-prev yacht-details-img-prev" :src= imgs[idx] />
       </el-carousel-item>
-      
-    </el-carousel> -->
+    </el-carousel>
 
-      <img class="yacht-img" :src="yacht.imgUrls[currentSrc]"/>
       <!-- <button class="right"></button><img/> --> 
     </section>
 <div class="main">
@@ -25,18 +27,19 @@
 </div>
   </router-link>
 </div>
-</div>
+
 </template>
 
 <script>
+// import Filter from './filter.vue';
 export default {
   props: {
     yacht: Object,
   },
   data() {
     return {
-      // imgs:this.yacht.imgUrls
-      currentSrc: 0,
+      imgs:this.yacht.imgUrls,
+      // currentSrc: 0,
     };
   },
   computed: {
@@ -72,7 +75,7 @@ export default {
   },
   created() {
     // this.rate
-    console.log(this.yacht.size, "hi3");
+    console.log(this.imgs, "hi3");
 
   },
 };

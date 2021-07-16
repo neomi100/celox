@@ -143,7 +143,7 @@
         "imgUrls": ["https://images.unsplash.com/photo-1517988368819-88f4eacfef44?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTR8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60", "https://images.unsplash.com/photo-1586398449328-69bf1b779f0b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzN8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"],
         "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
         "price": 2000,
-        "size": "Large",
+        "size": "large",
         "amenities": [
             "TV",
             "Wifi",
