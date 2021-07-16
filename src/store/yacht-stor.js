@@ -14,9 +14,20 @@ export const yachtStore = {
     },
     getters: {
         yachtsForShow(state) {
-            console.log(state.yachts, 'getters');
             return state.yachts
-        }
+        },
+        getAllUserLike(state, getters) {
+            const userId = getters.loggedinUser._id;
+            const yachts = []
+            state.yachts.forEach(yacht => {
+                yacht.favorites.forEach(fav => {
+                    if (fav.userId === userId) {
+                        yachts.push(yacht)
+                    }
+                });
+            });
+            return yachts
+        },
     },
     mutations: {
         getYachts(state, { yachts }) {
@@ -26,12 +37,32 @@ export const yachtStore = {
         setFilter(state, payload) {
             console.log('payload.filterBy', payload.filterBy);
             state.filterBy = payload.filterBy
-            // console.log(state.currentFilterBy, 'stor mots');
+                // console.log(state.currentFilterBy, 'stor mots');
 
         },
+        updateyachts(state, { updatedyacht }) {
+            const idx = state.yachts.findIndex(({ _id }) => _id === updatedyacht._id);
+            state.yachts.splice(idx, 1, updatedyacht);
+        },
+
+    },
+    actions: {
+        async loadYachts(context) {
+            try {
+                //    console.log('context.state.currentFilterBy', context.state.filterBy);
+                const yachts = await yachtService.query(context.state.filterBy)
+                console.log(yachts, 'yachts are??');
+                context.commit({ type: 'getYachts', yachts })
+                return yachts
+            } catch (err) {
+                console.log('Cannot load yachts');
+                throw err;
+            }
+        },
         async postReview(context, { review }) {
+            console.log(context);
             var newReview = {
-                curryacht: review.yacht,
+                // curryacht: review.yacht,
                 txt: review.txt,
                 avgRate: review.avgRate,
                 category: JSON.parse(JSON.stringify(review.category)),
@@ -45,9 +76,9 @@ export const yachtStore = {
             }
             newReview.curryacht.reviews.unshift(newReview)
             try {
-                const updatedyacht = await yachtService.save(curryacht)
+                const updatedyacht = await yachtService.save()
                     // const updatedyacht= await yachtService.addReview(newReview,curryacht)
-                commit({ type: 'updateyachts', updatedyacht })
+                context.commit({ type: 'updateyachts', updatedyacht })
                 return updatedyacht
             } catch (err) {
                 console.log('from Store: Cannot postReview', err);
@@ -69,19 +100,5 @@ export const yachtStore = {
             }
         }
     },
-        actions: {
-            async loadYachts(context) {
-                try {
-                    //    console.log('context.state.currentFilterBy', context.state.filterBy);
-                    const yachts = await yachtService.query(context.state.filterBy)
-                    console.log(yachts, 'yachts are??');
-                    context.commit({ type: 'getYachts', yachts })
-                    return yachts
-                } catch (err) {
-                    console.log('Cannot load yachts');
-                    throw err;
-                }
-            },
-        },
 
-    }
+}

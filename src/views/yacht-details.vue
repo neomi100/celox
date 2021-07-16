@@ -55,7 +55,7 @@
           <div class="description-txt">
             Come to see my yacht in the middle of
             {{ yacht.loc.address }}. It is located in near the bay. This
-            apartment can accommodate up to <span>{{ 12 }}</span> people, it is
+            apartment can accommodate up to <span> 12 </span> people, it is
             on the {{ yacht.capacity + 3 }}th floor (with a large lift) and is
             very well equipped. This accommodation is surrounded by shops for
             shopping, bakeries, groceries but also restaurants and bars ... Do
@@ -95,8 +95,8 @@
    
 
 <script>
-import yachtImgGallery from "../cmps/yacht-img-gallery.vue";
 import yachtAmenities from "../cmps/yacht-amenities.vue";
+import yachtImgGallery from "../cmps/yacht-img-gallery.vue";
 import tripSettings from "../cmps/trip-settings.vue";
 // import tripSettingsMobile from "../cmps/trip-settings-mobile.vue";
 import reviewList from "../cmps/review-list.vue";
@@ -112,19 +112,54 @@ export default {
       reviews: null,
       yacht: null,
       textarea: "",
-      isLiked: false,
+      review: {
+        avgRate: null,
+        category: {
+          Cleanliness: null,
+          Accuracy: null,
+          Communication: null,
+          Location: null,
+          CheckIn: null,
+          Accessibility: null,
+        },
+    },
+        isLiked: null,
+      buyer: null,
+
     };
   },
   methods: {
-    toggleLike() {
-      this.isLiked = !this.isLike;
+      async postReview(postedReview) {
+      var review = {
+        txt: postedReview.reviewTxt,
+        buyer: this.buyer,
+        ownerId: this.yacht.owner._id,// will be used in the future for updating owner
+        yacht: this.yacht,
+        avgRate: postedReview.userReviewAvgRate,
+        category: {
+          Cleanliness: postedReview.categoryMap.Cleanliness,
+          Accuracy: postedReview.categoryMap.Accuracy,
+          Communication: postedReview.categoryMap.Communication,
+          Location: postedReview.categoryMap.Location,
+          CheckIn: postedReview.categoryMap.CheckIn,
+          Accessibility: postedReview.categoryMap.Accessibility,
+        },
+      };
+      try {
+        const updatedyacht = await this.$store.dispatch({type: "postReview", review});
+        this.yacht = updatedyacht;
+      } catch (err) {
+        console.log("could not update yacht with new review:", err);
+      }
+    },
+    async toggleLike() {
+      this.isLiked = !this.isLiked;
       if (this.isLiked) {
         this.class = "save-btn btn fas fa-heart";
-        this.$store.dispatch("saveyacht", this.yacht.id);
       } else {
         this.class = "save-btn btn far fa-heart";
-        this.$store.dispatch("unsaveyacht", this.yacht._id);
       }
+      await this.$store.dispatch({ type: "toggleLike", yacht: this.yacht });
     },
   },
   computed: {

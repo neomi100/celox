@@ -43,7 +43,7 @@ import datePicker from "./date-picker.vue";
 import starRating from "./star-rating.vue";
 export default {
   props:{
-    "stay":Object
+    "yacht":Object
     },
   data() {
     return {
@@ -58,7 +58,7 @@ export default {
   },
   computed: {
     price(){
-      return "$" + this.stay.price + "/ Night";
+      return "$" + this.yacht.price + "/ Night";
     }
   },
   components: {

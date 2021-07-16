@@ -66,7 +66,7 @@ export default {
         }, 0);
         return parseFloat(sum / this.reviews.length).toFixed(1);
       }else{
-         return 0;
+         return console.log('no avg');
     }
   },
   }

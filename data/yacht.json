@@ -1,7 +1,7 @@
 [{
         "_id": "10006546",
         "name": "Katrina",
-        "imgUrls": ["https://images.unsplash.com/photo-1599257559270-eeccb1f266df?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60", "https://images.unsplash.com/photo-1616207133639-cd5e4db9859f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60", "https://images.unsplash.com/photo-1514480854622-ef7d8f2c572f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60","https://images.unsplash.com/photo-1598770722761-0cab70ffd2fb?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTh8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60","https://images.unsplash.com/photo-1613886180226-d318bc3df2e0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTZ8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"],
+        "imgUrls": ["https://images.unsplash.com/photo-1599257559270-eeccb1f266df?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60", "https://images.unsplash.com/photo-1616207133639-cd5e4db9859f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60", "https://images.unsplash.com/photo-1514480854622-ef7d8f2c572f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60", "https://images.unsplash.com/photo-1598770722761-0cab70ffd2fb?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTh8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60", "https://images.unsplash.com/photo-1613886180226-d318bc3df2e0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTZ8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"],
         "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
         "price": 1800,
         "size": "medium",
@@ -28,15 +28,118 @@
             "lng": 41.1413
         },
         "reviews": [{
-            "id": "madeId",
-            "txt": "Very helpful hosts. Cooked traditional...",
-            "rate": 4,
-            "by": {
-                "_id": "u102",
-                "fullname": "user2",
-                "imgUrl": "/img/img2.jpg"
+                "id": "u102rev",
+                "txt": "Great apartment, amazing view and amnesties",
+                "avgRate": 4.5,
+                "category": {
+                    "Cleanliness": 4,
+                    "Accuracy": 4,
+                    "Communication": 4,
+                    "Location": 5,
+                    "Check-in": 5,
+                    "Accessibility": 5
+                },
+                "by": {
+                    "_id": "u102",
+                    "fullname": "Nicolas Roho",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/2.jpg",
+                    "time": 1616280724238
+                }
+            }, {
+                "id": "u103ord",
+                "txt": "Great apartment, amazing view and amnesties",
+                "avgRate": 4,
+                "category": {
+                    "Cleanliness": 4,
+                    "Accuracy": 5,
+                    "Communication": 3,
+                    "Location": 3,
+                    "Check-in": 4,
+                    "Accessibility": 5
+                },
+                "by": {
+                    "_id": "u103",
+                    "fullname": "Jack Daniel",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/3.jpg",
+                    "time": 1616280724238
+                }
+            },
+            {
+                "id": "u104rev",
+                "txt": "Great apartment, although please be aware that the kitchen is not as equipped as would have been expected. Very comfortable stay and in a great location",
+                "avgRate": 3.5,
+                "category": {
+                    "Cleanliness": 3,
+                    "Accuracy": 3,
+                    "Communication": 3,
+                    "Location": 4,
+                    "Check-in": 4,
+                    "Accessibility": 4
+                },
+                "by": {
+                    "_id": "u104",
+                    "fullname": "Adi Ben David",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/4.jpg",
+                    "time": 1616280724238
+                }
+            },
+            {
+                "id": "u105rev",
+                "txt": "Great apartment, amazing view and amnesties",
+                "avgRate": 4.5,
+                "category": {
+                    "Cleanliness": 4,
+                    "Accuracy": 4,
+                    "Communication": 4,
+                    "Location": 5,
+                    "Check-in": 5,
+                    "Accessibility": 5
+                },
+                "by": {
+                    "_id": "u105",
+                    "fullname": "John Lenon",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/5.jpg",
+                    "time": 1606280724238
+                }
+            }, {
+                "id": "u106rev",
+                "txt": "We had a wonderful stay at the Oasis on the Easter Weekend. A little outside Rome, the place is perfect for a stay of one week or longer. Directly at Via Appia Antica, with some ancient sites in walking distance. Federico and especially his mother and partner were very helpful by any means. Whatever we needed or asked for - they had an answer or solution. The garden was perfect for us and our children, nice and sunny until sunset. We would definitely come back!",
+                "avgRate": 4,
+                "category": {
+                    "Cleanliness": 4,
+                    "Accuracy": 5,
+                    "Communication": 3,
+                    "Location": 3,
+                    "Check-in": 4,
+                    "Accessibility": 5
+                },
+                "by": {
+                    "_id": "u106",
+                    "fullname": "Adam Kolt",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/6.jpg",
+                    "time": 1616280724238
+                }
+            },
+            {
+                "id": "u107rev",
+                "txt": "Great apartment, although please be aware that the kitchen is not as equipped as would have been expected. Very comfortable stay and in a great location",
+                "avgRate": 3.5,
+                "category": {
+                    "Cleanliness": 3,
+                    "Accuracy": 3,
+                    "Communication": 3,
+                    "Location": 4,
+                    "Check-in": 4,
+                    "Accessibility": 4
+                },
+                "by": {
+                    "_id": "u107",
+                    "fullname": "Chan Mi Sun",
+                    "imgUrl": "https://randomuser.me/api/portraits/men/7.jpg",
+                    "time": 1617280724238
+                }
             }
-        }]
+        ]
     }, {
         "_id": "10008743",
         "name": "JEANNEAU — SUN ODYSSEY",
@@ -63,7 +166,7 @@
         },
         "reviews": [{
             "id": "madeId",
-            "txt": "Very helpful hosts. Cooked traditional...",
+            "txt": "Very helpful owners. Cooked traditional...",
             "rate": 5,
             "by": {
                 "_id": "u102",
@@ -96,7 +199,7 @@
         },
         "reviews": [{
             "id": "madeId",
-            "txt": "Very helpful hosts. Cooked traditional...",
+            "txt": "Very helpful owners. Cooked traditional...",
             "rate": 2,
             "by": {
                 "_id": "u102",
@@ -129,7 +232,7 @@
         },
         "reviews": [{
             "id": "madeId",
-            "txt": "Very helpful hosts. Cooked traditional...",
+            "txt": "Very helpful owners. Cooked traditional...",
             "rate": 5,
             "by": {
                 "_id": "u102",
@@ -164,7 +267,7 @@
         },
         "reviews": [{
             "id": "madeId",
-            "txt": "Very helpful hosts. Cooked traditional...",
+            "txt": "Very helpful owners. Cooked traditional...",
             "rate": 4,
             "by": {
                 "_id": "u102",

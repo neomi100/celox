@@ -6,8 +6,8 @@ $clr2: #FBEAFF;
 $clr4: #003bdf;
 $clr5: #845EC2;
 $clr6: #008F7A;
+$brand-grdientlinear-gradient:(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%) !important;
 // LAYOUT BREAKPOINTS
-$break-phone: 460px;
-$break-narrow: 670px;
-$break-normal: 900px;
-$break-wide: 1275px;
+$break-narrow: 460px;
+$break-normal: 740px;
+$break-wide: 960px;
