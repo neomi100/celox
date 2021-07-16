@@ -1,5 +1,6 @@
 <template>
-
+<div>
+<!-- <filter></filter> -->
 <div class="continer">
   <router-link :to="'/details/' + yacht._id">
     <section class="yacht-preview">
@@ -27,12 +28,15 @@
 </div>
   </router-link>
 </div>
+</div>
 
 </template>
 
 <script>
-// import Filter from './filter.vue';
+// import filter from './filter.vue';
+
 export default {
+  // components: { filter },
   props: {
     yacht: Object,
   },
