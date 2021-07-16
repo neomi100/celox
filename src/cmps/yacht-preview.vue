@@ -1,4 +1,6 @@
 <template>
+<!-- <div> -->
+  <!-- <filter @filtered="filter" /> -->
   <div class="continer">
       <section class="yacht-preview">
         <!-- <img class="yacht-img" :src="yacht.imgUrls[currentSrc]"/> -->
@@ -12,6 +14,7 @@
         </el-carousel>
       </section>
       <div class="main">
+ <router-link :to="'/details/' + yacht._id">
         <div class="yacht-up">
           <p class="right-up">
             <span class="icon" title="Max pepole"></span
@@ -22,15 +25,19 @@
         </div>
         <span class="yacht-name">{{ yacht.name }}</span>
         <span class="yacht-price">Daily price: {{ yacht.price }}$</span>
+     </router-link>   
       </div>
   </div>
+<!-- </div> -->
 </template>
 
 <script>
 // import filter from './filter.vue';
 
+
 export default {
   // components: { filter },
+
   props: {
     yacht: Object,
   },

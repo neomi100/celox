@@ -2,26 +2,28 @@
     max-height: 434px;
     max-width: 358px; 
 
-   a{
-       text-decoration: unset;
-       color: inherit;
-       
-       .yacht-preview {
+    
+    .yacht-preview {
+        // width: 100%;
+        // border-radius: 12px;
         //    display: flex;
         //    flex-direction: column;
         //    font-family: Blinker; 
         //    max-height: 378px;
         //    max-width: 378px; 
-           @include aspect-ratio(1, 1);
-           
+        @include aspect-ratio(1, 1);
+        
+        a{
+            text-decoration: unset;
+            color: inherit;
            .yacht-img{
                // height: 395.47px;
                // width:395.47px;
-               width: 100%;
-               border-radius: 12px;
+            //    width: 100%;
+            //    border-radius: 12px;
             //    @include aspect-ratio(1, 1);
             }
-           
+        }
         }
         .main{
             display: flex;
@@ -29,6 +31,9 @@
             font-family: Blinker; 
             // max-height: 378px;
             // max-width: 378px; 
+            a{
+                text-decoration: unset;
+                color: inherit;
             .yacht-up{
             font-size: small;
             flex-direction: row;
