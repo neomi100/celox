@@ -27,8 +27,10 @@
 </template>
 
 <script>
-// import Filter from './filter.vue';
+// import filter from './filter.vue';
+
 export default {
+  // components: { filter },
   props: {
     yacht: Object,
   },
