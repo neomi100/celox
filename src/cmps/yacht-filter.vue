@@ -24,7 +24,6 @@
                 <option value="4">★★★★</option>
                 <option value="5">★★★★★</option>
           </select>
-    {{filterBy}}
     </section>
 </template>
 

@@ -1,12 +1,12 @@
 <template>
   <section v-if="yachts" >
-    <filter @filterBy="filterBy" />
+    <yachtFilter @filterBy="filterBy" />
     <yachtList :yachts="yachts" />
   </section>
 </template>
 <script>
 import yachtList from '../cmps/yacht-list.vue';
-import filter from '../cmps/filter.vue';
+import yachtFilter from '../cmps/yacht-filter.vue';
 export default {
   computed: {
     yachts() {
@@ -31,7 +31,7 @@ export default {
 
   components: {
     yachtList,
-    filter,
+    yachtFilter,
   },
 };
 </script>
