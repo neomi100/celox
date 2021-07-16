@@ -6,7 +6,7 @@
         <div class="yacht-title-secondary flex space-between center">
           <div class="left flex space-between center">
             <star-rating :reviews="this.reviews" /> <span> · </span>
-            <a class="link" href="#location">{{ yacht.loc.address }}</a>
+            <a class="link" href="#location">  {{ yacht.loc.address }}</a>
           </div>
 
           <div class="right flex space-between">
@@ -104,6 +104,8 @@ import reviewCategories from "../cmps/review-categories.vue";
 import starRating from "../cmps/star-rating.vue";
 import yachtMap from "../cmps/yacht-map.vue";
 import { yachtService } from "../services/yacht-service.js";
+import reviewAdd from "../cmps/review-add.vue";
+
 
 export default {
   name: "yacht-details",
@@ -163,13 +165,13 @@ export default {
     },
   },
   computed: {
-    // guestAmount() {
-    //   if (this.yacht.capacity > 1) {
-    //     return this.yacht.capacity.toString() + " guests";
-    //   } else {
-    //     return this.yacht.capacity.toString() + " guest";
-    //   }
-    // },
+  //   guestAmount() {
+  //     if (this.yacht.capacity > 1) {
+  //       return this.yacht.capacity.toString() + " guests";
+  //     } else {
+  //       return this.yacht.capacity.toString() + " guest";
+  //     }
+  //   },
   },
   created() {
     const _id = this.$route.params.id;
@@ -188,6 +190,7 @@ export default {
     reviewCategories,
     starRating,
     yachtAmenities,
+    reviewAdd,
   },
 };
 </script>

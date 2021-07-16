@@ -14,7 +14,7 @@ Vue.use(ElementUI, { locale })
 
 
 
-const GOOGLE_API_KEY = '' // need to secure 
+const GOOGLE_API_KEY = 'AIzaSyCm3zYkW7wg6dnV3VagY8qsT86jZhYLHGQ' // need to secure "ori key"
 
 Vue.config.productionTip = false
 
