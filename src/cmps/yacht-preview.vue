@@ -1,33 +1,29 @@
 <template>
-
-<div class="continer">
-  <router-link :to="'/details/' + yacht._id">
-    <section class="yacht-preview">
-
-      <!-- <img class="yacht-img" :src="yacht.imgUrls[currentSrc]"/> -->
-      <img v-for="(img,idx) in imgs" :key="idx"  class="yacht-img" :src="imgs[idx]"/>
-      <img class="yacht-details-img-grid-container" :src="imgs[idx]"/>
-      <el-carousel class="yacht-details-img-carousel-container" :autoplay="false" height="200px" indicator-position="none">
-      <el-carousel-item style="background-color: #fff" v-for="(img, idx) in imgs" :key="idx" >
-          <img class="yacht-img-prev yacht-details-img-prev" :src= imgs[idx] />
-      </el-carousel-item>
-    </el-carousel>
-
-      <!-- <button class="right"></button><img/> --> 
-    </section>
-<div class="main">
-      <div class="yacht-up">    
-      <p class="right-up">
-        <span class="icon" title="Max pepole"></span><span>     {{capacity}}</span><span class="country">   {{yacht.loc.country }}</span>
-      </p>
-      <span>{{rate}}</span> 
-        </div>  
+  <div class="continer">
+      <section class="yacht-preview">
+        <!-- <img class="yacht-img" :src="yacht.imgUrls[currentSrc]"/> -->
+        <!-- <button class="right"></button><img/> -->
+        <el-carousel trigger="click" :autoplay="false">
+          <el-carousel-item v-for="(img, idx) in imgs" :key="idx">
+    <router-link :to="'/details/' + yacht._id">
+            <img class="yacht-img" :src= imgs[idx] />
+    </router-link>
+          </el-carousel-item>
+        </el-carousel>
+      </section>
+      <div class="main">
+        <div class="yacht-up">
+          <p class="right-up">
+            <span class="icon" title="Max pepole"></span
+            ><span> {{ capacity }}</span
+            ><span class="country"> {{ yacht.loc.country }}</span>
+          </p>
+          <span>{{ rate }}</span>
+        </div>
         <span class="yacht-name">{{ yacht.name }}</span>
         <span class="yacht-price">Daily price: {{ yacht.price }}$</span>
-</div>
-  </router-link>
-</div>
-
+      </div>
+  </div>
 </template>
 
 <script>
@@ -38,21 +34,21 @@ export default {
   },
   data() {
     return {
-      imgs:this.yacht.imgUrls,
+      imgs: this.yacht.imgUrls,
       // currentSrc: 0,
     };
   },
   computed: {
     rate() {
       const star = this.yacht.reviews[0].rate;
-      var starStr = ""
+      var starStr = "";
       for (let i = 0; i < 5; i++) {
         // console.log(i,'i');
         if (i < star) {
           // console.log(starStr,'starsStr');
-          starStr+="★"
+          starStr += "★";
         } else {
-          starStr+="☆"
+          starStr += "☆";
         }
       }
       return starStr;
@@ -60,23 +56,21 @@ export default {
     capacity() {
       const maxPepole = this.yacht.size;
       switch (maxPepole) {
-        case 'small':
-          return '5';
-        case 'medium':
-          return '12';
-        case 'large':
-          return '35';
-      default: return ''
+        case "small":
+          return "5";
+        case "medium":
+          return "12";
+        case "large":
+          return "35";
+        default:
+          return "";
       }
     },
   },
-  methods:{
-
-  },
+  methods: {},
   created() {
     // this.rate
     console.log(this.imgs, "hi3");
-
   },
 };
 </script>
