@@ -1,67 +1,46 @@
 <template>
-  <section
-    v-if="yacht"
-    class="yacht-details-container "
-  >
-    <div class="full-width img-container">
-      <yacht-img-gallery
-        @toggleLike="toggleLike()"
-        class="img-gallery yacht-details-img-carousel-container full-width"
-        :imgs="yacht.imgUrls"
-        :isLiked="this.isLiked"
-      />
-      <div class="heart-btn">
-        <img
-          v-if="!isLiked"
-          title="Save To Favorites"
-          @click="toggleLike()"
-          class="like-btn"
-          src="../assets/imgs/icons/heart.png"
-        />
-        <img
-          v-else
-          title="Remove From Favorites"
-          @click="toggleLike()"
-          class="like-btn"
-          src="../assets/imgs/icons/fillheart.png"
-        />
+  <section v-if="yacht" class="yacht-details-container">
+    <div class="header-img-gallery">
+      <div class="yacht-details-title flex column">
+        <div class="yacht-title-primary">{{ yacht.summary }}</div>
+        <div class="yacht-title-secondary flex space-between center">
+          <div class="left flex space-between center">
+            <star-rating :reviews="this.reviews" /> <span> · </span>
+            <a class="link" href="#location">{{ yacht.loc.address }}</a>
+          </div>
+
+          <div class="right flex space-between">
+            <button class="btn flex center space-evenly action-btn">
+              <i class="share-btn btn fas fa-share-square"></i
+              ><span>Share</span>
+            </button>
+
+            <button
+              class="btn flex center space-evenly action-btn"
+              v-if="isLiked"
+              @click="toggleLike()"
+            >
+              <i class="save-btn btn fas fa-heart" style="color: #ca4c4c"></i>
+              <span>Save</span>
+            </button>
+
+            <button
+              class="btn flex center space-evenly action-btn"
+              v-if="!isLiked"
+              @click="toggleLike()"
+            >
+              <i class="save-btn btn far fa-heart"></i><span>Save</span>
+            </button>
+          </div>
+        </div>
       </div>
+      <yacht-img-gallery
+        class="img-gallery img-grid-wide-view"
+        :imgs="yacht.imgUrls"
+      />
     </div>
 
-    <div class="yacht-details-title flex column">
-      <div class="yacht-title-primary">{{ yacht.summary }}</div>
-      <div class="yacht-title-secondary flex space-between center">
-        <div class="left flex space-between center">
-          <star-rating :reviews="this.reviews" /> <span> · </span>
-          <a class="link" href="#location">{{ yacht.loc.address }}</a>
-        </div>
-        <div class="right flex space-between">
-          <button class="btn flex center space-evenly action-btn">
-            <i class="share-btn btn fas fa-share-square"></i><span>Share</span>
-          </button>
-          <button
-            class="btn flex center space-evenly action-btn"
-            v-if="isLiked"
-            @click="toggleLike()"
-          >
-            <i class="save-btn btn fas fa-heart" style="color: #ca4c4c"></i
-            ><span>Save</span>
-          </button>
-          <button
-            class="btn flex center space-evenly action-btn"
-            v-if="!isLiked"
-            @click="toggleLike()"
-          >
-            <i class="save-btn btn far fa-heart"></i><span>Save</span>
-          </button>
-        </div>
-      </div>
-    </div>
-    <yacht-img-gallery
-      class="img-gallery img-grid-wide-view"
-      :imgs="yacht.imgUrls"
-    />
-    <div class="flex space-between yacht-description-wrapper">
+    <div class="yacht-details">
       <div class="bottom-border yacht-description">
         <div class="flex space-between bottom-border yacht-desctiption-title">
           <div>
@@ -75,11 +54,10 @@
         <div class="description-section flex column bottom-border">
           <div class="description-txt">
             Come to see my yacht in the middle of
-            {{ yacht.loc.address }}. It is located in near the bay.
-             This apartment can accommodate up to
-            <span>{{ 12 }}</span> people, it is on the
-            {{ yacht.capacity + 3 }}th floor (with a large lift) and is very
-            well equipped. This accommodation is surrounded by shops for
+            {{ yacht.loc.address }}. It is located in near the bay. This
+            apartment can accommodate up to <span>{{ 12 }}</span> people, it is
+            on the {{ yacht.capacity + 3 }}th floor (with a large lift) and is
+            very well equipped. This accommodation is surrounded by shops for
             shopping, bakeries, groceries but also restaurants and bars ... Do
             not hesitate any more!
           </div>
@@ -89,7 +67,11 @@
           <yacht-amenities :yacht="yacht" />
         </div>
       </div>
-      <!-- <trip-settings class="trip-settings" :yacht="yacht" /> -->
+
+      <div class="trip-cmp">
+        <trip-settings class="trip-settings" :yacht="yacht" />
+      </div>
+
     </div>
 
     <div class="review-section bottom-border">
@@ -97,8 +79,11 @@
       <review-list :reviews="this.reviews" />
       <review-add @postReview="postReview"></review-add>
     </div>
-
+    
+    <div class="map-location">
     <yacht-map id="location" :location="yacht.loc" />
+    </div>
+
     <!-- <trip-settings-mobile
       class="trip-settings-mobile full-width"
       :yacht="yacht"
@@ -110,8 +95,10 @@
    
 
 <script>
-import yachtAmenities from "../cmps/yacht-amenities.vue";
 import yachtImgGallery from "../cmps/yacht-img-gallery.vue";
+import yachtAmenities from "../cmps/yacht-amenities.vue";
+import tripSettings from "../cmps/trip-settings.vue";
+// import tripSettingsMobile from "../cmps/trip-settings-mobile.vue";
 import reviewList from "../cmps/review-list.vue";
 import reviewCategories from "../cmps/review-categories.vue";
 import starRating from "../cmps/star-rating.vue";
@@ -122,6 +109,7 @@ export default {
   name: "yacht-details",
   data() {
     return {
+      reviews: null,
       yacht: null,
       textarea: "",
       isLiked: false,
@@ -159,6 +147,8 @@ export default {
   components: {
     yachtImgGallery,
     reviewList,
+    tripSettings,
+    // tripSettingsMobile,
     yachtMap,
     reviewCategories,
     starRating,

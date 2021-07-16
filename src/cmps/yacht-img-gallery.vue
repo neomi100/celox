@@ -26,4 +26,3 @@ export default {
   }
 };
 </script>
-//  :src="require(`@/assets/imgs/yacht-imgs/${primaryImg}.jpg`)"
