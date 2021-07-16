@@ -151,8 +151,8 @@ export default {
   created() {
     const _id = this.$route.params.id;
     yachtService.getById(_id).then((yacht) => {
-      console.log(yacht);
       this.yacht = yacht;
+      this.yacht.owner._id;
       this.reviews = yacht.reviews;
     });
   },

@@ -7,10 +7,10 @@
       </el-carousel-item>
       
     </el-carousel>
-      <ul class="yacht-details-img-grid-container">
+      <!-- <ul class="yacht-details-img-grid-container">
         <img v-for="(img,idx) in imgs" :key="idx" class="yacht-img"
             :src="imgs[idx]">
-      </ul>
+      </ul> -->
   </section>
 </template>
 
