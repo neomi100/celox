@@ -42,9 +42,9 @@ export default {
     },
         methods: {
         setFilter() {
-            var filter = JSON.parse(JSON.stringify(this.filterBy))
-            // this.$emit('filterby', filterBy)
-            console.log(filter,'filter');
+            var filterBy = JSON.parse(JSON.stringify(this.filterBy))
+            this.$emit('filterby', filterBy)
+            console.log(filterBy,'filter');
         },
 
     },

@@ -1,7 +1,6 @@
 <template>
   <section v-if="yachts" >
-
-    <filter @filterBy="filterBy" ></filter>
+    <filter @filterBy="filterBy" />
     <yachtList :yachts="yachts" />
   </section>
 </template>

@@ -16,11 +16,12 @@
         a{
             text-decoration: unset;
             color: inherit;
-           .yacht-img{
+           .img{
                // height: 395.47px;
                // width:395.47px;
-            //    width: 100%;
-            //    border-radius: 12px;
+               width: 100%;
+               height: 100%;
+               border-radius: 12px;
             //    @include aspect-ratio(1, 1);
             }
         }
@@ -29,6 +30,8 @@
             display: flex;
             flex-direction: column;
             font-family: Blinker; 
+            position: relative;
+            top: -19px;
             // max-height: 378px;
             // max-width: 378px; 
             a{
@@ -56,6 +59,7 @@
     }
             .yacht-name{
         font-family: BlinkerBold;
+        display: block;
     }
             .right{
             font-family: fa-solid;
