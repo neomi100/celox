@@ -5,11 +5,12 @@ import { utilService } from '../services/util.service.js';
 export const yachtStore = {
     state: {
         yachts: null,
-        // currentFilterBy: {
-        //     byName: '',
-        //     byPrice: 0,
-        //   
-        // }
+        filterBy: {
+            location: '',
+            price: '',
+            size: 'All',
+            rate: 'All',
+        }
     },
     getters: {
         yachtsForShow(state) {
@@ -21,19 +22,12 @@ export const yachtStore = {
         getYachts(state, { yachts }) {
             state.yachts = yachts
         },
-    },
-    actions: {
-        async loadYachts(context) {
-            try {
-                //    console.log('context.state.currentFilterBy', context.state.currentFilterBy);
-                const yachts = await yachtService.query()
-                console.log(yachts, 'yachts are??');
-                context.commit({ type: 'getYachts', yachts })
-                return yachts
-            } catch (err) {
-                console.log('Cannot load yachts');
-                throw err;
-            }
+
+        setFilter(state, payload) {
+            console.log('payload.filterBy', payload.filterBy);
+            state.filterBy = payload.filterBy
+            // console.log(state.currentFilterBy, 'stor mots');
+
         },
         async postReview(context, { review }) {
             var newReview = {
@@ -75,5 +69,19 @@ export const yachtStore = {
             }
         }
     },
+        actions: {
+            async loadYachts(context) {
+                try {
+                    //    console.log('context.state.currentFilterBy', context.state.filterBy);
+                    const yachts = await yachtService.query(context.state.filterBy)
+                    console.log(yachts, 'yachts are??');
+                    context.commit({ type: 'getYachts', yachts })
+                    return yachts
+                } catch (err) {
+                    console.log('Cannot load yachts');
+                    throw err;
+                }
+            },
+        },
 
-}
+    }

@@ -1,17 +1,12 @@
 <template>
   <section v-if="yachts" >
-    <!-- <yacht-filter
-      :filterBy="filterBy"
-      :typeList="typeList"
-      @onSetFilter="setFilter"
-    ></yacht-filter> -->
+    <filter @filterBy="filterBy" />
     <yachtList :yachts="yachts" />
   </section>
 </template>
-
 <script>
 import yachtList from '../cmps/yacht-list.vue';
-// import yachtFilter from '../cmps/yacht-filter.vue';
+import filter from '../cmps/filter.vue';
 export default {
   computed: {
     yachts() {
@@ -26,17 +21,17 @@ export default {
     //   return [...new Set(types)];
     // },
   },
-
-  // methods: {
-    // setFilter(filterBy) {
-    //   this.$store.commit({ type: 'setFilter', filterBy });
-    //   this.$store.dispatch({ type: 'loadyachts' });
-    // },
-  // },
+// @onSetFilter="setFilter" :typeList="typeList"
+  methods: {
+    filterBy(filterBy) {
+      this.$store.commit({ type: 'setFilter', filterBy });
+      this.$store.dispatch({ type: 'loadyachts' });
+    },
+  },
 
   components: {
     yachtList,
-    // yachtFilter,
+    filter,
   },
 };
 </script>
