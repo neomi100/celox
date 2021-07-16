@@ -6,10 +6,14 @@
         "price": 1800,
         "size": "medium",
         "amenities": [
+            "Parking",
+            "No Smoking",
             "TV",
             "Wifi",
-            "Kitchen",
-            "PetsAllowed"
+            "Air-conditioning",
+            "Smoking allowed",
+            "Pets allowed",
+            "Cooking basics"
         ],
         "owner": {
             "_id": "51399391",
@@ -33,8 +37,7 @@
                 "imgUrl": "/img/img2.jpg"
             }
         }]
-    },
-    {
+    }, {
         "_id": "10008743",
         "name": "JEANNEAU — SUN ODYSSEY",
         "imgUrls": ["https://images.unsplash.com/photo-1604671801989-586dde3c1574?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDZ8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60", "https://images.unsplash.com/photo-1600177897995-e67c73ed44e9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTJ8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"],
@@ -68,8 +71,7 @@
                 "imgUrl": "/img/img2.jpg"
             }
         }]
-    },
-    {
+    }, {
         "_id": "10005432",
         "name": "LA PERLA",
         "imgUrls": ["https://images.unsplash.com/photo-1592437111271-239fa8dcb401?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjZ8fHlhY2h0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60", "https://images.unsplash.com/photo-1615210466215-44e337bf95ac?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzF8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"],
@@ -102,8 +104,7 @@
                 "imgUrl": "/img/img2.jpg"
             }
         }]
-    },
-    {
+    }, {
         "_id": "10007852",
         "name": "LAGOON43 ",
         "imgUrls": ["https://images.unsplash.com/photo-1621277224630-81d9af65e40c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60", "https://images.unsplash.com/photo-1559385301-0187cb6eff46?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjN8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"],
@@ -124,7 +125,7 @@
             "countryCode": "IL",
             "address": "Marina Riviere Sens, Gourbeyre",
             "lat": -64.5336044,
-            "lng":18.0553084
+            "lng": 18.0553084
         },
         "reviews": [{
             "id": "madeId",
@@ -136,8 +137,7 @@
                 "imgUrl": "/img/img2.jpg"
             }
         }]
-    },
-    {
+    }, {
         "_id": "10009921",
         "name": "MULTICAP ",
         "imgUrls": ["https://images.unsplash.com/photo-1517988368819-88f4eacfef44?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTR8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60", "https://images.unsplash.com/photo-1586398449328-69bf1b779f0b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzN8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"],
@@ -160,7 +160,7 @@
             "countryCode": "IL",
             "address": "Deshaies, Guadeloupe",
             "lat": -61.2718324,
-            "lng":16.3154298
+            "lng": 16.3154298
         },
         "reviews": [{
             "id": "madeId",
