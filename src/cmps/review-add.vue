@@ -47,7 +47,7 @@ export default {
       colors: ["#99A9BF", "#F7BA2A", "#FF9900"], // same as { 2: '#99A9BF', 4: { value: '#F7BA2A', excluded: true }, 5: '#FF9900' }
       reviewToAdd: {
         reviewTxt:'',
-        userReviewAvgRate: null,
+        userReviewRate: null,
         categoryMap: {
           Cleanliness: null,
           Accuracy: null,
@@ -67,7 +67,7 @@ export default {
         keysCount++
         sum+=this.reviewToAdd.categoryMap[category]
       }
-      this.reviewToAdd.userReviewAvgRate=sum/keysCount;
+      this.reviewToAdd.userReviewRate=sum/keysCount;
       this.$emit('postReview',this.reviewToAdd)
       this.reviewToAdd={
         reviewTxt:'',
@@ -79,7 +79,7 @@ export default {
           CheckIn: null,
           Accessibility: null,
         },
-        userReviewAvgRate: null
+        userReviewRate: null
       }
     }
   },

@@ -1,11 +1,11 @@
 <template>
-  <section v-if="yacht" class="yacht-details-container">
+  <section v-if="yacht" class="yacht-details-container main-layout">
     <div class="header-img-gallery">
       <div class="yacht-details-title flex column">
-        <div class="yacht-title-primary">{{ yacht.summary }}</div>
+        <!-- <div class="yacht-title-primary">{{ yacht.summary }}</div> -->
         <div class="yacht-title-secondary flex space-between center">
           <div class="left flex space-between center">
-            <star-rating :reviews="this.reviews" /> <span> · </span>
+            <star-rating :reviews="reviews" /> <span> · </span>
             <a class="link" href="#location">  {{ yacht.loc.address }}</a>
           </div>
 
@@ -40,16 +40,14 @@
       />
     </div>
 
-    <div class="yacht-details">
+    <div class="yacht-details flex">
       <div class="bottom-border yacht-description">
         <div class="flex space-between bottom-border yacht-desctiption-title">
           <div>
-            <h2 class="ownered-by">
-              {{ yacht.name }} ownered by {{ yacht.owner.fullname }}
-            </h2>
-            <p>Up to {{ 12 }}</p>
+            <h2 class="ownered-by">{{ yacht.name }} ownered by {{ yacht.owner.fullname }}</h2>
+            <p>Up to {{ capacity }}</p>
           </div>
-          <img class="thumb-img" :src="yacht.owner.imgUrl" />
+          <img class="owner-img" :src="yacht.owner.imgUrl" />
         </div>
         <div class="description-section flex column bottom-border">
           <div class="description-txt">
@@ -69,7 +67,7 @@
       </div>
 
       <div class="trip-cmp">
-        <trip-settings class="trip-settings" :yacht="yacht" />
+        <trip-settings class="trip-settings" :yacht="yacht" :reviews="reviews" />
       </div>
 
     </div>
@@ -115,7 +113,7 @@ export default {
       yacht: null,
       textarea: "",
       review: {
-        avgRate: null,
+        rate: null,
         category: {
           Cleanliness: null,
           Accuracy: null,
@@ -137,7 +135,7 @@ export default {
         buyer: this.buyer,
         ownerId: this.yacht.owner._id,// will be used in the future for updating owner
         yacht: this.yacht,
-        avgRate: postedReview.userReviewAvgRate,
+        rate: postedReview.userReviewrate,
         category: {
           Cleanliness: postedReview.categoryMap.Cleanliness,
           Accuracy: postedReview.categoryMap.Accuracy,
@@ -165,13 +163,19 @@ export default {
     },
   },
   computed: {
-  //   guestAmount() {
-  //     if (this.yacht.capacity > 1) {
-  //       return this.yacht.capacity.toString() + " guests";
-  //     } else {
-  //       return this.yacht.capacity.toString() + " guest";
-  //     }
-  //   },
+  capacity() {
+      const maxPepole = this.yacht.size;
+      switch (maxPepole) {
+        case "small":
+          return "5";
+        case "medium":
+          return "12";
+        case "large":
+          return "35";
+        default:
+          return "";
+      }
+    },
   },
   created() {
     const _id = this.$route.params.id;

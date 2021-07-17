@@ -1,10 +1,16 @@
 <template>
   <section>
-    <star-rating />
+    <div class="wrapper">
+      <div class="price-star flex space-between align-baseline">
+    <span class="price">{{ price }}</span>
+
+    <star-rating :reviews="reviews" />
+
+      </div>
 
     <date-picker></date-picker>
 
-    <el-dropdown>
+    <!-- <el-dropdown>
       <span class="el-dropdown-link">
         GUESTS<i class="el-icon-arrow-down el-icon--right"></i>
       </span>
@@ -30,11 +36,11 @@
           </el-input-number>
         </el-dropdown-item>
       </el-dropdown-menu>
-    </el-dropdown>
+    </el-dropdown> -->
 
-    <span class="price">{{ price }}</span>
 
     <button class="call-to-action-btn">Check availability</button>
+  </div>
   </section>
 </template>
 
@@ -42,13 +48,12 @@
 import datePicker from "./date-picker.vue";
 import starRating from "./star-rating.vue";
 export default {
-  props:{
-    "yacht":Object
-    },
+  props: {
+    yacht: Object,
+    reviews: Array,
+  },
   data() {
     return {
-      adultNum: 0,
-      ChildrenNum: 0,
     };
   },
   methods: {
@@ -57,9 +62,9 @@ export default {
     },
   },
   computed: {
-    price(){
+    price() {
       return "$" + this.yacht.price + "/ Night";
-    }
+    },
   },
   components: {
     datePicker,

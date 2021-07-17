@@ -3,7 +3,7 @@
     <span class="star-container">  
       <p class="star-txt">
         <i class="fas fa-star"></i> 
-        <span class="avg-rate">{{avgRateFromAllReviewers}}</span>
+        <span class="avg-rate">{{rateFromAllReviewers}}</span>
         <!-- <span class="review-num"> ({{incRate*reviews.length }})</span> -->
         <span class="review-num"> ({{reviews.length }})</span>
       </p>
@@ -22,10 +22,10 @@ export default {
     }
   },
   computed: {
-    avgRateFromAllReviewers() {
+    rateFromAllReviewers() {
       if (this.reviews) {
         let sum = this.reviews.reduce((acc, currVal) => {
-          acc += currVal.avgRate;
+          acc += currVal.rate;
           return acc;
         }, 0);
         return parseFloat(sum / this.reviews.length).toFixed(1);
