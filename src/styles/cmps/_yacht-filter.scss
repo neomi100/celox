@@ -12,4 +12,33 @@ justify-content: space-between;
         font-family: Blinker;
 
     }
+    .filter-btn{
+        background: none;
+        border-radius: 25px;
+        cursor: pointer;
+        border: none
+        ;
+        &:hover{
+            background-color: rgb(212, 200, 205);
+            border: 2px solid gray;
+        }
+    }
+    .size{
+        // position: sticky;
+        // top: 200px;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+        // height: fit-content;
+        border: 1px solid rgb(221, 221, 221);
+        z-index: 5;
+    }
+    .isOpen{
+        display: table-row-group;
+        // display: block;
+    }
+    .isClose{
+        display: none;
+    }
+
 }

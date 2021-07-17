@@ -9,9 +9,9 @@
     // padding: 10px;
     display: grid;
     gap: 5px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
     grid-auto-flow: dense;
-    grid-template-rows:repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-rows:repeat( minmax(150px, 360px));
    //   max-width: 378px;    
 //   max-height: 400px;
    //  li{
