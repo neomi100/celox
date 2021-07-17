@@ -13,9 +13,12 @@ export const yachtService = {
 function query(filterBy) {
     console.log(filterBy, 'service');
     const { rate } = filterBy
+    const { price } = filterBy
+   
     console.log(rate,'rate service');
         const { size } = filterBy
         let yachts = JSON.parse(JSON.stringify(gYachts))
+      yachts=yachts.filter((yacht)=>yacht.price<price)
         switch (size) {
                     case 'All' || '':
                         break;

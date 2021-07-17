@@ -9,6 +9,28 @@
           <el-carousel-item v-for="(img, idx) in imgs" :key="idx">
     <router-link :to="'/details/' + yacht._id">
             <img class="img" :src= imgs[idx] />
+            <!-- <img
+        v-if="!isLiked"
+        title="Save To Favorites"
+        @click="ToggleLike(stay)"
+        class="like-btn"
+        src="../assets/imgs/icons/heart.png"
+      />
+      <img
+        v-else
+        title="Remove From Favorites"
+        @click="ToggleLike(stay)"
+        class="like-btn"
+        src="../assets/imgs/icons/fillheart.png"
+      /> -->
+    <!-- <button
+              class="btn flex center space-evenly action-btn"
+              v-if="isLiked"
+              @click="toggleLike()"
+            >
+              <i class="save-btn btn fas fa-heart" style="color: #ca4c4c"></i>
+              <span>Save</span>
+            </button> -->
     </router-link>
           </el-carousel-item>
         </el-carousel>
@@ -76,7 +98,17 @@ export default {
       }
     },
   },
-  methods: {},
+  methods: {
+              async toggleLike() {
+      this.isLiked = !this.isLiked;
+      if (this.isLiked) {
+        this.class = "save-btn btn fas fa-heart";
+      } else {
+        this.class = "save-btn btn far fa-heart";
+      }
+      await this.$store.dispatch({ type: "toggleLike", yacht: this.yacht });
+    },
+  },
   created() {
     // this.rate
     // console.log(this.imgs, "hi3");

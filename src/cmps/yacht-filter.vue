@@ -4,9 +4,7 @@
         <input ref="title" type="text" @input="setFilter" placeholder="Search...." v-model="filterBy.location"> -->
 
 <!-- FILTER PRICE? -->
-           <!-- <label class="pricestr" for="age">Price: {{filterBy.price}}$</label>
-        <input type="range" id="price" name="price" min="500" max="1000000" step="10" value="1000"
-            @input="setFilter" v-model="filterBy.price" />   -->
+         
 
     <div>
     <el-radio-group v-model="filterBy.size" @change="setFilter" size="medium">
@@ -62,6 +60,12 @@
                 <option value="4">★★★★</option>
                 <option value="5">★★★★★</option>
           </select> -->
+            <label for="age">Dayly price: {{filterBy.price}}$</label>
+        <input type="range" id="price" name="price" min="500" max="1000000" step="10"  value="500" @change="setFilter" v-model="filterBy.price" /> 
+              <!-- <div class="block">
+    <span class="demonstration">Dayly price: {{filterBy.price}}$</span>
+    <el-slider min=500 max=1000000 step=10 v-model="filterBy.price"  @change="setFilter" ></el-slider>
+  </div>  -->
     </section>
 </template>
 
@@ -72,11 +76,14 @@ export default {
         return {
             filterBy: {
                 dates: '',
-                // price: '',
+                price: '',
                 size: 'All',
                 // rate:'All'
             },
               options: [{
+          value: 'All',
+          label: 'All'
+        }, {
           value: 1,
           label: '★'
         }, {
@@ -103,6 +110,7 @@ export default {
         // console.log(filterBy.rate, 'rate');
         // console.log(this.filterBy.size, 'size');
         },
+  
 
     },
     // created(){
