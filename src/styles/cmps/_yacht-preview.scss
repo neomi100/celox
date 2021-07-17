@@ -11,7 +11,9 @@
         //    font-family: Blinker; 
         //    max-height: 378px;
         //    max-width: 378px; 
+
         @include aspect-ratio(1, 1);
+        border-radius: 12px;
         
         a{
             text-decoration: unset;
@@ -21,7 +23,7 @@
                // width:395.47px;
                width: 100%;
                height: 100%;
-               border-radius: 12px;
+            //    object-fit: contain;
             //    @include aspect-ratio(1, 1);
             }
         }
@@ -31,7 +33,8 @@
             flex-direction: column;
             font-family: Blinker; 
             position: relative;
-            top: -19px;
+            // top: -19px;
+            font-family: Blinker;
             // max-height: 378px;
             // max-width: 378px; 
             a{
@@ -50,6 +53,7 @@
         // }
         .country{
             padding: 30px;
+            font-family: Blinker
         }
              .icon::after{
             font-family: fa-solid;
@@ -60,6 +64,9 @@
             .yacht-name{
         font-family: BlinkerBold;
         display: block;
+    }
+    .yacht-price{
+        font-family: Blinker
     }
             .right{
             font-family: fa-solid;

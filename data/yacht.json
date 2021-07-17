@@ -30,7 +30,7 @@
         "reviews": [{
                 "id": "u102rev",
                 "txt": "Great apartment, amazing view and amnesties",
-                "avgRate": 4.5,
+                "avgRate": 5,
                 "category": {
                     "Cleanliness": 4,
                     "Accuracy": 4,

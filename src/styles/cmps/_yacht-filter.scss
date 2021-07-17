@@ -1,0 +1,15 @@
+.filter{
+margin-bottom: 7px;
+// font-family: Blinker;
+display: flex;
+align-items: center;
+justify-content: space-between;
+    .date{
+        border-style: none;
+        border-radius: 12px;
+    }
+    .price{
+        font-family: Blinker;
+
+    }
+}
