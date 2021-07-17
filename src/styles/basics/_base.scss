@@ -42,11 +42,7 @@ h1 {
 
 p {
     max-width: 48ch;
-    margin: 0 0 1rem;
-}
-
-img {
-    // width: 100%;
+    margin: 0;
 }
 
 .fa-star {
@@ -156,3 +152,8 @@ img {
 }
 
 //
+.fix {
+    max-width: 1128px;
+    margin: 0 auto;
+    width: 100%;
+}

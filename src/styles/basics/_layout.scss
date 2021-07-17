@@ -1,17 +1,25 @@
+@mixin layout-columns($Width: 1306px) {
+    grid-template-columns: minmax(2rem, 1fr) minmax(auto, $Width) minmax(2rem, 1fr);
+}
+
 .main-layout {
     display: grid;
-    grid-template-columns: minmax(2rem, 1fr) minmax(auto, 1100px) minmax( 2rem, 1fr);
-    //     // @include for-narrow-layout {
-    //     //     grid-template-columns:
-    //     // }
-    //     // @include for-normal-layout {
-    //     //     grid-template-columns: 
-    //     // }
-    //     // @include for-wide-layout {
-    //     //     grid-template-columns:      
-    //     // }
-    .full-width {
-        grid-column: 1/span 3;
+    grid-template-columns: 2rem 1fr 2rem;
+    grid-auto-flow: dense;
+    >* {
+        grid-column: 2;
+    }
+    >.full {
+        grid-column: 1 / -1;
+    }
+    @include for-narrow-layout {
+        @include layout-columns($break-narrow);
+    }
+    @include for-normal-layout {
+        @include layout-columns($break-normal);
+    }
+    @include for-wide-layout {
+        @include layout-columns($break-wide);
     }
 }
 
@@ -42,13 +50,13 @@
 
 @media screen and(max-width:440px) {
     .main-layout {
-        grid-template-columns: minmax(1rem, 1fr) minmax(auto, 320px) minmax(1rem, 1fr) !important;
+        grid-template-columns: minmax(1rem, 1fr) minmax(auto, 320px) minmax(1rem, 1fr);
         // grid-template-columns: minmax(1rem, 1fr) minmax(auto, 400px) minmax(1rem, 1fr) ;
     }
 }
 
 @media screen and(max-width:370px) {
     .main-layout {
-        grid-template-columns: minmax(1rem, 1fr) minmax(auto, 320px) minmax(1rem, 1fr) !important;
+        grid-template-columns: minmax(1rem, 1fr) minmax(auto, 320px) minmax(1rem, 1fr);
     }
 }

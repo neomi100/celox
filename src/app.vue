@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <div class="wrapper main-layout2">
+    <div class="wrapper ">
       <header class="header full">
-       <router-link to="/"> <img class="logo" src="@/assets/logo.svg" alt="" /></router-link>
+       <router-link to="/"> <img class="logo" src="@/assets/logo.png" alt="" /></router-link>
         <nav id="nav">
           <router-link to="/yacht-page">Search</router-link> |
           <router-link to="/become-host">Become Host </router-link> 

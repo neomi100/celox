@@ -1,11 +1,11 @@
 <template>
   <section>
-    <el-date-picker 
-      style="width: 220px"   @change="changed"
+    <el-date-picker
+      @change="changed"
       v-model="value1"
       type="daterange"
       start-placeholder="Check In"
-      end-placeholder="   Check Out"
+      end-placeholder=" Check Out"
     >
     </el-date-picker>
   </section>
@@ -34,9 +34,10 @@ export default {
   },
 
   methods: {
-      changed(){
-          this.$emit('pick' , this.value1)
-      }
+    changed() {
+      console.log(this.value1);
+      this.$emit("pick", this.value1);
+    },
   },
 };
 </script>
