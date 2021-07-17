@@ -27,10 +27,23 @@
               class="btn flex center space-evenly action-btn"
               v-if="isLiked"
               @click="toggleLike()"
+            > -->
+    <!-- <button
+              class="like-btn fas fa-heart"
+              @click="toggleLike()" -->
             >
-              <i class="save-btn btn fas fa-heart" style="color: #ca4c4c"></i>
-              <span>Save</span>
-            </button> -->
+              <!-- <i class="save-btn btn fas fa-heart" style="color: #ca4c4c"></i> -->
+              <!-- <span>Save</span> -->
+            <!-- </button> -->
+
+
+             <button
+              class="like-btn "
+              v-if="!isLiked"
+              @click.stop="toggleLike()"
+            >
+              <i class="save-btn btn far fa-heart"></i>
+            </button>
     </router-link>
           </el-carousel-item>
         </el-carousel>
@@ -66,6 +79,7 @@ export default {
   data() {
     return {
       imgs: this.yacht.imgUrls,
+      isLiked:false
       // currentSrc: 0,
     };
   },

@@ -4,6 +4,9 @@
 
     
     .yacht-preview {
+        .el-carousel__item.is-active.is-animating{
+            background: none;
+        }
         // width: 100%;
         // border-radius: 12px;
         //    display: flex;
@@ -11,20 +14,33 @@
         //    font-family: Blinker; 
         //    max-height: 378px;
         //    max-width: 378px; 
-
+// background-color: none;
         @include aspect-ratio(1, 1);
         border-radius: 12px;
         
         a{
             text-decoration: unset;
             color: inherit;
-           .img{
+            .img{
+               border-radius: 12px;
                // height: 395.47px;
                // width:395.47px;
                width: 100%;
                height: 100%;
             //    object-fit: contain;
             //    @include aspect-ratio(1, 1);
+            }
+            .like-btn{
+                position: absolute;
+                top: 9px;
+                left: 7px;
+                background: none;
+                border: none;
+                cursor: pointer;
+                .fa-heart:before{
+                    // opacity: 4;
+color: dimgrey;
+                }
             }
         }
         }
