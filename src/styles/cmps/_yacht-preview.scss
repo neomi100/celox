@@ -42,6 +42,9 @@
 color: dimgrey;
                 }
             }
+            .el-carousel--horizontal{
+                    overflow-x: hidden;
+            }
         }
         }
         .main{
