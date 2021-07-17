@@ -14,17 +14,16 @@
             padding: 10px 1rem;
             height: 65px;
             font-size: rem(16px);
-            // .logo {
-            //     width: 200px;
-            //     object-fit: contain;
-
-            // }
+            .logo {
+                width: 200px;
+                object-fit: contain;
+            }
             #nav {
                 color: $clr2;
                 a {
                     font-weight: bold;
                     color: $clr1;
-                    color: inherit; 
+                    color: inherit;
                     text-decoration: unset;
                 }
                 a.router-link-exact-active {
@@ -33,7 +32,6 @@
             }
         }
     }
-
     .footer {
         background-color: $clr4;
         color: $clr2;

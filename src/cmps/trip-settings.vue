@@ -1,46 +1,15 @@
 <template>
   <section>
-    <div class="wrapper">
+    <div class="box">
       <div class="price-star flex space-between align-baseline">
-    <span class="price">{{ price }}</span>
-
-    <star-rating :reviews="reviews" />
-
+        <span class="price">{{ price }}</span>
+        <star-rating :reviews="reviews" />
       </div>
 
-    <date-picker></date-picker>
+      <date-picker></date-picker>
 
-    <!-- <el-dropdown>
-      <span class="el-dropdown-link">
-        GUESTS<i class="el-icon-arrow-down el-icon--right"></i>
-      </span>
-      <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item
-          >Adults:
-          <el-input-number
-            v-model="adultsNum"
-            @change="handleChange"
-            :min="1"
-            :max="10"
-          >
-          </el-input-number>
-        </el-dropdown-item>
-        <el-dropdown-item
-          >Children:
-          <el-input-number
-            v-model="childrenNum"
-            @change="handleChange"
-            :min="1"
-            :max="10"
-          >
-          </el-input-number>
-        </el-dropdown-item>
-      </el-dropdown-menu>
-    </el-dropdown> -->
-
-
-    <button class="call-to-action-btn">Check availability</button>
-  </div>
+      <button class="call-to-action-btn s">Check availability</button>
+    </div>
   </section>
 </template>
 
@@ -53,8 +22,7 @@ export default {
     reviews: Array,
   },
   data() {
-    return {
-    };
+    return {};
   },
   methods: {
     handleChange(value) {
