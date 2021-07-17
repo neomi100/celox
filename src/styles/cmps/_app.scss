@@ -9,31 +9,33 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: $clr1;
+            background-color: $clr4;
             margin-bottom: rem(10px);
             padding: 10px 1rem;
             height: 65px;
-            font-size: rem(22px);
-            .logo {
-                width: 200px;
-                object-fit: contain;
-            }
+            font-size: rem(16px);
+            // .logo {
+            //     width: 200px;
+            //     object-fit: contain;
+
+            // }
             #nav {
                 color: $clr2;
                 a {
                     font-weight: bold;
-                    color: $clr2;
-                    color: inherit;
+                    color: $clr1;
+                    color: inherit; 
+                    text-decoration: unset;
                 }
                 a.router-link-exact-active {
-                    color: $clr4;
+                    color: $clr1;
                 }
             }
         }
     }
 
     .footer {
-        background-color: $clr1;
+        background-color: $clr4;
         color: $clr2;
         height: 50px;
         display: flex;

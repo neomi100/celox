@@ -1,6 +1,6 @@
 <template>
   <section v-if="yachts" >
-    <yachtFilter @filterBy="filterBy" />
+    <yachtFilter @filterede="filterBy" />
     <yachtList :yachts="yachts" />
   </section>
 </template>
@@ -10,7 +10,7 @@ import yachtFilter from '../cmps/yacht-filter.vue';
 export default {
   computed: {
     yachts() {
-      console.log(this.$store.getters.yachtsForShow, 'yachtPage');
+      // console.log(this.$store.getters.yachtsForShow, 'yachtPage');
       return this.$store.getters.yachtsForShow;
     },
     // filterBy() {
@@ -24,8 +24,9 @@ export default {
 // @onSetFilter="setFilter" :typeList="typeList"
   methods: {
     filterBy(filterBy) {
+      console.log(filterBy, 'page');
       this.$store.commit({ type: 'setFilter', filterBy });
-      this.$store.dispatch({ type: 'loadyachts' });
+      this.$store.dispatch({ type: 'loadYachts' });
     },
   },
 
