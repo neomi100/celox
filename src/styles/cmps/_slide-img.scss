@@ -1,0 +1,35 @@
+.el-carousel__item h3 {
+    color: #475669;
+    font-size: 14px;
+    opacity: 0.75;
+    line-height: 150px;
+    margin: 0;
+}
+
+.el-carousel__item:nth-child(2n) {
+    background-color: #99a9bf;
+}
+
+.el-carousel__item:nth-child(2n+1) {
+    background-color: #d3dce6;
+}
+
+// el-carousel__item is-active is-animating
+@media screen and (max-width:740px) {
+    .stay-details-img-carousel-container {
+        display: block;
+        width: 100%;
+        margin-bottom: 5px;
+        height: 250px;
+        .el-carousel__container {
+            height: 250px !important;
+            .el-carousel__arrow {
+                background-color: rgba(160, 165, 170, 0.612);
+            }
+        }
+    }
+    .stay-details-img-prev {
+        height: 250px;
+        border-radius: 0;
+    }
+}

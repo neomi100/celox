@@ -1,0 +1,128 @@
+//REVIEWS - style for components///////////////////////////////////////////////////////
+// 1.review-add
+// 2.review-categories
+// 3.review-list
+// 4.review-preview
+///////////////////////////////////////////////////////////////////////////////////////
+.reviewer-img {
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+
+.categories {
+    margin-bottom: 40px;
+}
+
+.txt-input {
+    max-width: 50%;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.review-star-input {
+    width: 100%;
+}
+
+.review-star-input>* {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    margin-left: 50px;
+}
+
+.add-review-btn {
+    width: fit-content;
+    outline: none;
+}
+
+.add-review-inputs>* {
+    width: 100%;
+}
+
+.review-card {
+    margin-top: 5px;
+}
+
+.review-card-grid {
+    margin-bottom: 35px;
+}
+
+.two-column-grid-categories {
+    margin-bottom: 50px;
+}
+
+.review-txt-section {
+    padding-top: 3px;
+}
+
+.review-date {
+    color: rgb(155, 153, 153);
+    font-size: 13px;
+}
+
+.review-section-title {
+    margin-bottom: 30px;
+    >* {
+        font-size: 1.5em;
+        font-weight: 600;
+    }
+}
+
+.bar {
+    align-items: center;
+    width: 100%;
+}
+
+.progress-bar {
+    width: 100%
+}
+
+.score {
+    order: 1;
+    margin-inline-start: 1rem;
+}
+
+.two-column-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 27px;
+    column-gap: 100px;
+}
+
+.two-column-grid-categories {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 27px;
+    column-gap: 100px;
+}
+
+@media screen and (max-width:740px) {
+    .txt-input {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+    .review-star-input>* {
+        width: 100%;
+        margin-left: 0px;
+    }
+    .user-review-inputs {
+        display: flex;
+        margin: 0;
+        flex-direction: column
+    }
+    .two-column-grid {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+    .two-column-grid-categories {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+    // .two-column-grid-categories>*{
+    //     display:grid;
+    //     grid-template-columns:1fr 1fr;
+    //     column-gap:0px;
+    // }
+}

@@ -9,9 +9,12 @@
 @import 'basics/layout';
 // CMPS
 @import 'cmps/app';
-@import 'cmps/home';
+@import 'cmps/date-picker';
 @import 'cmps/img-grid-container';
 @import 'cmps/star-rating';
+@import 'cmps/yacht-reviews';
+@import 'cmps/trip-settings';
+@import 'cmps/slide-img';
 //VIEWS
 @import 'cmps/app.scss';
 @import 'cmps/home.scss';

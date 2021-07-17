@@ -1,7 +1,7 @@
 <template>
   <section class="img-grid-container">
       
-<img v-for="(img,idx) in imgs" :key="idx" class="yacht-img"
+<img v-for="(img,idx) in imgs" :key="idx" class="yacht-img object-fit "
             :src="imgs[idx]">
 
 
