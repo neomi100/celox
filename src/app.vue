@@ -1,27 +1,25 @@
 <template>
   <div id="app">
-    <div class="wrapper ">
-      <header class="header full">
-       <router-link to="/"> <img class="logo" src="@/assets/logo.png" alt="" /></router-link>
-        <nav id="nav">
-          <router-link to="/yacht-page">Search</router-link> |
-          <router-link to="/become-host">Become Host </router-link> 
-        </nav>
-      </header>
+    <my-header />
     <router-view />
-    </div>
-    <footer class="footer full">footer &copy;</footer>
+    <my-footer/>
   </div>
 </template>
 
 
 <script>
-// import home from '@/views/home.vue';
+import myHeader from "./cmps/app-header.vue";
+import myFooter from "./cmps/app-footer.vue";
+
 
 export default {
   // components: { home },
     created() {
     this.$store.dispatch({ type: 'loadYachts' });
+  },
+   components: {
+    myHeader,
+    myFooter,
   },
   };
 </script>
