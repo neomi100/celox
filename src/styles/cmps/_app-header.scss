@@ -1,0 +1,179 @@
+.header-container {
+    z-index: 50;
+    height: 80px;
+    background-color: white !important;
+    position: sticky;
+    top: 0;
+    box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+    .header-right-corner {
+        height: 100%;
+        align-items: center;
+        .new-owner {
+            cursor: pointer;
+            padding: 13px;
+            border-radius: 25px;
+            margin-right: 10px;
+            color: unset !important;
+        }
+        .new-owner:hover {
+            background-color: rgb(228, 228, 228);
+        }
+    }
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ff385c;
+    padding-left: unset !important;
+}
+
+.nav-container {
+    z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .el-menu-item {
+        padding-left: unset;
+        border-bottom: unset !important;
+    }
+    .el-menu-item.is-active {
+        padding-left: unset;
+        border-bottom: unset !important;
+    }
+}
+
+.slecet * {
+    outline: unset !important;
+}
+
+.el-dropdown-link {
+    cursor: pointer;
+    outline: none !important;
+}
+
+.user-menu-img {
+    width: 28px;
+    height: 25px;
+    border-radius: 50%;
+    padding: 0px 0px 0px 2px;
+}
+
+.el-dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px 5px 10px;
+}
+
+.el-icon--right {
+    width: 20px;
+}
+
+.user-select {
+    border: 1px solid #dadada;
+    border-radius: 40px;
+    width: max-content;
+    .badge {
+        padding: 0px 6px;
+        border-radius: 50%;
+        background: #FF3842;
+        color: white;
+        font-weight: 600;
+        position: absolute;
+        top: -5px;
+        cursor: pointer;
+    }
+}
+
+.el-menu--horizontal>.el-menu-item.is-active {
+    border: none;
+}
+
+.user-option {
+    color: unset !important;
+    position: relative;
+}
+
+.user-option:hover {
+    color: unset !important;
+    background-color: rgba(211, 211, 211, 0.26) !important;
+}
+
+.menu-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.explore-nav {
+    cursor: pointer;
+    padding: 13px;
+    border-radius: 25px;
+    margin-left: -2px;
+}
+
+.explore-nav:hover {
+    background-color: #f9f9f9;
+}
+
+@media screen and(max-width:440px) {
+    .header-container {
+        grid-template-columns: 15px 1fr 15px !important;
+    }
+    .nav-container {
+        padding: unset !important;
+        .explore-nav {
+            font-size: 1.2rem;
+        }
+        .explore-nav:hover {
+            background-color: unset;
+        }
+        .new-owner {
+            display: none;
+        }
+        .logo {
+            font-size: 1.5rem;
+        }
+        .el-menu-item {
+            padding: unset;
+        }
+        .user-select {
+            border: unset;
+            .el-dropdown {
+                padding: unset;
+            }
+            .badge {
+                top: -8px;
+                right: -6px;
+            }
+        }
+        .user-menu-img {
+            width: 41px;
+            height: 38px;
+        }
+        .user-menu-img.burger {
+            display: none;
+        }
+    }
+    .el-dropdown-menu__item {
+        font-size: 25px !important;
+        margin: 5% 0 !important;
+    }
+    .el-dropdown-menu__item:hover {
+        background-color: unset !important;
+    }
+    .el-dropdown-menu.el-popper {
+        border-radius: 25px;
+    }
+}
+
+.header-container .header-right-corner .new-owner:hover {
+    background-color: #f9f9f9 !important;
+}
+
+.logo-img {
+    width: 150px;
+    object-fit: cover;
+    margin-left: -5px;
+    margin-top: 5px;
+}
