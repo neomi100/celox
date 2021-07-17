@@ -1,7 +1,7 @@
 .header-container {
     z-index: 50;
     height: 80px;
-    background-color: white !important;
+    background-color: white;
     position: sticky;
     top: 0;
     box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
@@ -13,7 +13,7 @@
             padding: 13px;
             border-radius: 25px;
             margin-right: 10px;
-            color: unset !important;
+            color: unset;
         }
         .new-owner:hover {
             background-color: rgb(228, 228, 228);
@@ -25,7 +25,7 @@
     font-size: 20px;
     font-weight: 700;
     color: #ff385c;
-    padding-left: unset !important;
+    padding-left: unset;
 }
 
 .nav-container {
@@ -35,21 +35,21 @@
     align-items: center;
     .el-menu-item {
         padding-left: unset;
-        border-bottom: unset !important;
+        border-bottom: unset;
     }
     .el-menu-item.is-active {
         padding-left: unset;
-        border-bottom: unset !important;
+        border-bottom: unset;
     }
 }
 
 .slecet * {
-    outline: unset !important;
+    outline: unset;
 }
 
 .el-dropdown-link {
     cursor: pointer;
-    outline: none !important;
+    outline: none;
 }
 
 .user-menu-img {
@@ -91,13 +91,13 @@
 }
 
 .user-option {
-    color: unset !important;
+    color: unset;
     position: relative;
 }
 
 .user-option:hover {
-    color: unset !important;
-    background-color: rgba(211, 211, 211, 0.26) !important;
+    color: unset;
+    background-color: rgba(211, 211, 211, 0.26);
 }
 
 .menu-flex {
@@ -116,12 +116,17 @@
     background-color: #f9f9f9;
 }
 
+.router {
+    text-decoration: none;
+    color: rgb(41, 40, 40);
+}
+
 @media screen and(max-width:440px) {
     .header-container {
-        grid-template-columns: 15px 1fr 15px !important;
+        grid-template-columns: 15px 1fr 15px;
     }
     .nav-container {
-        padding: unset !important;
+        padding: unset;
         .explore-nav {
             font-size: 1.2rem;
         }
@@ -156,11 +161,11 @@
         }
     }
     .el-dropdown-menu__item {
-        font-size: 25px !important;
-        margin: 5% 0 !important;
+        font-size: 25px;
+        margin: 5% 0;
     }
     .el-dropdown-menu__item:hover {
-        background-color: unset !important;
+        background-color: unset;
     }
     .el-dropdown-menu.el-popper {
         border-radius: 25px;
@@ -168,11 +173,11 @@
 }
 
 .header-container .header-right-corner .new-owner:hover {
-    background-color: #f9f9f9 !important;
+    background-color: #f9f9f9;
 }
 
 .logo-img {
-    width: 150px;
+    width: 70px;
     object-fit: cover;
     margin-left: -5px;
     margin-top: 5px;

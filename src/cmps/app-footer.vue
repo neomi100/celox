@@ -1,32 +1,24 @@
 <template>
-  <section class="main-layout footer-container">
-      <div class="footer-contant"> 
-          <p class="logo"> Celox </p>
- <div class="rights-container"> 
-          <p> © 2021 Celox, Inc. All rights reserved </p>
+  <div class="main-footer flex">
+    <div class="footer-rights flex">
+      © 2021 Celox, Inc. All rights reserved
+    </div>
+    <div class="footer-lang flex">English (US)
+     <span class="footer-money flex">USD $</span></div>
+    <div class="social flex">
+      <div class="facebook flex">
+        <i class="fab fa-facebook-f flex"></i>
       </div>
-   <ul class="social-links clean-list">
-        <li>
-          <a class="facebook" href="https://www.facebook.com/">
-            <button><img class="footer-img" src="../assets/imgs/icons/facebook-icon.svg" /></button></a>
-        </li>
-        <li>
-          <a class="twitter" href="https://twitter.com/"><button><img class="footer-img" src="../assets/imgs/icons/twitter-icon.svg" /></button></a>
-        </li>
-        <li>
-          <a class="linkedin" href="https://linkedin.com/"><button><img class="footer-img" src="../assets/imgs/icons/linkedin-icon.svg" /></button>
-          </a>
-        </li>
-      </ul>
-      
-            </div>
-
-  </section>
+      <div class="instagram flex">
+        <i class="fab fa-instagram flex"></i>
+      </div>
+      <div class="twitter flex">
+        <i class="fab fa-twitter flex"></i>
+      </div>
+    </div>
+  </div>
 </template>
-
 <script>
-export default {
-
-}
+export default {};
 </script>
 

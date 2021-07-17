@@ -6,64 +6,79 @@
         style="border: none; border: none"
         mode="horizontal"
       >
-        <!-- @select="handleSelect" -->
-        <el-menu-item index="1">
+        <el-menu-item >
           <router-link class="router" :to="`/`">
             <img
               class="logo-img"
-              :src="require(`@/assets/imgs/icons/logo.svg`)"
+              :src="require(`@/assets/logo.svg`)"
               alt="img not found"
             />
-            <!-- <span class="logo txt"> HomeAway </span> -->
           </router-link>
         </el-menu-item>
-        <el-menu-item index="4"> </el-menu-item>
       </el-menu>
 
       <div class="header-right-corner flex">
-        <router-link class="router explore-nav" :to="`/yacht`">
+        <router-link class="router explore-nav" :to="`/yacht-page`">
           <span @click="reloadyachts" class="txt"> Explore </span>
         </router-link>
-        <!-- <div class="new-owner">Become a owner</div> -->
-        <!-- < class="new-owner" :to=`/user/${loggedInUser._id}>Become a owner</div> -->
-        <!-- <router-link v-if="loggedinUser" class="new-owner" :to="`/user/$loggedInUser._id}`">Become a owner</router-link> -->
+
         <span class="new-owner" @click="becomeowner()">Become a owner</span>
+
+        <section class="user-select">
+          <el-dropdown>
+            <span class="el-dropdown-link">
+              <img
+                class="user-menu-img burger"
+                :src="require(`@/assets/imgs/icons/hamburger.png`)"
+              />
+              <img
+                class="user-menu-img"
+                :src="require(`@/assets/imgs/icons/userGuest.jpg`)"
+              />
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item class="user-option" @click.native="navTo">
+                Log-in
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </section>
       </div>
     </div>
   </header>
 </template>
+
 <script>
 export default {
   name: "app-header",
   data() {
     return {
-      // loggedinUser: null,
-      activeIndex: "1",
-      activeIndex2: "1",
+      
     };
   },
   methods: {
-    // handleSelect(key, keyPath) {},
     async reloadyachts() {
-      await this.$store.dispatch({ type: "loadyachts" });
+      await this.$store.dispatch({ type: "loadYachts" });
     },
     becomeowner() {
-        if (
-          this.loggedinUser &&
-          this.$route.path !== `/user/${this.loggedinUser._id}`
-        ) {
-          this.$router.push(`/user/${this.loggedinUser._id}`);
-        } else {
-          this.$router.push("/login");
-        }
-      }
+      this.$router.push("/login");
     },
+    navTo() {
+      console.log("click");
+      this.$router.push("/login");
+
+      // switch (ev.target.textContent) {
+      //   case "Log-in": {
+      //       this.$router.push("/login");
+      //     }
+      //     break;
+      // }
+    },
+  },
   computed: {
     loggedinUser() {
       return this.$store.getters.loggedinUser;
     },
-  },
-  components: {
   },
 };
 </script>
