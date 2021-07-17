@@ -49,7 +49,7 @@ export const yachtStore = {
     actions: {
         async loadYachts(context) {
             try {
-                //    console.log('context.state.currentFilterBy', context.state.filterBy);
+                   console.log('context.state.filterBy', context.state.filterBy);
                 const yachts = await yachtService.query(context.state.filterBy)
                 console.log(yachts, 'yachts are??');
                 context.commit({ type: 'getYachts', yachts })

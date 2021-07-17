@@ -1,5 +1,5 @@
 import { storageService } from './async-storage.service.js'
-const gYacht = require('../../data/yacht.json')
+const gYachts = require('../../data/yacht.json')
 
 export const yachtService = {
     query,
@@ -8,16 +8,54 @@ export const yachtService = {
     save
 }
 
-query()
+// query()
 
-function query() {
-    return Promise.resolve(gYacht)
+function query(filterBy) {
+    console.log(filterBy, 'service');
+    const { rate } = filterBy
+    console.log(rate,'rate service');
+        const { size } = filterBy
+        let yachts = JSON.parse(JSON.stringify(gYachts))
+        switch (size) {
+                    case 'All' || '':
+                        break;
+                    case 'Small':
+                        yachts = yachts.filter((yacht) => yacht.size==='small');
+                        break;
+                    case 'Medium':
+                        yachts = yachts.filter((yacht) => yacht.size==='medium');
+                        break;
+                    case 'Large':
+                        yachts = yachts.filter((yacht) => yacht.size==='large');
+                        break;
+                }
+        switch (rate) {
+                    case 'All' || '':
+                        break;
+                    case 1:
+                        yachts = yachts.filter((yacht) =>{
+                           
+                            console.log(yacht,'yacht service 1');
+                            yacht.reviews[0].rate===1;
+                            console.log(yacht.reviews[0].rate,'yacht service 1');
+                        } )
+                        break;
+                    case 2:
+                        yachts = yachts.filter((yacht) => yacht.reviews[0].rate===2);
+                        break;
+                    case 3:
+                        yachts = yachts.filter((yacht) => yacht.reviews[0].rate===3);
+                        break;
+                    case 4:
+                        yachts = yachts.filter((yacht) => yacht.reviews[0].rate===4);
+                        break;
+                    case 5:
+                        yachts = yachts.filter((yacht) => yacht.reviews[0].rate===5);
+                        break;
+                }
+    return Promise.resolve(yachts)
 }
 
-// function getById(yachtId) {
-//     const yacht = storageService.get('yacht', yachtId)
-//     return yacht
-// }
 
 function remove(yachtId) {
     return storageService.delete('yacht', yachtId)
@@ -26,7 +64,7 @@ function remove(yachtId) {
 
 
 function getById(yachtId) {
-    const yacht = gYacht.find(yacht => yacht._id === yachtId)
+    const yacht = gYachts.find(yacht => yacht._id === yachtId)
     return Promise.resolve(yacht)
 }
 

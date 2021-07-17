@@ -1,12 +1,12 @@
 <template>
-  <section v-if="yacht" class="yacht-details-container">
+  <section v-if="yacht" class="yacht-details-container main-layout">
     <div class="header-img-gallery">
       <div class="yacht-details-title flex column">
-        <div class="yacht-title-primary">{{ yacht.summary }}</div>
+        <!-- <div class="yacht-title-primary">{{ yacht.summary }}</div> -->
         <div class="yacht-title-secondary flex space-between center">
           <div class="left flex space-between center">
-            <star-rating :reviews="this.reviews" /> <span> · </span>
-            <a class="link" href="#location">  {{ yacht.loc.address }}</a>
+            <star-rating :reviews="reviews" /> <span> · </span>
+            <a class="link" href="#location"> {{ yacht.loc.address }}</a>
           </div>
 
           <div class="right flex space-between">
@@ -40,27 +40,33 @@
       />
     </div>
 
-    <div class="yacht-details">
+    <div class="yacht-details flex">
       <div class="bottom-border yacht-description">
         <div class="flex space-between bottom-border yacht-desctiption-title">
           <div>
             <h2 class="ownered-by">
               {{ yacht.name }} ownered by {{ yacht.owner.fullname }}
             </h2>
-            <p>Up to {{ 12 }}</p>
+            <p>Up to {{ capacity }}</p>
           </div>
-          <img class="thumb-img" :src="yacht.owner.imgUrl" />
+          <img class="owner-img" :src="yacht.owner.imgUrl" />
         </div>
+
         <div class="description-section flex column bottom-border">
           <div class="description-txt">
             Come to see my yacht in the middle of
             {{ yacht.loc.address }}. It is located in near the bay. This
-            apartment can accommodate up to <span> 12 </span> people, it is
-            on the {{ yacht.capacity + 3 }}th floor (with a large lift) and is
-            very well equipped. This accommodation is surrounded by shops for
-            shopping, bakeries, groceries but also restaurants and bars ... Do
-            not hesitate any more!
+            yacht can accommodate up to <span> {{ capacity }} </span> people, 
+            yacht equipped with an adjustable swimming platform 
+            and with hot and cold water shower and a 4.50 m auxiliary 
+            boat with 10 HP engine.
+            At the central bridge we find a cabin with dining 
+            table, sofa and chairs, entering a lounge with independent air conditioning,
+             coffee table and plasma TV, 
+             dining room with independent air conditioning, 
+             table and sofa, a kitchen equipped with refrigerator, sink, 
           </div>
+
           <p class="contact-owner-btn underline">Contact owner</p>
         </div>
         <div>
@@ -69,9 +75,12 @@
       </div>
 
       <div class="trip-cmp">
-        <trip-settings class="trip-settings" :yacht="yacht" />
+        <trip-settings
+          class="trip-settings"
+          :yacht="yacht"
+          :reviews="reviews"
+        />
       </div>
-
     </div>
 
     <div class="review-section bottom-border">
@@ -79,9 +88,9 @@
       <review-list :reviews="this.reviews" />
       <review-add @postReview="postReview"></review-add>
     </div>
-    
+
     <div class="map-location">
-    <yacht-map id="location" :location="yacht.loc" />
+      <yacht-map id="location" :location="yacht.loc" />
     </div>
 
     <!-- <trip-settings-mobile
@@ -106,7 +115,6 @@ import yachtMap from "../cmps/yacht-map.vue";
 import { yachtService } from "../services/yacht-service.js";
 import reviewAdd from "../cmps/review-add.vue";
 
-
 export default {
   name: "yacht-details",
   data() {
@@ -115,7 +123,7 @@ export default {
       yacht: null,
       textarea: "",
       review: {
-        avgRate: null,
+        rate: null,
         category: {
           Cleanliness: null,
           Accuracy: null,
@@ -124,20 +132,19 @@ export default {
           CheckIn: null,
           Accessibility: null,
         },
-    },
-        isLiked: null,
+      },
+      isLiked: null,
       buyer: null,
-
     };
   },
   methods: {
-      async postReview(postedReview) {
+    async postReview(postedReview) {
       var review = {
         txt: postedReview.reviewTxt,
         buyer: this.buyer,
-        ownerId: this.yacht.owner._id,// will be used in the future for updating owner
+        ownerId: this.yacht.owner._id, // will be used in the future for updating owner
         yacht: this.yacht,
-        avgRate: postedReview.userReviewAvgRate,
+        rate: postedReview.userReviewrate,
         category: {
           Cleanliness: postedReview.categoryMap.Cleanliness,
           Accuracy: postedReview.categoryMap.Accuracy,
@@ -148,7 +155,10 @@ export default {
         },
       };
       try {
-        const updatedyacht = await this.$store.dispatch({type: "postReview", review});
+        const updatedyacht = await this.$store.dispatch({
+          type: "postReview",
+          review,
+        });
         this.yacht = updatedyacht;
       } catch (err) {
         console.log("could not update yacht with new review:", err);
@@ -165,13 +175,19 @@ export default {
     },
   },
   computed: {
-  //   guestAmount() {
-  //     if (this.yacht.capacity > 1) {
-  //       return this.yacht.capacity.toString() + " guests";
-  //     } else {
-  //       return this.yacht.capacity.toString() + " guest";
-  //     }
-  //   },
+    capacity() {
+      const maxPepole = this.yacht.size;
+      switch (maxPepole) {
+        case "small":
+          return 5;
+        case "medium":
+          return 12;
+        case "large":
+          return 35;
+        default:
+          return "";
+      }
+    },
   },
   created() {
     const _id = this.$route.params.id;

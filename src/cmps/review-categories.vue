@@ -2,7 +2,7 @@
   <section>
     <div class="review-section-title flex align-center">
       <i class="fas fa-star"></i> 
-      <span>{{avgRateFromAllReviewers}}</span>
+      <span>{{rateFromAllReviewers}}</span>
       <span>({{reviews.length}} reviews)</span>
     </div>
     <ul class="two-column-grid-categories">
@@ -58,10 +58,10 @@ export default {
     }
   },
   computed:{
-     avgRateFromAllReviewers() {
+     rateFromAllReviewers() {
       if (this.reviews) {
         let sum = this.reviews.reduce((acc, currVal) => {
-          acc += currVal.avgRate;
+          acc += currVal.rate;
           return acc;
         }, 0);
         return parseFloat(sum / this.reviews.length).toFixed(1);

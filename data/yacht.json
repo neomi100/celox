@@ -11,9 +11,10 @@
         ],
         "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
         "price": 1800,
+        "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
         "size": "medium",
+        "favorites": [{ "userId": "u109" }],
         "amenities": [
-            "Parking",
             "No Smoking",
             "TV",
             "Wifi",
@@ -39,7 +40,7 @@
             {
                 "id": "u102rev",
                 "txt": "Great apartment, amazing view and amnesties",
-                "avgRate": 4.5,
+                "rate": 4.5,
                 "category": {
                     "Cleanliness": 4,
                     "Accuracy": 4,
@@ -58,7 +59,7 @@
             {
                 "id": "u103ord",
                 "txt": "Great apartment, amazing view and amnesties",
-                "avgRate": 4,
+                "rate": 4,
                 "category": {
                     "Cleanliness": 4,
                     "Accuracy": 5,
@@ -77,7 +78,7 @@
             {
                 "id": "u104rev",
                 "txt": "Great apartment, although please be aware that the kitchen is not as equipped as would have been expected. Very comfortable stay and in a great location",
-                "avgRate": 3.5,
+                "rate": 3.5,
                 "category": {
                     "Cleanliness": 3,
                     "Accuracy": 3,
@@ -96,7 +97,7 @@
             {
                 "id": "u105rev",
                 "txt": "Great apartment, amazing view and amnesties",
-                "avgRate": 4.5,
+                "rate": 4.5,
                 "category": {
                     "Cleanliness": 4,
                     "Accuracy": 4,
@@ -115,7 +116,7 @@
             {
                 "id": "u106rev",
                 "txt": "We had a wonderful stay at the Oasis on the Easter Weekend. A little outside Rome, the place is perfect for a stay of one week or longer. Directly at Via Appia Antica, with some ancient sites in walking distance. Federico and especially his mother and partner were very helpful by any means. Whatever we needed or asked for - they had an answer or solution. The garden was perfect for us and our children, nice and sunny until sunset. We would definitely come back!",
-                "avgRate": 4,
+                "rate": 4,
                 "category": {
                     "Cleanliness": 4,
                     "Accuracy": 5,
@@ -134,7 +135,7 @@
             {
                 "id": "u107rev",
                 "txt": "Great apartment, although please be aware that the kitchen is not as equipped as would have been expected. Very comfortable stay and in a great location",
-                "avgRate": 3.5,
+                "rate": 3.5,
                 "category": {
                     "Cleanliness": 3,
                     "Accuracy": 3,

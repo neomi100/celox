@@ -16,19 +16,19 @@
 
 // el-carousel__item is-active is-animating
 @media screen and (max-width:740px) {
-    .stay-details-img-carousel-container {
+    .yacht-details-img-carousel-container {
         display: block;
         width: 100%;
         margin-bottom: 5px;
         height: 250px;
         .el-carousel__container {
-            height: 250px !important;
+            height: 250px;
             .el-carousel__arrow {
                 background-color: rgba(160, 165, 170, 0.612);
             }
         }
     }
-    .stay-details-img-prev {
+    .yacht-details-img-prev {
         height: 250px;
         border-radius: 0;
     }

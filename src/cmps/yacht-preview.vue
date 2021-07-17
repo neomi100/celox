@@ -79,7 +79,7 @@ export default {
   methods: {},
   created() {
     // this.rate
-    console.log(this.imgs, "hi3");
+    // console.log(this.imgs, "hi3");
   },
 };
 </script>
