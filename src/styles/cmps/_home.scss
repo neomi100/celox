@@ -4,7 +4,12 @@
     gap: 100px;
     align-items: center;
     padding: 10px 0;
-    // background-image: url('../../assets/images/main-img.jpg');
+    //.backround{
+       // background-image: image('../../assets/images/main-img.jpg');
+        //height: 300px;
+        //width: 300px;
+  //  }
+    
 
     .main-img {
         position: inherit;
@@ -41,12 +46,16 @@ div.searchBox {
     div.searchBox span {
         display: inline-block;
     }
+    
+    div.sb-input {
+
+    }
 
     div.searchBox .sb-input {
         display: inline-block;
         /*background-color: yellow;*/
         width: 28%;
-        height: 100%;
+        //height: 100%;
         padding-right: 10px;
         text-align: center;
     }
@@ -59,6 +68,7 @@ div.searchBox {
         div.searchBox .sb-input:hover {
             background-color: wheat;
             border-radius: 25px;
+            height:100% ;
             cursor: pointer;
         }
 
@@ -97,6 +107,7 @@ div.pickLocation {
 
 div.random-search {
     text-align: center;
+    
 }
 
     div.random-search .rs-title {
@@ -106,16 +117,16 @@ div.random-search {
         margin-bottom: 8px;
     }
 
-    div.random-search .rs-inner {
+     .rs-inner {
         margin: 0 auto;
-        background-color: white;
-        width: 15%;
-        /*height: 32px;*/
-        border-radius: 25px;
-        margin-bottom: 100px;
-        padding: 10px 20px;
-        /*font-size: 0.85rem;*/
-        text-align: center;
+    background-color: white;
+   padding: 16px;
+    border-radius: 25px;
+    margin-bottom: 100px;
+    padding: 10px 20px;
+    &:hover{
+        cursor:pointer
+    }
     }
 
 ///////////////////////////////

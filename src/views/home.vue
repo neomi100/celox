@@ -1,7 +1,7 @@
 <template>
   <section>
-    <div class="home">
-      <img class="main-img" src="@/assets/main-img.jpg" />
+    <div class="home full">
+      <img class="main-img " src="@/assets/main-img.jpg" />
       <div class="searchBox">
         <div class="sb-input div0" onclick="a()">
           <span class="sb-input-title">Check In Date</span>
@@ -11,6 +11,13 @@
           <span class="sb-input-title">Check Out Date</span>
           <span class="sb-input-data">Select data</span>
         </div>
+                          <!-- <el-date-picker
+          type="daterange"
+          start-placeholder="Start Date"
+          end-placeholder="End Date"
+          size="small"
+        >
+        </el-date-picker> -->
         <div class="sb-input div2" onclick="b()">
           <span class="sb-input-title">Location</span>
           <span class="sb-input-data">Select Location</span>
@@ -20,7 +27,10 @@
         </a>
       </div>
 
-      <div class="pickDate"></div>
+      <div class="pickDate">
+      </div>
+
+              
 
       <div class="pickLocation"></div>
 
@@ -46,7 +56,7 @@
         <!-- {{ yacht }} -->
       </div>
     </div>
-    <div>
+    <!-- <div>
       <h3>Top Rated Yachts</h3>
       <ul class="top-rated-yachts">
         <li v-for="(yacht, idx) in yachts" :key="idx">
@@ -57,13 +67,15 @@
           <h4 class="yacht-price">{{ formatPrice(yacht.price) }} USD</h4>
         </li>
       </ul>
-      <!-- {{ yacht.name }} -->
-    </div>
+      {{ yacht.name }}
+    </div> -->
   </section>
 </template>
 
 <script>
+
 export default {
+
   computed: {
     yachts() {
       return this.$store.getters.yachtsForShow;
