@@ -26,7 +26,7 @@
 
       <div class="random-search">
         <span class="rs-title">Didn't find what you were looking for ?'</span>
-        <div class="rs-inner" onclick="randYacht()">
+        <div class="rs-inner">
           <span>Find your random yacht !</span>
         </div>
       </div>
@@ -44,9 +44,9 @@
         <section>
           <ul class="destinations-imgs-ul">
             <li v-for="(img, idx) in (imgs, yachts)" :key="idx" class="gallery-item">
-              <a href="/yacht-page" class="gallery-item-a" >
+              <a href="/yacht-page" class="gallery-item-a overlay-2" >
                 <div class="gallery-img">
-                  <img class="yacht-img object-fit" :src="imgs[idx]" />
+                  <img class="loc-img object-fit" :src="imgs[idx]" />
                 </div>
                 <div class="gallery-txt">
                   <h4>Yacht Charter {{ yachts[idx].loc.country }}</h4>
