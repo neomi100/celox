@@ -32,15 +32,24 @@
             }
             .like-btn{
                 position: absolute;
-                top: 9px;
-                left: 7px;
+                top: 12px;
+                right: 10px;
                 background: none;
-                border: none;
+                // border: 2px, solid, black;
                 cursor: pointer;
-                .fa-heart:before{
-                    // opacity: 4;
-color: dimgrey;
-                }
+               opacity: 0.3;
+            //    color: ivory
+            //    transparent
+               
+            //    opacify($color: #21bd42, $amount: 5);
+         
+            }
+            .like{
+                color: hotpink;
+                position: absolute;
+                top: 12px;
+                right: 10px;
+                cursor: pointer;
             }
             .el-carousel--horizontal{
                     overflow-x: hidden;
