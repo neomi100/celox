@@ -1,20 +1,19 @@
 <template>
-  <section class="img-grid-container">
-      
-<img v-for="(img,idx) in imgs" :key="idx" class="yacht-img object-fit "
-            :src="imgs[idx]">
+  <section >
+    <div v-if="isWideWindow" class="img-grid-container">
+      <img
+        v-for="(img, idx) in imgs"
+        :key="idx"
+        class="yacht-img object-fit"
+        :src="imgs[idx]"
+      />
+    </div>
 
-
-    <!-- <el-carousel class="yacht-details-img-carousel-container" :autoplay="false" height="200px" indicator-position="none">
-      <el-carousel-item style="background-color: #fff" v-for="(img, idx) in imgs" :key="idx" >
-          <img class="yacht-img-prev yacht-details-img-prev" :src= imgs[idx] />
+    <el-carousel v-else :autoplay="true" :interval="4000" trigger="click">
+      <el-carousel-item v-for="(img, idx) in imgs" :key="idx" autoplay="false">
+        <img :src="imgs[idx]" :class="`slide-imgs${idx}`" style="width: 100%" />
       </el-carousel-item>
-      
-    </el-carousel> -->
-      <!-- <ul class="yacht-details-img-grid-container">
-        <img v-for="(img,idx) in imgs" :key="idx" class="yacht-img"
-            :src="imgs[idx]">
-      </ul> -->
+    </el-carousel>
   </section>
 </template>
 
@@ -24,9 +23,23 @@ export default {
   props: {
     imgs: Array,
   },
+  data() {
+    return {
+      isWideWindow: false,
+    };
+  },
 
-  methods:{
-   
+  methods: {
+    windowSize() {
+      this.isWideWindow = window.innerWidth > 700 ? true : false
+    },
+  },
+
+  created() {
+    this.windowSize()
+    window.addEventListener('resize', () => {
+      this.windowSize()
+    })
   }
 };
 </script>
