@@ -53,8 +53,11 @@
             }
             .el-carousel--horizontal{
                     overflow-x: hidden;
+                }
+                .el-carousel{
+                    margin: 0;
+                }
             }
-        }
         }
         .main{
             display: flex;

@@ -10,7 +10,8 @@ export const yachtStore = {
             price: '',
             size: 'All',
             rate: 'All',
-        }
+        },
+
     },
     getters: {
         yachtsForShow(state) {
@@ -59,6 +60,18 @@ export const yachtStore = {
                 throw err;
             }
         },
+        // async filterTopYacht(context) {
+        //     try {
+        //         //    console.log('context.state.filterBy', context.state.filterBy);
+        //         const yachts = await yachtService.query()
+        //         // console.log(yachts, 'yachts are??');
+        //         context.commit({ type: 'getTopYachts', yachts })
+        //         return yachts
+        //     } catch (err) {
+        //         console.log('Cannot load yachts');
+        //         throw err;
+        //     }
+        // },
         async postReview(context, { review }) {
             console.log(context);
             var newReview = {

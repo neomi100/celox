@@ -137,7 +137,10 @@ export default {
         rate:'All'
       }
       this.setFilter()
-      console.log(this.filterBy);
+      // console.log(this.filterBy);
+       this.showSize=false
+        this.showPrice=false
+this.showRate=false
     }
   },
   computed:{

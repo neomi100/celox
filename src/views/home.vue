@@ -49,6 +49,22 @@
       <div class="txt-header">
         <h2>Top Destinations</h2>
       </div>
+    
+    <div class="top-yacht">
+      <h3>Top Rated Yachts</h3>
+      <ul>
+        <li v-for="(yacht,idx) in yachtTop" :key="idx"  class="top-rated-yachts">
+          <a :href="'/details/' + yacht._id">
+            <img :src="yacht.imgUrls[0]"  />
+          </a>
+          <div class="txt">
+          <h3 class="yacht-name">{{ yacht.name }}</h3>
+          <h4 class="yacht-price">${{ yacht.price }}</h4>
+          </div>
+        </li>
+      </ul>
+      <!-- {{ yacht.name }} -->
+    </div>
 
       <div class="destinations-imgs">
         <section>
@@ -94,12 +110,25 @@ export default {
     yachts() {
       return this.$store.getters.yachtsForShow;
     },
+    yachtTop(){
+      var yachts1 = this.$store.getters.yachtsForShow;
+      yachts1.splice(4)
+      console.log(yachts1,'map');
+      return yachts1
+    }
   },
   methods: {
-    formatPrice(value) {
-      let val = (value / 1).toFixed(2).replace(".", ",");
-      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    },
+    // formatPrice(value) {
+    //   let val = (value / 1).toFixed(2).replace(".", ",");
+    //   return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    // },
+    // topYacht(){
+    //   this.$store.dispatch({ type: 'filterTopYacht' });
+    //   return this.$store.getters.listYacht;
+    // }
   },
+  created(){
+    // console.log(this.yachtTop,this.yachtsZ, 'log');
+  }
 };
 </script>
