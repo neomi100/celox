@@ -76,9 +76,9 @@ export default {
     },
   },
   computed: {
-    loggedinUser() {
-      return this.$store.getters.loggedinUser;
-    },
+    // loggedinUser() {
+    //   return this.$store.getters.loggedinUser;
+    // },
   },
 };
 </script>
