@@ -1,5 +1,4 @@
-[
-    {
+[{
         "_id": "10006546",
         "name": "Katrina",
         "imgUrls": [
@@ -9,7 +8,6 @@
             "https://images.unsplash.com/photo-1598770722761-0cab70ffd2fb?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTh8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60",
             "https://images.unsplash.com/photo-1613886180226-d318bc3df2e0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTZ8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"
         ],
-        "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
         "price": 1800,
         "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
         "size": "medium",
@@ -30,14 +28,13 @@
         },
         "loc": {
             "country": "Portugal",
-            "city":"porto",
+            "city": "porto",
             "countryCode": "PT",
             "address": "Porto, Portugal",
             "lat": -8.61308,
             "lng": 41.1413
         },
-        "reviews": [
-            {
+        "reviews": [{
                 "id": "u102rev",
                 "txt": "Great apartment, amazing view and amnesties",
                 "rate": 4.5,
@@ -175,24 +172,22 @@
         },
         "loc": {
             "country": "Morocco",
-            "city":"Tetouan",
+            "city": "Tetouan",
             "countryCode": "MA",
             "address": "Marina Smir",
             "lat": -5.3109449,
             "lng": 35.7353565
         },
-        "reviews": [
-            {
-                "id": "madeId",
-                "txt": "Very helpful owners. Cooked traditional...",
-                "rate": 5,
-                "by": {
-                    "_id": "u102",
-                    "fullname": "user2",
-                    "imgUrl": "/img/img2.jpg"
-                }
+        "reviews": [{
+            "id": "madeId",
+            "txt": "Very helpful owners. Cooked traditional...",
+            "rate": 5,
+            "by": {
+                "_id": "u102",
+                "fullname": "user2",
+                "imgUrl": "/img/img2.jpg"
             }
-        ]
+        }]
     },
     {
         "_id": "10005432",
@@ -214,25 +209,23 @@
             "imgUrl": "https://randomuser.me/api/portraits/men/1.jpg"
         },
         "loc": {
-            "country":"israel",
+            "country": "israel",
             "city": "Acre",
             "countryCode": "IL",
             "address": "Acre Port, Leopold II",
             "lat": 35.0713933,
             "lng": 32.9192379
         },
-        "reviews": [
-            {
-                "id": "madeId",
-                "txt": "Very helpful owners. Cooked traditional...",
-                "rate": 2,
-                "by": {
-                    "_id": "u102",
-                    "fullname": "user2",
-                    "imgUrl": "/img/img2.jpg"
-                }
+        "reviews": [{
+            "id": "madeId",
+            "txt": "Very helpful owners. Cooked traditional...",
+            "rate": 2,
+            "by": {
+                "_id": "u102",
+                "fullname": "user2",
+                "imgUrl": "/img/img2.jpg"
             }
-        ]
+        }]
     },
     {
         "_id": "10007852",
@@ -254,25 +247,23 @@
             "imgUrl": "https://a0.muscache.com/im/pictures/fab79f25-2e10-4f0f-9711-663cb69dc7d8.jpg?aki_policy=profile_small"
         },
         "loc": {
-            "country":"Guadeloupe",
+            "country": "Guadeloupe",
             "city": "Gourbeyre",
             "countryCode": "IL",
             "address": "Marina Riviere Sens, Gourbeyre",
             "lat": -64.5336044,
             "lng": 18.0553084
         },
-        "reviews": [
-            {
-                "id": "madeId",
-                "txt": "Very helpful owners. Cooked traditional...",
-                "rate": 5,
-                "by": {
-                    "_id": "u102",
-                    "fullname": "user2",
-                    "imgUrl": "/img/img2.jpg"
-                }
+        "reviews": [{
+            "id": "madeId",
+            "txt": "Very helpful owners. Cooked traditional...",
+            "rate": 5,
+            "by": {
+                "_id": "u102",
+                "fullname": "user2",
+                "imgUrl": "/img/img2.jpg"
             }
-        ]
+        }]
     },
     {
         "_id": "10009921",
@@ -303,18 +294,16 @@
             "lat": -61.2718324,
             "lng": 16.3154298
         },
-        "reviews": [
-            {
-                "id": "madeId",
-                "txt": "Very helpful owners. Cooked traditional...",
-                "rate": 4,
-                "by": {
-                    "_id": "u102",
-                    "fullname": "user2",
-                    "imgUrl": "/img/img2.jpg"
-                }
+        "reviews": [{
+            "id": "madeId",
+            "txt": "Very helpful owners. Cooked traditional...",
+            "rate": 4,
+            "by": {
+                "_id": "u102",
+                "fullname": "user2",
+                "imgUrl": "/img/img2.jpg"
             }
-        ]
+        }]
     },
     {
         "_id": "10054328",
@@ -344,18 +333,16 @@
             "lat": 43.7294,
             "lng": 7.4209
         },
-        "reviews": [
-            {
-                "id": "madeId",
-                "txt": "luxury yacht , best in Monaco! Will come back again next summer for sure :)",
-                "rate": 5,
-                "by": {
-                    "_id": "u102",
-                    "fullname": "user2",
-                    "imgUrl": "/img/img2.jpg"
-                }
+        "reviews": [{
+            "id": "madeId",
+            "txt": "luxury yacht , best in Monaco! Will come back again next summer for sure :)",
+            "rate": 5,
+            "by": {
+                "_id": "u102",
+                "fullname": "user2",
+                "imgUrl": "/img/img2.jpg"
             }
-        ]
+        }]
     },
     {
         "_id": "10008621",
@@ -385,20 +372,17 @@
             "lat": 51.510834,
             "lng": -0.037168
         },
-        "reviews": [
-            {
-                "id": "madeId",
-                "txt": "Very helpful owners. Cooked traditional...",
-                "rate": 5,
-                "by": {
-                    "_id": "u102",
-                    "fullname": "user2",
-                    "imgUrl": "/img/img2.jpg"
-                }
+        "reviews": [{
+            "id": "madeId",
+            "txt": "Very helpful owners. Cooked traditional...",
+            "rate": 5,
+            "by": {
+                "_id": "u102",
+                "fullname": "user2",
+                "imgUrl": "/img/img2.jpg"
             }
-        ]
-    },
-    {
+        }]
+    }, {
         "_id": "10008743",
         "name": "GUSTAV-VASA",
         "imgUrls": [
@@ -420,24 +404,22 @@
         },
         "loc": {
             "country": "Sweden",
-            "city":"Skäldervikens",
+            "city": "Skäldervikens",
             "countryCode": "SE",
             "address": "Skäldervikens Hamn",
             "lat": 56.27808488272313,
             "lng": 12.843368570818022
         },
-        "reviews": [
-            {
-                "id": "madeId",
-                "txt": "Very helpful owners. Cooked traditional...",
-                "rate": 5,
-                "by": {
-                    "_id": "u102",
-                    "fullname": "user2",
-                    "imgUrl": "/img/img2.jpg"
-                }
+        "reviews": [{
+            "id": "madeId",
+            "txt": "Very helpful owners. Cooked traditional...",
+            "rate": 5,
+            "by": {
+                "_id": "u102",
+                "fullname": "user2",
+                "imgUrl": "/img/img2.jpg"
             }
-        ]
+        }]
     },
     {
         "_id": "139811232",
@@ -466,16 +448,15 @@
             "lat": 22.209912884222067,
             "lng": 113.53951811264966
         },
-        "reviews": [
-            {
-                "id": "madeId",
-                "txt": "Very helpful owners. Cooked traditional...",
-                "rate": 2,
-                "by": {
-                    "_id": "u102",
-                    "fullname": "user2",
-                    "imgUrl": "/img/img2.jpg"
-                }
+        "reviews": [{
+            "id": "madeId",
+            "txt": "Very helpful owners. Cooked traditional...",
+            "rate": 2,
+            "by": {
+                "_id": "u102",
+                "fullname": "user2",
+                "imgUrl": "/img/img2.jpg"
             }
-        ]
-    }]
+        }]
+    }
+]
