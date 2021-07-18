@@ -43,38 +43,52 @@
     </div>
     <div>
       <h2>Filter Locations</h2>
-      
     </div>
-    <div class="top-destinations" style="display: none">
-      <h3>Top Destinations</h3>
-      <div class="destination">
-        <ul>
-          <li v-for="(yacht, idx) in yachts" :key="idx">
-            <span>{{ yacht.name }}</span>
-          </li>
-        </ul>
-        <!-- {{ yacht }} -->
+
+    <section class="top-destinations">
+      <div class="txt-header">
+        <h2>Top Destinations</h2>
       </div>
-    </div>
-    <!-- <div>
-      <h3>Top Rated Yachts</h3>
-      <ul class="top-rated-yachts">
-        <li v-for="(yacht, idx) in yachts" :key="idx">
-          <a v-bind:href="'/details/' + yacht._id">
-            <img v-bind:src="yacht.imgUrls[0]" alt="" />
-          </a>
-          <h3 class="yacht-name">{{ yacht.name }}</h3>
-          <h4 class="yacht-price">{{ formatPrice(yacht.price) }} USD</h4>
-        </li>
-      </ul>
-      {{ yacht.name }}
-    </div> -->
+
+      <div class="destinations-imgs">
+        <section>
+          <ul class="destinations-imgs-ul">
+            <li v-for="(img, idx) in (imgs, yachts)" :key="idx" class="gallery-item">
+              <a href="/yacht-page" class="gallery-item-a" >
+                <div class="gallery-img">
+                  <img class="yacht-img object-fit" :src="imgs[idx]" />
+                </div>
+                <div class="gallery-txt">
+                  <h4>Yacht Charter {{ yachts[idx].loc.country }}</h4>
+                  <br />
+                  <p>Starting from ${{ yachts[idx].price }}/day</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </section>
   </section>
 </template>
 
 <script>
 
 export default {
+  data() {
+    return {
+      imgs: [
+        "https://cdn.zizoo.com/media/images/top-destinations/bahamas-lg.jpg",
+        "https://cdn.zizoo.com/media/images/top-destinations/puerto-rico.jpg",
+        "https://cdn.zizoo.com/media/images/top-destinations/greece.jpg",
+        "https://cdn.zizoo.com/media/images/top-destinations/croatia.jpg",
+        "https://cdn.zizoo.com/media/images/top-destinations/british-virgin-islands.jpg",
+        "https://cdn.zizoo.com/media/images/top-destinations/spain.jpg",
+        "https://cdn.zizoo.com/media/images/top-destinations/turkey.jpg",
+        "https://cdn.zizoo.com/media/images/top-destinations/italy.jpg",
+      ],
+    };
+  },
 
   computed: {
     yachts() {
