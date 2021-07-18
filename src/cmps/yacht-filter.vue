@@ -11,36 +11,40 @@
           type="daterange"
           start-placeholder="Start Date"
           end-placeholder="End Date"
+          size="small"
         >
         </el-date-picker>
       </div>
     </div>
 
     <div class="left">
-      <button class="filter-btn" @click="changeSize">Size ▽</button>
+        <div class="filter-main">
+      <button class="filter-btn" @click="changeSize">Size</button>
       <div class="size" :class="open" >
         <el-radio-group
           v-model="filterBy.size"
           @change="setFilter"
           size="small"
         >
+          <!-- v-model="radio1" -->
           <el-radio-button label="All"></el-radio-button>
           <el-radio-button label="Small"></el-radio-button>
           <el-radio-button label="Medium"></el-radio-button>
           <el-radio-button label="Large"></el-radio-button>
         </el-radio-group>
       </div>
+    
 
-      <button class="filter-btn" @click="changeRate">Rate ▽</button>
-      <div :class="openRate">
+      <button class="filter-btn" @click="changeRate">Rate</button>
+      <div class="rate" :class="openRate">
   <el-rate  v-model="filterBy.rate" 
     @change="setFilter" ></el-rate>
 </div>
 
 
-      <button class="filter-btn" @click="changePrice">Price ▽</button>
-      <div :class="openPrice">
-    <label for="age">Dayly price: ${{ filterBy.price }}</label>
+      <button class="filter-btn" @click="changePrice">Price</button>
+      <div class="price" :class="openPrice">
+    <label for="price">Dayly price: ${{ filterBy.price }}</label>
     <input
       type="range"
       id="price"
@@ -54,64 +58,8 @@
     </div>
     </div>
 
-<button>Clear filter</button>
-
-      <!-- <div class="size" :class="openRate">
-    <el-select  v-model="filterBy.rate" 
-    @change="setFilter" placeholder="Rate:" size="medium" >
-    <el-option
-      v-for="item in options"
-      :key="item.value"
-      :label="item.label"
-      :value="item.value">
-    </el-option>
-  </el-select>
-  </div> -->
-    <!-- <date-picker></date-picker> -->
-
-    <!-- OLD DATES -->
-    <!-- <label for="dob">Dates:</label>
-        <input type="date" id="dob" name="dob" /> -->
-    <!-- OLD size -->
-    <!-- <label for="browser">Size:</label>
-    <input
-      v-model="filterBy.size"
-      list="browsers"
-      name="browser"
-      id="browser"
-      @change="setFilter"
-    />
-    <datalist id="browsers">
-      <option>All</option>
-      <option value="small">Small</option>
-      <option value="medium">Medium</option>
-      <option value="large">Large</option>
-    </datalist> -->
-
-
-    <!-- <label>Rate:</label>
-    <select v-model="filterBy.rete" @change="setFilter" id="filter">
-      <option>All</option>
-      <option value="1">★</option>
-      <option value="2">★★</option>
-      <option value="3">★★★</option>
-      <option value="4">★★★★</option>
-      <option value="5">★★★★★</option>
-    </select> -->
-
-    <!-- <label for="age">Dayly price: ${{ filterBy.price }}</label>
-    <input
-      type="range"
-      id="price"
-      name="price"
-      min="500"
-      max="1900"
-      step="10"
-      @change="setFilter"
-      v-model="filterBy.price"
-    /> -->
-
-    
+<button class="clear" @click="clearFilter">Clear filter</button>
+</div>
   </section>
 </template>
 
@@ -167,13 +115,29 @@ export default {
       // console.log(this.filterBy.size, 'size');
     },
     changeSize() {
-        this.showSize=!this.showSize  
+        this.showRate=false
+        this.showPrice=false
+        this.showSize=!this.showSize 
     },
     changeRate(){
         this.showRate=!this.showRate
+        this.showSize=false
+        this.showPrice=false
     },
     changePrice(){
         this.showPrice=!this.showPrice
+        this.showSize=false
+         this.showRate=false
+    },
+    clearFilter(){
+        this.filterBy= {
+        dates: "",
+        price: 500,
+        size: "All",
+        rate:'All'
+      }
+      this.setFilter()
+      console.log(this.filterBy);
     }
   },
   computed:{

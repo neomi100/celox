@@ -33,6 +33,7 @@
     </div>
     <div>
       <h2>Filter Locations</h2>
+      
     </div>
     <div class="top-destinations" style="display: none">
       <h3>Top Destinations</h3>
