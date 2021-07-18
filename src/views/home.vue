@@ -33,7 +33,6 @@
     </div>
     <div>
       <h2>Filter Locations</h2>
-      
     </div>
     <div class="top-destinations" style="display: none">
       <h3>Top Destinations</h3>
@@ -46,15 +45,17 @@
         <!-- {{ yacht }} -->
       </div>
     </div>
-    <div>
+    <div class="top-yacht">
       <h3>Top Rated Yachts</h3>
-      <ul class="top-rated-yachts">
-        <li v-for="(yacht, idx) in yachts" :key="idx">
-          <a v-bind:href="'/details/' + yacht._id">
-            <img v-bind:src="yacht.imgUrls[0]" alt="" />
+      <ul>
+        <li v-for="(yacht,idx) in yachtTop" :key="idx"  class="top-rated-yachts">
+          <a :href="'/details/' + yacht._id">
+            <img :src="yacht.imgUrls[0]"  />
           </a>
+          <div class="txt">
           <h3 class="yacht-name">{{ yacht.name }}</h3>
-          <h4 class="yacht-price">{{ formatPrice(yacht.price) }} USD</h4>
+          <h4 class="yacht-price">${{ yacht.price }}</h4>
+          </div>
         </li>
       </ul>
       <!-- {{ yacht.name }} -->
@@ -64,16 +65,34 @@
 
 <script>
 export default {
+  data(){
+return {
+// yachtsZ:this.yachtTop()
+}
+  },
   computed: {
     yachts() {
       return this.$store.getters.yachtsForShow;
     },
+    yachtTop(){
+      var yachts1 = this.$store.getters.yachtsForShow;
+      yachts1.splice(4)
+      console.log(yachts1,'map');
+      return yachts1
+    }
   },
   methods: {
-    formatPrice(value) {
-      let val = (value / 1).toFixed(2).replace(".", ",");
-      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    },
+    // formatPrice(value) {
+    //   let val = (value / 1).toFixed(2).replace(".", ",");
+    //   return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    // },
+    // topYacht(){
+    //   this.$store.dispatch({ type: 'filterTopYacht' });
+    //   return this.$store.getters.listYacht;
+    // }
   },
+  created(){
+    // console.log(this.yachtTop,this.yachtsZ, 'log');
+  }
 };
 </script>

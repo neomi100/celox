@@ -120,30 +120,48 @@ div.random-search {
 
 ///////////////////////////////
 
-
+ul{
+display: grid;
+align-items: center;
+justify-content:space-between;
+grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+gap: 5px;
 
 .top-rated-yachts {
-    display: flex;
-    justify-content: space-evenly;
-}
-
-    .top-rated-yachts img {
-        width: 400px;
-        height: 200px;
+    width: 100%;
+        height: 100%;
+    object-fit: cover;
+    &:hover{
+        opacity: 0.4;
     }
 
-    .top-rated-yachts h3 {
+     img {
+        width: 100%;
+        height: 100%;
+        // border-radius: 12px;
+    }
+.txt{
+    position: absolute;
+    text-align: center;
+top:1116px;
+
+     h3 {
         font-size:1.6rem;
         margin-top: -67px;
-        color:black;
+        color:white;
+        font-family: BlinkerBold;
     }
 
-    .top-rated-yachts h4 {
+     h4 {
+        color:white;
         font-size:1.2rem;
         margin-top: -20px;
-        color:black;
+        font-family: BlinkerBold;
+        
     }
-
+   } 
+}
+}
 .top-destinations {
     display: flex;
     justify-content: space-around;
