@@ -1,13 +1,15 @@
 <template>
 <!-- <div> -->
   <!-- <filter @filtered="filter" /> -->
-  <div class="continer">
+  <div class="continer" @click="onDetails">
       <section class="yacht-preview">
+
         <!-- <img class="yacht-img" :src="yacht.imgUrls[currentSrc]"/> -->
         <!-- <button class="right"></button><img/> -->
         <el-carousel indicator-position="none" trigger="click" :autoplay="false">
           <el-carousel-item v-for="(img, idx) in imgs" :key="idx">
     <router-link :to="'/details/' + yacht._id">
+    <!-- <a> -->
             <img class="img" :src= imgs[idx] />
             <!-- <img
         v-if="!isLiked"
@@ -31,24 +33,25 @@
     <!-- <button
               class="like-btn fas fa-heart"
               @click="toggleLike()" -->
-            >
+           
               <!-- <i class="save-btn btn fas fa-heart" style="color: #ca4c4c"></i> -->
               <!-- <span>Save</span> -->
             <!-- </button> -->
 
 
+              <!-- class="like-btn far fa-heart" -->
              <button
-              class="like-btn "
-              v-if="!isLiked"
-              @click.stop="toggleLike()"
+              @click.stop.prevent="toggleLike()"
             >
-              <i class="save-btn btn far fa-heart"></i>
+              <i :class="thisLike" class="fas fa-heart"></i>
             </button>
+            <!-- </a> -->
     </router-link>
           </el-carousel-item>
         </el-carousel>
       </section>
       <div class="main">
+      
  <router-link :to="'/details/' + yacht._id">
         <div class="yacht-up">
           <p class="right-up">
@@ -60,7 +63,7 @@
         </div>
         <span class="yacht-name">{{ yacht.name }}</span>
         <span class="yacht-price">Daily price: {{ yacht.price }}$</span>
-     </router-link>   
+     </router-link>  
       </div>
   </div>
 <!-- </div> -->
@@ -111,6 +114,10 @@ export default {
           return "";
       }
     },
+    thisLike(){
+      if(this.isLiked)return 'like'
+      return 'like-btn'
+    }
   },
   methods: {
               async toggleLike() {
@@ -122,6 +129,10 @@ export default {
       }
       await this.$store.dispatch({ type: "toggleLike", yacht: this.yacht });
     },
+    onDetails(){
+const id= this.yacht._id
+      this.$router.push('/details/:'+id)
+    }
   },
   created() {
     // this.rate
