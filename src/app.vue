@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="`${topClass}`">
     <my-header />
     <router-view class="main-layout" />
     <my-footer/>
@@ -14,8 +14,17 @@ import myFooter from "./cmps/app-footer.vue";
 
 export default {
   // components: { home },
+  data(){
+    return{
+      topClass : 'top'
+    }
+  },
     created() {
     this.$store.dispatch({ type: 'loadYachts' });
+    window.onscroll = () =>{
+      if(window.scrollY !== 0) this.topClass = ''
+      else this.topClass = 'top'
+    }
   },
    components: {
     myHeader,
