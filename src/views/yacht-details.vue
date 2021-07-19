@@ -40,7 +40,8 @@
       />
     </div>
 
-    <div class="yacht-details flex">
+
+    <div class="yacht-details flex space-between  ">
       <div class="bottom-border yacht-description">
         <div class="flex space-between bottom-border yacht-desctiption-title">
           <div>
