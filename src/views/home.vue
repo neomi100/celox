@@ -1,7 +1,7 @@
 <template>
   <section>
-    <div class="home">
-      <img class="main-img" src="@/assets/main-img.jpg" />
+    <div class="home full">
+      <img class="main-img " src="@/assets/main-img.jpg" />
       <div class="searchBox">
         <div class="sb-input div0" onclick="a()">
           <span class="sb-input-title">Check In Date</span>
@@ -11,6 +11,13 @@
           <span class="sb-input-title">Check Out Date</span>
           <span class="sb-input-data">Select data</span>
         </div>
+                          <!-- <el-date-picker
+          type="daterange"
+          start-placeholder="Start Date"
+          end-placeholder="End Date"
+          size="small"
+        >
+        </el-date-picker> -->
         <div class="sb-input div2" onclick="b()">
           <span class="sb-input-title">Location</span>
           <span class="sb-input-data">Select Location</span>
@@ -20,7 +27,10 @@
         </a>
       </div>
 
-      <div class="pickDate"></div>
+      <div class="pickDate">
+      </div>
+
+              
 
       <div class="pickLocation"></div>
 
@@ -39,6 +49,22 @@
       <div class="txt-header">
         <h2>Top Destinations</h2>
       </div>
+    
+    <div class="top-yacht">
+      <h3>Top Rated Yachts</h3>
+      <ul>
+        <li v-for="(yacht,idx) in yachtTop" :key="idx"  class="top-rated-yachts">
+          <a :href="'/details/' + yacht._id">
+            <img :src="yacht.imgUrls[0]"  />
+          </a>
+          <div class="txt">
+          <h3 class="yacht-name">{{ yacht.name }}</h3>
+          <h4 class="yacht-price">${{ yacht.price }}</h4>
+          </div>
+        </li>
+      </ul>
+      <!-- {{ yacht.name }} -->
+    </div>
 
       <div class="destinations-imgs">
         <section>
@@ -63,6 +89,7 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -83,12 +110,25 @@ export default {
     yachts() {
       return this.$store.getters.yachtsForShow;
     },
+    yachtTop(){
+      var yachts1 = this.$store.getters.yachtsForShow;
+      yachts1.splice(4)
+      console.log(yachts1,'map');
+      return yachts1
+    }
   },
   methods: {
-    formatPrice(value) {
-      let val = (value / 1).toFixed(2).replace(".", ",");
-      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    },
+    // formatPrice(value) {
+    //   let val = (value / 1).toFixed(2).replace(".", ",");
+    //   return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    // },
+    // topYacht(){
+    //   this.$store.dispatch({ type: 'filterTopYacht' });
+    //   return this.$store.getters.listYacht;
+    // }
   },
+  created(){
+    // console.log(this.yachtTop,this.yachtsZ, 'log');
+  }
 };
 </script>

@@ -4,6 +4,13 @@
     gap: 100px;
     align-items: center;
     padding: 10px 0;
+    //.backround{
+       // background-image: image('../../assets/images/main-img.jpg');
+        //height: 300px;
+        //width: 300px;
+  //  }
+    
+
     // background-image: url('../../assets/images/main-img.jpg');
     .main-img {
         position: inherit;
@@ -47,6 +54,12 @@ div.searchBox .sb-input {
     text-align: center;
 }
 
+        div.searchBox .sb-input:hover {
+            background-color: wheat;
+            border-radius: 25px;
+            height:100% ;
+            cursor: pointer;
+        }
 div.searchBox .sb-input:not(:last-of-type) {
     border-right-style: ridge;
     /*border-right-color: black;*/
@@ -86,6 +99,7 @@ div.pickLocation {
 
 div.random-search {
     text-align: center;
+    
 }
 
 div.random-search .rs-title {
@@ -95,6 +109,17 @@ div.random-search .rs-title {
     margin-bottom: 8px;
 }
 
+     .rs-inner {
+        margin: 0 auto;
+    background-color: white;
+   padding: 16px;
+    border-radius: 25px;
+    margin-bottom: 100px;
+    padding: 10px 20px;
+    &:hover{
+        cursor:pointer
+    }
+    }
 div.random-search .rs-inner {
     margin: 0 auto;
     background-color: white;
@@ -108,11 +133,49 @@ div.random-search .rs-inner {
 }
 
 ///////////////////////////////
-.top-rated-yachts {
-    display: flex;
-    justify-content: space-evenly;
-}
 
+ul{
+display: grid;
+align-items: center;
+justify-content:space-between;
+grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+gap: 5px;
+
+.top-rated-yachts {
+    width: 100%;
+        height: 100%;
+    object-fit: cover;
+    &:hover{
+        opacity: 0.4;
+    }
+
+     img {
+        width: 100%;
+        height: 100%;
+        // border-radius: 12px;
+    }
+.txt{
+    position: absolute;
+    text-align: center;
+top:1116px;
+
+     h3 {
+        font-size:1.6rem;
+        margin-top: -67px;
+        color:white;
+        font-family: BlinkerBold;
+    }
+
+     h4 {
+        color:white;
+        font-size:1.2rem;
+        margin-top: -20px;
+        font-family: BlinkerBold;
+        
+    }
+   } 
+}
+}
 .top-rated-yachts img {
     width: 400px;
     height: 200px;
