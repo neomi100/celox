@@ -1,5 +1,5 @@
 <template>
-  <section v-if="yachts" >
+  <section v-if="yachts" class="layout-yacht" >
     <yachtFilter @filterede="filterBy" />
     <yachtList :yachts="yachts" />
   </section>

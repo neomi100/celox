@@ -45,6 +45,13 @@ export const yachtStore = {
             const idx = state.yachts.findIndex(({ _id }) => _id === updatedyacht._id);
             state.yachts.splice(idx, 1, updatedyacht);
         },
+        updateYacht(state, { yacht }) {
+            const idx = state.yachts.findIndex((y) => y._id === yacht._id);
+            state.yachts.splice(idx, 1, yacht);
+          },
+          addYacht(state, { yacht }) {
+            state.yachts.push(yacht);
+          },
 
     },
     actions: {
@@ -60,18 +67,18 @@ export const yachtStore = {
                 throw err;
             }
         },
-        // async filterTopYacht(context) {
-        //     try {
-        //         //    console.log('context.state.filterBy', context.state.filterBy);
-        //         const yachts = await yachtService.query()
-        //         // console.log(yachts, 'yachts are??');
-        //         context.commit({ type: 'getTopYachts', yachts })
-        //         return yachts
-        //     } catch (err) {
-        //         console.log('Cannot load yachts');
-        //         throw err;
-        //     }
-        // },
+        async  saveYacht({ commit }, { yacht }) {
+            const type = yacht._id ? 'updateYacht' : 'addYacht';
+            try {
+              const savedYacht = await yachtService.save(yacht);
+              commit({ type, yacht: savedYacht });
+              return savedYacht;
+            } catch (err) {
+              console.log('Cannot save yacht');
+              throw err;
+            }
+        },
+    
         async postReview(context, { review }) {
             console.log(context);
             var newReview = {

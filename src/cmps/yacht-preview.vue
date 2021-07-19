@@ -1,56 +1,23 @@
 <template>
-<!-- <div> -->
-  <!-- <filter @filtered="filter" /> -->
-  <div class="continer" @click="onDetails">
-      <section class="yacht-preview">
-
-        <!-- <img class="yacht-img" :src="yacht.imgUrls[currentSrc]"/> -->
-        <!-- <button class="right"></button><img/> -->
+  <section class="continer" @click="onDetails">
+      <div class="main">
         <el-carousel indicator-position="none" trigger="click" :autoplay="false">
           <el-carousel-item v-for="(img, idx) in imgs" :key="idx">
-    <router-link :to="'/details/' + yacht._id">
-    <!-- <a> -->
-            <img class="img" :src= imgs[idx] />
-            <!-- <img
-        v-if="!isLiked"
-        title="Save To Favorites"
-        @click="ToggleLike(stay)"
-        class="like-btn"
-        src="../assets/imgs/icons/heart.png"
-      />
-      <img
-        v-else
-        title="Remove From Favorites"
-        @click="ToggleLike(stay)"
-        class="like-btn"
-        src="../assets/imgs/icons/fillheart.png"
-      /> -->
-    <!-- <button
-              class="btn flex center space-evenly action-btn"
-              v-if="isLiked"
-              @click="toggleLike()"
-            > -->
-    <!-- <button
-              class="like-btn fas fa-heart"
-              @click="toggleLike()" -->
-           
-              <!-- <i class="save-btn btn fas fa-heart" style="color: #ca4c4c"></i> -->
-              <!-- <span>Save</span> -->
-            <!-- </button> -->
-
-
-              <!-- class="like-btn far fa-heart" -->
+            
+    <!-- <router-link :to="'/details/' + yacht._id"> -->
+   
+            <img class="img" :src= imgs[idx] style="width:100%; height: 100%"/>
+       
              <button
               @click.stop.prevent="toggleLike()"
             >
               <i :class="thisLike" class="fas fa-heart"></i>
             </button>
-            <!-- </a> -->
-    </router-link>
+        
+    <!-- </router-link> -->
           </el-carousel-item>
         </el-carousel>
-      </section>
-      <div class="main">
+      <div class="yacht-preview">
       
  <router-link :to="'/details/' + yacht._id">
         <div class="yacht-up">
@@ -65,7 +32,8 @@
         <span class="yacht-price">Daily price: {{ yacht.price }}$</span>
      </router-link>  
       </div>
-  </div>
+      </div>
+  </section>
 <!-- </div> -->
 </template>
 

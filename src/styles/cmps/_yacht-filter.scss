@@ -4,10 +4,28 @@ margin-bottom: 7px;
 display: flex;
 align-items: center;
 justify-content: space-between;
+padding-left: 10px;
+padding-right: 10px;
+
+.right{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
     .date{
         border-style: none;
         border-radius: 12px;
+        margin-right: 50px;
     }
+    .search{
+    border: none;
+
+}&::after{
+    font-family: fa-solid;
+    content: "\f689";
+    color: $clr1;
+}
+  }  
     .filter-main{
         height: 30px;
     width: 150px;

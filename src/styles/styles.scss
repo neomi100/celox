@@ -18,9 +18,10 @@
 @import 'cmps/trip-settings';
 @import 'cmps/slide-img';
 @import 'cmps/yacht-filter';
+@import 'cmps/yacht-list.scss';
+@import 'cmps/yacht-preview.scss';
 //VIEWS
 @import 'cmps/app.scss';
 @import 'cmps/home.scss';
-@import 'cmps/yacht-list.scss';
-@import 'cmps/yacht-preview.scss';
 @import 'views/yacht-details.scss';
+@import 'views/become-owner.scss'

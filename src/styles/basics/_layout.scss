@@ -14,6 +14,30 @@
             grid-column: 1 / -1;
         }
     }
+
+}
+.layout-yacht {
+    display: grid;
+    align-items: center;
+    >* {
+        grid-column: 2 / span 1;
+    }
+    >.full {
+        grid-column: 1 / -1;
+    }
+    @include for-mobile-layout {
+        grid-template-columns: minmax(1rem, 1fr) minmax(auto, $break-narrow) minmax(1rem, 1fr);
+    }
+    @include for-narrow-layout {
+        grid-template-columns: minmax(1rem, 1fr) minmax(auto, $break-normal) minmax(1rem, 1fr);
+    }
+    @include for-normal-layout {
+        grid-template-columns: minmax(1rem, 1fr) minmax(auto, 1100px) minmax(1rem, 1fr);
+    }
+    @include for-wide-layout {
+        grid-template-columns: minmax(1rem, 1fr) minmax(auto, 1900px) minmax(1rem, 1fr);
+    }
+
 }
 
 .full-height {

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import home from '../views/home.vue'
-import becomeHost from '../views/become-host.vue'
+import becomeOwner from '../views/become-owner.vue'
 import login from '../views/login.vue'
 import yachtPage from '../views/yacht-page.vue'
 import yachtDetails from '../views/yacht-details.vue'
@@ -16,8 +16,8 @@ const routes = [{
         path: '/yacht-page',
         component: yachtPage,
     }, {
-        path: '/become-host',
-        component: becomeHost
+        path: '/become-owner/:id?',
+        component: becomeOwner
     },
     {
         path: '/login',

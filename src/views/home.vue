@@ -50,7 +50,7 @@
         <h2>Top Destinations</h2>
       </div>
     
-    <div class="top-yacht">
+    <!-- <div class="top-yacht">
       <h3>Top Rated Yachts</h3>
       <ul>
         <li v-for="(yacht,idx) in yachtTop" :key="idx"  class="top-rated-yachts">
@@ -63,8 +63,8 @@
           </div>
         </li>
       </ul>
-      <!-- {{ yacht.name }} -->
-    </div>
+      {{ yacht.name }} -->
+    <!-- </div> --> 
 
       <div class="destinations-imgs">
         <section>
@@ -110,12 +110,12 @@ export default {
     yachts() {
       return this.$store.getters.yachtsForShow;
     },
-    yachtTop(){
-      var yachts1 = this.$store.getters.yachtsForShow;
-      yachts1.splice(4)
-      console.log(yachts1,'map');
-      return yachts1
-    }
+    // yachtTop(){
+    //   var yachts1 = this.$store.getters.yachtsForShow;
+    //   yachts1.splice(4)
+    //   console.log(yachts1,'map');
+    //   return yachts1
+    // }
   },
   methods: {
     // formatPrice(value) {

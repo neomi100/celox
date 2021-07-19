@@ -1,22 +1,29 @@
 <template>
   <section class="filter">
     <div class="right">
-      <!-- <label> Search our yacht: </label>
-        <input ref="title" type="text" @input="setFilter" placeholder="Search...." v-model="filterBy.location"> --> 
-
-    <div class="block">
+ 
+<!-- ref="" -->
+    <div class="date">
         <el-date-picker
           v-model="filterBy.dates"
           @change="setFilter"
           type="daterange"
           start-placeholder="Start Date"
           end-placeholder="End Date"
-          size="small"
+          size="mini"
         >
         </el-date-picker>
       </div>
-    </div>
+      
+            <el-input
+            class="search"
+    size="mini"
+    placeholder="Search..."
+    v-model="filterBy.txt">
+  </el-input>
+ <!-- <input  type="text" @input="setFilter" placeholder="" v-model=""  > -->
 
+ </div>
     <div class="left">
         <div class="filter-main">
       <button class="filter-btn" @click="changeSize">Size</button>
@@ -72,6 +79,7 @@ export default {
     showRate:false,
     showPrice:false,
       filterBy: {
+        txt:'',
         dates: "",
         price: 500,
         size: "All",
@@ -134,7 +142,8 @@ export default {
         dates: "",
         price: 500,
         size: "All",
-        rate:'All'
+        rate:'All',
+        txt:''
       }
       this.setFilter()
       // console.log(this.filterBy);
@@ -156,9 +165,10 @@ this.showRate=false
           let price = (this.showPrice)?  'isOpen':  'isClose';
           return price;
       },
-  }
-  // created(){
-  // },
+  },
+  created(){
+console.log("filterede", this.filterBy);
+  },
   //   components: {
   //     datePicker,
 

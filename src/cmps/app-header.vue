@@ -61,7 +61,7 @@ export default {
       await this.$store.dispatch({ type: "loadYachts" });
     },
     becomeowner() {
-      this.$router.push("/login");
+      this.$router.push("/become-owner");
     },
     navTo() {
       console.log("click");
