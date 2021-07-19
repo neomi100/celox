@@ -98,8 +98,8 @@ export default {
       await this.$store.dispatch({ type: "toggleLike", yacht: this.yacht });
     },
     onDetails(){
-const id= this.yacht._id
-      this.$router.push('/details/:'+id)
+// const id= this.yacht._id
+      this.$router.push(`/details/`+ this.yacht._id)
     }
   },
   created() {

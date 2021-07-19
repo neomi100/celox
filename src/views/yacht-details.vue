@@ -1,5 +1,5 @@
 <template>
-  <section v-if="yacht" class="yacht-details-container ">
+  <section v-if="yacht" class="yacht-details-container main-layout ">
     <div class="header-img-gallery">
       <div class="yacht-details-title flex column">
         <!-- <div class="yacht-title-primary">{{ yacht.summary }}</div> -->
