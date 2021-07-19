@@ -110,12 +110,12 @@ export default {
     yachts() {
       return this.$store.getters.yachtsForShow;
     },
-    yachtTop(){
-      var yachts1 = this.$store.getters.yachtsForShow;
-      yachts1.splice(4)
-      console.log(yachts1,'map');
-      return yachts1
-    }
+    // yachtTop(){
+    //   var yachts1 = this.$store.getters.yachtsForShow;
+    //   yachts1.splice(4)
+    //   console.log(yachts1,'map');
+    //   return yachts1
+    // }
   },
   methods: {
     // formatPrice(value) {
