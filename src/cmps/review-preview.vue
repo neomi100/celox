@@ -1,5 +1,5 @@
 <template>
-  <section class="review-card">
+  <section class="review-card flex row">
     <div>
       <img
         class="thumb-img"

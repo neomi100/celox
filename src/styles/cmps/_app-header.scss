@@ -1,4 +1,5 @@
 .header-container {
+    transition: background-color 0.2s;
     z-index: 50;
     height: 80px;
     background-color: white;
@@ -86,6 +87,9 @@
     }
 }
 
+.el-menu{
+    background: none;
+}
 .el-menu--horizontal>.el-menu-item.is-active {
     border: none;
 }

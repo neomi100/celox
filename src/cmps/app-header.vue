@@ -1,9 +1,9 @@
 <template>
-  <header class="full main-layout header-container">
+  <header :class="`full main-layout header-container`">
     <div class="nav-container">
       <el-menu
         class="el-menu-demo menu-flex"
-        style="border: none; border: none"
+        style="border: none; background-color: unset;"
         mode="horizontal"
       >
         <el-menu-item >
@@ -74,8 +74,10 @@ export default {
       //     break;
       // }
     },
+
   },
   computed: {
+  
     // loggedinUser() {
     //   return this.$store.getters.loggedinUser;
     // },

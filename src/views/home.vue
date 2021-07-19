@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <div class="home full">
+  <section class="home">
+    <div class="home-hero full">
       <img class="main-img " src="@/assets/main-img.jpg" />
       <div class="searchBox">
         <div class="sb-input div0" onclick="a()">
@@ -22,69 +22,54 @@
           <span class="sb-input-title">Location</span>
           <span class="sb-input-data">Select Location</span>
         </div>
-        <a href="#">
-          <img src="@/assets/images/search1_trans.png" alt="Alternate Text" />
-        </a>
-      </div>
-
-      <div class="pickDate">
-      </div>
-
-              
-
-      <div class="pickLocation"></div>
+        <button class="search-btn"></button>
+      </div>                
 
       <div class="random-search">
-        <span class="rs-title">Didn't find what you were looking for ?'</span>
-        <div class="rs-inner" onclick="randYacht()">
-          <span>Find your random yacht !</span>
-        </div>
+        <span class="rs-title">Can't decide ?</span>
+        <button class="rs-inner" onclick="randYacht()">
+          <p>
+            Suprise me
+          </p>
+        </button>
       </div>
     </div>
-    <div>
-      <h2>Filter Locations</h2>
-    </div>
 
-    <section class="top-destinations">
-      <div class="txt-header">
-        <h2>Top Destinations</h2>
-      </div>
-    
-    <!-- <div class="top-yacht">
-      <h3>Top Rated Yachts</h3>
-      <ul>
-        <li v-for="(yacht,idx) in yachtTop" :key="idx"  class="top-rated-yachts">
-          <a :href="'/details/' + yacht._id">
-            <img :src="yacht.imgUrls[0]"  />
-          </a>
-          <div class="txt">
-          <h3 class="yacht-name">{{ yacht.name }}</h3>
-          <h4 class="yacht-price">${{ yacht.price }}</h4>
-          </div>
-        </li>
-      </ul>
-      {{ yacht.name }} -->
-    <!-- </div> --> 
-
-      <div class="destinations-imgs">
-        <section>
-          <ul class="destinations-imgs-ul">
-            <li v-for="(img, idx) in (imgs, yachts)" :key="idx" class="gallery-item">
-              <a href="/yacht-page" class="gallery-item-a" >
-                <div class="gallery-img">
-                  <img class="yacht-img object-fit" :src="imgs[idx]" />
+    <section>
+      <h2>Top destinations</h2>
+          <ul class="destinations-imgs-ul destinations-imgs">
+            <li v-for="loc in topLocs" :key="loc.txt" :class="`gallery-item ${loc.class}`" :style="{ backgroundImage: 'url(' + loc.img + ')' }">
+              <router-link to="/yacht-page" class="gallery-item-a">
+                <!-- <div class="gallery-img" :style="{'background-color': 'red'}"> -->
+                <div class="gallery-img" >
+                  <!-- <img class="yacht-img object-fit" :src="imgs[idx]" /> -->
+                  <div class="txt">
+                    <h4>Yacht Charter {{ loc.txt }}</h4>
+                    <p>Starting from ${{loc.minPrice }}/day</p>
+                  </div>
                 </div>
-                <div class="gallery-txt">
-                  <h4>Yacht Charter {{ yachts[idx].loc.country }}</h4>
-                  <br />
-                  <p>Starting from ${{ yachts[idx].price }}/day</p>
-                </div>
-              </a>
+                </router-link>
             </li>
           </ul>
-        </section>
-      </div>
     </section>
+
+     <section class="top-destinations">
+    
+      <h3>Top Rated Yachts</h3>
+      <!-- <ul class="top-yacht-list">
+        <li v-for="(yacht,idx) in yachts" :key="idx"  class="top-rated-yachts" :style="{ backgroundImage: 'url(' + yacht.imgUrls + ')' }">
+          <router-link :to="'/details/' + yacht._id">
+            <img :src="yacht.imgUrls[0]"  />
+              <div class="txt">
+                <h3 class="yacht-name">{{ yacht.name }}</h3>
+                <h4 class="yacht-price">${{ yacht.price }}</h4>
+              </div>
+          </router-link>
+        </li>
+      </ul> -->
+
+     
+    </section> 
   </section>
 </template>
 
@@ -93,27 +78,61 @@
 export default {
   data() {
     return {
-      imgs: [
-        "https://cdn.zizoo.com/media/images/top-destinations/bahamas-lg.jpg",
-        "https://cdn.zizoo.com/media/images/top-destinations/puerto-rico.jpg",
-        "https://cdn.zizoo.com/media/images/top-destinations/greece.jpg",
-        "https://cdn.zizoo.com/media/images/top-destinations/croatia.jpg",
-        "https://cdn.zizoo.com/media/images/top-destinations/british-virgin-islands.jpg",
-        "https://cdn.zizoo.com/media/images/top-destinations/spain.jpg",
-        "https://cdn.zizoo.com/media/images/top-destinations/turkey.jpg",
-        "https://cdn.zizoo.com/media/images/top-destinations/italy.jpg",
-      ],
+      topLocs: [
+        {class: 'first',
+          img:  "https://cdn.zizoo.com/media/images/top-destinations/bahamas-lg.jpg",
+          txt: 'loc1',
+          minPrice: 30
+        },
+        {class: '',
+          img: "https://cdn.zizoo.com/media/images/top-destinations/puerto-rico.jpg",
+          txt: 'loc2',
+          minPrice: 30
+        },
+        {class: '',
+          img:"https://cdn.zizoo.com/media/images/top-destinations/greece.jpg",
+          txt: 'loc3',
+          minPrice: 30
+        },
+        {class: '',
+          img:"https://cdn.zizoo.com/media/images/top-destinations/croatia.jpg",
+          txt: 'loc4',
+          minPrice: 30
+        },
+        {class: '',
+          img:"https://cdn.zizoo.com/media/images/top-destinations/british-virgin-islands.jpg",
+          txt: 'loc5',
+          minPrice: 30
+        },
+        {class: '',
+          img:  "https://cdn.zizoo.com/media/images/top-destinations/spain.jpg",
+          txt: 'loc6',
+          minPrice: 30
+        },
+        {class: '',
+          img:  "https://cdn.zizoo.com/media/images/top-destinations/turkey.jpg",
+          txt: 'loc7',
+          minPrice: 30
+        },
+        {class: '',
+          img: "https://cdn.zizoo.com/media/images/top-destinations/italy.jpg",
+          txt: 'loc8',
+          minPrice: 30
+        },
+      ]
+
     };
   },
 
   computed: {
-    yachts() {
+      yachts() {
       return this.$store.getters.yachtsForShow;
+     
     },
     // yachtTop(){
     //   var yachts1 = this.$store.getters.yachtsForShow;
-    //   yachts1.splice(4)
-    //   console.log(yachts1,'map');
+    //   yachts1.splice(3)
+    //   console.log(yachts1,'map@@@@@@@@@@@@@@@@');
     //   return yachts1
     // }
   },
