@@ -1,7 +1,7 @@
-import userService from '../services/user.service.js'
+import { userService } from '../services/user.service.js'
 import { yachtService } from '@/services/yacht-service.js'
 import { bookingService } from '@/services/booking.service.js'
-import socketService from '../services/socket.service.js'
+import { socketService } from '../services/socket.service.js'
 
 const DEMO_USER = {
     "_id": "u102",
@@ -24,7 +24,7 @@ if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user)
 export default {
     state: {
         loggedinUser: localLoggedinUser,
-         useryachts: null
+        useryachts: null
     },
     getters: {
         users(state) {

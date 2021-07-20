@@ -2,6 +2,18 @@
     grid-template-columns: minmax(2rem, 1fr) minmax(auto, $Width) minmax(2rem, 1fr);
 }
 
+.main-layout-home {
+    display: grid;
+    align-items: center;
+    grid-template-columns: minmax(1rem, 1fr) minmax(auto, 1400px) minmax(1rem, 1fr);
+    >* {
+        grid-column: 2 / span 1;
+    }
+    >.full {
+        grid-column: 1 / -1;
+    }
+}
+
 .main-layout {
     @include for-normal-layout {
         display: grid;
@@ -14,8 +26,8 @@
             grid-column: 1 / -1;
         }
     }
-
 }
+
 .layout-yacht {
     display: grid;
     align-items: center;
@@ -37,7 +49,6 @@
     @include for-wide-layout {
         grid-template-columns: minmax(1rem, 1fr) minmax(auto, 1900px) minmax(1rem, 1fr);
     }
-
 }
 
 .full-height {
