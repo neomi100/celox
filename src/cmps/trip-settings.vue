@@ -3,58 +3,36 @@
     <form>
       <div class="settings-container flex column center">
         <div class="value-for-money flex space-between">
-          <span
-            ><span class="price">${{ price }}</span
-            ><span>/ night</span></span
-          >
+          <span>
+            <span class="price">${{ price }}</span>
+            <span>/ night</span>
+            </span>
           <star-rating :reviews="yacht.reviews" />
         </div>
         <div class="settings flex column align-center">
-          <date-picker
-            class="date-picker flex center"
-            :yachtId="yacht._id"
-            @pick="setDates"
-          ></date-picker>
-          <guest-settings
-            class="guest-picker"
-            @pickguests="setGuests"
-          ></guest-settings>
+          <date-picker class="date-picker flex center" :yachtId="yacht._id" @pick="setDates"></date-picker>
+          <guest-settings class="guest-picker" @pickguests="setGuests"></guest-settings>
         </div>
 
         <button v-if="!isTotalPriceClalculable" class="special-btn">
           <span class="middle-level">
-            <span class="inner-level" @mousemove="mousemove" :style="mousePos">
-            </span>
+            <span class="inner-level" @mousemove="mousemove" :style="mousePos"></span>
           </span>
           <span class="special-btn-txt">Check availability</span>
         </button>
 
         <div v-else class="reservation-summary flex column center">
-          <button
-            v-if="!isReserved"
-            class="special-btn"
-            @click="sendOrderRequest()"
-          >
+          <button v-if="!isReserved" class="special-btn" @click="sendOrderRequest()">
             <span class="middle-level">
-              <span
-                class="inner-level"
-                @mousemove="mousemove"
-                :style="mousePos"
-              >
-              </span>
+              <span class="inner-level" @mousemove="mousemove" :style="mousePos"></span>
             </span>
             <span class="special-btn-txt">Reserve</span>
           </button>
-          <!-- <button v-if="!isReserved" class="special-btn" @click="sendOrderRequest()">
-            Reserve
-          </button> -->
           <button v-else class="special-btn-reserved">Reserved</button>
 
           <p>You won't be charged yet</p>
           <div class="price-calc flex space-between">
-            <span class="underline"
-              >${{ yacht.price }} X {{ orderSettings.nightsNum }} nights</span
-            >
+            <span class="underline">${{ yacht.price }} X {{ orderSettings.nightsNum }} nights</span>
             <span>${{ priceCalc }}</span>
           </div>
           <div class="service-fee flex space-between">
@@ -75,7 +53,6 @@
 import datePicker from "./date-picker.vue";
 import starRating from "./star-rating.vue";
 import guestSettings from "./guest-settings.vue";
-// const Swal = require("sweetalert2");
 
 export default {
   props: {
@@ -123,7 +100,7 @@ export default {
     setGuests(value) {
       this.orderSettings.guest = value;
     },
-    async sendOrderRequest() {
+     sendOrderRequest() {
       if (!this.orderSettings.buyer) {
         this.open2();
         return;
@@ -163,14 +140,11 @@ export default {
         message: "Please Try Again later",
       });
     },
-    mousemove(e) {
-      this.mouseX = e.offsetX;
-      this.mouseY = e.offsetY;
+    mousemove(ev) {
+      this.mouseX = ev.offsetX;
+      this.mouseY = ev.offsetY;
     },
   },
-    nights() {
-      return (this.orderSettings.nightsNum = 5);
-    },
   computed: {
     priceCalc() {
       var priceCalc = this.yacht.price * this.orderSettings.nightsNum;
@@ -183,15 +157,12 @@ export default {
     },
     mousePos() {
       return {
-        backgroundPosition: `${100 - this.mouseX / 3}% ${
-          100 - this.mouseY * 2
-        }% `,
+        backgroundPosition: `${100 - this.mouseX / 3}% ${100 - this.mouseY * 2}% `,
       };
-      // return {backgroundPosition: `calc((100 - var(${this.mouseX}, 0)) * 1%) calc((100 - var(${this.mouseY}, 0)) * 1%)`}
     },
   },
   created() {
-    this.orderSettings.buyer = this.$store.getters.loggedinUser;
+    // this.orderSettings.buyer = this.$store.getters.loggedinUser;
   },
   components: {
     datePicker,
@@ -200,13 +171,3 @@ export default {
   },
 };
 </script>   
-
-<style>
-.el-dropdown-link {
-  cursor: pointer;
-  color: #53121e;
-}
-.el-icon-arrow-down {
-  font-size: 12px;
-}
-</style>

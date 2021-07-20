@@ -4,7 +4,7 @@ export const SOCKET_EMIT_USER_WATCH = 'user-watch';
 export const SOCKET_EVENT_USER_UPDATED = 'user-updated';
 export const SOCKET_EVENT_REVIEW_ADDED = 'review-added';
 
-const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030'
+// const baseUrl = (process.env.NODE_ENV === 'production') ? '' : '//localhost:3030'
 export const socketService = createSocketService()
 
 window.socketService = socketService
@@ -14,7 +14,7 @@ function createSocketService() {
     const socketService = {
         // socket is lazily created
         setup() {
-            socket = io(baseUrl)
+            socket = io("http://localhost:8080/")
         },
 
         on(eventName, cb) {

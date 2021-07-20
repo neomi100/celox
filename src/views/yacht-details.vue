@@ -76,8 +76,8 @@
         <trip-settings
           class="trip-settings"
           :yacht="yacht"
-          :reviews="reviews"
         />
+          <!-- :reviews="reviews" -->
       </div>
     </div>
 
@@ -91,10 +91,10 @@
       <yacht-map id="location" :location="yacht.loc" />
     </div>
 
-    <!-- <trip-settings-mobile
+    <trip-settings-mobile
       class="trip-settings-mobile full-width"
       :yacht="yacht"
-    /> -->
+    />
   </section>
 </template> 
 
@@ -105,7 +105,7 @@
 import yachtAmenities from "../cmps/yacht-amenities.vue";
 import yachtImgGallery from "../cmps/yacht-img-gallery.vue";
 import tripSettings from "../cmps/trip-settings.vue";
-// import tripSettingsMobile from "../cmps/trip-settings-mobile.vue";
+import tripSettingsMobile from "../cmps/trip-settings-mobile.vue";
 import reviewList from "../cmps/review-list.vue";
 import reviewCategories from "../cmps/review-categories.vue";
 import starRating from "../cmps/star-rating.vue";
@@ -119,6 +119,7 @@ export default {
   name: "yacht-details",
   data() {
     return {
+      first: true,
       reviews: null,
       yacht: null,
       textarea: "",
@@ -138,6 +139,17 @@ export default {
     };
   },
   methods: {
+    open1() {
+      if (this.first === false) return;
+      this.first = false;
+      this.$notify({
+        title: `${this.yacht.owner.fullname} has ACCEPTED your Reservation`,
+        message: `${this.buyer.fullname} Enjoy your trip in ${this.yacht.loc.address} :)`,
+        type: "success",
+        position: "top-right",
+        duration: 20000,
+      });
+    },
     async postReview(postedReview) {
       var review = {
         txt: postedReview.reviewTxt,
@@ -220,7 +232,7 @@ export default {
     yachtImgGallery,
     reviewList,
     tripSettings,
-    // tripSettingsMobile,
+    tripSettingsMobile,
     yachtMap,
     reviewCategories,
     starRating,
