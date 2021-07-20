@@ -1,8 +1,10 @@
 import { storageService } from './async-storage.service.js'
+import { utilService } from './util.service.js'
 
 // const fs = require('fs')
 // const gYachts = require('../../data/yacht.json')
-const gYachts = [{
+const YACHT_KEY= 'yachts'
+const yachtJson = [{
         "_id": "10006546",
         "name": "Katrina",
         "imgUrls": [
@@ -78,7 +80,7 @@ const gYachts = [{
             },
             {
                 "id": "u104rev",
-                "txt": " He brought us to a beautiful swimming spot with caves then a sandy beach. From there we sailed to Silba and had a late lunch at an amazing restaurant he recommended. The fish was caught fresh that day and served with home grown vegetables. It was a very relaxed trip and nice to just have our family onboard. I would highly recommend Ivan and his boat.",
+                "txt": " He brought us to a beautiful swimming spot with caves then a sandy beach. From there we sailed to Silba and had a late lunch at an amazing restaurant he recommended. The fish was caught fresh that day and served with home grown vegetables. It was a very relaxed trip and nice to just have our family onyacht. I would highly recommend Ivan and his boat.",
                 "rate": 3.5,
                 "category": {
                     "Cleanliness": 3,
@@ -225,7 +227,7 @@ const gYachts = [{
             },
             {
                 "id": "u104rev",
-                "txt": " He brought us to a beautiful swimming spot with caves then a sandy beach. From there we sailed to Silba and had a late lunch at an amazing restaurant he recommended. The fish was caught fresh that day and served with home grown vegetables. It was a very relaxed trip and nice to just have our family onboard. I would highly recommend Ivan and his boat.",
+                "txt": " He brought us to a beautiful swimming spot with caves then a sandy beach. From there we sailed to Silba and had a late lunch at an amazing restaurant he recommended. The fish was caught fresh that day and served with home grown vegetables. It was a very relaxed trip and nice to just have our family onyacht. I would highly recommend Ivan and his boat.",
                 "rate": 3.5,
                 "category": {
                     "Cleanliness": 3,
@@ -371,7 +373,7 @@ const gYachts = [{
             },
             {
                 "id": "u104rev",
-                "txt": " He brought us to a beautiful swimming spot with caves then a sandy beach. From there we sailed to Silba and had a late lunch at an amazing restaurant he recommended. The fish was caught fresh that day and served with home grown vegetables. It was a very relaxed trip and nice to just have our family onboard. I would highly recommend Ivan and his boat.",
+                "txt": " He brought us to a beautiful swimming spot with caves then a sandy beach. From there we sailed to Silba and had a late lunch at an amazing restaurant he recommended. The fish was caught fresh that day and served with home grown vegetables. It was a very relaxed trip and nice to just have our family onyacht. I would highly recommend Ivan and his boat.",
                 "rate": 3.5,
                 "category": {
                     "Cleanliness": 3,
@@ -517,7 +519,7 @@ const gYachts = [{
             },
             {
                 "id": "u104rev",
-                "txt": " He brought us to a beautiful swimming spot with caves then a sandy beach. From there we sailed to Silba and had a late lunch at an amazing restaurant he recommended. The fish was caught fresh that day and served with home grown vegetables. It was a very relaxed trip and nice to just have our family onboard. I would highly recommend Ivan and his boat.",
+                "txt": " He brought us to a beautiful swimming spot with caves then a sandy beach. From there we sailed to Silba and had a late lunch at an amazing restaurant he recommended. The fish was caught fresh that day and served with home grown vegetables. It was a very relaxed trip and nice to just have our family onyacht. I would highly recommend Ivan and his boat.",
                 "rate": 3.5,
                 "category": {
                     "Cleanliness": 3,
@@ -665,7 +667,7 @@ const gYachts = [{
             },
             {
                 "id": "u104rev",
-                "txt": " He brought us to a beautiful swimming spot with caves then a sandy beach. From there we sailed to Silba and had a late lunch at an amazing restaurant he recommended. The fish was caught fresh that day and served with home grown vegetables. It was a very relaxed trip and nice to just have our family onboard. I would highly recommend Ivan and his boat.",
+                "txt": " He brought us to a beautiful swimming spot with caves then a sandy beach. From there we sailed to Silba and had a late lunch at an amazing restaurant he recommended. The fish was caught fresh that day and served with home grown vegetables. It was a very relaxed trip and nice to just have our family onyacht. I would highly recommend Ivan and his boat.",
                 "rate": 3.5,
                 "category": {
                     "Cleanliness": 3,
@@ -812,7 +814,7 @@ const gYachts = [{
             },
             {
                 "id": "u104rev",
-                "txt": " He brought us to a beautiful swimming spot with caves then a sandy beach. From there we sailed to Silba and had a late lunch at an amazing restaurant he recommended. The fish was caught fresh that day and served with home grown vegetables. It was a very relaxed trip and nice to just have our family onboard. I would highly recommend Ivan and his boat.",
+                "txt": " He brought us to a beautiful swimming spot with caves then a sandy beach. From there we sailed to Silba and had a late lunch at an amazing restaurant he recommended. The fish was caught fresh that day and served with home grown vegetables. It was a very relaxed trip and nice to just have our family onyacht. I would highly recommend Ivan and his boat.",
                 "rate": 3.5,
                 "category": {
                     "Cleanliness": 3,
@@ -959,7 +961,7 @@ const gYachts = [{
             },
             {
                 "id": "u104rev",
-                "txt": " He brought us to a beautiful swimming spot with caves then a sandy beach. From there we sailed to Silba and had a late lunch at an amazing restaurant he recommended. The fish was caught fresh that day and served with home grown vegetables. It was a very relaxed trip and nice to just have our family onboard. I would highly recommend Ivan and his boat.",
+                "txt": " He brought us to a beautiful swimming spot with caves then a sandy beach. From there we sailed to Silba and had a late lunch at an amazing restaurant he recommended. The fish was caught fresh that day and served with home grown vegetables. It was a very relaxed trip and nice to just have our family onyacht. I would highly recommend Ivan and his boat.",
                 "rate": 3.5,
                 "category": {
                     "Cleanliness": 3,
@@ -1105,7 +1107,7 @@ const gYachts = [{
             },
             {
                 "id": "u104rev",
-                "txt": " He brought us to a beautiful swimming spot with caves then a sandy beach. From there we sailed to Silba and had a late lunch at an amazing restaurant he recommended. The fish was caught fresh that day and served with home grown vegetables. It was a very relaxed trip and nice to just have our family onboard. I would highly recommend Ivan and his boat.",
+                "txt": " He brought us to a beautiful swimming spot with caves then a sandy beach. From there we sailed to Silba and had a late lunch at an amazing restaurant he recommended. The fish was caught fresh that day and served with home grown vegetables. It was a very relaxed trip and nice to just have our family onyacht. I would highly recommend Ivan and his boat.",
                 "rate": 3.5,
                 "category": {
                     "Cleanliness": 3,
@@ -1248,7 +1250,7 @@ const gYachts = [{
             },
             {
                 "id": "u104rev",
-                "txt": " He brought us to a beautiful swimming spot with caves then a sandy beach. From there we sailed to Silba and had a late lunch at an amazing restaurant he recommended. The fish was caught fresh that day and served with home grown vegetables. It was a very relaxed trip and nice to just have our family onboard. I would highly recommend Ivan and his boat.",
+                "txt": " He brought us to a beautiful swimming spot with caves then a sandy beach. From there we sailed to Silba and had a late lunch at an amazing restaurant he recommended. The fish was caught fresh that day and served with home grown vegetables. It was a very relaxed trip and nice to just have our family onyacht. I would highly recommend Ivan and his boat.",
                 "rate": 3.5,
                 "category": {
                     "Cleanliness": 3,
@@ -1325,128 +1327,40 @@ const gYachts = [{
         ]
     }
 ]
-
+const gYachts = _createYachts()
 export const yachtService = {
     query,
     getById,
     remove,
     save,
     getEmptyYacht,
-
 }
 
-// query()
-
-function query(filterBy) {
-    console.log(filterBy, 'service');
-    const { rate } = filterBy
-    const { price } = filterBy
-    const regex = new RegExp(filterBy.txt, 'i')
-    console.log(rate, 'rate service');
-    const { size } = filterBy
-    let yachts = JSON.parse(JSON.stringify(gYachts))
-    yachts = yachts.filter((yacht) => yacht.price > price)
-    switch (size) {
-        case 'All' || '':
-            break;
-        case 'Small':
-            yachts = yachts.filter((yacht) => yacht.size === 'small');
-            break;
-        case 'Medium':
-            yachts = yachts.filter((yacht) => yacht.size === 'medium');
-            break;
-        case 'Large':
-            yachts = yachts.filter((yacht) => yacht.size === 'large');
-            break;
+function _createYachts() {
+    let yachts = utilService.loadFromStorage(YACHT_KEY);
+    if (!yachts || !yachts.length) {
+        yachts = yachtJson;
+        utilService.saveToStorage(YACHT_KEY, yachts);
     }
-    switch (rate) {
-        case 'All' || '':
-            break;
-        case 1:
-            yachts = yachts.filter((yacht) => {
-
-                console.log(yacht, 'yacht service 1');
-                yacht.reviews[0].rate === 1;
-                console.log(yacht.reviews[0].rate, 'yacht service 1');
-            })
-            break;
-        case 2:
-            yachts = yachts.filter((yacht) => yacht.reviews[0].rate === 2);
-            break;
-        case 3:
-            yachts = yachts.filter((yacht) => yacht.reviews[0].rate === 3);
-            break;
-        case 4:
-            yachts = yachts.filter((yacht) => yacht.reviews[0].rate === 4);
-            break;
-        case 5:
-            yachts = yachts.filter((yacht) => yacht.reviews[0].rate === 5);
-            break;
-    }
-
-    yachts = yachts.filter(yacht => regex.test(yacht.loc.country && yacht.loc.city && yacht.loc.address))
-    return Promise.resolve(yachts)
+    return yachts;
 }
 
-
-function remove(yachtId) {
-    return storageService.delete('yacht', yachtId)
-
+function query() {
+    return gYachts
 }
 
-
-function getById(yachtId) {
-    console.log(yachtId);
-
-    const yacht = gYachts.find(yacht => yacht._id === yachtId)
-    console.log(yacht);
-    return Promise.resolve(yacht)
+function getById(id) {
+    return storageService.get(YACHT_KEY, id)
 }
 
+function remove(id) {
+    console.log(id,'remove service');
+    return storageService.remove(YACHT_KEY, id)
+}
 
-
-// function remove(yachtId, user) {
-//     console.log('user._id :>> ', user._id);
-//     const idx = gyachts.findIndex(yacht => yacht._id === yachtId && (user.isAdmin || yacht.creator._id === user._id))
-//     console.log('idx :>> ', idx);
-//     if (idx >= 0) {
-//         gyachts.splice(idx, 1);
-//         return _saveyachtsToFile()
-//     }
-//     return Promise.reject('Not your yacht ' + yachtId)
-// }
-
-function save(yachtToSave) {
-    // console.log('yachtToSave :>> ', yachtToSave);
-    const yacht = {
-        _id: yachtToSave._id || _makeId(),
-        name: yachtToSave.name,
-        imgUrls: yachtToSave.imgUrls,
-        price: yachtToSave.price,
-        size: yachtToSave.size,
-        amenities: yachtToSave.amenities,
-        owner: {
-            fullname: yachtToSave.owner.fullname,
-            imgUrl: yachtToSave.owner.imgUrl
-        },
-        loc: {
-            country: yachtToSave.loc.country,
-            city: yachtToSave.loc.city,
-            address: yachtToSave.loc.address
-        }
-    }
-    if (yachtToSave._id) {
-        // const idx = gyachts.findIndex(yacht => yacht._id === yachtToSave._id && (user.isAdmin || yacht.creator._id === user._id))
-        const idx = gYachts.findIndex(yacht => yacht._id === yachtToSave._id)
-        gYachts[idx] = yacht;
-    } else {
-        gYachts.unshift(yacht)
-    }
-    // return _saveyachtsToFile().then(() => {
-    //     return yacht;
-    // })
-    console.log(gYachts);
-    return yacht;
+function save(yacht) {
+    const savedYacht = (yacht._id) ? storageService.put(YACHT_KEY, yacht) : storageService.post(YACHT_KEY, yacht)
+    return savedYacht;
 }
 
 function _makeId(length = 5) {
@@ -1458,22 +1372,13 @@ function _makeId(length = 5) {
     return txt;
 }
 
-// function _saveyachtsToFile() {
-//     return new Promise((resolve, reject) => {
-//         fs.writeFile('data/yacht.json', JSON.stringify(gYachts, null, 2), (err) => {
-//             if (err) return reject(err)
-//             resolve();
-//         })
-//     })
-// }
-
 function getEmptyYacht() {
     return {
-        "_id": "",
+        // "_id": "",
         "name": "",
         "imgUrls": [],
         "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
-        "price": 0,
+        "price": 1,
         "size": "",
         "amenities": [],
         "owner": {

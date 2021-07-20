@@ -30,14 +30,16 @@
                         font-size: 1.5rem;
                     }
             .yacht-preview{
+              padding-left: 3px;
+              padding-right: 3px;
                         display: flex;
                         flex-direction: column;
                         font-family: Blinker; 
                         position: relative;
                         font-family: Blinker;
-                        a{
-                            text-decoration: unset;
-                            color: inherit;
+                        // a{
+                        //     text-decoration: unset;
+                        //     color: inherit;
                         .yacht-up{
                         font-size: small;
                         flex-direction: row;
@@ -54,6 +56,10 @@
                         color: dimgrey;
                     } 
                 }
+                .yacht-down{
+                  flex-direction: row;
+                  display: flex;
+                  justify-content: space-between;
                         .yacht-name{
                     font-family: BlinkerBold;
                     display: block;
@@ -61,22 +67,41 @@
                 .yacht-price{
                     font-family: Blinker
                 }
-                        .right{
-                        font-family: fa-solid;
-                        content: "\f054";
-                        z-index: 2;
-                        color: dimgrey;
-                    }
-                    }
+                 .edit{
+            background: none;
+            border-radius: 25px;
+            cursor: pointer;
+            height: 24px;
+            border: none;
+            // margin-right: 4px;
+            &:hover{
+              opacity: 0.5;
+              background-color: rgb(212, 200, 205);
+              border: 2px solid gray;
+            }
+          }
                 }
-    }
-}
+                .right{
+                  font-family: fa-solid;
+                  content: "\f054";
+                  z-index: 2;
+                  color: dimgrey;
+                }
+              }
+            }
+            &:hover{
+              border-radius: 10px;
+              box-shadow: rgba(33, 35, 38, 0.1) 1px 10px 10px -10px;
+            }
+          }
+         
+// }
 .el-carousel{
     margin-bottom: 0;
   }
   .el-carousel .el-carousel__container{
 
-    height: 320px;
+    height: 310px;
   }
   .el-carousel__container {
     margin-bottom: 6px;

@@ -40,7 +40,7 @@ padding-right: 10px;
         background: none;
         border-radius: 25px;
         cursor: pointer;
-        border: none
+        // border: none
         ;
         &:hover{
             opacity: 0.5;
@@ -83,6 +83,9 @@ padding-right: 10px;
         font-family: BlinkerBold;
         font-size: 1rem;
         top: 137px;
+    }
+    input[type=range]{
+        background: brown;
     }
     .isOpen{
         // display: table-row-group;

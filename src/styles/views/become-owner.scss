@@ -1,3 +1,55 @@
 .edit-continer{
     background-color: $clr2;
+   padding: 10px;
+   .main-continer{
+       flex-direction: row;
+       display: flex;
+       justify-content: space-around;
+       .input{
+           height: 27px;
+           width: 265px;
+           border: none;
+           display: block;
+           margin-bottom: 7px;
+        }
+        select{
+            margin-right: 5rem;
+            height: 21px;
+        }
+    }
+    h2{
+        text-align: center;
+    }
+    .second{
+        text-align: center;
+    }
 }
+.amenities{
+    background-color: white;
+    position: absolute;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+    border: 1px solid rgb(221, 221, 221);
+    z-index: 15;
+    font-family: BlinkerBold;
+    font-size: 1rem;
+    width: 191px;
+}
+.isOpen{
+    display: block;
+}
+.isClose{
+    display: none;
+}
+.btn{
+    background: none;
+        border-radius: 25px;
+        cursor: pointer;
+    }
+    .save{
+        margin-top: 7px;
+    }
+    .delete{
+        background-color: rgb(216, 75, 75);
+    }
