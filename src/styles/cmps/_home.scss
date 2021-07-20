@@ -305,46 +305,81 @@ div.random-search {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
+
+     
+     .top-rated-yachts {
+        a{
+            text-decoration: none;
+        }
+        color: white;
+        width: 220px;
+        height: 280px;
+        border-radius: 12px;
+        object-fit: cover;
+        position: relative;
+
+        transition-duration: .5s;
+        transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+        transition-property: margin, padding;
+        &:hover > .top-yacht-txt {
+           
+                bottom: 20%;
+        }
+       &::after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 20%;
+            left:0;
+            bottom:0;
+            z-index: 2;
+            border-radius: 12px;
+            background-image: linear-gradient(transparent,rgba(0,0,0,.5) 50%,#010232);
+            transition: height 0.5s;
+        }
+        
+        &:hover::after{
+            height: 60%; 
+       }
+
+      .top-yacht-price{
+          bottom: 0;
+          padding: 6px;
+          position: absolute;
+      }
+      .top-yacht-name{
+          bottom: 16px;
+        padding: 6px;
+        position: absolute;
+
+      }
     
-    li{
-        height: 340px ;
-        width: 270px;
-        background-size: cover;
-        background-position: center; 
-        background-repeat: no-repeat;
+       img {
+          width: 100%;
+          height: 100%;
+          border-radius: 12px;
+      }
     }
-   
+     .top-yacht-txt{
+        transition-duration: .5s;
+         position: absolute;
+         bottom: 0;
+         h3 {
+            font-size:1.6rem;
+            // margin-top: -67px;
+            color:white;
+            font-family: BlinkerBold;
+            // position: absolute;
+        }
+        text-decoration: none;
     
-     //.top-rated-yachts {
-        // width: 100%;
-        // height: 100%;
-       //  object-fit: cover;
-       //  &:hover{
-      //     opacity: 0.4;
-      // }
-    
-       // img {
-         //  width: 100%;
-        //   height: 100%;
-        //   border-radius: 12px;
-      // }
-     //.txt{
-       
-    
-    //      h3 {
-    //         font-size:1.6rem;
-    //         margin-top: -67px;
-    //         color:white;
-    //         font-family: BlinkerBold;
-    //     }
-    
-    //      h4 {
-    //         color:white;
-    //         font-size:1.2rem;
-    //         margin-top: -20px;
-    //         font-family: BlinkerBold;
+         h4 {
+            color:white;
+            font-size:1.2rem;
+            // margin-top: -20px;
+            font-family: BlinkerBold;
             
-    //     }
-    //    } 
+        }
+       } 
     // }
 }

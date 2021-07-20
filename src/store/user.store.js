@@ -3,13 +3,28 @@ import { yachtService } from '@/services/yacht-service.js'
 import { bookingService } from '@/services/booking.service.js'
 import socketService from '../services/socket.service.js'
 
-var localLoggedinUser = null
+const DEMO_USER = {
+    "_id": "u102",
+    "fullname": "User 2",
+    "imgUrl": "https://randomuser.me/api/portraits/men/2.jpg",
+    "isCaptin": false,
+    "isAdmin": false,
+    "username": "user2",
+    "password": "secret",
+    "notifications": {
+        "orders": [],
+        "msgs": []
+    }
+}
+
+var localLoggedinUser = DEMO_USER
 if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user)
+
 
 export default {
     state: {
         loggedinUser: localLoggedinUser,
-        // useryachts: null
+         useryachts: null
     },
     getters: {
         users(state) {

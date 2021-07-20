@@ -1,9 +1,9 @@
 import httpService from './http.service';
 
-const baseUrl =
-    process.env.NODE_ENV !== 'development' ?
-    '/api/booking' :
-    '//localhost:3000/api/booking';
+// const baseUrl =
+//     process.env.NODE_ENV !== 'development' ?
+//     '/api/booking' :
+//     '//localhost:3000/api/booking';
 
 export const bookingService = {
     query,

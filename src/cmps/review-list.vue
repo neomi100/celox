@@ -2,7 +2,7 @@
   <section>
     <ul class="review-card-grid two-column-grid clean-list">
       <li v-for="review in reviews" :key="review._id">
-        <review-preview :review="review"></review-preview>
+        <review-preview :review="review" :showTime="showTime"></review-preview>
       </li>
     </ul>
   </section>
@@ -15,6 +15,7 @@ export default {
   name: "review-list",
   props: {
     reviews: Array,
+    showTime: Boolean
   },
   methods: {
   },
