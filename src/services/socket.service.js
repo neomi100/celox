@@ -14,7 +14,7 @@ function createSocketService() {
     const socketService = {
         // socket is lazily created
         setup() {
-            socket = io("http://localhost:8080/")
+            socket = io()
         },
 
         on(eventName, cb) {

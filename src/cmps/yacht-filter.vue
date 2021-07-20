@@ -1,8 +1,10 @@
 <template>
-  <section class="filter">
+  <section class="filter layout-yacht">
     <div class="right">
       <!-- ref="" -->
 
+      <div class="filter-search">
+  <div class="search-input" >
       <el-input
         class="search"
         size="mini"
@@ -11,9 +13,14 @@
         @input="setFilter"
       >
       </el-input>
+       
+        </div>
+        <button class="btn-search"></button>
+      </div>
+
       <!-- <input  type="text" @input="setFilter" placeholder="" v-model=""  > -->
     </div>
-    <div class="left">
+    <!-- <div class="left"> -->
       <div class="filter-main">
         <button class="filter-btn" @click="selectDates">Dates</button>
         <div class="date" :class="openDates">
@@ -35,7 +42,6 @@
             @change="setFilter"
             size="small"
           >
-            <!-- v-model="radio1" -->
             <el-radio-button label="All"></el-radio-button>
             <el-radio-button label="Small"></el-radio-button>
             <el-radio-button label="Medium"></el-radio-button>
@@ -63,9 +69,9 @@
            
           />
         </div>
-      </div>
-
       <button class="clear" @click="clearFilter">Clear filter</button>
+      <!-- </div> -->
+
     </div>
   </section>
 </template>

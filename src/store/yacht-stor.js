@@ -33,11 +33,32 @@ export const yachtStore = {
                     yachts = yachts.filter((yacht) => yacht.size === 'large');
                     break;
             }
+        // const average=
+    //     const reviews = []
+    //    yachts.map((yacht)=>yacht.reviews=reviews)
+    //         let sum = reviews.reduce((acc, currVal) => {
+    //             acc += currVal.rate;
+    //             return acc;
+    //           }, 0);
+    //          const average= parseFloat(sum / reviews.length).toFixed(1);
+    //          console.log(average,'x');
+             
+        // yachts = yachts.filter((yacht) => {
+        //     const reviews = yacht.reviews
+        //     let sum = reviews.reduce((acc, currVal) => {
+        //         acc += currVal.rate;
+        //         return acc;
+        //       }, 0);
+        //      const x= parseFloat(sum / reviews.length).toFixed(1);
+        //      console.log(x,'x');
+        //       Math.floor(x) === 1})
+
             switch (rate) {
                 case 'All' || '':
                     break;
                 case 1:
-                    yachts = yachts.filter((yacht) => Math.floor(yacht.reviews[0].rate) === 1)
+                        //    yachts = yachts.filter( Math.floor(average) === 1)
+                        yachts = yachts.filter((yacht) => Math.floor(yacht.reviews[0].rate) === 1);
                     break;
                 case 2:
                     yachts = yachts.filter((yacht) => Math.floor(yacht.reviews[0].rate) === 2);
