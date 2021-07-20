@@ -1,136 +1,132 @@
-
-.continer{
-         text-align: left;
+.continer {
+    text-align: left;
     height: unset;
     box-shadow: unset;
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    .main{
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    color: #202020;
-    font-size: 1rem;
-    .like-btn{
-                        position: absolute;
-                        top: 12px;
-                        right: 10px;
-                        background: none;
-                        cursor: pointer;
-                       opacity: 0.3; 
-                       font-size: 1.5rem;                
-                    }
-                    .like{
-                        color: hotpink;
-                        position: absolute;
-                        top: 12px;
-                        right: 10px;
-                        cursor: pointer;
-                        font-size: 1.5rem;
-                    }
-            .yacht-preview{
-                        display: flex;
-                        flex-direction: column;
-                        font-family: Blinker; 
-                        position: relative;
-                        font-family: Blinker;
-                        a{
-                            text-decoration: unset;
-                            color: inherit;
-                        .yacht-up{
-                        font-size: small;
-                        flex-direction: row;
+    .main {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        color: #202020;
+        font-size: 1rem;
+        .like-btn {
+            position: absolute;
+            top: 12px;
+            right: 10px;
+            background: none;
+            cursor: pointer;
+            opacity: 0.3;
+            font-size: 1.5rem;
+        }
+        .like {
+            color: hotpink;
+            position: absolute;
+            top: 12px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        .yacht-preview {
+            display: flex;
+            flex-direction: column;
+            font-family: Blinker;
+            position: relative;
+            font-family: Blinker;
+            a {
+                text-decoration: unset;
+                color: inherit;
+                .yacht-up {
+                    font-size: small;
+                    flex-direction: row;
                     display: flex;
                     justify-content: space-between;
                     margin-top: 3px;
-                    .country{
+                    .country {
                         padding: 30px;
                         font-family: Blinker
                     }
-                         .icon::after{
+                    .icon::after {
                         font-family: fa-solid;
                         content: "\f0c0";
                         color: dimgrey;
-                    } 
+                    }
                 }
-                        .yacht-name{
+                .yacht-name {
                     font-family: BlinkerBold;
                     display: block;
                 }
-                .yacht-price{
+                .yacht-price {
                     font-family: Blinker
                 }
-                        .right{
-                        font-family: fa-solid;
-                        content: "\f054";
-                        z-index: 2;
-                        color: dimgrey;
-                    }
-                    }
+                .right {
+                    font-family: fa-solid;
+                    content: "\f054";
+                    z-index: 2;
+                    color: dimgrey;
                 }
+            }
+        }
     }
 }
-.el-carousel{
-    margin-bottom: 0;
-  }
-  .el-carousel .el-carousel__container{
 
+.el-carousel {
+    margin-bottom: 0;
+}
+
+.el-carousel .el-carousel__container {
     height: 320px;
-  }
-  .el-carousel__container {
+}
+
+.el-carousel__container {
     margin-bottom: 6px;
     @include for-narrow-layout {
-      height: 165px;
-  }
-    img {
-      object-fit: cover;
+        height: 165px;
     }
-  }
-  .el-carousel-img {
+    img {
+        object-fit: cover;
+    }
+}
+
+.el-carousel-img {
     margin-bottom: 6px;
     button {
-      width: 25px;
-      height: 25px;
-      border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
     }
-  }
-  .el-carousel__arrow {
+}
+
+.el-carousel__arrow {
     background-color: rgba(233, 233, 233, 0.8);
     color: $clr1;
-    }
-  .el-carousel-img .el-carousel__arrow:hover {
+}
+
+.el-carousel-img .el-carousel__arrow:hover {
     background-color: rgba(255, 255, 255, 0.95);
-  }
-  .el-carousel__indicator {
+}
+
+.el-carousel__indicator {
     button {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      padding: 0;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        padding: 0;
     }
     &:hover {
-      button {
-        transition: 70ms;
-        transform: scale(1.5);
-      }
+        button {
+            transition: 70ms;
+            transform: scale(1.5);
+        }
     }
-  }
-  
-  
-  
-  
-  
-  
+}
 
 // .continer{
 //     max-height: 434px;
 //     max-width: 358px; 
-
-    
 //     .yacht-preview {
 //         // display: inline-block;
-        
 //         .el-carousel__item.is-active.is-animating{
 //             background: none;
 //         }
@@ -144,7 +140,6 @@
 // // background-color: none;
 //         @include aspect-ratio(1, 1);
 //         border-radius: 12px;
-        
 //         a{
 //             text-decoration: unset;
 //             color: inherit;
@@ -167,9 +162,7 @@
 //                opacity: 0.3;
 //             //    color: ivory
 //             //    transparent
-               
 //             //    opacify($color: #21bd42, $amount: 5);
-         
 //             }
 //             .like{
 //                 color: hotpink;
@@ -235,4 +228,3 @@
 //         }
 // }
 // }
-

@@ -1,51 +1,210 @@
 <template>
   <section>
-    <div class="box">
-      <div class="price-star flex space-between align-baseline">
-        <span class="price">{{ price }}</span>
-        <star-rating :reviews="reviews" />
+    <form>
+      <div class="settings-container flex column center">
+        <div class="value-for-money flex space-between">
+          <span
+            ><span class="price">${{ price }}</span
+            ><span>/ night</span></span
+          >
+          <star-rating :reviews="yacht.reviews" />
+        </div>
+        <div class="settings flex column align-center">
+          <date-picker
+            class="date-picker flex center"
+            :yachtId="yacht._id"
+            @pick="setDates"
+          ></date-picker>
+          <guest-settings
+            class="guest-picker"
+            @pickguests="setGuests"
+          ></guest-settings>
+        </div>
+
+        <button v-if="!isTotalPriceClalculable" class="special-btn">
+          <span class="middle-level">
+            <span class="inner-level" @mousemove="mousemove" :style="mousePos">
+            </span>
+          </span>
+          <span class="special-btn-txt">Check availability</span>
+        </button>
+
+        <div v-else class="reservation-summary flex column center">
+          <button
+            v-if="!isReserved"
+            class="special-btn"
+            @click="sendOrderRequest()"
+          >
+            <span class="middle-level">
+              <span
+                class="inner-level"
+                @mousemove="mousemove"
+                :style="mousePos"
+              >
+              </span>
+            </span>
+            <span class="special-btn-txt">Reserve</span>
+          </button>
+          <!-- <button v-if="!isReserved" class="special-btn" @click="sendOrderRequest()">
+            Reserve
+          </button> -->
+          <button v-else class="special-btn-reserved">Reserved</button>
+
+          <p>You won't be charged yet</p>
+          <div class="price-calc flex space-between">
+            <span class="underline"
+              >${{ yacht.price }} X {{ orderSettings.nightsNum }} nights</span
+            >
+            <span>${{ priceCalc }}</span>
+          </div>
+          <div class="service-fee flex space-between">
+            <span class="underline">Service fee</span>
+            <span>${{ serviceFee }}</span>
+          </div>
+          <div class="total-price flex space-between">
+            <span>Total</span>
+            <span>${{ orderSettings.totalPrice }}</span>
+          </div>
+        </div>
       </div>
-
-      <date-picker></date-picker>
-
-      <button class="call-to-action-btn s">Check availability</button>
-    </div>
+    </form>
   </section>
 </template>
 
 <script>
 import datePicker from "./date-picker.vue";
 import starRating from "./star-rating.vue";
+import guestSettings from "./guest-settings.vue";
+// const Swal = require("sweetalert2");
+
 export default {
   props: {
     yacht: Object,
-    reviews: Array,
   },
   data() {
-    return {};
+    return {
+      msg: false,
+      isReserved: false,
+      // mousePos:null,
+      mouseX: 0,
+      mouseY: 0,
+      serviceFee: 10,
+      orderSettings: {
+        requestedDates: [],
+        guest: {
+          adultsNum: 1,
+         
+        },
+        buyer: null,
+        totalPrice: 0,
+        nightsNum: 5,
+        curryacht: this.yacht,
+      },
+      isTotalPriceClalculable: false,
+    };
   },
   methods: {
-    handleChange(value) {
-      console.log(value);
+    setDates(value) {
+      this.calcNightsNum(value);
+      const startDate = value[0].split("-").join("/");
+      const endDate = value[1].split("-").join("/");
+      this.orderSettings.requestedDates = [startDate, endDate];
+      this.isTotalPriceClalculable = true;
+    },
+    calcNightsNum(value) {
+      var start = value[0].split("-");
+      var end = value[1].split("-");
+      start = new Date(start[2], start[1] - 1, start[0]).getTime();
+      end = new Date(end[2], end[1] - 1, end[0]).getTime();
+      this.orderSettings.nightsNum = Math.round(
+        (end - start) / 1000 / 3600 / 24
+      );
+    },
+    setGuests(value) {
+      this.orderSettings.guest = value;
+    },
+    async sendOrderRequest() {
+      if (!this.orderSettings.buyer) {
+        this.open2();
+        return;
+      }
+      // console.log('tripSettings', this.orderSettings);
+      // try {
+      //   // await this.$store.dispatch({
+      //     // type: "setPendingOrder",
+      //     orderSettings: this.orderSettings,
+      //   // });
+      //   // this.isReserved = true;
+      //   // this.open1();
+      // } catch (err) {
+      //   console.log(this.orderSettings, "this.orderSettings");
+      //   console.log("could not send order request", err);
+      //   this.open4();
+      // }
+    },
+    open1() {
+      this.$notify({
+        title: "Reservation sent successfully",
+        message: "Final order confirmation will be sent by mail",
+        type: "success",
+        position: "bottom-right",
+      });
+    },
+    open2() {
+      this.$notify.warning({
+        title: "In order to set a reservation you must login",
+        message: "You can login with a demo user or sign-up with your own user",
+        type: "warning",
+      });
+    },
+    open4() {
+      this.$notify.error({
+        title: "Error",
+        message: "Please Try Again later",
+      });
+    },
+    mousemove(e) {
+      this.mouseX = e.offsetX;
+      this.mouseY = e.offsetY;
     },
   },
-  computed: {
-    price() {
-      return "$" + this.yacht.price + "/ Night";
+    nights() {
+      return (this.orderSettings.nightsNum = 5);
     },
+  computed: {
+    priceCalc() {
+      var priceCalc = this.yacht.price * this.orderSettings.nightsNum;
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      this.orderSettings.totalPrice = priceCalc + this.serviceFee;
+      return priceCalc;
+    },
+    price() {
+      return this.yacht.price;
+    },
+    mousePos() {
+      return {
+        backgroundPosition: `${100 - this.mouseX / 3}% ${
+          100 - this.mouseY * 2
+        }% `,
+      };
+      // return {backgroundPosition: `calc((100 - var(${this.mouseX}, 0)) * 1%) calc((100 - var(${this.mouseY}, 0)) * 1%)`}
+    },
+  },
+  created() {
+    this.orderSettings.buyer = this.$store.getters.loggedinUser;
   },
   components: {
     datePicker,
     starRating,
+    guestSettings,
   },
 };
-</script>
-
+</script>   
 
 <style>
 .el-dropdown-link {
   cursor: pointer;
-  color: #409eff;
+  color: #53121e;
 }
 .el-icon-arrow-down {
   font-size: 12px;
