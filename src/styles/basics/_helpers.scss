@@ -51,6 +51,11 @@
 .space-evenly {
     justify-content: space-evenly;
 }
+.center-childs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 
 /* FLEX-GROW */

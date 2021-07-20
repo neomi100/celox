@@ -5,6 +5,7 @@ import becomeOwner from '../views/become-owner.vue'
 import login from '../views/login.vue'
 import yachtPage from '../views/yacht-page.vue'
 import yachtDetails from '../views/yacht-details.vue'
+import userDetails from '../views/user-details.vue'
 
 Vue.use(VueRouter)
 
@@ -26,12 +27,17 @@ const routes = [{
     {
         path: '/details/:id',
         component: yachtDetails
+    },
+    {
+        path: '/user-details',
+        component: userDetails,
+        
     }
 
 ]
 
 const router = new VueRouter({
-    mode: 'history',
+    mode: 'hash',
     base: process.env.BASE_URL,
     routes
 })

@@ -5,7 +5,6 @@
     align-items: center;
     position: relative;
     top: -80px;
-    
     .main-img {
         height: 550px;
         width: 100%;
@@ -24,7 +23,6 @@ div.searchBox {
     background-color: white;
     border-radius: 20em;
     font-size: 0.85rem;
-    
     .sb-input {
         height: 64px;
         width: 200px;
@@ -35,20 +33,18 @@ div.searchBox {
         padding: 14px 32px;
         text-align: center;
         border-radius: 20em;
-        
         &:hover {
-            background-color: #EBEBEB ;
+            background-color: #EBEBEB;
             cursor: pointer;
         }
-        
         &:not(:last-of-type) {
-            border-right: 1px solid  #EBEBEB ;
-            &:hover{
+            border-right: 1px solid #EBEBEB;
+            &:hover {
                 border-right: 1px solid rgba(255, 0, 0, 0);
             }
         }
     }
-    .search-btn{
+    .search-btn {
         position: relative;
         left: -8px;
         border-radius: 20em;
@@ -56,20 +52,17 @@ div.searchBox {
         width: 50px;
         background-color: rgb(0, 94, 170);
         border: none;
-        &::after{
+        &::after {
             font-family: fa-solid;
             content: '\f002';
-            color: #fff ;        
+            color: #fff;
         }
     }
 }
 
-
-
 div.searchBox span {
     display: inline-block;
 }
-
 
 div.searchBox .sb-input .sb-input-title {
     display: block;
@@ -78,8 +71,6 @@ div.searchBox .sb-input .sb-input-title {
 div.searchBox .sb-input .sb-input-data {
     color: gray;
 }
-
-
 
 div.pickDate {
     display: none;
@@ -93,37 +84,29 @@ div.random-search {
     text-align: center;
     position: absolute;
     bottom: 10%;
-
     .rs-title {
         display: block;
         font-weight: bold;
         margin-bottom: 8px;
-        
     }
-    
     .rs-inner {
-    margin: 0 auto;
-    background-color: white;
-    border: none;
-    border-radius: 2em;
-    padding: 22px 56px;
-    font-size: 18px;
-    font-weight: 800;
-    cursor:pointer;
-    box-shadow:  0px 6px 16px rgba(0, 0 ,0 , 0.12);
-    transition: box-shadow 0.2s ease-out;
-        &:hover{
-        box-shadow:  0px 6px 20px rgba(0, 0 ,0 , 0.2);
+        margin: 0 auto;
+        background-color: white;
+        border: none;
+        border-radius: 2em;
+        padding: 22px 56px;
+        font-size: 18px;
+        font-weight: 800;
+        cursor: pointer;
+        box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.12);
+        transition: box-shadow 0.2s ease-out;
+        &:hover {
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
         }
-    
     }
 }
 
-
-
 ///////////////////////////////
-
-
 .top-destinations {
     display: flex;
     justify-content: space-around;
@@ -139,7 +122,7 @@ div.random-search {
 .yacht {
     padding: 30px;
     margin: 5px;
-    background-color: crimson;
+    background-color: rgb(20, 107, 220);
 }
 
 .destinations-imgs-ul {
@@ -166,13 +149,11 @@ div.random-search {
     }
      :nth-child(3) {
         border-radius: 0;
-       
         grid-row: span 2/span 2;
         // text-align: left;
     }
      :nth-child(6) {
         border-radius: 0;
-       
         grid-row: span 2/span 2;
         // text-align: left;
     }
@@ -181,7 +162,7 @@ div.random-search {
 
 .gallery-item {
     background-size: cover;
-    background-position: center; 
+    background-position: center;
     background-repeat: no-repeat;
     border-radius: 0;
     width: 100%;
@@ -192,11 +173,11 @@ div.random-search {
         color: inherit;
         text-decoration: inherit;
     }
-   &.first{
-       .txt{
-           text-align: left;
-       }
-   }
+    &.first {
+        .txt {
+            text-align: left;
+        }
+    }
 }
 
 .gallery-item-a {
@@ -210,32 +191,27 @@ div.random-search {
     transition-property: margin, padding;
     height: 100%;
     &:hover {
-        .txt{
+        .txt {
             bottom: 20%;
         }
     }
-   &::after{
+    &::after {
         content: "";
         position: absolute;
         width: 100%;
         height: 60%;
-        left:0;
-        bottom:0;
+        left: 0;
+        bottom: 0;
         z-index: 2;
-        background-image: linear-gradient(transparent,rgba(0,0,0,.5) 50%,#010232);
+        background-image: linear-gradient(transparent, rgba(0, 0, 0, .5) 50%, #010232);
         transition: height 0.5s;
     }
-    
-    &:hover::after{
-        height: 90%; 
-   }
-
-   
+    &:hover::after {
+        height: 90%;
+    }
 }
 
 .gallery-img {
-
-    
     display: block;
     overflow: hidden;
     position: absolute;
@@ -245,7 +221,7 @@ div.random-search {
     right: 0px;
     box-sizing: border-box;
     margin: 0px;
-    .txt{
+    .txt {
         transition: bottom 0.5s;
         position: absolute;
         z-index: 3;
@@ -254,8 +230,7 @@ div.random-search {
         text-align: center;
         width: 100%;
         padding: 20px;
-
-        h4{
+        h4 {
             margin: 0 0 10px 0;
         }
     }
@@ -297,54 +272,88 @@ div.random-search {
     }
 }
 
-
-.top-yacht-list{
+.top-yacht-list {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
+
+     
+     .top-rated-yachts {
+        a{
+            text-decoration: none;
+        }
+        color: white;
+        width: 220px;
+        height: 280px;
+        border-radius: 12px;
+        object-fit: cover;
+        position: relative;
+
+        transition-duration: .5s;
+        transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+        transition-property: margin, padding;
+        &:hover > .top-yacht-txt {
+           
+                bottom: 20%;
+        }
+       &::after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 20%;
+            left:0;
+            bottom:0;
+            z-index: 2;
+            border-radius: 12px;
+            background-image: linear-gradient(transparent,rgba(0,0,0,.5) 50%,#010232);
+            transition: height 0.5s;
+        }
+        
+        &:hover::after{
+            height: 60%; 
+       }
+
+      .top-yacht-price{
+          bottom: 0;
+          padding: 6px;
+          position: absolute;
+      }
+      .top-yacht-name{
+          bottom: 16px;
+        padding: 6px;
+        position: absolute;
+
+      }
     
-    li{
-        height: 340px ;
-        width: 270px;
-        background-size: cover;
-        background-position: center; 
-        background-repeat: no-repeat;
+       img {
+          width: 100%;
+          height: 100%;
+          border-radius: 12px;
+      }
     }
-   
+     .top-yacht-txt{
+        transition-duration: .5s;
+         position: absolute;
+         bottom: 0;
+         h3 {
+            font-size:1.6rem;
+            // margin-top: -67px;
+            color:white;
+            font-family: BlinkerBold;
+            // position: absolute;
+        }
+        text-decoration: none;
     
-     //.top-rated-yachts {
-        // width: 100%;
-        // height: 100%;
-       //  object-fit: cover;
-       //  &:hover{
-      //     opacity: 0.4;
-      // }
-    
-       // img {
-         //  width: 100%;
-        //   height: 100%;
-        //   border-radius: 12px;
-      // }
-     //.txt{
-       
-    
-    //      h3 {
-    //         font-size:1.6rem;
-    //         margin-top: -67px;
-    //         color:white;
-    //         font-family: BlinkerBold;
-    //     }
-    
-    //      h4 {
-    //         color:white;
-    //         font-size:1.2rem;
-    //         margin-top: -20px;
-    //         font-family: BlinkerBold;
+         h4 {
+            color:white;
+            font-size:1.2rem;
+            // margin-top: -20px;
+            font-family: BlinkerBold;
             
-    //     }
-    //    } 
+        }
+       } 
     // }
 }

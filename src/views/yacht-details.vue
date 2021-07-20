@@ -1,5 +1,5 @@
 <template>
-  <section v-if="yacht" class="yacht-details-container main-layout ">
+  <section v-if="yacht" class="yacht-details-container main-layout">
     <div class="header-img-gallery">
       <div class="yacht-details-title flex column">
         <!-- <div class="yacht-title-primary">{{ yacht.summary }}</div> -->
@@ -8,7 +8,7 @@
             <star-rating :reviews="reviews" /> <span> · </span>
             <a class="link" href="#location"> {{ yacht.loc.address }}</a>
           </div>
-
+          
           <div class="right flex space-between">
             <button class="btn flex center space-evenly action-btn">
               <i class="share-btn btn fas fa-share-square"></i
@@ -20,7 +20,7 @@
               v-if="isLiked"
               @click="toggleLike()"
             >
-              <i class="save-btn btn fas fa-heart" style="color: #ca4c4c"></i>
+              <i class="save-btn btn fas fa-heart" style="color: hotpink"></i>
               <span>Save</span>
             </button>
 
@@ -40,15 +40,14 @@
       />
     </div>
 
-
-    <div class="yacht-details flex space-between  ">
+    <div class="yacht-details flex space-between">
       <div class="bottom-border yacht-description">
         <div class="flex space-between bottom-border yacht-desctiption-title">
           <div>
             <h2 class="ownered-by">
               {{ yacht.name }} ownered by {{ yacht.owner.fullname }}
             </h2>
-            <p>Up to {{ capacity }}</p>
+            <p>Up to {{ capacity }} guests</p>
           </div>
           <img class="owner-img" :src="yacht.owner.imgUrl" />
         </div>
@@ -56,16 +55,14 @@
         <div class="description-section flex column bottom-border">
           <div class="description-txt">
             Come to see my yacht in the middle of
-            {{ yacht.loc.address }}. It is located in near the bay. This
-            yacht can accommodate up to <span> {{ capacity }} </span> people, 
-            yacht equipped with an adjustable swimming platform 
-            and with hot and cold water shower and a 4.50 m auxiliary 
-            boat with 10 HP engine.
-            At the central bridge we find a cabin with dining 
-            table, sofa and chairs, entering a lounge with independent air conditioning,
-             coffee table and plasma TV, 
-             dining room with independent air conditioning, 
-             table and sofa, a kitchen equipped with refrigerator, sink, 
+            {{ yacht.loc.address }}. It is located in near the bay. This yacht
+            can accommodate up to <span> {{ capacity }} </span> people, yacht
+            equipped with an adjustable swimming platform and with hot and cold
+            water shower and a 4.50 m auxiliary boat with 10 HP engine. At the
+            central bridge we find a cabin with dining table, sofa and chairs,
+            entering a lounge with independent air conditioning, coffee table
+            and plasma TV, dining room with independent air conditioning, table
+            and sofa, a kitchen equipped with refrigerator, sink,
           </div>
 
           <p class="contact-owner-btn underline">Contact owner</p>
@@ -79,25 +76,25 @@
         <trip-settings
           class="trip-settings"
           :yacht="yacht"
-          :reviews="reviews"
         />
+          <!-- :reviews="reviews" -->
       </div>
     </div>
 
     <div class="review-section bottom-border">
       <review-categories :reviews="this.reviews" />
       <review-list :reviews="this.reviews" />
-      <review-add @postReview="postReview"></review-add>
+      <!-- <review-add @postReview="postReview"></review-add> -->
     </div>
 
     <div class="map-location">
       <yacht-map id="location" :location="yacht.loc" />
     </div>
 
-    <!-- <trip-settings-mobile
+    <trip-settings-mobile
       class="trip-settings-mobile full-width"
       :yacht="yacht"
-    /> -->
+    />
   </section>
 </template> 
 
@@ -108,18 +105,21 @@
 import yachtAmenities from "../cmps/yacht-amenities.vue";
 import yachtImgGallery from "../cmps/yacht-img-gallery.vue";
 import tripSettings from "../cmps/trip-settings.vue";
-// import tripSettingsMobile from "../cmps/trip-settings-mobile.vue";
+import tripSettingsMobile from "../cmps/trip-settings-mobile.vue";
 import reviewList from "../cmps/review-list.vue";
 import reviewCategories from "../cmps/review-categories.vue";
 import starRating from "../cmps/star-rating.vue";
 import yachtMap from "../cmps/yacht-map.vue";
 import { yachtService } from "../services/yacht-service.js";
-import reviewAdd from "../cmps/review-add.vue";
+// import reviewAdd from "../cmps/review-add.vue";
+import { socketService } from '@/services/socket.service.js';
+
 
 export default {
   name: "yacht-details",
   data() {
     return {
+      first: true,
       reviews: null,
       yacht: null,
       textarea: "",
@@ -139,6 +139,17 @@ export default {
     };
   },
   methods: {
+    open1() {
+      if (this.first === false) return;
+      this.first = false;
+      this.$notify({
+        title: `${this.yacht.owner.fullname} has ACCEPTED your Reservation`,
+        message: `${this.buyer.fullname} Enjoy your trip in ${this.yacht.loc.address} :)`,
+        type: "success",
+        position: "top-right",
+        duration: 20000,
+      });
+    },
     async postReview(postedReview) {
       var review = {
         txt: postedReview.reviewTxt,
@@ -190,24 +201,43 @@ export default {
       }
     },
   },
-  created() {
+   created() {
     const _id = this.$route.params.id;
     yachtService.getById(_id).then((yacht) => {
-      this.yacht = yacht;
-      this.yacht.owner._id;
-      this.reviews = yacht.reviews;
+      if (yacht) {
+        this.yacht = yacht;
+        this.yacht.owner._id;
+        this.reviews = yacht.reviews;
+        // this.$store.dispatch({ type: "loadAllOrders", yachtId: yacht._id });
+      const user = this.$store.getters.loggedinUser;
+        if (!user){
+          this.isLiked=false;
+        }else{
+          this.isLiked= this.yacht.favorites.some(({userId}) => {
+                return userId === user._id;
+          })
+        }
+      }
     });
+    if (this.$store.getters.loggedinUser) {
+      this.buyer = this.$store.getters.loggedinUser;
+    }
+    socketService.on("updatedAns", this.open1);
+      },
+  destroyed() {
+    socketService.off("updatedAns");
   },
+
   components: {
     yachtImgGallery,
     reviewList,
     tripSettings,
-    // tripSettingsMobile,
+    tripSettingsMobile,
     yachtMap,
     reviewCategories,
     starRating,
     yachtAmenities,
-    reviewAdd,
+    // reviewAdd,
   },
 };
 </script>

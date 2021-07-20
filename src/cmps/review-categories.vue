@@ -10,7 +10,7 @@
             <p>{{categories[idx][0]}}</p>
             <div class="bar flex">
             <p class="score">{{(categories[idx][1]).toFixed(1)}}</p>
-            <el-progress class="progress-bar" :show-text="false" color="#FF385C" :stroke-width="8" :percentage="starNum(idx)"></el-progress>
+            <el-progress class="progress-bar" :show-text="false"  :stroke-width="8" :percentage="starNum(idx)"></el-progress>
             </div>
         </li>
     </ul>

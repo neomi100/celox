@@ -2,13 +2,13 @@ import Vue from 'vue'
 import app from './app.vue'
 import router from './router'
 import store from './store/index.js'
-
-
-import * as VueGoogleMaps from 'vue2-google-maps';
-import './styles/styles.scss'
-import locale from 'element-ui/lib/locale/lang/en'
 import ElementUI from 'element-ui';
+import locale from 'element-ui/lib/locale/lang/en'
 import 'element-ui/lib/theme-chalk/index.css';
+import * as VueGoogleMaps from 'vue2-google-maps';
+
+import './styles/styles.scss'
+
 
 Vue.use(ElementUI, { locale })
 

@@ -1,11 +1,19 @@
 <template>
   <section>
     <el-date-picker
+      style="width: 100%"
       @change="changed"
       v-model="value1"
       type="daterange"
+      format="dd/MM/yyyy"
+      value-format="dd-MM-yyyy"
       start-placeholder="Check In"
       end-placeholder=" Check Out"
+      :picker-options="pickerOptions"
+      unlink-panels
+      align="right"
+      range-separator=" "
+      prefix-icon="false"
     >
     </el-date-picker>
   </section>
@@ -13,31 +21,35 @@
 
 <script>
 export default {
+  name: "date-picker",
+  props: { yachtId: String },
   data() {
     return {
       pickerOptions: {
-        shortcuts: [
-          {
-            text: "",
-            onClick(picker) {
-              const end = new Date();
-              const start = new Date();
-              start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
-              picker.$emit("pick", [start, end]);
-            },
-          },
-        ],
+        disabledDate:(time)=> {
+          return (       
+          time.getTime() < Date.now() 
+          ||
+          ( 
+          this.yachtOrders && this.yachtOrders.some((yachtOrder)=>{
+            return (time.getTime() > yachtOrder[0]) && (time.getTime() <yachtOrder[1])
+          }))
+          )},
       },
       value1: "",
-      value2: "",
     };
   },
-
   methods: {
     changed() {
-      console.log(this.value1);
       this.$emit("pick", this.value1);
     },
+    print() {
+    },
   },
+  computed:{
+    yachtOrders(){
+      return this.$store.getters.getyachtOrdersTimeStamps
+    }
+  }
 };
 </script>
