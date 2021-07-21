@@ -1,5 +1,6 @@
 <template>
   <section  class="layout-yacht" >
+    <div class="title">{{title}}</div>
     <yachtFilter @filterede="filterBy" />
     <yachtList :yachts="yachts" />
   </section>
@@ -12,6 +13,9 @@ export default {
     yachts() {
       return this.$store.getters.yachtsForShow;
     },
+    title(){
+       return this.$store.getters.getTitle;
+    }
   },
   methods: {
     filterBy(filterBy) {

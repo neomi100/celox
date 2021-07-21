@@ -86,7 +86,7 @@
       <div class="second">
         <img-upload @save="saveImg" />
         <button class="btn save">Save</button>
-        <button class="btn delete" @click="remove">Delete</button>
+        <button type="button" class="btn delete" @click="remove">Delete</button>
       </div>
     </form>
   </section>
@@ -122,10 +122,10 @@ export default {
   methods: {
     remove() {
       const id = this.$route.params.id;
-      this.$store
-        .dispatch({ type: "removeYacht", id })
+      this.$store.dispatch({ type: "removeYacht", id })
         .then(() => {
           console.log("remove");
+           this.$router.push("/yacht");
           // showMsg('Toy was succesfully removed')
         })
         .catch((err) => {
@@ -141,8 +141,7 @@ export default {
     },
     saveYacht() {
       this.$store.dispatch({ type: "saveYacht", yacht: this.yachtEdit });
-      // this.$store.dispatch({ type: 'loadYachts' });
-      this.$router.push("/");
+      this.$router.push("/yacht-page");
     },
     selectAmenities() {
       this.showSelectAmenities = !this.showSelectAmenities;

@@ -13,7 +13,8 @@ import myFooter from "./cmps/app-footer.vue";
 export default {
   data(){
     return{
-      topClass : 'top'
+      topClass : 'top',
+      widthCalss: ''
     }
   },
     created() {
@@ -23,6 +24,7 @@ export default {
       else this.topClass = 'top'
     }
   },
+ 
    components: {
     myHeader,
     myFooter,

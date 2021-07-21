@@ -9,11 +9,18 @@ export const yachtStore = {
             price: 0,
             size: 'All',
             rate: 'All',
-            txt: ''
+            txt: '',
+            startDate: "",
+            endDate: "",
+            guests: 1
         },
+        title:''
 
     },
     getters: {
+        getTitle(state) {
+            return state.title
+        },
         yachtsForShow(state) {
             const { rate, price, size } = state.filterBy
             const regex = new RegExp(state.filterBy.txt, 'i')
@@ -27,7 +34,7 @@ export const yachtStore = {
                     break;
                 case 'Medium':
                     yachts = yachts.filter((yacht) => yacht.size === 'medium');
-                      break;
+                    break;
                 case 'Large':
                     yachts = yachts.filter((yacht) => yacht.size === 'large');
                     break;
@@ -35,8 +42,8 @@ export const yachtStore = {
             switch (rate) {
                 case 'All' || '':
                     break;
-                case 1:               
-                        yachts = yachts.filter((yacht) => Math.floor(yacht.reviews[0].rate) === 1);
+                case 1:
+                    yachts = yachts.filter((yacht) => Math.floor(yacht.reviews[0].rate) === 1);
                     break;
                 case 2:
                     yachts = yachts.filter((yacht) => Math.floor(yacht.reviews[0].rate) === 2);
@@ -91,11 +98,18 @@ export const yachtStore = {
             const idx = state.yachts.findIndex(y => y._id === id)
             state.yachts.splice(idx, 1)
         },
+        results(state, { title }) {
+            state.title = title
+        }
     },
     actions: {
-        async loadYachts(context) {
+        searchResults(context, { title }) {
+            context.commit({ type: 'results', title })
+        },
+        async loadYachts(context , { filterBy}) {
+            console.log(context, filterBy, 'context stor');
+            // if(filterBy)
             try {
-                console.log('context.state.filterBy', context.state.filterBy);
                 const yachts = await yachtService.query(context.state.filterBy)
                 // console.log(yachts, 'yachts are??');
                 context.commit({ type: 'getYachts', yachts })
@@ -121,8 +135,8 @@ export const yachtStore = {
             try {
                 await yachtService.remove(payload.id)
                 commit(payload)
-            } catch (error){
-                console.log('ERROR: could not remove: ',(error))
+            } catch (error) {
+                console.log('ERROR: could not remove: ', (error))
             }
         },
         async postReview(context, { review }) {
