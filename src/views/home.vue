@@ -1,5 +1,5 @@
 <template>
-  <section class="home">
+  <section class="home main-layout-home" v-if="yachts">
     <div class="home-hero full">
       <img class="main-img" src="@/assets/main-img.jpg" />
       <div class="searchBox">

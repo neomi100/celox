@@ -1,5 +1,5 @@
 <template>
-  <section v-if="yachts" class="layout-yacht" >
+  <section  class="layout-yacht" >
     <yachtFilter @filterede="filterBy" />
     <yachtList :yachts="yachts" />
   </section>
@@ -11,17 +11,11 @@ export default {
   computed: {
     yachts() {
       // console.log(this.$store.getters.yachtsForShow, 'yachtPage');
+      // return JSON.parse(JSON.stringify(this.$store.getters.yachtsForShow)) ;
       return this.$store.getters.yachtsForShow;
     },
-    // filterBy() {
-    //   return { ...this.$store.getters.filterBy };
-    // },
-    // typeList() {
-    //   const types = this.$store.getters.allyachts.map((t) => t.type);
-    //   return [...new Set(types)];
-    // },
   },
-// @onSetFilter="setFilter" :typeList="typeList"
+
   methods: {
     filterBy(filterBy) {
       console.log(filterBy, 'page');
@@ -29,7 +23,12 @@ export default {
       this.$store.dispatch({ type: 'loadYachts' });
     },
   },
+  created() {
+// var filterBy = {};
+      this.$store.dispatch({ type: 'loadYachts' });
 
+    
+  },
   components: {
     yachtList,
     yachtFilter,

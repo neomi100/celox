@@ -2,8 +2,19 @@ export const utilService = {
     delay,
     getRandomInt,
     makeId,
-    debounce
+    debounce,
+    saveToStorage,
+loadFromStorage
 }
+function saveToStorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value) || null);
+}
+
+function loadFromStorage(key) {
+    let data = localStorage.getItem(key);
+    return (data) ? JSON.parse(data) : undefined;
+}
+
 
 function delay(ms = 1500) {
     return new Promise(resolve => {

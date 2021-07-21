@@ -37,9 +37,13 @@ background-color: transparent !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-right: 94px;
     .el-menu-item {
         padding-left: unset;
         border-bottom: unset;
+        &:hover {
+            background-color: transparent !important;
+        }
     }
     .el-menu-item.is-active {
         padding-left: unset;

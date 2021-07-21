@@ -1,0 +1,85 @@
+.login-page {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    // margin-top: 80px;
+    .login-signup-supperline {
+        width: 28%;
+        padding: 5px 3px 0 3px;
+    }
+    input {
+        outline: none !important;
+        min-width: 250px;
+        // width: 30%;
+        width: 28%;
+        max-width: 400px;
+        padding: 12px;
+        margin-bottom: 7px;
+        border-radius: 8px;
+        // height: 2.8rem;
+        height: 2.6rem;
+        border-width: 1px;
+    }
+    .btn {
+        font-size: 16px;
+        min-width: 250px;
+        height: 2.65rem;
+        padding: 10px !important;
+        // width: 30%;
+        width: 28%;
+        max-width: 400px;
+    }
+    p {
+        color: rgb(0, 110, 255);
+        padding-top: 1%;
+        margin: 0 auto;
+    }
+    .middle-page {
+        justify-content: center;
+        margin: 2% 25% 2% 25%;
+    }
+    .login-page-headlines {
+        margin-bottom: 2%;
+        margin-top: 0;
+    }
+    p {
+        color: rgb(0, 89, 255);
+        padding-top: 1%;
+        margin: 0 auto;
+    }
+    .toggle-btn {
+        margin: 40px;
+    }
+    .guest-login {
+        align-self: center;
+        margin-top: 10px;
+    }
+    .login-btn {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width:440px) {
+    .login-page {
+        height: 83vh;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        // margin-top: 10px;
+        .btn {
+            font-size: 16px;
+        }
+        .special-btn {
+            padding: 9px !important;
+            padding-bottom: 9px !important;
+            margin-bottom: 0px !important;
+        }
+        input {
+            height: 2.4rem;
+        }
+        .guest-login {
+            margin-bottom: 10px !important;
+        }
+    }
+}

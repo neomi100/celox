@@ -3,92 +3,118 @@
 
     <!-- <user-msg v-if="userMsg.txt.length"  :msg="userMsg"  @timeout="hideMsg" /> -->
     <form @submit.prevent="saveYacht" class="edit-continer">
-    <h3>{{title}}</h3>
-      <label /> Full name:
-      <input name="txt" type="text" v-model="yachtEdit.owner.fullname" />
-       <input @change="onUploadImg" type="file" id="imgUpload" hidden />
+    <h2>{{title}}</h2>
+    <div class="main-continer">
+    <div class="main1" >
+      <!-- <label /> Full name: -->
+<div>Full name:
+      <input name="txt" type="text" v-model="yachtEdit.owner.fullname" class="input" />
+      </div>
       <label /> Name of your Yacht:
-      <input name="txt" type="text" v-model="yachtEdit.name" />
+      <input name="txt" type="text" v-model="yachtEdit.name" class="input" />
       <label /> Daily price:
-      <input name="txt" type="number" v-model="yachtEdit.price" />
+      <input name="txt" type="number" v-model="yachtEdit.price" class="input" value="1" />
+      </div>
+      <div class="main2" >
       <label /> Country:
-      <input name="txt" type="text" v-model="yachtEdit.loc.country" />
+      <input name="txt" type="text" v-model="yachtEdit.loc.country" class="input"/>
       <label /> City:
-      <input name="txt" type="text" v-model="yachtEdit.loc.city" />
+      <input name="txt" type="text" v-model="yachtEdit.loc.city" class="input"/>
       <label /> Address:
-      <input name="txt" type="text" v-model="yachtEdit.loc.address" />
-      <!-- <label class="switch" /> Captin: זה ביוזר
-      <input type="checkbox" @click="toggle" :checked="yachtEdit.inStock" /> -->
-     
-     <select v-model="yachtEdit.size">Size:
+      <input name="txt" type="text" v-model="yachtEdit.loc.address" class="input"/>
+     <select class="btn" v-model="yachtEdit.size">Size:
         <option value="small">Small</option>
         <option value="medium">Medium</option>
         <option value="large">Large</option>
      </select>
-
-       <!-- <el-transfer
-    v-model="yachtEdit. amenities"
-    :data="data">
-  </el-transfer> -->
-
-  <!-- <div class="block">
-  <span class="demonstration">Display all tags (default)</span>
-  <el-cascader
-    :options="options"
-    :props="props"
-    clearable></el-cascader>
-</div> -->
-
-      <input @change="onUploadImg" type="file" id="imgUpload" hidden />
-      <button class="btn-save">Save</button>
+<button class="btn" @click.stop.prevent="selectAmenities">Amenities</button>
+        <div class="amenities" :class="openAmenities">
+  <el-checkbox :indeterminate="isIndeterminate" v-model="yachtEdit.amenities" @change="handleCheckAllChange">Select all</el-checkbox>
+  <el-checkbox-group v-model="checkedAmenities" @change="handleCheckedAmenitiesChange">
+    <el-checkbox v-for="amenitie in amenities" :label="amenitie" :key="amenitie">{{amenitie}}</el-checkbox>
+  </el-checkbox-group>
+        </div>
+        </div>
+        </div>
+        <div class="second">
+     <img-upload @save="saveImg" />
+      <button class="btn save">Save</button>
+      <button class="btn delete" @click="remove">Delete</button>
+      </div>
     </form>
   </section>
 </template>
 
 <script>
 import { yachtService } from "../services/yacht-service";
-import { uploadImg } from "@/services/img-upload.service.js";
+import imgUpload from "@/cmps/img-upload.cmp";
+const amenities = ['TV','Wifi','Air-conditioning','Smoking allowed','Pets allowed','Cooking basics','Washing machine','work area','Baby accessories','Water slide','Smoke detector'];
 export default {
   data() {
     return {
       yachtEdit: null,
+      showSelectAmenities:false,
+          checkAll: false,
+        checkedAmenities: [],
+        amenities,
+        isIndeterminate: true
     };
   },
   methods: {
+       remove() {
+          const id = this.$route.params.id;
+            this.$store.dispatch({ type: 'removeYacht', id })
+                .then(() => {
+                  console.log('remove');
+                    // showMsg('Toy was succesfully removed')
+                })
+                .catch((err) => {
+                  console.log(err);
+                    // showMsg('Cannot remove Toy, try again later', 'danger')
+                })
+    },
+       saveImg(imgUrl) {
+      this.yachtEdit.imgUrls.push(imgUrl)
+    },
     toggle() {
       this.yachtEdit.inStock = !this.yachtEdit.inStock;
     },
     saveYacht() {
-      console.log(this.yachtEdit,'save');
       this.$store.dispatch({ type: "saveYacht", yacht: this.yachtEdit });
+      // this.$store.dispatch({ type: 'loadYachts' });
       this.$router.push("/");
     },
-       async onUploadImg(ev) {
-      // this.isLoading = true
-      const res = await uploadImg(ev);
-      console.log("onUploadImg -> res.url", res.url);
-      // res.url =imgUrl      
-      this.yachtEdit.imgUrls.push(res.url)
-      // this.isLoading = false
+    selectAmenities(){
+this.showSelectAmenities=!this.showSelectAmenities
     },
+        handleCheckAllChange(val) {
+        this.checkedAmenities = val ? amenities : [];
+        this.isIndeterminate = false;
+      },
+      handleCheckedAmenitiesChange(value) {
+        let checkedCount = value.length;
+        this.checkAll = checkedCount === this.amenities.length;
+        this.isIndeterminate = checkedCount > 0 && checkedCount < this.amenities.length;
+      }
   },
   computed: {
-    // yachtId() {
-    //     return this.$route.params.yachtId;
-    // },
+    openAmenities(){
+let amenities = this.showSelectAmenities ? "isOpen" : "isClose";
+      return amenities;
+    },
      title() {
             return  this.yachtEdit._id ? 'Edit your yacht ' : 'Add your Yacht'
         },
   },
   created() {
-    const id = this.$route.params.yachtId;
-      console.log("hi", id);
+    const id = this.$route.params.id;
+      console.log("hi", id, this.$route.params);
     if (id) {
       yachtService
         .getById(id)
         .then((yacht) => {
           this.yachtEdit = yacht
-        //   this.yachtEdit = JSON.parse(JSON.stringify(yacht));
+          this.yachtEdit = JSON.parse(JSON.stringify(yacht));
         })
         .catch((err) => {
           console.log("Something has happened", err);
@@ -99,6 +125,9 @@ export default {
       this.yachtEdit = yachtService.getEmptyYacht();
       console.log(this.yachtEdit, 'add after');
     }
+  },
+    components: {
+    imgUpload,
   },
 };
 </script>

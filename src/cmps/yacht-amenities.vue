@@ -20,9 +20,6 @@ export default {
     icon(idx) {
       var icon = null;
       switch (this.yacht.amenities[idx]) {
-        case "Parking":
-          icon = "fas fa-parking";
-          return icon;
         case "No Smoking":
           icon = "fas fa-smoking-ban";
           return icon;
@@ -43,6 +40,21 @@ export default {
           return icon;
         case "Cooking basics":
           icon = "fas fa-utensils";
+          return icon;
+        case "Washing machine":
+          icon = "far fa-dryer-alt";
+          return icon;
+        case "work area":
+          icon = "fas fa-chair-office";
+          return icon;
+        case "Baby accessories":
+          icon = "fas fa-baby";
+          return icon;
+        case "Water slide":
+          icon = "fab fa-accusoft";
+          return icon;
+        case "Smoke detector":
+          icon = "far fa-sensor-on";
           return icon;
       }
     },

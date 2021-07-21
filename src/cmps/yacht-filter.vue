@@ -1,31 +1,40 @@
 <template>
-  <section class="filter">
+  <section class="filter layout-yacht">
     <div class="right">
- 
-<!-- ref="" -->
-    <div class="date">
-        <el-date-picker
-          v-model="filterBy.dates"
-          @change="setFilter"
-          type="daterange"
-          start-placeholder="Start Date"
-          end-placeholder="End Date"
-          size="mini"
-        >
-        </el-date-picker>
-      </div>
-      
-            <el-input
-            class="search"
-    size="mini"
-    placeholder="Search..."
-    v-model="filterBy.txt">
-  </el-input>
- <!-- <input  type="text" @input="setFilter" placeholder="" v-model=""  > -->
+      <!-- ref="" -->
 
- </div>
-    <div class="left">
+      <div class="filter-search">
+  <div class="search-input" >
+      <el-input
+        class="search"
+        size="mini"
+        placeholder="Search..."
+        v-model="filterBy.txt"
+        @input="setFilter"
+      >
+      </el-input>
+       
+        </div>
+        <button class="btn-search"></button>
+      </div>
+
+      <!-- <input  type="text" @input="setFilter" placeholder="" v-model=""  > -->
+    </div>
+    <!-- <div class="left"> -->
       <div class="filter-main">
+        <button class="filter-btn" @click="selectDates">Dates</button>
+        <div class="date" :class="openDates">
+          <el-date-picker
+            v-model="filterBy.dates"
+            @change="setFilter"
+            type="daterange"
+            start-placeholder="Start Date"
+            end-placeholder="End Date"
+            size="mini"
+          >
+          </el-date-picker>
+        </div>
+
         <button class="filter-btn" @click="changeSize">Size</button>
         <div class="size" :class="open">
           <el-radio-group
@@ -33,7 +42,6 @@
             @change="setFilter"
             size="small"
           >
-            <!-- v-model="radio1" -->
             <el-radio-button label="All"></el-radio-button>
             <el-radio-button label="Small"></el-radio-button>
             <el-radio-button label="Medium"></el-radio-button>
@@ -48,7 +56,7 @@
 
         <button class="filter-btn" @click="changePrice">Price</button>
         <div class="price" :class="openPrice">
-          <label for="price">Dayly price: ${{ filterBy.price }}</label>
+          <label for="price">Daily price: ${{ filterBy.price }}</label>
           <input
             type="range"
             id="price"
@@ -58,11 +66,12 @@
             step="10"
             @change="setFilter"
             v-model="filterBy.price"
+           
           />
         </div>
-      </div>
-
       <button class="clear" @click="clearFilter">Clear filter</button>
+      <!-- </div> -->
+
     </div>
   </section>
 </template>
@@ -72,11 +81,12 @@
 export default {
   data() {
     return {
+      showDates: false,
       showSize: false,
       showRate: false,
       showPrice: false,
       filterBy: {
-        txt:'',
+        txt: "",
         dates: "",
         price: 500,
         size: "All",
@@ -114,22 +124,27 @@ export default {
     setFilter() {
       var filterBy = JSON.parse(JSON.stringify(this.filterBy));
       this.$emit("filterede", filterBy);
-      //     console.log(filterBy,'filter');
-      // console.log(this.filterBy.dates, 'dates');
-      // console.log(filterBy.rate, 'rate');
-      // console.log(this.filterBy.size, 'size');
+    },
+    selectDates() {
+      this.showDates = !this.showDates;
+      this.showRate = false;
+      this.showPrice = false;
+      this.showSize = false;
     },
     changeSize() {
+      this.showDates = false;
       this.showRate = false;
       this.showPrice = false;
       this.showSize = !this.showSize;
     },
     changeRate() {
+      this.showDates = false;
       this.showRate = !this.showRate;
       this.showSize = false;
       this.showPrice = false;
     },
     changePrice() {
+      this.showDates = false;
       this.showPrice = !this.showPrice;
       this.showSize = false;
       this.showRate = false;
@@ -139,10 +154,10 @@ export default {
         dates: "",
         price: 500,
         size: "All",
-        rate:'All',
-        txt:''
-      }
-      this.setFilter()
+        rate: "All",
+        txt: "",
+      };
+      this.setFilter();
       // console.log(this.filterBy);
       this.showSize = false;
       this.showPrice = false;
@@ -150,6 +165,10 @@ export default {
     },
   },
   computed: {
+    openDates() {
+      let date = this.showDates ? "isOpen" : "isClose";
+      return date;
+    },
     open() {
       let size = this.showSize ? "isOpen" : "isClose";
       return size;
@@ -164,8 +183,8 @@ export default {
     },
   },
 
-  created(){
-console.log("filterede", this.filterBy);
+  created() {
+
   },
   //   components: {
   //     datePicker,
