@@ -1,5 +1,5 @@
 <template>
-  <section class="home" v-if="yachts">
+  <section class="home main-layout-home" v-if="yachts">
     <div class="home-hero full">
       <img class="main-img" src="@/assets/main-img.jpg" />
       <div class="searchBox">
@@ -28,7 +28,7 @@
       <div class="random-search">
         <span class="rs-title">Can't decide ?</span>
         <button class="rs-inner" onclick="randYacht()">
-          <p>Suprise me</p>
+          <p>Surprise me</p>
         </button>
       </div>
     </div>
