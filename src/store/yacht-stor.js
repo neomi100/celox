@@ -28,37 +28,37 @@ export const yachtStore = {
                     break;
                 case 'Medium':
                     yachts = yachts.filter((yacht) => yacht.size === 'medium');
-                      break;
+                    break;
                 case 'Large':
                     yachts = yachts.filter((yacht) => yacht.size === 'large');
                     break;
             }
-        // const average=
-    //     const reviews = []
-    //    yachts.map((yacht)=>yacht.reviews=reviews)
-    //         let sum = reviews.reduce((acc, currVal) => {
-    //             acc += currVal.rate;
-    //             return acc;
-    //           }, 0);
-    //          const average= parseFloat(sum / reviews.length).toFixed(1);
-    //          console.log(average,'x');
-             
-        // yachts = yachts.filter((yacht) => {
-        //     const reviews = yacht.reviews
-        //     let sum = reviews.reduce((acc, currVal) => {
-        //         acc += currVal.rate;
-        //         return acc;
-        //       }, 0);
-        //      const x= parseFloat(sum / reviews.length).toFixed(1);
-        //      console.log(x,'x');
-        //       Math.floor(x) === 1})
+            // const average=
+            //     const reviews = []
+            //    yachts.map((yacht)=>yacht.reviews=reviews)
+            //         let sum = reviews.reduce((acc, currVal) => {
+            //             acc += currVal.rate;
+            //             return acc;
+            //           }, 0);
+            //          const average= parseFloat(sum / reviews.length).toFixed(1);
+            //          console.log(average,'x');
+
+            // yachts = yachts.filter((yacht) => {
+            //     const reviews = yacht.reviews
+            //     let sum = reviews.reduce((acc, currVal) => {
+            //         acc += currVal.rate;
+            //         return acc;
+            //       }, 0);
+            //      const x= parseFloat(sum / reviews.length).toFixed(1);
+            //      console.log(x,'x');
+            //       Math.floor(x) === 1})
 
             switch (rate) {
                 case 'All' || '':
                     break;
                 case 1:
-                        //    yachts = yachts.filter( Math.floor(average) === 1)
-                        yachts = yachts.filter((yacht) => Math.floor(yacht.reviews[0].rate) === 1);
+                    //    yachts = yachts.filter( Math.floor(average) === 1)
+                    yachts = yachts.filter((yacht) => Math.floor(yacht.reviews[0].rate) === 1);
                     break;
                 case 2:
                     yachts = yachts.filter((yacht) => Math.floor(yacht.reviews[0].rate) === 2);
@@ -141,15 +141,15 @@ export const yachtStore = {
             }
         },
         async removeYacht({ commit }, payload) {
-            console.log(commit, payload,'stor1');
+            console.log(commit, payload, 'stor11111111');
             try {
                 await yachtService.remove(payload.id)
-                // commit(payload)
-            } catch (error){
-                console.log('ERROR: could not remove: ',(error))
+                commit(payload)
+            } catch (error) {
+                console.log('ERROR: could not remove: ', (error))
             }
         },
-        
+
 
         async postReview(context, { review }) {
             console.log(context);
@@ -169,7 +169,7 @@ export const yachtStore = {
             newReview.curryacht.reviews.unshift(newReview)
             try {
                 const updatedyacht = await yachtService.save()
-                // const updatedyacht= await yachtService.addReview(newReview,curryacht)
+                    // const updatedyacht= await yachtService.addReview(newReview,curryacht)
                 context.commit({ type: 'updateyachts', updatedyacht })
                 return updatedyacht
             } catch (err) {

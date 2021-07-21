@@ -1354,11 +1354,9 @@ function getById(id) {
 }
 
 function remove(id) {
-    storageService.remove(YACHT_KEY, id)
-    const idx = gYachts.findIndex(y => y._id === id)
-    gYachts.splice(idx, 1)
 
     console.log(id, 'remove service');
+    return storageService.remove(YACHT_KEY, id)
 }
 
 function save(yacht) {
