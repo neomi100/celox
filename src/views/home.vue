@@ -28,7 +28,7 @@
       <div class="random-search">
         <span class="rs-title">Can't decide ?</span>
         <button class="rs-inner" onclick="randYacht()">
-          <p>Suprise me</p>
+          <p>Surprise me</p>
         </button>
       </div>
     </div>
