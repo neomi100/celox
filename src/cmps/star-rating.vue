@@ -34,19 +34,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.review-num{
-color: rgb(113,113,113);
-margin-left: 3px;
-}
-.avg-rate{
-  margin-left: 3px;
-color: #222222;
-font-weight: 500;
-}
-
-.star-rating{
-  font-size:14px;
-}
-</style>

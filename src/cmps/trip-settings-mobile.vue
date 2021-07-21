@@ -5,15 +5,13 @@
         <div class="value-for-money flex column">
           <span
             ><span class="price">${{ price }}</span
-            ><span>/ night</span></span
-          >
+            ><span>/ night</span></span>
             <span class="star-container">
               <p class="star-txt">
                 <i class="fas fa-star"></i>
                 <span class="avg-rate">{{ avgRateFromAllReviewers }}</span>
                 <span class="review-num">
-                  ({{ yacht.reviews.length }} reviews)</span
-                >
+                  ({{ yacht.reviews.length }} reviews)</span>
               </p>
             </span>
         </div>
@@ -26,18 +24,12 @@
         </button>
       </div>
     </div>
-
     <mobile-modal v-if="isFullSettingsPanel" @closeModal="closeFullSettings()" :yacht="yacht"/>
   </section>
 </template>
 
 <script>
 import mobileModal from "./mobile-modal.vue";
-// import datePicker from "./date-picker.vue";
-// import starRating from "./star-rating.vue";
-// import guestSettings from "./guest-settings.vue";
-// import tripSettings from './trip-settings.vue';
-// const Swal = require("sweetalert2");
 
 export default {
   props: {
@@ -47,7 +39,6 @@ export default {
     return {
       msg: false,
       isReserved: false,
-      // mousePos:null,
       mouseX: 0,
       mouseY: 0,
       serviceFee: 10,
@@ -55,8 +46,6 @@ export default {
         requestedDates: [],
         guest: {
           adultsNum: 1,
-          childrenNum: 0,
-          infantsNum: 0,
         },
         buyer: null,
         totalPrice: 0,
@@ -70,7 +59,6 @@ export default {
   methods: {
     openFullSettings(){
       this.isFullSettingsPanel=true;
-      console.log('hi');
     },
     closeFullSettings(){
       this.isFullSettingsPanel=false;
@@ -88,14 +76,12 @@ export default {
       start = new Date(start[2], start[1] - 1, start[0]).getTime();
       end = new Date(end[2], end[1] - 1, end[0]).getTime();
       this.orderSettings.nightsNum = Math.round(
-        (end - start) / 1000 / 3600 / 24
-      );
+        (end - start) / 1000 / 3600 / 24);
     },
     setGuests(value) {
       this.orderSettings.guest = value;
     },
     async sendOrderRequest() {
-      // console.log('tripSettings', this.orderSettings);
       try {
         await this.$store.dispatch({
           type: "setPendingOrder",
@@ -104,7 +90,6 @@ export default {
         this.isReserved = true;
         this.open1();
       } catch (err) {
-        console.log(this.orderSettings, "this.orderSettings");
         console.log("could not send order request", err);
         this.open4();
       }
@@ -117,19 +102,15 @@ export default {
         position: "bottom-right",
       });
     },
-
     open4() {
       this.$notify.error({
         title: "Error",
         message: "Please Try Again later",
       });
     },
-
     mousemove(e) {
       this.mouseX = e.offsetX;
       this.mouseY = e.offsetY;
-      // this.mousePos= `{background-position: calc((100 - var(${this.mouseX}, 0)) * 1%) calc((100 - var(${this.mouseY}, 0)) * 1%)}`
-      // console.log(this.mouseX);
     },
     avgRateFromAllReviewers() {
       if (this.yacht.reviews) {
@@ -157,47 +138,15 @@ export default {
     mousePos() {
       return {
         backgroundPosition: `${100 - this.mouseX / 3}% ${
-          100 - this.mouseY * 2
-        }% `,
+          100 - this.mouseY * 2}% `,
       };
-      // return {backgroundPosition: `calc((100 - var(${this.mouseX}, 0)) * 1%) calc((100 - var(${this.mouseY}, 0)) * 1%)`}
     },
   },
   created() {
     this.orderSettings.buyer = this.$store.getters.loggedinUser;
   },
   components: {
-    // datePicker,
-    // starRating,
-    // guestSettings,
-    // tripSettings,
     mobileModal
   },
 };
 </script>   
-
-<style>
-.el-dropdown-link {
-  cursor: pointer;
-  color: #3888ff;
-}
-.el-icon-arrow-down {
-  font-size: 12px;
-}
-
-.review-num{
-color: rgb(113,113,113);
-margin-left: 3px;
-  font-size: 12px;
-}
-.avg-rate{
-  margin-left: 3px;
-color: #222222;
-font-weight: 500;
-font-size: 18px;
-}
-
-.star-rating{
-  font-size:14px;
-}
-</style>

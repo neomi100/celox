@@ -1,83 +1,71 @@
 <template>
   <section class="filter layout-yacht">
     <div class="right">
-      <!-- ref="" -->
-
       <div class="filter-search">
-  <div class="search-input" >
-      <el-input
-        class="search"
-        size="mini"
-        placeholder="Search..."
-        v-model="filterBy.txt"
-        @input="setFilter"
-      >
-      </el-input>
-       
+        <div class="search-input">
+          <el-input
+            class="search"
+            size="mini"
+            placeholder="Search..."
+            v-model="filterBy.txt"
+            @input="setFilter"
+          >
+          </el-input>
         </div>
         <button class="btn-search"></button>
       </div>
-
-      <!-- <input  type="text" @input="setFilter" placeholder="" v-model=""  > -->
     </div>
-    <!-- <div class="left"> -->
-      <div class="filter-main">
-        <button class="filter-btn" @click="selectDates">Dates</button>
-        <div class="date" :class="openDates">
-          <el-date-picker
-            v-model="filterBy.dates"
-            @change="setFilter"
-            type="daterange"
-            start-placeholder="Start Date"
-            end-placeholder="End Date"
-            size="mini"
-          >
-          </el-date-picker>
-        </div>
-
-        <button class="filter-btn" @click="changeSize">Size</button>
-        <div class="size" :class="open">
-          <el-radio-group
-            v-model="filterBy.size"
-            @change="setFilter"
-            size="small"
-          >
-            <el-radio-button label="All"></el-radio-button>
-            <el-radio-button label="Small"></el-radio-button>
-            <el-radio-button label="Medium"></el-radio-button>
-            <el-radio-button label="Large"></el-radio-button>
-          </el-radio-group>
-        </div>
-
-        <button class="filter-btn" @click="changeRate">Rate</button>
-        <div class="rate" :class="openRate">
-          <el-rate v-model="filterBy.rate" @change="setFilter"></el-rate>
-        </div>
-
-        <button class="filter-btn" @click="changePrice">Price</button>
-        <div class="price" :class="openPrice">
-          <label for="price">Daily price: ${{ filterBy.price }}</label>
-          <input
-            type="range"
-            id="price"
-            name="price"
-            min="500"
-            max="1900"
-            step="10"
-            @change="setFilter"
-            v-model="filterBy.price"
-           
-          />
-        </div>
+    <div class="filter-main">
+      <button class="filter-btn" @click="selectDates">Dates</button>
+      <div class="date" :class="openDates">
+        <el-date-picker
+          v-model="filterBy.dates"
+          @change="setFilter"
+          type="daterange"
+          start-placeholder="Start Date"
+          end-placeholder="End Date"
+          size="mini"
+        >
+        </el-date-picker>
+      </div>
+      <button class="filter-btn" @click="changeSize">Size</button>
+      <div class="size" :class="open">
+        <el-radio-group
+          v-model="filterBy.size"
+          @change="setFilter"
+          size="small"
+        >
+          <el-radio-button label="All"></el-radio-button>
+          <el-radio-button label="Small"></el-radio-button>
+          <el-radio-button label="Medium"></el-radio-button>
+          <el-radio-button label="Large"></el-radio-button>
+        </el-radio-group>
+      </div>
+      <button class="filter-btn" @click="changeRate">Rate</button>
+      <div class="rate" :class="openRate">
+        <el-rate v-model="filterBy.rate" @change="setFilter"></el-rate>
+      </div>
+      <button class="filter-btn" @click="changePrice">Price</button>
+      <div class="price" :class="openPrice">
+        <label for="price">Daily price: ${{ filterBy.price }}</label>
+        <input
+          type="range"
+          id="price"
+          name="price"
+          min="500"
+          max="1900"
+          step="10"
+          @change="setFilter"
+          v-model="filterBy.price"
+        />
+      </div>
       <button class="clear" @click="clearFilter">Clear filter</button>
-      <!-- </div> -->
-
     </div>
   </section>
 </template>
 
 <script>
-// import datePicker from "./date-picker.vue";
+
 export default {
   data() {
     return {
@@ -90,7 +78,6 @@ export default {
         dates: "",
         price: 500,
         size: "All",
-        // rate:'All'
       },
       options: [
         {
@@ -132,20 +119,20 @@ export default {
       this.showSize = false;
     },
     changeSize() {
+      this.showSize = !this.showSize;
       this.showDates = false;
       this.showRate = false;
       this.showPrice = false;
-      this.showSize = !this.showSize;
     },
     changeRate() {
-      this.showDates = false;
       this.showRate = !this.showRate;
+      this.showDates = false;
       this.showSize = false;
       this.showPrice = false;
     },
     changePrice() {
-      this.showDates = false;
       this.showPrice = !this.showPrice;
+      this.showDates = false;
       this.showSize = false;
       this.showRate = false;
     },
@@ -158,7 +145,6 @@ export default {
         txt: "",
       };
       this.setFilter();
-      // console.log(this.filterBy);
       this.showSize = false;
       this.showPrice = false;
       this.showRate = false;
@@ -182,14 +168,6 @@ export default {
       return price;
     },
   },
-
-  created() {
-
-  },
-  //   components: {
-  //     datePicker,
-
-  //   },
 };
 </script>
 

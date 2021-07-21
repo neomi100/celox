@@ -35,11 +35,6 @@ export default {
       },
     };
   },
-  methods: {
-    // centerMap(pos) {
-      // zoom: 4, this.$refs.gMap.panTo(pos);
-    // },
-  },
   created() {
     this.position.lng = this.location.lng;
     this.position.lat = this.location.lat;
