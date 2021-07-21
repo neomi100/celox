@@ -8,7 +8,7 @@
             <star-rating :reviews="reviews" /> <span> · </span>
             <a class="link" href="#location"> {{ yacht.loc.address }}</a>
           </div>
-          
+
           <div class="right flex space-between">
             <button class="btn flex center space-evenly action-btn">
               <i class="share-btn btn fas fa-share-square"></i
@@ -73,11 +73,7 @@
       </div>
 
       <div class="trip-cmp">
-        <trip-settings
-          class="trip-settings"
-          :yacht="yacht"
-        />
-          <!-- :reviews="reviews" -->
+        <trip-settings class="trip-settings" :yacht="yacht" />
       </div>
     </div>
 
@@ -112,8 +108,7 @@ import starRating from "../cmps/star-rating.vue";
 import yachtMap from "../cmps/yacht-map.vue";
 import { yachtService } from "../services/yacht-service.js";
 // import reviewAdd from "../cmps/review-add.vue";
-import { socketService } from '@/services/socket.service.js';
-
+import { socketService } from "@/services/socket.service.js";
 
 export default {
   name: "yacht-details",
@@ -154,7 +149,7 @@ export default {
       var review = {
         txt: postedReview.reviewTxt,
         buyer: this.buyer,
-        ownerId: this.yacht.owner._id, // will be used in the future for updating owner
+        ownerId: this.yacht.owner._id, 
         yacht: this.yacht,
         rate: postedReview.userReviewrate,
         category: {
@@ -201,7 +196,7 @@ export default {
       }
     },
   },
-   created() {
+  created() {
     const _id = this.$route.params.id;
     yachtService.getById(_id).then((yacht) => {
       if (yacht) {
@@ -209,13 +204,13 @@ export default {
         this.yacht.owner._id;
         this.reviews = yacht.reviews;
         // this.$store.dispatch({ type: "loadAllOrders", yachtId: yacht._id });
-      const user = this.$store.getters.loggedinUser;
-        if (!user){
-          this.isLiked=false;
-        }else{
-          this.isLiked= this.yacht.favorites.some(({userId}) => {
-                return userId === user._id;
-          })
+        const user = this.$store.getters.loggedinUser;
+        if (!user) {
+          this.isLiked = false;
+        } else {
+          this.isLiked = this.yacht.favorites.some(({ userId }) => {
+            return userId === user._id;
+          });
         }
       }
     });
@@ -223,7 +218,7 @@ export default {
       this.buyer = this.$store.getters.loggedinUser;
     }
     socketService.on("updatedAns", this.open1);
-      },
+  },
   destroyed() {
     socketService.off("updatedAns");
   },

@@ -4,8 +4,7 @@
       <div class="flex">
       <img
         class="reviewer-img thumb-img"
-        :src="review.by.imgUrl"
-      />
+        :src="review.by.imgUrl"/>
       <div class="review-txt-section">
         <h3>{{review.by.fullname}}</h3>
         <span class="review-date">{{date}}</span>
@@ -17,7 +16,6 @@
 </template>
             
 <script>
-// import moment from 'moment'
 const moment = require("moment");
 
 export default {
@@ -35,7 +33,6 @@ export default {
   computed: {
     date() {
       var date=moment(this.review.by.time).format ("MMMM YYYY")
-      // var strDate=date.toString()
       return date
     },
   reviewPrevTxt(){
@@ -44,7 +41,6 @@ export default {
     }else{
       return this.review.txt.split(' ').splice(0,45).join(' ')+' ...'
     }
-
   }
   },
 };

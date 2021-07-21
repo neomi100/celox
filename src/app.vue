@@ -6,15 +6,11 @@
   </div>
 </template>
 
-
 <script>
 import myHeader from "./cmps/app-header.vue";
 import myFooter from "./cmps/app-footer.vue";
 
-
-
 export default {
-  // components: { home },
   data(){
     return{
       topClass : 'top'

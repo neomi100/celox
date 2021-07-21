@@ -1,7 +1,6 @@
 import { yachtService } from "../services/yacht-service.js";
 import { utilService } from '../services/util.service.js';
 
-
 export const yachtStore = {
     state: {
         yachts: [],
@@ -33,31 +32,10 @@ export const yachtStore = {
                     yachts = yachts.filter((yacht) => yacht.size === 'large');
                     break;
             }
-        // const average=
-    //     const reviews = []
-    //    yachts.map((yacht)=>yacht.reviews=reviews)
-    //         let sum = reviews.reduce((acc, currVal) => {
-    //             acc += currVal.rate;
-    //             return acc;
-    //           }, 0);
-    //          const average= parseFloat(sum / reviews.length).toFixed(1);
-    //          console.log(average,'x');
-             
-        // yachts = yachts.filter((yacht) => {
-        //     const reviews = yacht.reviews
-        //     let sum = reviews.reduce((acc, currVal) => {
-        //         acc += currVal.rate;
-        //         return acc;
-        //       }, 0);
-        //      const x= parseFloat(sum / reviews.length).toFixed(1);
-        //      console.log(x,'x');
-        //       Math.floor(x) === 1})
-
             switch (rate) {
                 case 'All' || '':
                     break;
-                case 1:
-                        //    yachts = yachts.filter( Math.floor(average) === 1)
+                case 1:               
                         yachts = yachts.filter((yacht) => Math.floor(yacht.reviews[0].rate) === 1);
                     break;
                 case 2:
@@ -113,14 +91,13 @@ export const yachtStore = {
             const idx = state.yachts.findIndex(y => y._id === id)
             state.yachts.splice(idx, 1)
         },
-
     },
     actions: {
         async loadYachts(context) {
             try {
                 console.log('context.state.filterBy', context.state.filterBy);
                 const yachts = await yachtService.query(context.state.filterBy)
-                console.log(yachts, 'yachts are??');
+                // console.log(yachts, 'yachts are??');
                 context.commit({ type: 'getYachts', yachts })
                 return yachts
             } catch (err) {
@@ -141,16 +118,13 @@ export const yachtStore = {
             }
         },
         async removeYacht({ commit }, payload) {
-            console.log(commit, payload,'stor1');
             try {
                 await yachtService.remove(payload.id)
-                // commit(payload)
+                commit(payload)
             } catch (error){
                 console.log('ERROR: could not remove: ',(error))
             }
         },
-        
-
         async postReview(context, { review }) {
             console.log(context);
             var newReview = {

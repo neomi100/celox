@@ -9,7 +9,6 @@
   </section>
 </template>
 
-
 <script>
 export default {
   name: "yacht-amenities",
@@ -59,6 +58,5 @@ export default {
       }
     },
   },
-  created() {},
 };
 </script>

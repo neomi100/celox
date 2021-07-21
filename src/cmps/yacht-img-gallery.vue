@@ -8,7 +8,6 @@
         :src="imgs[idx]"
       />
     </div>
-
     <el-carousel v-else :autoplay="true" :interval="4000" trigger="click">
       <el-carousel-item v-for="(img, idx) in imgs" :key="idx" autoplay="false">
         <img :src="imgs[idx]" :class="`slide-imgs${idx}`" style="width: 100%" />
@@ -28,13 +27,11 @@ export default {
       isWideWindow: false,
     };
   },
-
   methods: {
     windowSize() {
       this.isWideWindow = window.innerWidth > 700 ? true : false
     },
   },
-
   created() {
     this.windowSize()
     window.addEventListener('resize', () => {
