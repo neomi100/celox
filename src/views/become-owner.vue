@@ -141,7 +141,7 @@ export default {
     },
     saveYacht() {
       this.$store.dispatch({ type: "saveYacht", yacht: this.yachtEdit });
-      this.$router.push("/yacht-page");
+      this.$router.push("/yacht");
     },
     selectAmenities() {
       this.showSelectAmenities = !this.showSelectAmenities;

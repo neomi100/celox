@@ -141,9 +141,9 @@ export default {
       this.isGuests = !this.isGuests;
     },
     async submitSearch() {
-      const filterBy = JSON.parse(JSON.stringify(this.filterBy));
+      // const filterBy = JSON.parse(JSON.stringify(this.filterBy));
       if (this.$route.path !== "/yacht") await this.$router.push(`/yacht/?location=${this.filterBy.location}`);
-      await this.$store.dispatch({ type: "loadyachts", filterBy });
+      // await this.$store.dispatch({ type: "loadyachts", filterBy });
     },
     copyData(ev) {
       console.log(ev, ev.target, 'copy date');

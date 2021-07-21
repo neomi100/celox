@@ -100,7 +100,7 @@
         </el-menu-item>
       </el-menu>
       <div class="header-right-corner flex">
-        <router-link class="router explore-nav" :to="`/yacht-page`">
+        <router-link class="router explore-nav" :to="`/yacht`">
           <span @click="reloadyachts" class="txt"> Explore </span>
         </router-link>
         <span class="new-owner" @click="becomeowner()">Become a owner</span>

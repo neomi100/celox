@@ -167,10 +167,10 @@ export default {
     selectCheckOut() {
       this.showCheckOut = !this.showCheckOut;
     },
-    onSearchResults() {
-      this.$router.push("/yacht-page");
-      this.$store.dispatch({ type: "searchResults", title: this.title });
-    },
+    // onSearchResults() {
+    //   this.$router.push("/yacht");
+    //   this.$store.dispatch({ type: "searchResults", title: this.title });
+    // },
     randomYacht() {
       const yachts = this.yachts;
       var yacht = yachts[Math.floor(Math.random() * yachts.length)];
