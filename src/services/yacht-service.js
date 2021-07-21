@@ -3,7 +3,7 @@ import { utilService } from './util.service.js'
 
 // const fs = require('fs')
 // const gYachts = require('../../data/yacht.json')
-const YACHT_KEY= 'yachts'
+const YACHT_KEY = 'yachts'
 const yachtJson = [{
         "_id": "10006546",
         "name": "Katrina",
@@ -1354,8 +1354,11 @@ function getById(id) {
 }
 
 function remove(id) {
-    console.log(id,'remove service');
-    return storageService.remove(YACHT_KEY, id)
+    storageService.remove(YACHT_KEY, id)
+    const idx = gYachts.findIndex(y => y._id === id)
+    gYachts.splice(idx, 1)
+
+    console.log(id, 'remove service');
 }
 
 function save(yacht) {
