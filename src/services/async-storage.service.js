@@ -1,4 +1,3 @@
-
 export const storageService = {
     query,
     get,
@@ -31,7 +30,7 @@ function post(entityType, newEntity) {
 function postMany(entityType, newEntities) {
     return query(entityType)
         .then(entities => {
-            newEntities = newEntities.map(entity => ({...entity, id : _makeId()}))
+            newEntities = newEntities.map(entity => ({...entity, id: _makeId() }))
             entities.push(...newEntities);
             _save(entityType, entities)
             return entities;
@@ -52,6 +51,7 @@ function remove(entityType, entityId) {
     return query(entityType)
         .then(entities => {
             const idx = entities.findIndex(entity => entity._id === entityId);
+            console.log('@@@@@@@@@ idx', idx);
             entities.splice(idx, 1)
             _save(entityType, entities)
         })

@@ -111,7 +111,7 @@ export const yachtStore = {
             // if(filterBy)
             try {
                 const yachts = await yachtService.query(context.state.filterBy)
-                // console.log(yachts, 'yachts are??');
+                    // console.log(yachts, 'yachts are??');
                 context.commit({ type: 'getYachts', yachts })
                 return yachts
             } catch (err) {
@@ -157,7 +157,7 @@ export const yachtStore = {
             newReview.curryacht.reviews.unshift(newReview)
             try {
                 const updatedyacht = await yachtService.save()
-                // const updatedyacht= await yachtService.addReview(newReview,curryacht)
+                    // const updatedyacht= await yachtService.addReview(newReview,curryacht)
                 context.commit({ type: 'updateyachts', updatedyacht })
                 return updatedyacht
             } catch (err) {
