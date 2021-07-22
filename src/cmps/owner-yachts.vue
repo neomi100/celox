@@ -30,7 +30,7 @@ export default {
   computed: {
     yachts() {
       //TODO do filter in store
-      return this.$store.getters.yachtsForDisplay.filter((yacht) => {
+      return this.$store.getters.yachtsForShow.filter((yacht) => {
         return yacht.owner._id === this.owner._id;
       });
     },
@@ -43,7 +43,7 @@ export default {
   },
   async created() {
     await this.$store.dispatch({ type: "loadyachts" });
-    console.log(this.$store.getters.yachtsForDisplay);
+    console.log(this.$store.getters.yachtsForShow);
   },
 };
 </script>

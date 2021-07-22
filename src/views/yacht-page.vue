@@ -24,6 +24,7 @@ export default {
     },
   },
   created() {
+    console.log(this.yachts);
       this.$store.dispatch({ type: 'loadYachts' });  
   },
   components: {

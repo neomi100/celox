@@ -11,8 +11,7 @@
 
           <div class="right flex space-between">
             <button class="btn flex center space-evenly action-btn">
-              <i class="share-btn btn fas fa-share-square"></i
-              ><span></span>
+              <i class="share-btn btn fas fa-share-square"></i><span></span>
             </button>
 
             <button

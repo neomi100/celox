@@ -25,7 +25,7 @@ function delay(ms = 1500) {
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min); 
+    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
 
 function makeId(length = 5) {
@@ -38,17 +38,17 @@ function makeId(length = 5) {
 }
 
 function debounce(callback, wait, immediate = false) {
-    let timeout = null
-
+    let timeout = null 
+    
     return function() {
-        const callNow = immediate && !timeout
-        const next = () => callback.apply(this, arguments)
-
-        clearTimeout(timeout)
-        timeout = setTimeout(next, wait)
-
-        if (callNow) {
-            next()
-        }
+      const callNow = immediate && !timeout
+      const next = () => callback.apply(this, arguments)
+      
+      clearTimeout(timeout)
+      timeout = setTimeout(next, wait)
+  
+      if (callNow) {
+        next()
+      }
     }
-}
+  }

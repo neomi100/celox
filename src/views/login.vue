@@ -3,19 +3,9 @@
     <div class="login-page" >
       <h2 class="login-page-headlines">Login</h2>
       <form @submit.prevent="doLogin" class="login-form">
-        <input
-          autocomplete="off"
-          type="text"
-          v-model="loginCred.username"
-          placeholder="Username"
-        />
+        <input autocomplete="off" type="text" v-model="loginCred.username" placeholder="Username"/>
         <br />
-        <input
-          autocomplete="off"
-          type="password"
-          v-model="loginCred.password"
-          placeholder="Password"
-        />
+        <input autocomplete="off" type="password" v-model="loginCred.password" placeholder="Password"/>
         <br />
         <div class="login-btns flex column center">
           <button class="special-btn btn login-btn">Login</button>
@@ -33,26 +23,11 @@
       </div>
       <form  @submit.prevent="doSignup" class="signup-form">
         <h2 class="login-page-headlines">Signup</h2>
-        <input
-          autocomplete="off"
-          type="text"
-          v-model="signupCred.fullname"
-          placeholder="Name"
-        />
+        <input autocomplete="off" type="text" v-model="signupCred.fullname" placeholder="Name"/>
         <br />
-        <input
-          autocomplete="off"
-          type="text"
-          v-model="signupCred.username"
-          placeholder="Username"
-        />
+        <input autocomplete="off" type="text" v-model="signupCred.username" placeholder="Username"/>
         <br />
-        <input
-          autocomplete="off"
-          type="password"
-          v-model="signupCred.password"
-          placeholder="Password"
-        />
+        <input autocomplete="off" type="password" v-model="signupCred.password" placeholder="Password"/>
         <br />
         <button class="special-btn btn ">Signup</button>
 

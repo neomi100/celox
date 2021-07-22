@@ -13,7 +13,7 @@
     </section>
     <section class="user-back-office">
        <el-tabs class="user-status-btns" v-model="userStatus" >
-          <el-tab-pane class="owner" label="owner" name="owner"></el-tab-pane>
+          <el-tab-pane class="owner" label="Owner" name="owner"></el-tab-pane>
           <el-tab-pane label="Traveler" name="traveler"></el-tab-pane>
       </el-tabs>
       <div>
@@ -38,7 +38,7 @@ export default {
   computed: {
         yachts() {
       //TODO do filter in store
-      return this.$store.getters.yachtsForDisplay.filter((yacht) => {
+      return this.$store.getters.yachtsForShow.filter((yacht) => {
         return yacht.owner._id === this.user._id;
       })
         },
@@ -52,7 +52,7 @@ export default {
       return this.$store.getters.loggedinUser;
     },
     userCreationTime() {
-      return "June 2020";
+      return "June 2019";
     }
   },
   created() {

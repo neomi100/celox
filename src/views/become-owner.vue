@@ -1,5 +1,5 @@
 <template>
-  <section v-if="yachtEdit" class="main-layout">
+  <section v-if="yachtEdit"  class="main-layout">
     <!-- <user-msg v-if="userMsg.txt.length"  :msg="userMsg"  @timeout="hideMsg" /> -->
     <form @submit.prevent="saveYacht" class="edit-continer">
       <h2>{{ title }}</h2>
@@ -90,6 +90,7 @@
       </div>
     </form>
   </section>
+ 
 </template>
 
 <script>
@@ -163,22 +164,24 @@ export default {
       return amenities;
     },
     title() {
-      return this.yachtEdit._id ? "Edit your yacht " : "Add your Yacht";
+      console.log(this.yachtEdit);
+      return this.yachtEdit.id ? "Edit your yacht " : "Add your Yacht";
     },
   },
-  created() {
+  async created() {
+    console.log('hi');
     const id = this.$route.params.id;
+    console.log(id,'become');
     if (id) {
-      yachtService
-        .getById(id)
-        .then((yacht) => {
-          this.yachtEdit = yacht;
+      try {
+        const yacht =  await yachtService.getById(id)
+      console.log(yacht);
           this.yachtEdit = JSON.parse(JSON.stringify(yacht));
-        })
-        .catch((err) => {
-          console.log("Something has happened", err);
-          throw err;
-        });
+          console.log(this.yachtEdit);
+      } catch{
+          // console.log("Something has happened", err);
+          // throw err;
+      }
     } else {
       console.log(this.yachtEdit, "add");
       this.yachtEdit = yachtService.getEmptyYacht();
