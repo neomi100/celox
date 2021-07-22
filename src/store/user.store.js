@@ -1,16 +1,3 @@
-// const DEMO_USER = {
-//     "_id": "u102",
-//     "fullname": "User 2",
-//     "imgUrl": "https://randomuser.me/api/portraits/men/2.jpg",
-//     "isCaptin": false,
-//     "isAdmin": false,
-//     "username": "user2",
-//     "password": "secret",
-//     "notifications": {
-//         "orders": [],
-//         "msgs": []
-//     }
-// }
 import { userService } from '../services/user.service.js';
 
 export const userStore = {
@@ -75,7 +62,7 @@ export const userStore = {
             try {
                 await userService.logout()
                 commit({ type: 'setUser', user: null })
-                // commit({ type: 'setMsg', msg: '' })
+                    // commit({ type: 'setMsg', msg: '' })
             } catch (err) {
                 console.log('userStore: Error in logout', err)
                 throw err

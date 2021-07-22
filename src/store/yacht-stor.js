@@ -14,7 +14,7 @@ export const yachtStore = {
             endDate: "",
             guests: 1
         },
-        title:''
+        title: ''
 
     },
     getters: {
@@ -106,8 +106,7 @@ export const yachtStore = {
         searchResults(context, { title }) {
             context.commit({ type: 'results', title })
         },
-        async loadYachts(context , { filterBy}) {
-            console.log(context, filterBy, 'context stor');
+        async loadYachts(context) {
             // if(filterBy)
             try {
                 const yachts = await yachtService.query(context.state.filterBy)

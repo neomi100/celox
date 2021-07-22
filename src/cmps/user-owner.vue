@@ -7,7 +7,7 @@
           <el-tab-pane class="statistics" label="Statistics" name="user-statistics"></el-tab-pane> 
       </el-tabs>
       <div>
-        <!-- <owner-orders v-if="ownerCurrTab === 'inbox'" :owner="owner" /> -->
+        <owner-orders v-if="ownerCurrTab === 'inbox'" :owner="owner" />
         <owner-yachts v-if="ownerCurrTab === 'owner-yachts'" :owner="owner" />
         <add-yacht v-if="ownerCurrTab === 'add-yacht'" :owner="owner" />
         <user-statistics v-if="ownerCurrTab === 'user-statistics'" class="user-statistics" />
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-// import ownerOrders from "./owner-orders.vue";
+import ownerOrders from "./owner-orders.vue";
 import ownerYachts from "./owner-yachts.vue";
 // import addYacht from './add-yacht.vue';
 import userStatistics from './user-statistics.vue';
@@ -30,7 +30,7 @@ export default {
   },
     components: {
       userStatistics,
-      // ownerOrders,
+      ownerOrders,
       ownerYachts,
       // addYacht
     },

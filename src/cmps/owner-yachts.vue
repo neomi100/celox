@@ -43,7 +43,7 @@ export default {
   },
   async created() {
     await this.$store.dispatch({ type: "loadyachts" });
-    console.log(this.$store.getters.yachtsForDisplay);
+    console.log(this.$store.getters.yachtsForShow);
   },
 };
 </script>

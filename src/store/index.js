@@ -1,19 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { userStore } from './user.store.js'
 import { yachtStore } from './yacht-stor.js'
+import { orderStore } from './order.store.js'
 
-import {userStore} from './user.store'
+
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-    strict: true,
-    state: {},
-    mutations: {},
-    actions: {},
     modules: {
         yachtStore,
-        userStore
+        userStore,
+        orderStore
     }
 })
-
