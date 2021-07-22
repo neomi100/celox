@@ -174,10 +174,7 @@ export default {
     randomYacht() {
       const yachts = this.yachts;
       var yacht = yachts[Math.floor(Math.random() * yachts.length)];
-      // const id = yacht._id;
-      console.log(yacht, "random");
       return this.$router.push('/details/' + yacht._id);
-      // return this.$router.push(`"/details/${id}"`);
     },
   },
   computed: {

@@ -125,10 +125,10 @@ export default {
       isGuests: false,
       model: "",
       options: [
-        { label: "Portugal", value: "Portugal" },
-        { label: "Morocco", value: "Morocco" },
-        { label: "Guadeloupe", value: "Guadeloupe" },
-        { label: "France", value: "France" },
+        { label: "Portugal", value: "portugal" },
+        { label: "Morocco", value: "morocco" },
+        { label: "Guadeloupe", value: "guadeloupe" },
+        { label: "France", value: "france" },
       ],
     };
   },
