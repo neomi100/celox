@@ -12,7 +12,7 @@
           <div class="right flex space-between">
             <button class="btn flex center space-evenly action-btn">
               <i class="share-btn btn fas fa-share-square"></i
-              ><span>Share</span>
+              ><span></span>
             </button>
 
             <button
@@ -21,7 +21,7 @@
               @click="toggleLike()"
             >
               <i class="save-btn btn fas fa-heart" style="color: hotpink"></i>
-              <span>Save</span>
+              <span></span>
             </button>
 
             <button
@@ -29,7 +29,7 @@
               v-if="!isLiked"
               @click="toggleLike()"
             >
-              <i class="save-btn btn far fa-heart"></i><span>Save</span>
+              <i class="save-btn btn far fa-heart"></i><span></span>
             </button>
           </div>
         </div>

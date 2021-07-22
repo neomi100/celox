@@ -21,7 +21,7 @@
       <!-- <input  type="text" @input="setFilter" placeholder="" v-model=""  > -->
     </div>
     <!-- <div class="left"> -->
-      <div class="filter-main">
+      <div class="filter-main align-center">
         <button class="filter-btn" @click="selectDates">Dates</button>
         <div class="date" :class="openDates">
           <el-date-picker
@@ -69,7 +69,7 @@
            
           />
         </div>
-      <button class="clear" @click="clearFilter">Clear filter</button>
+      <button class="clear filter-btn" @click="clearFilter">Clear filter</button>
       <!-- </div> -->
 
     </div>

@@ -22,10 +22,11 @@ export default {
   },
     created() {
     this.$store.dispatch({ type: 'loadYachts' });
-    window.onscroll = () =>{
+  
+    addEventListener('scroll', () =>{
       if(window.scrollY !== 0) this.topClass = ''
       else this.topClass = 'top'
-    }
+    })
   },
    components: {
     myHeader,

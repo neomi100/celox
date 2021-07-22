@@ -3,9 +3,13 @@
     z-index: 50;
     height: 80px;
     background-color: white;
-    position: sticky;
+    position: sticky; // sticky when not on home page 
+    width: 100%;
     top: 0;
     box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+    &.home-active {
+        position: fixed;
+    }
     .header-right-corner {
         height: 100%;
         align-items: center;

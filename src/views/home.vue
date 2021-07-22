@@ -69,6 +69,7 @@
           <div class="top-yacht-txt">
             <h3 class="top-yacht-name">{{ yacht.name }}</h3>
             <h4 class="top-yacht-price">${{ yacht.price }}</h4>
+            <h4 class="top-yacht-city">{{yacht.loc.city}}</h4>
           </div>
         </router-link>
       </div>
@@ -84,49 +85,49 @@ export default {
         {
           class: "first",
           img: "https://cdn.zizoo.com/media/images/top-destinations/bahamas-lg.jpg",
-          txt: "loc1",
+          txt: "Macau",
           minPrice: 30,
         },
         {
           class: "",
           img: "https://cdn.zizoo.com/media/images/top-destinations/puerto-rico.jpg",
-          txt: "loc2",
+          txt: "London",
           minPrice: 30,
         },
         {
           class: "",
           img: "https://cdn.zizoo.com/media/images/top-destinations/greece.jpg",
-          txt: "loc3",
+          txt: "Israel",
           minPrice: 30,
         },
         {
           class: "",
           img: "https://cdn.zizoo.com/media/images/top-destinations/croatia.jpg",
-          txt: "loc4",
+          txt: "Tanzania",
           minPrice: 30,
         },
         {
           class: "",
           img: "https://cdn.zizoo.com/media/images/top-destinations/british-virgin-islands.jpg",
-          txt: "loc5",
+          txt: "Madrid",
           minPrice: 30,
         },
         {
           class: "",
           img: "https://cdn.zizoo.com/media/images/top-destinations/spain.jpg",
-          txt: "loc6",
+          txt: "France",
           minPrice: 30,
         },
         {
           class: "",
           img: "https://cdn.zizoo.com/media/images/top-destinations/turkey.jpg",
-          txt: "loc7",
+          txt: "Guadeloupe",
           minPrice: 30,
         },
         {
           class: "",
           img: "https://cdn.zizoo.com/media/images/top-destinations/italy.jpg",
-          txt: "loc8",
+          txt: "Sweden",
           minPrice: 30,
         },
       ],
