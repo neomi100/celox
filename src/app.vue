@@ -13,16 +13,19 @@ import myFooter from "./cmps/app-footer.vue";
 export default {
   data(){
     return{
-      topClass : 'top'
+      topClass : 'top',
+      widthCalss: ''
     }
   },
     created() {
     this.$store.dispatch({ type: 'loadYachts' });
-    window.onscroll = () =>{
+  
+    addEventListener('scroll', () =>{
       if(window.scrollY !== 0) this.topClass = ''
       else this.topClass = 'top'
-    }
+    })
   },
+ 
    components: {
     myHeader,
     myFooter,

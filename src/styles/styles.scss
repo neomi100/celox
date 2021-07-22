@@ -18,15 +18,17 @@
 @import 'cmps/trip-settings';
 @import 'cmps/slide-img';
 @import 'cmps/yacht-filter';
-@import 'cmps/yacht-list.scss';
-@import 'cmps/yacht-preview.scss';
-@import 'cmps/img-upload.scss';
+@import 'cmps/yacht-list';
+@import 'cmps/yacht-preview';
+@import 'cmps/img-upload';
 @import 'cmps/trip-setting-mobail';
-@import 'cmps/user-dashboard.scss';
+@import 'cmps/user-dashboard';
 //VIEWS
-@import 'cmps/app.scss';
-@import 'views/home.scss';
-@import 'views/yacht-details.scss';
-@import 'views/user-details.scss';
-@import 'views/become-owner.scss';
-@import 'views/login.scss';
+@import 'cmps/app';
+@import 'views/home';
+@import 'views/yacht-details';
+@import 'views/user-details';
+@import 'views/become-owner';
+@import 'views/login';
+@import 'cmps/home-filter';
+@import 'views/yacht-page';

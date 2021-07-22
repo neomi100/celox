@@ -1354,9 +1354,7 @@ function getById(id) {
 }
 
 function remove(id) {
-
-    console.log(id, 'remove service');
-    return storageService.remove(YACHT_KEY, id)
+  return storageService.remove(YACHT_KEY, id)
 }
 
 function save(yacht) {

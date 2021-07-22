@@ -9,11 +9,18 @@ export const yachtStore = {
             price: 0,
             size: 'All',
             rate: 'All',
-            txt: ''
+            txt: '',
+            startDate: "",
+            endDate: "",
+            guests: 1
         },
+        title:''
 
     },
     getters: {
+        getTitle(state) {
+            return state.title
+        },
         yachtsForShow(state) {
             const { rate, price, size } = state.filterBy
             const regex = new RegExp(state.filterBy.txt, 'i')
@@ -91,11 +98,18 @@ export const yachtStore = {
             const idx = state.yachts.findIndex(y => y._id === id)
             state.yachts.splice(idx, 1)
         },
+        results(state, { title }) {
+            state.title = title
+        }
     },
     actions: {
-        async loadYachts(context) {
+        searchResults(context, { title }) {
+            context.commit({ type: 'results', title })
+        },
+        async loadYachts(context , { filterBy}) {
+            console.log(context, filterBy, 'context stor');
+            // if(filterBy)
             try {
-                console.log('context.state.filterBy', context.state.filterBy);
                 const yachts = await yachtService.query(context.state.filterBy)
                     // console.log(yachts, 'yachts are??');
                 context.commit({ type: 'getYachts', yachts })
