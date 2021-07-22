@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import { yachtStore } from './yacht-stor.js'
 
-import userStore from './user.store'
+import {userStore} from './user.store'
 
 Vue.use(Vuex)
 

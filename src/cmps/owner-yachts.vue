@@ -30,7 +30,7 @@ export default {
   computed: {
     yachts() {
       //TODO do filter in store
-      return this.$store.getters.yachtsForDisplay.filter((yacht) => {
+      return this.$store.getters.yachtsForShow.filter((yacht) => {
         return yacht.owner._id === this.owner._id;
       });
     },

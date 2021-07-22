@@ -55,19 +55,19 @@ function _saveLocalUser(user) {
 
 function getLoggedinUser() {
     let user = JSON.parse(sessionStorage.getItem('loggedinUser'));
-    // if (!user) {
-    //     user = {
-    //         "_id": "6058751c94789ab513f04f93",
-    //         "fullname": "Mor Levi",
-    //         "imgUrl": "https://randomuser.me/api/portraits/men/1.jpg",
-    //         "isAdmin": false,
-    //         "username": "mor97",
-    //         "notifications": {
-    //             "orders":{},
-    //             "msgs":{}
-    //         },
-    //         // "createdAt": 1234214185454
-    //     }
-    // }
+    if (!user) {
+        user = {
+            "_id": "6058751c94789ab513f04f93",
+            "fullname": "Mor Levi",
+            "imgUrl": "https://randomuser.me/api/portraits/men/1.jpg",
+            "isAdmin": true,
+            "username": "mor97",
+            "notifications": {
+                "orders":{},
+                "msgs":{}
+            },
+            // "createdAt": 1234214185454
+        }
+    }
     return user;
 }

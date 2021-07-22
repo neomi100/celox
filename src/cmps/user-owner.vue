@@ -9,7 +9,7 @@
       <div>
         <!-- <owner-orders v-if="ownerCurrTab === 'inbox'" :owner="owner" /> -->
         <owner-yachts v-if="ownerCurrTab === 'owner-yachts'" :owner="owner" />
-        <!-- <add-yacht v-if="ownerCurrTab === 'add-yacht'" :owner="owner" /> -->
+        <add-yacht v-if="ownerCurrTab === 'add-yacht'" :owner="owner" />
         <user-statistics v-if="ownerCurrTab === 'user-statistics'" class="user-statistics" />
       </div>
   </section>
@@ -18,7 +18,7 @@
 <script>
 // import ownerOrders from "./owner-orders.vue";
 import ownerYachts from "./owner-yachts.vue";
-// import addyacht from './add-yacht.vue';
+// import addYacht from './add-yacht.vue';
 import userStatistics from './user-statistics.vue';
 export default {
  name:'user-owner',
@@ -32,7 +32,7 @@ export default {
       userStatistics,
       // ownerOrders,
       ownerYachts,
-      // addyacht
+      // addYacht
     },
 };
 </script>

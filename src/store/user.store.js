@@ -1,131 +1,114 @@
-import { userService } from '../services/user.service.js'
-import { yachtService } from '@/services/yacht-service.js'
-import { bookingService } from '@/services/booking.service.js'
-import { socketService } from '../services/socket.service.js'
+// const DEMO_USER = {
+//     "_id": "u102",
+//     "fullname": "User 2",
+//     "imgUrl": "https://randomuser.me/api/portraits/men/2.jpg",
+//     "isCaptin": false,
+//     "isAdmin": false,
+//     "username": "user2",
+//     "password": "secret",
+//     "notifications": {
+//         "orders": [],
+//         "msgs": []
+//     }
+// }
+import { userService } from '../services/user.service.js';
 
-const DEMO_USER = {
-    "_id": "u102",
-    "fullname": "User 2",
-    "imgUrl": "https://randomuser.me/api/portraits/men/2.jpg",
-    "isCaptin": false,
-    "isAdmin": false,
-    "username": "user2",
-    "password": "secret",
-    "notifications": {
-        "orders": [],
-        "msgs": []
-    }
-}
-
-var localLoggedinUser = DEMO_USER
-if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user)
-
-
-export default {
+export const userStore = {
     state: {
-        loggedinUser: localLoggedinUser,
-        useryachts: null
+        users: [],
+        user: userService.getLoggedinUser(),
+        msg: '',
     },
     getters: {
         users(state) {
-            return state.users
+            return state.users;
         },
         loggedinUser(state) {
-            return state.loggedinUser
+            return state.user;
         },
+        msg(state) {
+            return state.msg;
+        }
     },
     mutations: {
         setUser(state, { user }) {
-            state.loggedinUser = user
+            state.user = user
         },
         setUsers(state, { users }) {
-            state.users = users
+            state.users = users;
         },
         removeUser(state, { userId }) {
             state.users = state.users.filter(user => user._id !== userId)
         },
-        login(state, { user }) {
-            state.users.push(user)
-        },
+        setMsg(state, { msg }) {
+            state.msg = msg
+        }
     },
     actions: {
-        async login(context, { userCred }) {
+        async login({ commit }, { userCred }) {
             try {
-                const user = await userService.login(userCred)
-                context.commit({ type: 'setUser', user })
-                socketService.emit('onUserLogin', user._id)
+                const user = await userService.login(userCred);
+                if (user._id) commit({ type: 'setUser', user })
+                else {
+                    console.log('user in else:', user);
+                    commit({ type: 'setMsg', msg: user })
+                }
                 return user
             } catch (err) {
-                console.error('Could not log In user: ', userCred.email, err)
+                console.log('userStore: Error in login', err)
+                throw err
             }
         },
-        async signup(context, { userCred }) {
+        async signup({ commit }, { userCred }) {
             try {
+                userCred = JSON.parse(JSON.stringify(userCred))
                 const user = await userService.signup(userCred)
-                context.commit({ type: 'setUser', user })
-                return user
+                if (user._id) commit({ type: 'setUser', user })
+                else commit({ type: 'setMsg', msg: user })
+                return user;
             } catch (err) {
-                console.error('Could not sign Up: ', err)
+                console.log('userStore: Error in signup', err)
+                throw err
             }
         },
-        async logout(context) {
+        async logout({ commit }) {
             try {
                 await userService.logout()
-                context.commit({ type: 'setUser', user: null })
+                commit({ type: 'setUser', user: null })
+                // commit({ type: 'setMsg', msg: '' })
             } catch (err) {
-                console.error('Could not log Out: ', err)
+                console.log('userStore: Error in logout', err)
+                throw err
             }
         },
-        async loadUsers(context) {
+        async loadUsers({ commit }) {
             try {
-                const users = await userService.getUsers()
-                context.commit({ type: 'setUsers', users })
+                const users = await userService.getUsers();
+                commit({ type: 'setUsers', users })
             } catch (err) {
-                console.error('Could not load users: ', err)
+                console.log('userStore: Error in loadUsers', err)
+                throw err
             }
         },
-        async removeUser(context, { userId }) {
+        async removeUser({ commit }, { userId }) {
             try {
-                await userService.remove(userId)
-                context.commit({ type: 'removeUser', userId })
+                await userService.remove(userId);
+                commit({ type: 'removeUser', userId })
             } catch (err) {
-                console.error('Could not remove user: ', err)
+                console.log('userStore: Error in removeUser', err)
+                throw err
             }
         },
-        async updateUser(context, { user }) {
+        async updateUser({ commit }, { user }) {
             try {
-                const resUser = await userService.update(user)
-                context.commit({ type: 'setUser', user: resUser })
+                user = await userService.update(user);
+                commit({ type: 'setUser', user })
             } catch (err) {
-                console.error('Could not update user: ', err)
+                console.log('userStore: Error in updateUser', err)
+                throw err
             }
-        },
-        async unreadBooking(context, { user }) {
-            try {
-                const updatedUser = await userService.getById(user._id);
-                context.commit({ type: 'setUser', user: updatedUser })
-            } catch (err) {
-                console.error('Could not update unreads: ', err)
-            }
-        },
-        async resetUnreadBookings(context, { user }) {
-            try {
-                const resUser = await userService.resetUnreadBookings(user)
-                context.commit({ type: 'setUser', user: resUser })
-            } catch (err) {
-                console.error('Could not update user: ', err)
-            }
-        },
-        async loadUserData(context, { ownerId }) {
-            try {
-                const { yachts } = await yachtService.query({ ownerId })
-                const userBookings = await Promise.all(
-                    yachts.map(yacht => bookingService.query({ yachtId: yacht._id }))
-                )
-                return { useryachts: yachts, userBookings }
-            } catch (err) {
-                console.error('Could not load user data: ', err)
-            }
-        },
-    },
+
+        }
+
+    }
 }
