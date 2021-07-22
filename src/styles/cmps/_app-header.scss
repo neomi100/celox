@@ -3,13 +3,17 @@
     z-index: 50;
     height: 80px;
     background-color: white;
-    position: sticky; // sticky when not on home page 
-    width: 100%;
+    // position: sticky; // sticky when not on home page 
+    // width: 100%;
+    // top: 0;
+    // box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+    // &.home-active {
+    //     position: fixed;
+    // }
+    
     top: 0;
     box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-    &.home-active {
-        position: fixed;
-    }
+ 
     .header-right-corner {
         height: 100%;
         align-items: center;
@@ -24,6 +28,12 @@
             background-color: rgb(228, 228, 228);
         }
     }
+}
+.fixed{
+    position: fixed;
+}
+.stickyPos{
+    position: sticky;
 }
 .el-menu-item:hover{
 background-color: transparent !important;
@@ -41,7 +51,7 @@ background-color: transparent !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-right: 94px;
+    padding-right:20px;
     .el-menu-item {
         padding-left: unset;
         border-bottom: unset;

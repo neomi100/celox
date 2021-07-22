@@ -44,8 +44,6 @@ export default {
     changed() {
       this.$emit("pick", this.value1);
     },
-    print() {
-    },
   },
   computed:{
     yachtOrders(){

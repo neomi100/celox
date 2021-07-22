@@ -62,15 +62,13 @@ export default {
     return {
       msg: false,
       isReserved: false,
-      // mousePos:null,
       mouseX: 0,
       mouseY: 0,
       serviceFee: 10,
       orderSettings: {
         requestedDates: [],
         guest: {
-          adultsNum: 1,
-         
+          adultsNum: 1,        
         },
         buyer: null,
         totalPrice: 0,
@@ -94,8 +92,7 @@ export default {
       start = new Date(start[2], start[1] - 1, start[0]).getTime();
       end = new Date(end[2], end[1] - 1, end[0]).getTime();
       this.orderSettings.nightsNum = Math.round(
-        (end - start) / 1000 / 3600 / 24
-      );
+        (end - start) / 1000 / 3600 / 24);
     },
     setGuests(value) {
       this.orderSettings.guest = value;
@@ -105,19 +102,6 @@ export default {
         this.open2();
         return;
       }
-      // console.log('tripSettings', this.orderSettings);
-      // try {
-      //   // await this.$store.dispatch({
-      //     // type: "setPendingOrder",
-      //     orderSettings: this.orderSettings,
-      //   // });
-      //   // this.isReserved = true;
-      //   // this.open1();
-      // } catch (err) {
-      //   console.log(this.orderSettings, "this.orderSettings");
-      //   console.log("could not send order request", err);
-      //   this.open4();
-      // }
     },
     open1() {
       this.$notify({

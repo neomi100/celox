@@ -6,13 +6,9 @@ import ElementUI from 'element-ui';
 import locale from 'element-ui/lib/locale/lang/en'
 import 'element-ui/lib/theme-chalk/index.css';
 import * as VueGoogleMaps from 'vue2-google-maps';
-
 import './styles/styles.scss'
 
-
 Vue.use(ElementUI, { locale })
-
-
 
 const GOOGLE_API_KEY = 'AIzaSyCm3zYkW7wg6dnV3VagY8qsT86jZhYLHGQ' // need to secure "ori key" AIzaSyCm3zYkW7wg6dnV3VagY8qsT86jZhYLHGQ
 

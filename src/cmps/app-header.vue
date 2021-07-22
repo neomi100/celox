@@ -1,8 +1,12 @@
 <template>
-  <header :class="`full main-layout-home header-container ${homeActivnessClass}`">
+  <header :class="`full  header-container ${layoutClass} ${positionClass}`">
     <div class="nav-container">
-      <el-menu class="el-menu-demo menu-flex" style="border: none; background-color: unset;" mode="horizontal">
-        <el-menu-item >
+      <el-menu
+        class="el-menu-demo menu-flex"
+        style="border: none; background-color: unset"
+        mode="horizontal"
+      >
+        <el-menu-item>
           <router-link class="router" :to="`/`">
             <!-- <img class="logo-img" :src="require(`@/assets/logo.svg`)" alt="img not found"/> -->
            
@@ -34,14 +38,11 @@
         <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" class="css-ze2te4 css-qd6ojx" viewBox="-0 -12 78 46" width="200" height="80"><defs><linearGradient id="SvgjsLinearGradient1011"><stop id="SvgjsStop1012" stop-color="#8f5e25" offset="0"/><stop id="SvgjsStop1013" stop-color="#fbf4a1" offset="0.5"/><stop id="SvgjsStop1014" stop-color="#8f5e25" offset="1"/></linearGradient><linearGradient id="SvgjsLinearGradient1011"><stop id="SvgjsStop1012" stop-color="#8f5e25" offset="0"/><stop id="SvgjsStop1013" stop-color="#fbf4a1" offset="0.5"/><stop id="SvgjsStop1014" stop-color="#8f5e25" offset="1"/></linearGradient></defs><g transform="translate(-6.179133430834537, -8.554396567930196) scale(1.123586933329973)" class="css-1mgjlsp" fill="url(&quot;#SvgjsLinearGradient1011&quot;)"><path xmlns="http://www.w3.org/2000/svg" d="M 9 7.86 q -0.26 -0.04 -0.43 -0.24 t -0.17 -0.46 l 0 -1.46 q 0 -0.34 0.24 -0.54 t 0.56 -0.16 q 1.72 0.28 3.06 1.22 q 1.74 1.26 2.46 3.34 q 0.12 0.34 -0.08 0.64 t -0.58 0.3 l -1.6 0 q -0.22 0 -0.4 -0.11 t -0.26 -0.31 q -0.44 -1.04 -1.34 -1.66 q -0.7 -0.44 -1.46 -0.56 Z M 14.06 14.5 q 0.38 0 0.58 0.3 t 0.08 0.64 q -0.72 2.08 -2.46 3.34 q -1.34 0.94 -3.06 1.22 l -0.1 0 q -0.28 0 -0.46 -0.18 q -0.24 -0.18 -0.24 -0.52 l 0 -1.46 q 0 -0.26 0.16 -0.46 t 0.42 -0.24 q 0.84 -0.12 1.48 -0.56 q 0.9 -0.62 1.34 -1.66 q 0.08 -0.2 0.26 -0.31 t 0.4 -0.11 l 1.6 0 Z M 6.9 5.24 q 0.26 0.2 0.26 0.54 l 0 1.56 q 0 0.22 -0.15 0.41 t -0.37 0.27 q -0.28 0.06 -0.44 0.14 q -0.8 0.36 -1.36 0.98 q -1.14 1.28 -1.14 3.35 t 1.14 3.37 q 0.7 0.8 1.8 1.12 q 0.22 0.06 0.37 0.25 t 0.15 0.41 l 0 1.58 q 0 0.34 -0.26 0.54 q -0.18 0.16 -0.46 0.16 l -0.14 0 q -2.14 -0.46 -3.62 -2.08 q -1.9 -2.14 -1.9 -5.34 t 1.9 -5.34 q 1.48 -1.64 3.62 -2.06 q 0.32 -0.08 0.6 0.14 Z M 29.356 16.96 q 0.3 0 0.5 0.21 t 0.2 0.51 l 0 1.46 q 0 0.28 -0.2 0.49 t -0.5 0.21 l -9.88 0 q -0.28 0 -0.49 -0.21 t -0.21 -0.49 l 0 -1.46 q 0 -0.3 0.21 -0.51 t 0.49 -0.21 l 9.88 0 Z M 19.476 13.86 q -0.28 0 -0.49 -0.21 t -0.21 -0.49 l 0 -1.5 q 0 -0.28 0.21 -0.49 t 0.49 -0.21 l 8.98 0 q 0.3 0 0.51 0.21 t 0.21 0.49 l 0 1.5 q 0 0.28 -0.21 0.49 t -0.51 0.21 l -8.98 0 Z M 29.356 5 q 0.3 0 0.5 0.21 t 0.2 0.49 l 0 1.46 q 0 0.3 -0.2 0.51 t -0.5 0.21 l -9.88 0 q -0.28 0 -0.49 -0.21 t -0.21 -0.51 l 0 -1.46 q 0 -0.28 0.21 -0.49 t 0.49 -0.21 l 9.88 0 Z M 36.452 5 q 0.28 0 0.49 0.21 t 0.21 0.49 l 0 13.4 q 0 0.28 -0.21 0.49 t -0.49 0.21 l -1.52 0 q -0.28 0 -0.49 -0.21 t -0.21 -0.49 l 0 -13.4 q 0 -0.28 0.21 -0.49 t 0.49 -0.21 l 1.52 0 Z M 43.752 16.94 q 0.3 0 0.5 0.21 t 0.2 0.49 l 0 1.46 q 0 0.28 -0.2 0.49 t -0.5 0.21 l -4.66 0 q -0.3 0 -0.5 -0.21 t -0.2 -0.49 l 0 -1.46 q 0 -0.28 0.2 -0.49 t 0.5 -0.21 l 4.66 0 Z M 53.948 5.16 q 0.24 0.2 0.24 0.54 l 0 1.5 q 0 0.26 -0.15 0.45 t -0.41 0.25 q -1.28 0.26 -2.18 1.22 q -1.22 1.28 -1.22 3.33 t 1.22 3.35 q 0.9 0.94 2.18 1.2 q 0.26 0.06 0.41 0.25 t 0.15 0.45 l 0 1.5 q 0 0.32 -0.24 0.54 q -0.22 0.16 -0.46 0.16 l -0.12 0 q -2.32 -0.38 -3.98 -2.1 q -2.08 -2.14 -2.08 -5.33 t 2.08 -5.37 q 1.62 -1.68 3.98 -2.08 q 0.32 -0.06 0.58 0.14 Z M 60.228 7.1 q 2.08 2.18 2.08 5.37 t -2.08 5.33 q -1.66 1.72 -3.98 2.1 l -0.12 0 q -0.24 0 -0.46 -0.16 q -0.24 -0.22 -0.24 -0.54 l 0 -1.5 q 0 -0.26 0.15 -0.45 t 0.41 -0.25 q 1.28 -0.26 2.18 -1.2 q 1.22 -1.3 1.22 -3.35 t -1.22 -3.33 q -0.9 -0.96 -2.18 -1.22 q -0.26 -0.06 -0.41 -0.25 t -0.15 -0.45 l 0 -1.5 q 0 -0.34 0.25 -0.54 t 0.57 -0.14 q 2.36 0.4 3.98 2.08 Z M 78.724 18.82 q 0.12 0.16 0.14 0.36 t -0.06 0.38 t -0.26 0.29 t -0.38 0.11 l -1.94 0 q -0.36 0 -0.58 -0.28 l -3.82 -5.06 l -3.82 5.06 q -0.22 0.28 -0.56 0.28 l -1.96 0 q -0.2 0 -0.37 -0.1 t -0.25 -0.28 q -0.2 -0.42 0.06 -0.76 l 10.36 -13.54 q 0.22 -0.28 0.56 -0.28 l 1.94 0 q 0.2 0 0.37 0.11 t 0.27 0.29 t 0.08 0.38 t -0.16 0.36 l -4.7 6.12 Z M 68.184 9.88 l -2.88 -3.74 q -0.14 -0.16 -0.16 -0.36 t 0.08 -0.38 t 0.27 -0.29 t 0.37 -0.11 l 1.94 0 q 0.16 0 0.32 0.07 t 0.24 0.21 l 2.82 3.74 q 0.28 0.34 0.08 0.76 q -0.08 0.18 -0.25 0.28 t -0.39 0.1 l -1.88 0 q -0.16 0 -0.32 -0.07 t -0.24 -0.21 Z" fill="url(&quot;#SvgjsLinearGradient1011&quot;)"/></g></svg>
         </el-menu-item>
       </el-menu>
-
       <div class="header-right-corner flex">
-        <router-link class="router explore-nav" :to="`/yacht-page`">
+        <router-link class="router explore-nav" :to="`/yacht`">
           <span @click="reloadyachts" class="txt"> Explore </span>
         </router-link>
-
-        <!-- <span class="new-owner" @click="becomeowner()">Become a owner</span> -->
-
+        <span class="new-owner" @click="becomeowner()">Become a owner</span>
         <section class="user-select">
           <el-dropdown>
             <span class="el-dropdown-link">
@@ -71,8 +72,8 @@ export default {
   name: "app-header",
   data() {
     return {
-      isTop : false
-      
+      layoutClass: "main-layout-home",
+      positionClass: " fixed",
     };
   },
   
@@ -84,15 +85,7 @@ export default {
       this.$router.push("/become-owner");
     },
     navTo() {
-      console.log("click");
       this.$router.push("/login");
-
-      // switch (ev.target.textContent) {
-      //   case "Log-in": {
-      //       this.$router.push("/login");
-      //     }
-      //     break;
-      // }
     },
     
 
@@ -106,6 +99,22 @@ export default {
     // loggedinUser() {
     //   return this.$store.getters.loggedinUser;
     // },
+  },
+  watch: {
+    "$route.path": {
+      handler() {
+        if (this.$route.path === "/yacht") {
+          this.layoutClass = "layout-yacht";
+        } else {
+          this.layoutClass = "main-layout-home";
+        }
+        if (this.$route.path === "/") {
+          this.positionClass = "fixed";
+        } else {
+          this.positionClass = "stickyPos";
+        }
+      },
+    },
   },
   created(){
     addEventListener('scroll', () =>{

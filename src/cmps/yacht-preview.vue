@@ -10,7 +10,6 @@
         </el-carousel-item>
       </el-carousel>
       <div class="yacht-preview">
-        <!-- <router-link :to="'/details/' + yacht._id"> -->
           <div class="yacht-up" @click="onDetails">
             <p class="right-up">
               <span class="icon" title="Max pepole"></span
@@ -24,12 +23,10 @@
           <span class="yacht-name">{{ yacht.name }}</span>
           <span class="yacht-price">Daily price: {{ yacht.price }}$</span>
           </div>
-        <!-- </router-link> -->
     <button class="edit" @click.stop.prevent="edit">Edit</button>
     </div>
       </div>
     </div>
-        <!-- <router-link :to="'/become-owner/'+ yacht._id">Edit</router-link> -->
   </section>
 </template>
 <script>
@@ -40,8 +37,7 @@ export default {
   data() {
     return {
       imgs: this.yacht.imgUrls,
-      isLiked: false,
-      // currentSrc: 0,
+      isLiked: false
     };
   },
   computed: {
@@ -49,9 +45,7 @@ export default {
       const star = this.yacht.reviews[0].rate;
       var starStr = "";
       for (let i = 0; i < 5; i++) {
-        // console.log(i,'i');
         if (i < star) {
-          // console.log(starStr,'starsStr');
           starStr += "★";
         } else {
           starStr += "☆";
@@ -88,17 +82,11 @@ export default {
       await this.$store.dispatch({ type: "toggleLike", yacht: this.yacht });
     },
     onDetails() {
-      // const id= this.yacht._id
       this.$router.push(`/details/` + this.yacht._id);
     },
     edit(){
       this.$router.push(`/become-owner/` + this.yacht._id);
-
     }
-  },
-  created() {
-    // this.rate
-    // console.log(this.imgs, "hi3");
   },
 };
 </script>

@@ -44,7 +44,7 @@ export default {
   name: "review-add",
   data() {
     return {
-      colors: ["#99A9BF", "#F7BA2A", "#FF9900"], // same as { 2: '#99A9BF', 4: { value: '#F7BA2A', excluded: true }, 5: '#FF9900' }
+      colors: ["#99A9BF", "#F7BA2A", "#FF9900"], 
       reviewToAdd: {
         reviewTxt:'',
         userReviewRate: null,
@@ -85,28 +85,9 @@ export default {
   },
   computed: {
     categoryName() {
-      // if (this.reviewToAdd)
       return Object.keys(this.reviewToAdd.categoryMap);
     },
   },
 };
-// var categories = this.reviews.map((review) => {
-//         return { ...review.category };
-//       });
-//       var categoryMap = { ...categories[0] };
-//       for (var i = 1; i < categories.length; i++) {
-//         var currCategory = categories[i];
-//         for (const cat in currCategory) {
-//           categoryMap[cat] += currCategory[cat];
-//         }
-//       }
-//       for (const cat in categoryMap) {
-//         categoryMap[cat] /= this.reviews.length;
-//       }
-//       var categoriesToRender = Object.keys(categoryMap).map((key) => [
-//         key,
-//         categoryMap[key],
-//       ]);
-//       this.categories = categoriesToRender;
 </script>
 

@@ -1,5 +1,6 @@
 <template>
   <section  class="layout-yacht" >
+    <div class="title">{{title}}</div>
     <yachtFilter @filterede="filterBy" />
     <yachtList :yachts="yachts" />
   </section>
@@ -10,24 +11,20 @@ import yachtFilter from '../cmps/yacht-filter.vue';
 export default {
   computed: {
     yachts() {
-      // console.log(this.$store.getters.yachtsForShow, 'yachtPage');
-      // return JSON.parse(JSON.stringify(this.$store.getters.yachtsForShow)) ;
       return this.$store.getters.yachtsForShow;
     },
+    title(){
+       return this.$store.getters.getTitle;
+    }
   },
-
   methods: {
     filterBy(filterBy) {
-      console.log(filterBy, 'page');
       this.$store.commit({ type: 'setFilter', filterBy });
       this.$store.dispatch({ type: 'loadYachts' });
     },
   },
   created() {
-// var filterBy = {};
-      this.$store.dispatch({ type: 'loadYachts' });
-
-    
+      this.$store.dispatch({ type: 'loadYachts' });  
   },
   components: {
     yachtList,

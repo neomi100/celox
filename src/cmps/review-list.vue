@@ -17,8 +17,6 @@ export default {
     reviews: Array,
     showTime: Boolean
   },
-  methods: {
-  },
   components: {
     reviewPreview,
   }

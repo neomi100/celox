@@ -60,21 +60,12 @@
           {{ msg }}
         </p>
       </form>
-      <!-- <div class="middle-page flex">
-        <div class="login-signup-supperline">
-          <hr />
-        </div>
-        <h3>or</h3>
-        <div class="login-signup-supperline">
-          <hr />
-        </div>
-      </div> -->
     </div>
   </div>
 </template>
 
 <script>
-// import userDetails from "./user-details.vue";
+
 export default {
   data() {
     return {
@@ -147,9 +138,6 @@ export default {
   },
   created() {
     this.loadUsers();
-  },
-  components: {
-    // userDetails,
   },
 };
 </script>

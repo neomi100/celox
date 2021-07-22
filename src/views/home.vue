@@ -1,33 +1,54 @@
 <template>
   <section class="home main-layout-home" v-if="yachts">
+    <section class="hero full main-layout">
+      <div
+        class="filter-container flex justify-center align-center scroll-serarch"
+      >
+        <home-filter></home-filter>
+      </div>
+    </section>
     <div class="home-hero full">
-      <img class="main-img" src="@/assets/main-img.jpg" />
-      <div class="searchBox">
-        <div class="sb-input div0" onclick="a()">
-          <span class="sb-input-title">Check In Date</span>
-          <span class="sb-input-data">Select date</span>
-        </div>
-        <div class="sb-input div1" onclick="a()">
-          <span class="sb-input-title">Check Out Date</span>
-          <span class="sb-input-data">Select data</span>
-        </div>
-        <!-- <el-date-picker
-          type="daterange"
-          start-placeholder="Start Date"
-          end-placeholder="End Date"
-          size="small"
-        >
-        </el-date-picker> -->
-        <div class="sb-input div2" onclick="b()">
+      <!-- <img class="main-img" src="@/assets/imgs/main-img.jpg" /> -->
+      <!-- <div class="searchBox">
+        <div class="sb-input" @click="onSearch">
           <span class="sb-input-title">Location</span>
           <span class="sb-input-data">Select Location</span>
         </div>
-        <button class="search-btn"></button>
+    <div class="sb-input" @click="selectDates">
+      <span class="sb-input-title">Check In</span>
+      <span class="sb-input-data">Add data</span>
+      </div>      
+        <div class="sb-input" @click="selectCheckOut">
+          <span class="sb-input-title">Check Out</span>
+          <span class="sb-input-data">Add data</span>
+        </div>
+        <button class="search-btn" @click="onSearchResults"></button>
       </div>
 
+ <div class="search-input-home" :class="openSearch">
+          <el-input 
+          v-model="title"    
+            size="mini"
+            placeholder="Your next trip to.."
+          >
+          </el-input>
+        </div>
+
+           <div class="dates" :class="openDates">
+    <el-date-picker
+      type="datetime"
+      placeholder="Select date ">
+    </el-date-picker>
+  </div>
+           <div class="check-out" :class="checkOut">
+    <el-date-picker
+      type="datetime"
+      placeholder="Select date ">
+    </el-date-picker>
+  </div> -->
       <div class="random-search">
         <span class="rs-title">Can't decide ?</span>
-        <button class="rs-inner" onclick="randYacht()">
+        <button class="rs-inner" @click="randomYacht()">
           <p>Surprise me</p>
         </button>
       </div>
@@ -43,9 +64,7 @@
           :style="{ backgroundImage: 'url(' + loc.img + ')' }"
         >
           <router-link to="/yacht-page" class="gallery-item-a">
-            <!-- <div class="gallery-img" :style="{'background-color': 'red'}"> -->
             <div class="gallery-img">
-              <!-- <img class="yacht-img object-fit" :src="imgs[idx]" /> -->
               <div class="txt">
                 <h4>Yacht Charter {{ loc.txt }}</h4>
                 <p>Starting from ${{ loc.minPrice }}/day</p>
@@ -78,9 +97,15 @@
 </template>
 
 <script>
+import homeFilter from "@/cmps/home-filter.vue";
 export default {
+  components: { homeFilter },
   data() {
     return {
+      title: "",
+      showDates: false,
+      showSearch: false,
+      showCheckOut: false,
       topLocs: [
         {
           class: "first",
@@ -133,30 +158,45 @@ export default {
       ],
     };
   },
-
+  methods: {
+    selectDates() {
+      this.showDates = !this.showDates;
+    },
+    onSearch() {
+      this.showSearch = !this.showSearch;
+    },
+    selectCheckOut() {
+      this.showCheckOut = !this.showCheckOut;
+    },
+    // onSearchResults() {
+    //   this.$router.push("/yacht");
+    //   this.$store.dispatch({ type: "searchResults", title: this.title });
+    // },
+    randomYacht() {
+      const yachts = this.yachts;
+      var yacht = yachts[Math.floor(Math.random() * yachts.length)];
+      // const id = yacht._id;
+      console.log(yacht, "random");
+      return this.$router.push('/details/' + yacht._id);
+      // return this.$router.push(`"/details/${id}"`);
+    },
+  },
   computed: {
     yachts() {
       return this.$store.getters.yachtsForShow;
     },
-    // yachtTop(){
-    //   var yachts1 = this.$store.getters.yachtsForShow;
-    //   yachts1.splice(3)
-    //   console.log(yachts1,'map@@@@@@@@@@@@@@@@');
-    //   return yachts1
-    // }
-  },
-  methods: {
-    // formatPrice(value) {
-    //   let val = (value / 1).toFixed(2).replace(".", ",");
-    //   return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    // },
-    // topYacht(){
-    //   this.$store.dispatch({ type: 'filterTopYacht' });
-    //   return this.$store.getters.listYacht;
-    // }
-  },
-  created() {
-    // console.log(this.yachtTop,this.yachtsZ, 'log');
+    openDates() {
+      let date = this.showDates ? "isOpen" : "isClose";
+      return date;
+    },
+    openSearch() {
+      let search = this.showSearch ? "isOpen" : "isClose";
+      return search;
+    },
+    checkOut() {
+      let check = this.showCheckOut ? "isOpen" : "isClose";
+      return check;
+    },
   },
 };
 </script>

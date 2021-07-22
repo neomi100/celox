@@ -15,7 +15,7 @@ const routes = [{
         name: 'home'
     },
     {
-        path: '/yacht-page',
+        path: '/yacht/',
         component: yachtPage,
     }, {
         path: '/become-owner/:id?',
@@ -31,8 +31,7 @@ const routes = [{
     },
     {
         path: '/user-details',
-        component: userDetails,
-        
+        component: userDetails,     
     }
 
 ]

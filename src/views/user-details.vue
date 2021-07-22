@@ -28,7 +28,7 @@
   </section>
 </template>
  <script>
-import { yachts } from "../../data/yacht";
+
 import reviewList from "../cmps/review-list.vue";
 
 export default {
@@ -47,12 +47,15 @@ export default {
       return this.$store.getters.loggedinUser;
     },
     relativeReviews() {
-      return yachts.reduce((accum, { reviews }) => {
+      return this.yachts.reduce((accum, { reviews }) => {
         const currRelatedReviews = reviews.filter(
           ({ by }) => by._id === this.user._id
         );
         return [...accum, ...currRelatedReviews];
       }, []);
+    },
+      yachts() {
+      return this.$store.getters.yachtsForShow;
     },
   },
   components: {

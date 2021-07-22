@@ -1,24 +1,19 @@
 <template>
   <section class="filter layout-yacht">
     <div class="right">
-      <!-- ref="" -->
-
       <div class="filter-search">
-  <div class="search-input" >
-      <el-input
-        class="search"
-        size="mini"
-        placeholder="Search..."
-        v-model="filterBy.txt"
-        @input="setFilter"
-      >
-      </el-input>
-       
+        <div class="search-input">
+          <el-input
+            class="search"
+            size="mini"
+            placeholder="Search..."
+            v-model="filterBy.txt"
+            @input="setFilter"
+          >
+          </el-input>
         </div>
         <button class="btn-search"></button>
       </div>
-
-      <!-- <input  type="text" @input="setFilter" placeholder="" v-model=""  > -->
     </div>
     <!-- <div class="left"> -->
       <div class="filter-main align-center">
@@ -77,7 +72,7 @@
 </template>
 
 <script>
-// import datePicker from "./date-picker.vue";
+
 export default {
   data() {
     return {
@@ -90,7 +85,6 @@ export default {
         dates: "",
         price: 500,
         size: "All",
-        // rate:'All'
       },
       options: [
         {
@@ -132,20 +126,20 @@ export default {
       this.showSize = false;
     },
     changeSize() {
+      this.showSize = !this.showSize;
       this.showDates = false;
       this.showRate = false;
       this.showPrice = false;
-      this.showSize = !this.showSize;
     },
     changeRate() {
-      this.showDates = false;
       this.showRate = !this.showRate;
+      this.showDates = false;
       this.showSize = false;
       this.showPrice = false;
     },
     changePrice() {
-      this.showDates = false;
       this.showPrice = !this.showPrice;
+      this.showDates = false;
       this.showSize = false;
       this.showRate = false;
     },
@@ -158,7 +152,6 @@ export default {
         txt: "",
       };
       this.setFilter();
-      // console.log(this.filterBy);
       this.showSize = false;
       this.showPrice = false;
       this.showRate = false;
@@ -182,14 +175,6 @@ export default {
       return price;
     },
   },
-
-  created() {
-
-  },
-  //   components: {
-  //     datePicker,
-
-  //   },
 };
 </script>
 
