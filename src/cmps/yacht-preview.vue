@@ -16,7 +16,7 @@
               ><span> {{ capacity }}</span
               ><span class="country"> {{ yacht.loc.country }}</span>
             </p>
-            <span>{{ rate }}</span>
+            <span class="rate stars">{{ rate }}</span>
           </div>
           <div class="yacht-down">
           <div>

@@ -15,51 +15,58 @@
         <button class="btn-search"></button>
       </div>
     </div>
-    <div class="filter-main">
-      <button class="filter-btn" @click="selectDates">Dates</button>
-      <div class="date" :class="openDates">
-        <el-date-picker
-          v-model="filterBy.dates"
-          @change="setFilter"
-          type="daterange"
-          start-placeholder="Start Date"
-          end-placeholder="End Date"
-          size="mini"
-        >
-        </el-date-picker>
-      </div>
-      <button class="filter-btn" @click="changeSize">Size</button>
-      <div class="size" :class="open">
-        <el-radio-group
-          v-model="filterBy.size"
-          @change="setFilter"
-          size="small"
-        >
-          <el-radio-button label="All"></el-radio-button>
-          <el-radio-button label="Small"></el-radio-button>
-          <el-radio-button label="Medium"></el-radio-button>
-          <el-radio-button label="Large"></el-radio-button>
-        </el-radio-group>
-      </div>
-      <button class="filter-btn" @click="changeRate">Rate</button>
-      <div class="rate" :class="openRate">
-        <el-rate v-model="filterBy.rate" @change="setFilter"></el-rate>
-      </div>
-      <button class="filter-btn" @click="changePrice">Price</button>
-      <div class="price" :class="openPrice">
-        <label for="price">Daily price: ${{ filterBy.price }}</label>
-        <input
-          type="range"
-          id="price"
-          name="price"
-          min="500"
-          max="1900"
-          step="10"
-          @change="setFilter"
-          v-model="filterBy.price"
-        />
-      </div>
-      <button class="clear" @click="clearFilter">Clear filter</button>
+    <!-- <div class="left"> -->
+      <div class="filter-main align-center">
+        <button class="filter-btn" @click="selectDates">Dates</button>
+        <div class="date" :class="openDates">
+          <el-date-picker
+            v-model="filterBy.dates"
+            @change="setFilter"
+            type="daterange"
+            start-placeholder="Start Date"
+            end-placeholder="End Date"
+            size="mini"
+          >
+          </el-date-picker>
+        </div>
+
+        <button class="filter-btn" @click="changeSize">Size</button>
+        <div class="size" :class="open">
+          <el-radio-group
+            v-model="filterBy.size"
+            @change="setFilter"
+            size="small"
+          >
+            <el-radio-button label="All"></el-radio-button>
+            <el-radio-button label="Small"></el-radio-button>
+            <el-radio-button label="Medium"></el-radio-button>
+            <el-radio-button label="Large"></el-radio-button>
+          </el-radio-group>
+        </div>
+
+        <button class="filter-btn" @click="changeRate">Rate</button>
+        <div class="rate" :class="openRate">
+          <el-rate v-model="filterBy.rate" @change="setFilter"></el-rate>
+        </div>
+
+        <button class="filter-btn" @click="changePrice">Price</button>
+        <div class="price" :class="openPrice">
+          <label for="price">Daily price: ${{ filterBy.price }}</label>
+          <input
+            type="range"
+            id="price"
+            name="price"
+            min="500"
+            max="1900"
+            step="10"
+            @change="setFilter"
+            v-model="filterBy.price"
+           
+          />
+        </div>
+      <button class="clear filter-btn" @click="clearFilter">Clear filter</button>
+      <!-- </div> -->
+
     </div>
   </section>
 </template>

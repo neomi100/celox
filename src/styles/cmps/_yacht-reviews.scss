@@ -7,6 +7,8 @@
 .reviewer-img {
     margin-right: 10px;
     margin-bottom: 15px;
+    height: 50px;
+    width: px;
 }
 
 .categories {
@@ -111,8 +113,8 @@ box-shadow: 0px 0px 5px 0px #8d8d8d;
     }
 }
 
-.reviews-container{
-}
+// .reviews-container{
+// }
 
 .fade-reviews-enter, .fade-reviews-leave-to{
   opacity: 0;
@@ -123,9 +125,9 @@ box-shadow: 0px 0px 5px 0px #8d8d8d;
   .fade-reviews-leave-active {
     transition: all .8s ease
   }
-.revealRate{
+// .revealRate{
     
-}
+// }
 
 @media screen and (max-width:740px) {
     .txt-input {
