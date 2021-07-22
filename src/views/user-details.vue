@@ -1,66 +1,66 @@
 <template>
   <section class="user-details">
-    <section>
-      <div class="main-layout">
-        <div class="user-heading">
-          <div class="content">
-            <div class="profile-img-container">
-              <img :src="user.imgUrl" alt="" />
-            </div>
-            <h3>Hi I'm {{ user.username }}</h3>
-            <p>Joined in 2021</p>
-            <a class="edit-profile-button">Edit profile</a>
-          </div>
-          <a href="" class="update-photo-button">Update photo</a>
-          <button class="revealRate" @click="toggleReviews()">Show my reviews</button>
-        </div>
-        <transition name="fade-reviews">
-          <div v-if="isShown" class="reviews-container">
-            <div class="head flex align-center">
-              <i class="fas fa-star"></i>
-              <p>{{ relativeReviews.length }} reviews</p>
-            </div>
-            <review-list :reviews="relativeReviews" :showTime="true" />
-          </div>
-        </transition>
+    <section class="user-profile">
+      <div>
+        <img :src="user.imgUrl" alt="User profile IMG" />
+      </div>
+      <h2>{{ userName }}</h2>
+      <small>Joined in {{ userCreationTime }}</small>
+      <div class="dashboard-status flex column">
+      <h4>You manage <span class="clr-num">{{ yachts.length }}</span> assets</h4>
+      <h4><span class="clr-num">{{ pendingOrders.length }}</span> pending reservations</h4>
+      </div>
+    </section>
+    <section class="user-back-office">
+       <el-tabs class="user-status-btns" v-model="userStatus" >
+          <el-tab-pane class="owner" label="owner" name="owner"></el-tab-pane>
+          <el-tab-pane label="Traveler" name="traveler"></el-tab-pane>
+      </el-tabs>
+      <div>
+        <user-owner v-if="userStatus === 'owner'" :owner="user" />
+        <user-dashboard v-if="userStatus === 'traveler'" :user="user" />
       </div>
     </section>
   </section>
 </template>
- <script>
 
-import reviewList from "../cmps/review-list.vue";
+<script>
+import userOwner from "../cmps/user-owner.vue";
+import userDashboard from "../cmps/user-dashboard.vue";
 
 export default {
+  name:"user-details",
   data() {
     return {
-      isShown: false,
+      userStatus: null,
     };
   },
-  methods: {
-    toggleReviews() {
-      this.isShown = !this.isShown;
-    },
-  },
   computed: {
+        yachts() {
+      //TODO do filter in store
+      return this.$store.getters.yachtsForDisplay.filter((yacht) => {
+        return yacht.owner._id === this.user._id;
+      })
+        },
+    pendingOrders(){ 
+    return this.$store.getters.pendingOrders
+    },
+    userName() {
+      return this.user.fullname;
+    },
     user() {
       return this.$store.getters.loggedinUser;
     },
-    relativeReviews() {
-      return this.yachts.reduce((accum, { reviews }) => {
-        const currRelatedReviews = reviews.filter(
-          ({ by }) => by._id === this.user._id
-        );
-        return [...accum, ...currRelatedReviews];
-      }, []);
-    },
-      yachts() {
-      return this.$store.getters.yachtsForShow;
-    },
+    userCreationTime() {
+      return "June 2020";
+    }
+  },
+  created() {
+    this.userStatus = "owner";
   },
   components: {
-    reviewList,
+    userOwner,
+    userDashboard,
   },
 };
 </script>
-

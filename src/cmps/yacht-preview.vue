@@ -82,7 +82,7 @@ export default {
       await this.$store.dispatch({ type: "toggleLike", yacht: this.yacht });
     },
     onDetails() {
-      this.$router.push(`/details/` + this.yacht._id);
+      this.$router.push(`/yacht/` + this.yacht._id);
     },
     edit(){
       this.$router.push(`/become-owner/` + this.yacht._id);

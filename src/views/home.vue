@@ -33,7 +33,7 @@
           :class="`gallery-item ${loc.class}`"
           :style="{ backgroundImage: 'url(' + loc.img + ')' }"
         >
-          <router-link to="/yacht-page" class="gallery-item-a">
+          <router-link to="/yacht" class="gallery-item-a">
             <div class="gallery-img">
               <div class="txt">
                 <h4>Yacht Charter {{ loc.txt }}</h4>
@@ -52,7 +52,7 @@
           v-for="(yacht, idx) in yachts"
           :key="idx"
           class="top-rated-yachts"
-          :to="'/details/' + yacht._id"
+          :to="'/yacht/' + yacht._id"
         >
           <img :src="yacht.imgUrls[0]" />
           <div class="top-yacht-txt">
