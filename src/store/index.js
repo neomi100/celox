@@ -5,6 +5,7 @@ import { yachtStore } from './yacht-stor.js'
 import { orderStore } from './order.store.js'
 
 
+
 Vue.use(Vuex)
 
 export default new Vuex.Store({

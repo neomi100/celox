@@ -18,7 +18,7 @@
 <script>
 import ownerOrders from "./owner-orders.vue";
 import ownerYachts from "./owner-yachts.vue";
-// import addyacht from './add-yacht.vue';
+// import addYacht from './add-yacht.vue';
 import userStatistics from './user-statistics.vue';
 export default {
  name:'user-owner',
@@ -32,7 +32,7 @@ export default {
       userStatistics,
       ownerOrders,
       ownerYachts,
-      // addyacht
+      // addYacht
     },
 };
 </script>

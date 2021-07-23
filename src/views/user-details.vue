@@ -1,5 +1,5 @@
 <template>
-  <section class="user-details">
+  <section class="user-details main-layout">
     <section class="user-profile">
       <div>
         <img :src="user.imgUrl" alt="User profile IMG" />
@@ -7,11 +7,11 @@
       <h2>{{ userName }}</h2>
       <small>Joined in {{ userCreationTime }}</small>
       <div class="dashboard-status flex column">
-      <h4>You manage <span class="clr-num">{{ yachts.length }}</span> assets</h4>
-      <h4><span class="clr-num">{{ pendingOrders.length }}</span> pending reservations</h4>
+      <h4>You manage <span class="clr-num">{{ 4 }}</span> assets</h4>
+      <h4><span class="clr-num">{{ 1 }}</span> pending reservations</h4>
       </div>
     </section>
-    <section class="user-back-office">
+     <section class="user-back-office">
        <el-tabs class="user-status-btns" v-model="userStatus" >
           <el-tab-pane class="owner" label="Owner" name="owner"></el-tab-pane>
           <el-tab-pane label="Traveler" name="traveler"></el-tab-pane>
@@ -37,14 +37,13 @@ export default {
   },
   computed: {
         yachts() {
-      //TODO do filter in store
       return this.$store.getters.yachtsForShow.filter((yacht) => {
         return yacht.owner._id === this.user._id;
       })
         },
-    pendingOrders(){ 
-    return this.$store.getters.pendingOrders
-    },
+    // pendingOrders(){ 
+    // return this.$store.getters.pendingOrders
+    // },
     userName() {
       return this.user.fullname;
     },
