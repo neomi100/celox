@@ -6,6 +6,12 @@
       >
         <home-filter></home-filter>
       </div>
+      <div class="random-search">
+        <span class="rs-title">Can't decide ?</span>
+        <button class="rs-inner" @click="randomYacht()">
+          <p>Surprise me</p>
+        </button>
+      </div>
     </section>
     <div class="home-hero full">
       <!-- <img class="main-img" src="@/assets/imgs/main-img.jpg" /> -->
@@ -46,12 +52,6 @@
       placeholder="Select date ">
     </el-date-picker>
   </div> -->
-      <div class="random-search">
-        <span class="rs-title">Can't decide ?</span>
-        <button class="rs-inner" @click="randomYacht()">
-          <p>Surprise me</p>
-        </button>
-      </div>
     </div>
 
     <section>
@@ -76,7 +76,7 @@
     </section>
 
     <section class="top-destinations">
-      <h3>Top Rated Yachts</h3>
+      <!-- <h3>Top Rated Yachts</h3>
       <div class="top-yacht-list">
         <router-link
           v-for="(yacht, idx) in yachts"
@@ -91,6 +91,13 @@
             <h4 class="top-yacht-city">{{yacht.loc.city}}</h4>
           </div>
         </router-link>
+      </div> -->
+      <div class="sailor-picture">
+        <img src="../assets/imgs/sexy-sailor.jpg" />
+        <div class="sailor-backdrop">
+          <h2>JOIN US AND BECOME A CAPTAIN</h2>
+          <h2>Rent Your yacht</h2>
+        </div>
       </div>
     </section>
   </section>
@@ -109,13 +116,15 @@ export default {
       topLocs: [
         {
           class: "first",
-          img: "https://cdn.zizoo.com/media/images/top-destinations/bahamas-lg.jpg",
+          img:
+            "https://cdn.zizoo.com/media/images/top-destinations/bahamas-lg.jpg",
           txt: "Macau",
           minPrice: 30,
         },
         {
           class: "",
-          img: "https://cdn.zizoo.com/media/images/top-destinations/puerto-rico.jpg",
+          img:
+            "https://cdn.zizoo.com/media/images/top-destinations/puerto-rico.jpg",
           txt: "London",
           minPrice: 30,
         },
@@ -127,13 +136,15 @@ export default {
         },
         {
           class: "",
-          img: "https://cdn.zizoo.com/media/images/top-destinations/croatia.jpg",
+          img:
+            "https://cdn.zizoo.com/media/images/top-destinations/croatia.jpg",
           txt: "Tanzania",
           minPrice: 30,
         },
         {
           class: "",
-          img: "https://cdn.zizoo.com/media/images/top-destinations/british-virgin-islands.jpg",
+          img:
+            "https://cdn.zizoo.com/media/images/top-destinations/british-virgin-islands.jpg",
           txt: "Madrid",
           minPrice: 30,
         },
@@ -175,7 +186,7 @@ export default {
     randomYacht() {
       const yachts = this.yachts;
       var yacht = yachts[Math.floor(Math.random() * yachts.length)];
-      return this.$router.push('/details/' + yacht._id);
+      return this.$router.push("/yacht/" + yacht._id);
     },
   },
   computed: {

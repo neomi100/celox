@@ -1,4 +1,5 @@
 .header-container {
+    width: 100%;
     transition: background-color 0.2s;
     z-index: 50;
     height: 80px;
@@ -17,12 +18,14 @@
     .header-right-corner {
         height: 100%;
         align-items: center;
+        color: black;
+        font-weight: 300;
         .new-owner {
             cursor: pointer;
             padding: 13px;
             border-radius: 25px;
             margin-right: 10px;
-            color: unset;
+            // color: unset;
         }
         .new-owner:hover {
             background-color: rgb(228, 228, 228);
@@ -145,6 +148,9 @@ background-color: transparent !important;
 .router {
     text-decoration: none;
     color: rgb(41, 40, 40);
+}
+.router .txt {
+    color: black;
 }
 
 @media screen and(max-width:440px) {
