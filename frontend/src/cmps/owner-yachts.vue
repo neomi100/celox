@@ -42,7 +42,7 @@ export default {
     singleYachtOrder,
   },
   async created() {
-    await this.$store.dispatch({ type: "loadyachts" });
+    await this.$store.dispatch({ type: "loadYachts" });
     console.log(this.$store.getters.yachtsForShow);
   },
 };

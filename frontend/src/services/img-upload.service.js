@@ -8,9 +8,7 @@ export const uploadImg = async (file) =>{
     FORM_DATA.append('file', file)
     FORM_DATA.append('upload_preset',UPLOAD_PRESET)
     try {
-        console.log('here',FORM_DATA);
         const res = await axios.post(UPLOAD_URL, FORM_DATA)
-        console.log(res.data, 'data');
         return res.data;
     } catch(err) {
         console.error('ERROR!', err)

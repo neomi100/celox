@@ -79,7 +79,7 @@
     <div class="review-section bottom-border">
       <review-categories :reviews="this.reviews" />
       <review-list :reviews="this.reviews" />
-      <!-- <review-add @postReview="postReview"></review-add> -->
+      <review-add @postReview="postReview"></review-add>
     </div>
 
     <div class="map-location">
@@ -106,7 +106,7 @@ import reviewCategories from "../cmps/review-categories.vue";
 import starRating from "../cmps/star-rating.vue";
 import yachtMap from "../cmps/yacht-map.vue";
 import { yachtService } from "../services/yacht-service.js";
-// import reviewAdd from "../cmps/review-add.vue";
+import reviewAdd from "../cmps/review-add.vue";
 import { socketService } from "@/services/socket.service.js";
 
 export default {
@@ -202,7 +202,7 @@ export default {
         this.yacht = yacht;
         this.yacht.owner._id;
         this.reviews = yacht.reviews;
-        // this.$store.dispatch({ type: "loadAllOrders", yachtId: yacht._id });
+        this.$store.dispatch({ type: "loadAllOrders", yachtId: yacht._id });
         const user = this.$store.getters.loggedinUser;
         if (!user) {
           this.isLiked = false;
@@ -231,7 +231,7 @@ export default {
     reviewCategories,
     starRating,
     yachtAmenities,
-    // reviewAdd,
+    reviewAdd,
   },
 };
 </script>

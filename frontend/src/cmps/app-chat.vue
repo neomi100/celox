@@ -10,7 +10,12 @@
         placeholder="Your messege will be sent to the owner..."
         v-model="msg.txt"
       />
-      <el-button  @click.native="sendMsg" type="primary" plain icon="el-icon-message" ></el-button>
+      <el-button
+        @click.native="sendMsg"
+        type="primary"
+        plain
+        icon="el-icon-message"
+      ></el-button>
     </div>
   </div>
 </template> 
@@ -18,7 +23,7 @@
 <script>
 import { socketService } from "../services/socket.service.js";
 import { userService } from "../services/user.service.js";
-const Swal = require('sweetalert2')
+const Swal = require("sweetalert2");
 export default {
   name: "chatApp",
   props: {
@@ -27,7 +32,7 @@ export default {
   data() {
     return {
       notifications: [],
-      msg: { from: "", txt: "", status: "read" ,  createdAt:new Date()},
+      msg: { from: "", txt: "", status: "read", createdAt: new Date() },
       topic: "",
       // isTyping:false
     };
@@ -43,7 +48,7 @@ export default {
       this.$refs.input.focus();
     },
     async addMsg(msg) {
-      msg.title = msg.txt.substring(0,10) + '...'
+      msg.title = msg.txt.substring(0, 10) + "...";
       if (!this.notifications[this.topic]) this.notifications[this.topic] = [];
       this.notifications[this.topic].push(msg);
       const user = this.$store.getters.loggedinUser;
@@ -51,13 +56,19 @@ export default {
         await this.$store.dispatch({ type: "updateUser", user });
         if (this.yacht.owner._id === this.topic) return;
         const toUser = await userService.getById(this.yacht.owner._id);
-        if (!toUser.notifications[this.topic]) toUser.notifications[this.topic] = [];
+        if (!toUser.notifications[this.topic])
+          toUser.notifications[this.topic] = [];
         msg.status = "unread";
         toUser.notifications[this.topic].push(msg);
         await this.$store.dispatch({ type: "updateUser", user: toUser });
-        Swal.fire("your message has been sent successfully", "we will inform you when the owner response", "success");
+        Swal.fire(
+          "your message has been sent successfully",
+          "we will inform you when the owner response",
+          "success"
+        );
       } catch (err) {
-          console.log(err);
+        console.log(err);
+        throw err;
       }
     },
 
@@ -83,6 +94,5 @@ export default {
     // socketService.off('user typing', this.userTyping)
     socketService.terminate();
   },
-
 };
 </script>

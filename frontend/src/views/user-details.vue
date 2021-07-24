@@ -7,8 +7,8 @@
       <h2>{{ userName }}</h2>
       <small>Joined in {{ userCreationTime }}</small>
       <div class="dashboard-status flex column">
-      <h4>You manage <span class="clr-num">{{ 4 }}</span> assets</h4>
-      <h4><span class="clr-num">{{ 1 }}</span> pending reservations</h4>
+      <h4>You manage <span class="clr-num">{{ yachts.length }}</span> assets</h4>
+      <h4><span class="clr-num">{{ pendingOrders.length }}</span> pending reservations</h4>
       </div>
     </section>
      <section class="user-back-office">
@@ -41,9 +41,9 @@ export default {
         return yacht.owner._id === this.user._id;
       })
         },
-    // pendingOrders(){ 
-    // return this.$store.getters.pendingOrders
-    // },
+    pendingOrders(){ 
+    return this.$store.getters.pendingOrders
+    },
     userName() {
       return this.user.fullname;
     },

@@ -23,6 +23,17 @@
 @import 'cmps/img-upload';
 @import 'cmps/trip-setting-mobail';
 @import 'cmps/user-dashboard';
+@import 'cmps/user-back-office';
+@import 'cmps/user-profile';
+@import 'cmps/owner-orders';
+@import 'cmps/owner-yachts';
+@import 'cmps/add-yacht-form';
+
+
+
+@import 'cmps/home-filter';
+@import 'cmps/single-yacht-order';
+
 //VIEWS
 @import 'cmps/app';
 @import 'views/home';
@@ -30,5 +41,4 @@
 @import 'views/user-details';
 @import 'views/become-owner';
 @import 'views/login';
-@import 'cmps/home-filter';
 @import 'views/yacht-page';

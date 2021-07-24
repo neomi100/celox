@@ -1,0 +1,93 @@
+.owner-yachts-headline{
+    .owner-yachts {
+        list-style-type: none;
+        margin-bottom: 25px;
+        
+        .owner-yacht-and-orders{
+            border: 1px solid rgba(211, 211, 211, 0.671);
+            border-radius: 12px;
+            padding: 2%;
+            padding-right: 3%;
+            margin-top: 2%;
+
+            .owner-yacht{
+                border-radius: 5px;
+                display: flex;
+                align-items: flex-start;
+
+                .owner-yacht-img{
+                    width:150px;
+                    height: 150px;
+                    object-fit: cover;
+                    border-radius: 8px;
+                }
+                .owner-yacht-txt {
+                    margin-left: 3%;
+                    width:100%;
+                    
+                    h2{
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and(max-width:900px){
+.owner-yacht-img-container{
+    display:none;
+}
+}
+
+@media screen and(max-width:700px){
+    .owner-yachts{
+        padding: unset !important;
+        
+        .owner-yacht-and-orders{
+            padding: unset !important;
+            margin-top: 2%;
+        }
+        
+        .owner-yacht{
+            .owner-yacht-txt {
+                margin-right: 2%;
+                margin-bottom: 3%;
+                margin-left: 2% !important;
+                .cell{
+                    p{
+
+                        
+                        font-size: 14px ;
+                    }
+                }
+                h2 {
+                    font-size: 1.2rem;
+                    margin-top: 12px;
+                    margin-bottom: 12px;
+                }
+            }
+            .owner-yacht-img-container {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and(max-width:440px){ 
+    .super-line {display: none;}
+    .owner-yacht-img-container {
+        display: none;
+    }
+    .assets-title{
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+}
+@media screen and(max-width:370px){ 
+    .cell{
+        p{
+            font-size: 13px !important;
+        }
+    }
+}

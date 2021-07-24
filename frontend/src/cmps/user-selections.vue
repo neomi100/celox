@@ -72,7 +72,6 @@ export default {
   },
   methods: {
      navTo(ev) {
-      console.log('click')
       switch (ev.target.textContent) {
         case "Notifications":
           if (this.$route.path !== "/notifications") {
@@ -89,7 +88,6 @@ export default {
           this.$store.dispatch({ type: "logout" });
           break;
         case "My profile":
-          console.log(this.$route.path);
           if (this.$route.path !== `/user/${this.loggedInUser._id}`) {
             this.$router.push(`/user/${this.loggedInUser._id}`);
           }
@@ -105,22 +103,7 @@ export default {
       return this.$store.getters.loggedinUser.imgUrl;
     },
     numOfUserMsgs() {
-      // console.log(this.$store.getters.pendingOrders.length);
       return this.$store.getters.pendingOrders.length;
-
-      //   const user = this.loggedInUser;
-      // // const user = await this.$store.getters.loggedinUser
-      // console.log(user, ' user')
-      // var sum = 0;
-      // for (const message in user.notifications){
-      //   console.log(message, 'message')
-      //   message.forEach(element => {
-      //     if(element.status === 'unread'){
-      //       sum++;
-      //     }
-      //   });
-      // }
-      // return sum;
     },
   }
 };

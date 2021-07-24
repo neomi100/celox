@@ -61,6 +61,16 @@ export const yachtStore = {
             yachts = yachts.filter(yacht => regex.test(yacht.loc.country || yacht.loc.city || yacht.loc.address))
             return yachts
         },
+        sortByPrice(state) {
+            return state.yachts.sort((a, b) => {
+                return a.price - b.price
+            })
+        },
+        sortByPopularity(state) {
+            return state.yachts.sort((a, b) => {
+                return b.reviews.length - a.reviews.length
+            })
+        },
         getAllUserLike(state, getters) {
             const userId = getters.loggedinUser._id;
             const yachts = []
@@ -166,6 +176,7 @@ export const yachtStore = {
         },
         async toggleLike(context, { yacht }) {
             const user = context.getters.loggedinUser;
+            console.log(user,"user");
             const favIdx = yacht.favorites && yacht.favorites.findIndex(({ userId }) => user._id === userId);
             if (favIdx >= 0) yacht.favorites.splice(favIdx, 1);
             else yacht.favorites = [{ userId: user._id }];
