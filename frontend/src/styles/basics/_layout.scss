@@ -16,6 +16,7 @@
 
 .main-layout {
     @include for-normal-layout {
+        // >*:not(:first-child){
         display: grid;
         align-items: center;
         grid-template-columns: minmax(1rem, 1fr) minmax(auto, 1100px) minmax(1rem, 1fr);

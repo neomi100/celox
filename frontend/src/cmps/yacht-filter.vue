@@ -1,6 +1,7 @@
 <template>
   <section class="filter layout-yacht">
-    <div class="right">
+  <home-filter></home-filter>
+    <!-- <div class="right">
       <div class="filter-search">
         <div class="search-input">
           <el-input
@@ -14,7 +15,7 @@
         </div>
         <button class="btn-search"></button>
       </div>
-    </div>
+    </div> -->
     <!-- <div class="left"> -->
       <div class="filter-main align-center">
         <button class="filter-btn" @click="selectDates">Dates</button>
@@ -72,8 +73,9 @@
 </template>
 
 <script>
-
+import homeFilter from "@/cmps/home-filter.vue";
 export default {
+ components: { homeFilter }, 
   data() {
     return {
       showDates: false,
