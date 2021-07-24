@@ -9,7 +9,7 @@
       <div class="random-search">
         <span class="rs-title">Can't decide ?</span>
         <button class="rs-inner" @click="randomYacht()">
-          <p>Surprise me</p>
+          <p>Surprise me neomi is pretty </p>
         </button>
       </div>
     </section>
