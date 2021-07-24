@@ -116,7 +116,7 @@ export default {
       first: true,
       reviews: null,
       yacht: null,
-      textarea: "",
+      contactOwnerMsg: "",
       review: {
         rate: null,
         category: {
@@ -144,13 +144,23 @@ export default {
         duration: 20000,
       });
     },
+   contactOwner() {
+      var msg = {
+        txt: this.contactOwnerMsg,
+        buyerId: this.buyer._id,
+        ownerId: this.yacht.owner_id,
+        yachtId: this.yacht._id,
+        date: Date.now(),
+      };
+      this.$store.dispatch({ type: "contactOwner", msg });
+    },
     async postReview(postedReview) {
       var review = {
         txt: postedReview.reviewTxt,
         buyer: this.buyer,
-        ownerId: this.yacht.owner._id, 
+        ownerId: this.yacht.owner._id,// will be used in the future for updating owner
         yacht: this.yacht,
-        rate: postedReview.userReviewrate,
+        rate: postedReview.userReviewAvgRate,
         category: {
           Cleanliness: postedReview.categoryMap.Cleanliness,
           Accuracy: postedReview.categoryMap.Accuracy,
@@ -161,11 +171,11 @@ export default {
         },
       };
       try {
-        const updatedyacht = await this.$store.dispatch({
+        const updatedYacht = await this.$store.dispatch({
           type: "postReview",
           review,
         });
-        this.yacht = updatedyacht;
+        this.yacht = updatedYacht;
       } catch (err) {
         console.log("could not update yacht with new review:", err);
       }
@@ -195,7 +205,7 @@ export default {
       }
     },
   },
-  created() {
+ created() {
     const _id = this.$route.params.id;
     yachtService.getById(_id).then((yacht) => {
       if (yacht) {
@@ -203,13 +213,13 @@ export default {
         this.yacht.owner._id;
         this.reviews = yacht.reviews;
         this.$store.dispatch({ type: "loadAllOrders", yachtId: yacht._id });
-        const user = this.$store.getters.loggedinUser;
-        if (!user) {
-          this.isLiked = false;
-        } else {
-          this.isLiked = this.yacht.favorites.some(({ userId }) => {
-            return userId === user._id;
-          });
+      const user = this.$store.getters.loggedinUser;
+        if (!user){
+          this.isLiked=false;
+        }else{
+          this.isLiked= this.yacht.favorites.some(({userId}) => {
+                return userId === user._id;
+          })
         }
       }
     });
@@ -217,7 +227,7 @@ export default {
       this.buyer = this.$store.getters.loggedinUser;
     }
     socketService.on("updatedAns", this.open1);
-  },
+      },
   destroyed() {
     socketService.off("updatedAns");
   },
