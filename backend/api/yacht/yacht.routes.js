@@ -5,7 +5,7 @@ const { getYachts, deleteYacht, addYacht, getYachtById, updateYacht } = require(
 const router = express.Router()
 
 // middleware that is specific to this router
-router.use(requireAuth)
+// router.use(requireAuth)
 
 router.get('/', getYachts)
 router.get('/:yachtId', log, getYachtById)

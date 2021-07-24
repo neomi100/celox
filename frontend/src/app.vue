@@ -19,8 +19,8 @@ export default {
   },
   methods: {
     async loadOrder() {
-      const host = this.$store.getters.loggedinUser;
-      await this.$store.dispatch({ type: "loadHostOrders", host });
+      const owner = this.$store.getters.loggedinUser;
+      await this.$store.dispatch({ type: "loadOwnerOrders", owner });
     },},
     created() {
        this.$store.dispatch({ type: "loadUsers" });

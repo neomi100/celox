@@ -116,10 +116,11 @@ div.pickLocation {
 
 div.random-search {
     text-align: center;
-    position: relative;
-    bottom: 10%;
-    top: -369px;
-    right: 257px;
+    position: absolute;
+    bottom: 15%;
+    right: 50%;
+    transform: translate(50%);
+    margin: auto;
     .rs-title {
         display: block;
         font-weight: bold;
@@ -653,7 +654,7 @@ html {
     margin: 2px 0px;
 }
 
-.home-stay-img {
+.home-yacht-img {
     width: 330;
     height: 220px;
 }
@@ -700,7 +701,7 @@ html {
         width: 100% !important;
     }
 
-    .stay-name-home {
+    .yacht-name-home {
         font-size: 20px;
     }
     .fa-star {

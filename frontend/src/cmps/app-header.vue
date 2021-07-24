@@ -44,34 +44,18 @@
         <router-link class="router explore-nav" :to="`/yacht`">
           <span @click="reloadyachts" class="txt"> Explore </span>
         </router-link>
-        <span class="new-owner" @click="becomeowner()">Become a owner</span>
-        <section class="user-select">
-          <el-dropdown>
-            <span class="el-dropdown-link">
-              <img
-                class="user-menu-img burger"
-                :src="require(`@/assets/imgs/icons/hamburger.png`)"
-              />
-              <img
-                class="user-menu-img"
-                :src="require(`@/assets/imgs/icons/userGuest.jpg`)"
-              />
-            </span>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item class="user-option" @click.native="navTo">
-                Log-in
-              </el-dropdown-item>
-            </el-dropdown-menu>
-          </el-dropdown>
-        </section>
+        <span class="new-owner" @click="becomeOwner()">Become a owner</span>
+        <user-selections />
       </div>
     </div>
   </header>
 </template>
 
 <script>
+import userSelections from './user-selections.vue';
 export default {
   name: "app-header",
+  components: {userSelections},
   data() {
     return {
       layoutClass: "main-layout-home",
