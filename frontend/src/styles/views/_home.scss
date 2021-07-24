@@ -116,18 +116,11 @@ div.pickLocation {
 
 div.random-search {
     text-align: center;
-<<<<<<< HEAD:src/styles/views/_home.scss
     position: absolute;
     bottom: 15%;
     right: 50%;
     transform: translate(50%);
     margin: auto;
-=======
-    position: relative;
-    bottom: 10%;
-    top: -369px;
-    right: 257px;
->>>>>>> 267f4f7d6603591d383aa1f1fd8f7607a6e81be1:frontend/src/styles/views/_home.scss
     .rs-title {
         display: block;
         font-weight: bold;
@@ -708,11 +701,7 @@ html {
         width: 100% !important;
     }
 
-<<<<<<< HEAD
-    .yacht-name-home{
-=======
     .stay-name-home {
->>>>>>> 706d46b4ccbced8376f3a3dca7a188ab97455c57
         font-size: 20px;
     }
     .fa-star {

@@ -1,7 +1,7 @@
 {
     "order": [{
         "_id": "o1225",
-        "hostId": "u102",
+        "ownerId": "u102",
         "createdAt": 9898989,
         "buyer": {
             "_id": "u101",
