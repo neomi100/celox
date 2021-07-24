@@ -2,7 +2,7 @@
   <section>
     <div class="review-section-title flex align-center">
       <i class="fas fa-star"></i> 
-      <span>{{rateFromAllReviewers}}</span>
+      <span>{{rateFromAllReviewers.toFixed(1)}}</span>
       <span>({{reviews.length}} reviews)</span>
     </div>
     <ul class="two-column-grid-categories">

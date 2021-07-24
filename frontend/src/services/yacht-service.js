@@ -14,7 +14,7 @@ const yachtJson = [{
             "https://images.unsplash.com/photo-1598770722761-0cab70ffd2fb?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTh8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60",
             "https://images.unsplash.com/photo-1613886180226-d318bc3df2e0?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTZ8fHlhY2h0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60"
         ],
-        "price": 4500,
+        "price": 450,
         "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
         "size": "medium",
         "favorites": [{ "userId": "u109" }],
@@ -1464,7 +1464,7 @@ const yachtJson = [{
             }]
         },
         {
-            "_id": "139087211",
+            "_id": "139087661",
             "name": "PEARL",
             "imgUrls": [
                 "https://static1.clickandboat.com/v1/p/wbt68r1i8qi9xwy8xtt5sdy8ye4elirg.big.jpg",
@@ -1607,7 +1607,7 @@ const yachtJson = [{
             ]
         },
         {
-            "_id": "139089991",
+            "_id": "138889991",
             "name": "MAYA",
             "imgUrls": [
                 "https://static1.clickandboat.com/v1/p/j8NH7c35p9jMICkhcqZLsLSZxDUI9YVc.big.jpg",
@@ -1749,7 +1749,225 @@ const yachtJson = [{
                 }
                                         
             ]
+        },
+        {
+            "_id": "1390838381",
+            "name": "NEO-MI",
+            "imgUrls": [
+                "https://static1.clickandboat.com/v1/p/XJjjmsjvbbcQcoL1xnS7flKt9yZcRdAT.big.jpg",
+                "https://static1.clickandboat.com/v1/p/9heyGLnziksuwULeWu3uMLkvk1T901Y7.big.jpg",
+                "https://static1.clickandboat.com/v1/p/Wv93Qzm9ccKe5pDcDH6QCRp5HA1Qj6i6.big.jpg",
+                
+            ],
+            "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
+            "price": 900,
+            "size": "large",
+            "amenities": [
+                "TV",
+                "Wifi",
+                "Kitchen"
+
+            ],
+            "owner": {
+                "_id": "51394440",
+                "fullname": "Bantu-Masa",
+                "imgUrl": "https://randomuser.me/api/portraits/men/30.jpg"
+            },
+            "loc": {
+                "country": "Morocco",
+                "city": "Tanja",
+                "countryCode": "MA",
+                "address": "Marina Tanja",
+                "lat": 335.782785784032335, 
+                "lng": -5.841891806404022
+            },
+            "reviews": [{
+                    "id": "u102rev",
+                    "txt": "Very neat and clean",
+                    "rate": 3.5,
+                    "category": {
+                        "Cleanliness": 3,
+                        "Accuracy": 4,
+                        "Communication": 1,
+                        "Location": 5,
+                        "Check-in": 2,
+                        "Accessibility": 4
+                    },
+                    "by": {
+                        "_id": "u102",
+                        "fullname": "Haim-Haim",
+                        "imgUrl": "https://randomuser.me/api/portraits/men/31.jpg",
+                        "time": 1616280724238
+                    }
+                },
+                {
+                    "id": "u103ord",
+                    "txt": "A bit on the pricy side, great overall.",
+                    "rate": 4,
+                    "category": {
+                        "Cleanliness": 3,
+                        "Accuracy": 5,
+                        "Communication": 3,
+                        "Location": 3,
+                        "Check-in": 4,
+                        "Accessibility": 5
+                    },
+                    "by": {
+                        "_id": "u102",
+                        "fullname": "Bellomore-Brick",
+                        "imgUrl": "https://randomuser.me/api/portraits/men/32.jpg",
+                        "time": 1616280724238
+                    }
+                }
+                                        
+            ]
+        },
+        {
+            "_id": "19858381",
+            "name": "Birdie",
+            "imgUrls": [
+                "https://static1.clickandboat.com/v1/p/0g9iqmrbdtwmve1l7fg1mmaqi65aes8k.big.jpg",
+                "https://static1.clickandboat.com/v1/p/mb1ecfv74boghy51artopbrr4v1yrvav.big.jpg",
+                "https://static1.clickandboat.com/v1/p/80vn1wnqldqewe8r4dka5hx867k00h9x.big.jpg",
+                
+            ],
+            "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
+            "price": 900,
+            "size": "large",
+            "amenities": [
+                "TV",
+                "Wifi",
+                "Kitchen"
+
+            ],
+            "owner": {
+                "_id": "51849440",
+                "fullname": "Allen-Gisberg",
+                "imgUrl": "https://randomuser.me/api/portraits/men/33.jpg"
+            },
+            "loc": {
+                "country": "Morocco",
+                "city": "Tanja",
+                "countryCode": "MA",
+                "address": "Marina Tanja",
+                "lat": 335.782785784032335, 
+                "lng": -5.841891806404022
+            },
+            "reviews": [{
+                    "id": "u102rev",
+                    "txt": "Very neat and clean",
+                    "rate": 3.5,
+                    "category": {
+                        "Cleanliness": 3,
+                        "Accuracy": 4,
+                        "Communication": 1,
+                        "Location": 5,
+                        "Check-in": 2,
+                        "Accessibility": 4
+                    },
+                    "by": {
+                        "_id": "u102",
+                        "fullname": "Donatello-Reggie",
+                        "imgUrl": "https://randomuser.me/api/portraits/men/34.jpg",
+                        "time": 1616280724238
+                    }
+                },
+                {
+                    "id": "u103ord",
+                    "txt": "A bit on the pricy side, great overall.",
+                    "rate": 4,
+                    "category": {
+                        "Cleanliness": 3,
+                        "Accuracy": 5,
+                        "Communication": 3,
+                        "Location": 3,
+                        "Check-in": 4,
+                        "Accessibility": 5
+                    },
+                    "by": {
+                        "_id": "u102",
+                        "fullname": "Sally-Clock",
+                        "imgUrl": "https://randomuser.me/api/portraits/men/35.jpg",
+                        "time": 1616280724238
+                    }
+                }
+                                        
+            ]
+        },
+
+        {
+            "_id": "3458381",
+            "name": "Ace",
+            "imgUrls": [
+                "https://static1.clickandboat.com/v1/p/5w35clht1f80902rel9o5l2ofe3u7ykz.big.jpg",
+                "https://static1.clickandboat.com/v1/p/zvss3r1gxaza5u28y8q81t65mn1o5ova.big.jpg",
+                "https://static1.clickandboat.com/v1/p/ctbguvfkw6f39vwo33vbbjjv4k4tno4b.big.jpg",
+                
+            ],
+            "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
+            "price": 600,
+            "size": "small",
+            "amenities": [
+                "TV",
+                "Wifi",
+                "Kitchen"
+
+            ],
+            "owner": {
+                "_id": "517694740",
+                "fullname": "Roger-Gold",
+                "imgUrl": "https://randomuser.me/api/portraits/men/37.jpg"
+            },
+            "loc": {
+                "country": "Morocco",
+                "city": "Tanja",
+                "countryCode": "MA",
+                "address": "Marina Tanja",
+                "lat": 335.782785784032335, 
+                "lng": -5.841891806404022
+            },
+            "reviews": [{
+                    "id": "u102rev",
+                    "txt": "Very neat and clean",
+                    "rate": 3.5,
+                    "category": {
+                        "Cleanliness": 3,
+                        "Accuracy": 4,
+                        "Communication": 1,
+                        "Location": 5,
+                        "Check-in": 2,
+                        "Accessibility": 4
+                    },
+                    "by": {
+                        "_id": "u102",
+                        "fullname": "Garry-Ballsberg",
+                        "imgUrl": "https://randomuser.me/api/portraits/men/38.jpg",
+                        "time": 1616280724238
+                    }
+                },
+                {
+                    "id": "u103ord",
+                    "txt": "A bit on the pricy side, great overall.",
+                    "rate": 4,
+                    "category": {
+                        "Cleanliness": 3,
+                        "Accuracy": 5,
+                        "Communication": 3,
+                        "Location": 3,
+                        "Check-in": 4,
+                        "Accessibility": 5
+                    },
+                    "by": {
+                        "_id": "u102",
+                        "fullname": "Mooki Puki",
+                        "imgUrl": "https://randomuser.me/api/portraits/men/39.jpg",
+                        "time": 1616280724238
+                    }
+                }
+                                        
+            ]
         }
+        
 
     ]
 const gYachts = _createYachts()
