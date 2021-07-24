@@ -5,6 +5,10 @@
     display: flex;
     flex-direction: column;
     cursor: pointer;
+
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #dadada;
     .main{
     display: flex;
     flex-direction: column;
@@ -29,40 +33,67 @@
                         font-size: 1.5rem;
                     }
             .yacht-preview{
-              padding-left: 3px;
-              padding-right: 3px;
+                padding: 10px 15px;
                         display: flex;
                         flex-direction: column;
                         font-family: Blinker; 
                         position: relative;
-                        font-family: Blinker;
                         // a{
                         //     text-decoration: unset;
                         //     color: inherit;
                         .yacht-up{
-                        font-size: small;
+                        // font-size: small;
                         flex-direction: row;
                     display: flex;
                     justify-content: space-between;
                     margin-top: 3px;
-                    .country {
-                        padding: 30px;
+                    .right-up {
+
+                        > *:not(:last-child){
+                            margin-inline-end: 30px;
+                        }
+                    }
+                    .max-pepole  {
+                        .icon::after {
+                            font-family: fa-solid;
+                            content: "\f0c0";
+                            color: dimgrey;
+                        }
+                        > *:not(:last-child){
+                            margin-inline-end: 0.3rem;
+                        }
+                       
+                    }
+                    .full-address {
+                        .country {
+                            font-weight: bold;
+                        }
                         font-family: Blinker
                     }
-                    .icon::after {
-                        font-family: fa-solid;
-                        content: "\f0c0";
-                        color: dimgrey;
-                    }
+            
+                    // .max-pepole-icon {
+                    //     margin-inline-end: 30px;
+                    // }
                 }
                 .yacht-down{
                   flex-direction: row;
                   display: flex;
                   justify-content: space-between;
                   align-items: flex-end;
+                  .bottom-line {
+                      >*:not(:last-child){
+                          margin-inline-end: 1rem;
+                      }
+                      .rating-container {
+                        >*:not(:last-child){
+                            margin-inline-end: 0.2rem;
+                        }
+                      }
+                  }
                         .yacht-name{
-                    font-family: BlinkerBold;
+                    // font-family: BlinkerBold;
                     display: block;
+                    margin-bottom: 5px;
                 }
                 .yacht-price {
                     font-family: Blinker

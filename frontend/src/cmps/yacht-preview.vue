@@ -1,5 +1,6 @@
 <template>
   <section class="continer" @click="onDetails">
+
     <div class="main">
       <el-carousel indicator-position="none" trigger="click" :autoplay="false">
         <el-carousel-item v-for="(img, idx) in imgs" :key="idx">
@@ -10,27 +11,35 @@
         </el-carousel-item>
       </el-carousel>
       <div class="yacht-preview">
-          <div class="yacht-up" @click="onDetails">
-            <p class="right-up">
-              <span class="icon" title="Max pepole"></span
-              ><span> {{ capacity }}</span
-              ><span class="country"> {{ yacht.loc.country }}</span>
-            </p>
-            <span class="rate stars">{{ rate }}</span>
+          <div class="yacht-up flex space-between" @click="onDetails">
+            <!-- <div class="right-up flex"> -->
+              <p class="full-address"> <span class="country">{{ yacht.loc.country }}</span>, {{yacht.loc.city}}, {{yacht.loc.address}}</p>
+              <p class="max-pepole"><span> {{ capacity }}</span
+              ><span class="icon" title="Max-pepole"></span></p>
+            <!-- </div> -->
           </div>
           <div class="yacht-down">
           <div>
           <span class="yacht-name">{{ yacht.name }}</span>
-          <span class="yacht-price">Daily price: {{ yacht.price }}$</span>
+          <div class="bottom-line flex align-center">
+
+          <span class="yacht-price">Daily price: ${{ yacht.price }}</span>
+          <p class="rating-container">
+          <i class="fas fa-star"></i>
+          <span>{{rate.length}}</span>
+          </p>
           </div>
-    <button class="edit" @click.stop.prevent="edit">Edit</button>
+          </div>
+    <!-- <button class="edit" @click.stop.prevent="edit">Edit</button> -->
     </div>
       </div>
     </div>
   </section>
 </template>
 <script>
+
 export default {
+  
   props: {
     yacht: Object,
   },
@@ -51,6 +60,7 @@ export default {
           starStr += "☆";
         }
       }
+      
       return starStr;
     },
     capacity() {
