@@ -116,8 +116,10 @@ div.pickLocation {
 
 div.random-search {
     text-align: center;
-    position: absolute;
+    position: relative;
     bottom: 10%;
+    top: -369px;
+    right: 257px;
     .rs-title {
         display: block;
         font-weight: bold;
