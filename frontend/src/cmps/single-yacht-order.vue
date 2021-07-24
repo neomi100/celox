@@ -9,15 +9,13 @@
       </div>
 
       <div class="yacht-full-orders"> 
-        <div class="single-yacht-order" v-for="order in singleyachtOrders" :key="order._id">
+        <div class="single-yacht-order" v-for="order in singleYachtOrders" :key="order._id">
           <div class="cell" v-if="order.status === 'approve'">
             <b>{{ order.buyer.fullname }}</b>
           </div>
           <div class="cell" v-if="order.status === 'approve'">
             <p>
-              Adults:&nbsp;{{ order.guests.adults }} <span class="super-line">|</span> Kids: &nbsp;{{
-                order.guests.kids
-              }}
+              Adults:&nbsp;{{ order.guests.adults }} 
             </p>
           </div>
           <div class="cell date" v-if="order.status === 'approve'">
@@ -41,11 +39,11 @@ export default {
   props: ["yacht"],
   computed: {
     yachtOrders() {
-      return this.$store.getters.getownerOrders.filter((order) => {
+      return this.$store.getters.getOwnerOrders.filter((order) => {
         return order.yacht._id === this.yacht._id;
       });
     },
-    singleyachtOrders() {
+    singleYachtOrders() {
       if (!this.yachtOrders || !this.yachtOrders.length) return;
       return this.yachtOrders;
     },

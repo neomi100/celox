@@ -21,10 +21,12 @@ async function query() {
 }
 
 async function save(order) {
-    if (order._id) {
-        return httpService.put(`order/${order._id}`, order)
-    } else {
-        let order = {
+
+    // if (order._id) {
+    //     return httpService.put(`order/${order._id}`, order)
+    // } else {
+        
+        let asd = {
             createdAt: Date.now(),
             buyer: {
                 _id: order.buyer._id,
@@ -43,6 +45,7 @@ async function save(order) {
             },
             status: 'pending'
         }
-        return httpService.post('order/', order)
-    }
+        return httpService.post('order/', asd)
+        
+    // }
 }

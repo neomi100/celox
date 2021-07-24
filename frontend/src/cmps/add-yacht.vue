@@ -41,7 +41,7 @@
             </div>
             <div>
             <span>Upload yacht images:</span>
-            <img-cld-upload class="upload-yacht-img"/>
+            <!-- <img-cld-upload class="upload-yacht-img"/> -->
             </div>
             <button class="special-btn add-asset-btn" @click="addYacht()">Publish Listing</button>
         </form>
@@ -50,9 +50,9 @@
 
 <script>
 // import { yachtService } from '../services/yacht-service.js';
-import addYachtAmenities from '../cmps/add-yacht-amenities';
-import imgCldUpload from '../cmps/img-cld-upload';
-import imgUpload from "@/cmps/img-upload.cmp";
+import addYachtAmenities from '../cmps/add-yacht-amenities.vue';
+// import imgCldUpload from '../cmps/img-cld-upload.vue';
+// import imgUpload from "@/cmps/img-upload.cmp";
 
 // const Swal = require('sweetalert2')
 
@@ -66,8 +66,8 @@ export default {
         name: "",
         imgUrls: ["1.1","1.2a","1.2b","1.2c","1.2d"],////////////////////////////////////FIX (temp)
         price: null,
+        size: null,
         summary: "",
-        capacity: 1,
         favorites: [],
         amenities: [],
         owner: {
@@ -91,6 +91,19 @@ export default {
     methods: {
     //   handleChange(value) {
     //   },
+    capacity() {
+      const maxPepole = this.yacht.size;
+      switch (maxPepole) {
+        case "small":
+          return 5;
+        case "medium":
+          return 12;
+        case "large":
+          return 35;
+        default:
+          return "";
+      }
+    },
       updateAmenities(amenities){
           this.yacht.amenities=amenities;
       },
@@ -112,8 +125,8 @@ export default {
     },
     components: {
     addYachtAmenities,
-    imgCldUpload,
-    imgUpload,
+    // imgCldUpload,
+    // imgUpload,
   },
 };
 </script>

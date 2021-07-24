@@ -58,7 +58,6 @@ export default {
   },
   methods: {
     async loadOrders() {
-      console.log(this.owner);
       await this.$store.dispatch({
         type: "loadOwnerOrders",
         owner: { ...this.owner },

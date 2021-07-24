@@ -1,6 +1,5 @@
-import { storageService } from './async-storage.service.js'
-import { utilService } from './util.service.js'
-
+// import { storageService } from './async-storage.service.js'
+// import { utilService } from './util.service.js'
 // const fs = require('fs')
 // const gYachts = require('../../data/yacht.json')
 const YACHT_KEY = 'yachts'
@@ -1968,82 +1967,111 @@ const yachtJson = [{
             ]
         }
         
+import { httpService } from './http.service.js'
+import { utilService } from './util.service.js'
 
-    ]
-const gYachts = _createYachts()
 export const yachtService = {
     query,
     getById,
     remove,
     save,
     getEmptyYacht,
+    getReviewTemplate
 }
 
-function _createYachts() {
-    let yachts = utilService.loadFromStorage(YACHT_KEY);
-    if (!yachts || !yachts.length) {
-        yachts = yachtJson;
-        utilService.saveToStorage(YACHT_KEY, yachts);
-    }
-    return yachts;
-}
+
+
 
 function query() {
-    return gYachts
+    // var queryStr = (!filterBy) ? '' : `?location=${filterBy.location || ''}&guests=${filterBy.guests || 0}&price=${filterBy.price || 0}&amenities=${filterBy.amenities}&_id=${filterBy._id || null}`
+    return httpService.get(`yacht`)
 }
 
-function getById(id) {
-    return storageService.get(YACHT_KEY, id)
+
+async function getById(id) {
+    const yacht = await httpService.get(`yacht/${id}`)
+    return yacht;
 }
 
-function remove(id) {
-  return storageService.remove(YACHT_KEY, id)
+
+async function remove(id) {
+    return httpService.delete(`yacht/${id}`, id)
 }
 
-function save(yacht) {
-    const savedYacht = (yacht._id) ? storageService.put(YACHT_KEY, yacht) : storageService.post(YACHT_KEY, yacht)
-    return savedYacht;
-}
 
-function _makeId(length = 5) {
-    const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var txt = '';
-    for (let i = 0; i < length; i++) {
-        txt += possible.charAt(Math.floor(Math.random() * possible.length));
+async function save(yacht) {
+    if (yacht._id) {
+        return httpService.put(`yacht/${yacht._id}`, yacht)
+    } else {
+        return httpService.post(`yacht`, yacht)
     }
-    return txt;
 }
+
+
+
+function getReviewTemplate() {
+    return {
+        id: utilService.makeId(),
+        txt: '',
+        rate: null,
+        category: {
+            Cleanliness: null,
+            Accuracy: null,
+            Communication: null,
+            Location: null,
+            CheckIn: null,
+            Accessibility: null
+        },
+        by: {
+            _id: '',
+            fullname: '',
+            imgUrl: '',
+            time: Date.now()
+        },
+    }
+}
+
 
 function getEmptyYacht() {
     return {
-        // "_id": "",
-        "name": "",
-        "imgUrls": [],
-        "summary": "With an impressive network of experienced brokers across the globe, Camper.....",
-        "price": 1,
-        "size": "",
-        "amenities": [],
-        "owner": {
-            "_id": _makeId(),
-            "fullname": "",
-            "imgUrl": "https://randomuser.me/api/portraits/men/1.jpg"
+        name: "",
+        imgUrls: [],
+        summary: "With an impressive network of experienced brokers across the globe, Camper.....",
+        price: 1,
+        size: "",
+        favorites: [],
+        amenities: [],
+        owner: {
+            // _id: this.owner._id,
+            // fullname: this.owner.fullname,
+            // imgUrl: this.owner.imgUrl,
         },
-        "loc": {
-            "country": "",
-            "city": "",
-            "countryCode": "",
-            "address": "",
-            "lat": 0,
-            "lng": 0
+        loc: {
+            country: "",
+            city: "",
+            countryCode: "",
+            address: "",
+            lat: 0,
+            lng: 0
         },
-        "reviews": [{
-            "id": "madeId",
-            "txt": "Very helpful owners. Cooked traditional...",
-            "rate": 2,
-            "by": {
-                "_id": "u102",
-                "fullname": "user2",
-                "imgUrl": "/img/img2.jpg"
+        reviews: [{
+
+            id: utilService.makeId(),
+            txt: '',
+            rate: 1,
+            category: {
+                Cleanliness: 1,
+                Accuracy: 1,
+                Communication: 1,
+                Location: 1,
+                CheckIn: 1,
+                Accessibility: 1
+            },
+            by: {
+                _id: '',
+                fullname: '',
+                imgUrl: '',
+                time: Date.now()
             }
         }]
     }

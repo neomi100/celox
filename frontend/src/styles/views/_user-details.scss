@@ -1,83 +1,96 @@
-.user-details {
+
+.user-details{
     display: grid;
-    grid-template-columns: minmax(2rem, 1fr) minmax(auto, 250px) minmax(auto, 850px) minmax( 2rem, 1fr);
+    grid-template-columns:minmax(2rem,1fr) minmax(auto,250px) minmax(auto,850px) minmax( 2rem,1fr);
     padding-top: 1%;
     min-height: 82vh;
-    .user-profile {
+    
+    .user-profile{
         position: sticky;
         top: 180px;
         grid-column: 2 / 3;
-        padding: 10% 10% 15% 10%;
+        // grid-row: 1 / 2;
+        padding: 10% 10% 15% 10% ;
+
         border: 1px solid #dddddd;
-        box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+        box-shadow:rgba(0 ,0 ,0 , 0.12) 0px 6px 16px;
         border-radius: 12px;
         height: fit-content;
         text-align: center;
         margin-right: 20px;
+        
         img {
             border-radius: 50%;
             width: 100px;
         }
-        h4 {
-            font-weight: 500;
-        }
+        h4{font-weight: 500;}
     }
-    .user-back-office {
+    
+    .user-back-office{
         grid-column: 3 / 4;
         grid-row: 1 / 2;
         padding-left: 2%;
     }
-    .user-statistics {
+    .user-statistics{
         width: 40.4%;
-    }
+    }    
 }
 
-.dashboard-status {
-    margin-top: 30px;
+.dashboard-status{
+    margin-top:30px;
+}
+.clr-num{
+    color:#ff385c;
+    font-weight:700;
+    font-size:1.2em;
 }
 
-.clr-num {
-    color: #ff385c;
-    font-weight: 700;
-    font-size: 1.2em;
-}
-
-@media screen and(max-width:400px) {
-    .user-statistics {
+@media screen and(max-width:400px){
+    .user-statistics{
         width: 100% !important;
-    }
+    }    
 }
 
-@media screen and(max-width:770px) {
+@media screen and(max-width:770px){
     .user-details {
         padding: 0.5%;
         display: flex;
         flex-direction: column;
         font-size: 1.5rem;
-        .user-profile {
+       
+        .user-profile{
+            //?? 
             display: none;
+            //?? 
             position: unset;
             top: unset;
             margin: 3% 0;
             width: 60%;
-            align-self: center;
+            align-self: center;   
+            
         }
+       
         .el-tabs__item {
             padding: 0px 9px;
             font-size: 17px;
         }
+        
         .el-tabs__nav-prev {
             display: none;
         }
+
         .el-tabs__nav-next {
             display: none;
         }
-        .user-back-office {
+        .user-back-office{
             margin: 0 4%;
             padding: unset;
         }
-        .user-statistics {
+        
+        .user-statistics{
             width: 90%;
-        }
+        }    
     }
+    
 }
+

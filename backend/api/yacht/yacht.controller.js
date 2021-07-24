@@ -28,7 +28,6 @@ async function getYachtById(req, res) {
 async function deleteYacht(req, res) {
     try {
         await yachtService.remove(req.params.yachtId)
-        console.log(req.params.yachtId, 'service');
         res.send({ msg: 'Deleted successfully' })
     } catch (err) {
         logger.error('Failed to delete yacht', err)
@@ -64,7 +63,6 @@ async function updateYacht(req, res) {
     try {
         const { name, price, imgUrls, size, amenities, _id, favorites, owner, loc, reviews, summary } = req.body
         const yacht = { name, price, imgUrls, size, amenities, _id, favorites, owner, loc, reviews, summary }
-        console.log(yacht, 'updateC');
         const savedYacht = await yachtService.update(yacht)
         res.json(savedYacht)
     } catch (err) {

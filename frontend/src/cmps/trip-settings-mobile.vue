@@ -50,7 +50,7 @@ export default {
         buyer: null,
         totalPrice: 0,
         nightsNum: 5,
-        curryacht: this.yacht,
+        currYacht: this.yacht,
       },
       isTotalPriceClalculable: false,
       isFullSettingsPanel: false,

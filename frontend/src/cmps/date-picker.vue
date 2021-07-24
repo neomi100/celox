@@ -14,7 +14,6 @@
       align="right"
       range-separator=" "
       prefix-icon="false"
-      
     >
     </el-date-picker>
   </section>
@@ -44,10 +43,12 @@ export default {
     changed() {
       this.$emit("pick", this.value1);
     },
+    print() {
+    },
   },
   computed:{
     yachtOrders(){
-      return this.$store.getters.getyachtOrdersTimeStamps
+      return this.$store.getters.getYachtOrdersTimeStamps
     }
   }
 };

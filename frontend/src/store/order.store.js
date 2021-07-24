@@ -64,11 +64,8 @@ export const orderStore = {
         },
         async loadOwnerOrders({ commit }, { owner }) {
             try {
-                const filterBy = {}
-                filterBy._id = owner._id
-
                 commit({ type: 'setOwner', owner })
-                const yachts = await yachtService.query(filterBy);
+                const yachts = await yachtService.query();
                 const orders = await orderService.query();
 
                 const ownerOrders = orders.filter(order => {
@@ -86,10 +83,12 @@ export const orderStore = {
             await orderService.save(order)
             dispatch({ type: "loadOwnerOrders", owner: order.buyer });
         },
+
+
         async setPendingOrder({ dispatch }, { orderSettings }) {
             var owner = orderSettings.currYacht.owner
             await orderService.save(orderSettings)
-                // await socketService.emit('renderOrders', owner)
+            // await socketService.emit('renderOrders', owner)
             dispatch({ type: "loadOwnerOrders", owner });
             // socketService.emit('loadOrders',(newPendingOrder))
         },

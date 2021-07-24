@@ -7,7 +7,7 @@ export default {
   extends: Bar,
   computed: {
     ownerOrders() {
-      return this.$store.getters.getownerOrders;
+      return this.$store.getters.getOwnerOrders;
     },
   },
   async mounted() {

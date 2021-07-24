@@ -1,0 +1,45 @@
+.yacht-order-details {
+    grid-template-columns: 1fr 30% 1fr 1fr ;
+    font-size: 0.8rem;
+    width: 100%;
+    .yacht-order-headlines {
+        display: grid;
+        grid-template-columns: 1fr 30% 100px 75px ;
+        border-bottom: 1px solid lightgray;
+        padding-bottom: 0.2rem;
+        margin-bottom: 0.5rem;
+        .check-mobile {display: none;}
+        h3 {
+            width: fit-content;
+        }
+    }
+    .single-yacht-order {
+        display: grid;
+        grid-template-columns: 1fr 30% 100px 75px ;
+        .dates-mobile{display: none;}
+        .cell {
+            padding: 0.15rem;
+        }
+        .cell>*:nth-last-col{
+            text-align:right;
+        }
+    }
+}
+
+@media screen and(max-width:440px){ 
+    .yacht-order-headlines {
+        grid-template-columns: 40% 38% 22% !important;
+        .cell {h3 {border-bottom: unset !important;}}
+        .check {display: none;}
+        .check-mobile {display: unset !important;}
+    }
+    .single-yacht-order {
+        font-size: 1rem;
+        grid-template-columns: 40% 38% 22% !important;
+        .dates-mobile{display: unset !important;}
+        .date{display: none;}
+        .cell{
+            font-size: 14px;
+        }
+    }
+}

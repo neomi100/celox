@@ -70,10 +70,10 @@ export default {
         guest: {
           adultsNum: 1,        
         },
-        buyer: null,
+        buyer: {},
         totalPrice: 0,
         nightsNum: 5,
-        curryacht: this.yacht,
+        currYacht: this.yacht,
       },
       isTotalPriceClalculable: false,
     };
@@ -97,10 +97,18 @@ export default {
     setGuests(value) {
       this.orderSettings.guest = value;
     },
-     sendOrderRequest() {
-      if (!this.orderSettings.buyer) {
-        this.open2();
-        return;
+    async sendOrderRequest() {
+      try {
+        await this.$store.dispatch({
+          type: "setPendingOrder",
+          orderSettings: this.orderSettings,
+        });
+
+        this.isReserved = true;
+        this.open1();
+      } catch (err) {
+        console.log("could not send order request", err);
+        this.open4();
       }
     },
     open1() {
@@ -146,7 +154,7 @@ export default {
     },
   },
   created() {
-    // this.orderSettings.buyer = this.$store.getters.loggedinUser;
+    this.orderSettings.buyer = this.$store.getters.loggedinUser;
   },
   components: {
     datePicker,
