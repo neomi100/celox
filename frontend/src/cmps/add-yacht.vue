@@ -66,8 +66,8 @@ export default {
         name: "",
         imgUrls: ["1.1","1.2a","1.2b","1.2c","1.2d"],////////////////////////////////////FIX (temp)
         price: null,
+        size: null,
         summary: "",
-        capacity: 1,
         favorites: [],
         amenities: [],
         owner: {
@@ -91,6 +91,19 @@ export default {
     methods: {
     //   handleChange(value) {
     //   },
+    capacity() {
+      const maxPepole = this.yacht.size;
+      switch (maxPepole) {
+        case "small":
+          return 5;
+        case "medium":
+          return 12;
+        case "large":
+          return 35;
+        default:
+          return "";
+      }
+    },
       updateAmenities(amenities){
           this.yacht.amenities=amenities;
       },

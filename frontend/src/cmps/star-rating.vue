@@ -4,7 +4,6 @@
       <p class="star-txt">
         <i class="fas fa-star"></i> 
         <span class="avg-rate">{{rateFromAllReviewers}}</span>
-        <!-- <span class="review-num"> ({{incRate*reviews.length }})</span> -->
         <span class="review-num"> ({{reviews.length }})</span>
       </p>
       </span>

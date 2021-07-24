@@ -64,7 +64,6 @@ export const orderStore = {
         },
         async loadOwnerOrders({ commit }, { owner }) {
             try {
-
                 commit({ type: 'setOwner', owner })
                 const yachts = await yachtService.query();
                 const orders = await orderService.query();
@@ -84,6 +83,8 @@ export const orderStore = {
             await orderService.save(order)
             dispatch({ type: "loadOwnerOrders", owner: order.buyer });
         },
+
+
         async setPendingOrder({ dispatch }, { orderSettings }) {
             var owner = orderSettings.currYacht.owner
             await orderService.save(orderSettings)

@@ -9,7 +9,7 @@
       <div class="random-search">
         <span class="rs-title">Can't decide ?</span>
         <button class="rs-inner" @click="randomYacht()">
-          <p>Surprise me</p>
+          <p>Surprise me !</p>
         </button>
       </div>
     </section>
@@ -97,6 +97,7 @@
         <div class="sailor-backdrop">
           <h2>JOIN US AND BECOME A CAPTAIN</h2>
           <h2>Rent Your yacht</h2>
+          <button class="rs-inner"></button>
         </div>
       </div>
     </section>
