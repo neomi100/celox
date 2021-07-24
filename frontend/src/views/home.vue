@@ -66,7 +66,7 @@
           <router-link to="/yacht" class="gallery-item-a">
             <div class="gallery-img">
               <div class="txt">
-                <h4>Yacht Charter {{ loc.txt }}</h4>
+                <h4>Yachts Charter {{ loc.txt }}</h4>
                 <p>Starting from ${{ loc.minPrice }}/day</p>
               </div>
             </div>

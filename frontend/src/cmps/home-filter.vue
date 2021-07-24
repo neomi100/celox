@@ -78,10 +78,8 @@
             class="search"
              size="small "
             placeholder="Search..."
-            v-model="filterBy.txt"
-           
-          >
-         
+            v-model="filterBy.txt"           
+          >        
           </el-input>
         </div>
         </div>
@@ -174,7 +172,9 @@ export default {
       var filterBy = this.filterBy;
       console.log('this.filterBy',this.filterBy);
       if (this.$route.path !== "/yacht")
-        await this.$router.push(`/yacht/?location=${this.filterBy.location}`);
+        await this.$router.push(`/yacht/?location=${this.filterBy.txt}`);
+    //   this.$store.dispatch({ type: "searchResults", title: this.filterBy.txt });
+   
       this.$store.commit({ type: "setFilter", filterBy });
       return this.$store.getters.yachtsForShow;
       // this.$store.dispatch({ type: "loadYachts" });
@@ -204,8 +204,8 @@ export default {
     },
   },
   created() {
-    this.filterBy.location = this.$route.query.location;
     this.filterBy.txt = this.$route.query.location;
+    // this.filterBy.txt = this.$route.query.location;
     // this.model = this.$route.query.location;
     window.onscroll = () => {
       this.checkOffset();

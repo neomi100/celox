@@ -1,10 +1,12 @@
 <template>
   <section class="filter layout-yacht">
+      <!-- <div class="filter-yacht-filter">{{title}}</div> -->
   <div
         class="filter-container flex justify-center align-center scroll-serarch"
       >
         <home-filter></home-filter>
       </div>
+
     <!-- <div class="right">
       <div class="filter-search">
         <div class="search-input">
@@ -165,6 +167,9 @@ export default {
     },
   },
   computed: {
+        title(){
+       return this.$store.getters.getTitle;
+    },
     openDates() {
       let date = this.showDates ? "isOpen" : "isClose";
       return date;
