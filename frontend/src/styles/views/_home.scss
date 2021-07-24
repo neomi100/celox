@@ -120,6 +120,11 @@ div.random-search {
     bottom: 10%;
     top: -369px;
     right: 257px;
+    position: absolute;
+    bottom: 15%;
+    right: 50%;
+    transform: translate(50%);
+    margin: auto;
     .rs-title {
         display: block;
         font-weight: bold;

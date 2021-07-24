@@ -1,5 +1,5 @@
 <template>
-  <section class="stay-google-map">
+  <section class="yacht-google-map">
     <h2>Location</h2>
     <GmapMap
       class="google-map"
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  name: "stay-map",
+  name: "yacht-map",
   props: {
     location: Object,
   },
