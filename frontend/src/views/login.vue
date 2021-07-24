@@ -78,6 +78,7 @@ export default {
         if (user._id) this.$router.push("/yacht");
       } catch (err) {
         console.log(err);
+        throw err;
       }
     },
     async guestLogin() {

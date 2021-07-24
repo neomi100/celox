@@ -52,7 +52,6 @@ export default {
     async onUploadImg(file) {
       this.isLoading = true;
       this.isDragOver = false;
-      console.log(file,'file');
       const res = await uploadImg(file);
       this.$emit("save", res.url);
       this.isLoading = false;

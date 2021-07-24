@@ -32,7 +32,6 @@ async function query(filterBy = {}) {
 
 async function getById(userId) {
     try {
-        console.log("🚀 ~ file: user.service.js ~ line 38 ~ getById ~ userId", userId)
         const collection = await dbService.getCollection('user')
         const user = await collection.findOne({ '_id': ObjectId(userId) })
         delete user.password

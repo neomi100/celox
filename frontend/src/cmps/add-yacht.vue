@@ -41,7 +41,7 @@
             </div>
             <div>
             <span>Upload yacht images:</span>
-            <img-cld-upload class="upload-yacht-img"/>
+            <!-- <img-cld-upload class="upload-yacht-img"/> -->
             </div>
             <button class="special-btn add-asset-btn" @click="addYacht()">Publish Listing</button>
         </form>
@@ -50,8 +50,8 @@
 
 <script>
 // import { yachtService } from '../services/yacht-service.js';
-import addYachtAmenities from '../cmps/add-yacht-amenities';
-import imgCldUpload from '../cmps/img-cld-upload';
+import addYachtAmenities from '../cmps/add-yacht-amenities.vue';
+// import imgCldUpload from '../cmps/img-cld-upload.vue';
 import imgUpload from "@/cmps/img-upload.cmp";
 
 // const Swal = require('sweetalert2')
@@ -112,7 +112,7 @@ export default {
     },
     components: {
     addYachtAmenities,
-    imgCldUpload,
+    // imgCldUpload,
     imgUpload,
   },
 };

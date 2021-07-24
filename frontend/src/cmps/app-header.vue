@@ -91,7 +91,6 @@ export default {
     "$route.path": {
        immediate: true,
       handler() {
-        console.log('handler detected $route.path change')
         if (this.$route.path === "/yacht") {
           this.layoutClass = "layout-yacht";
         } else {
