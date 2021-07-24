@@ -52,6 +52,8 @@
 // import { yachtService } from '../services/yacht-service.js';
 import addYachtAmenities from '../cmps/add-yacht-amenities';
 import imgCldUpload from '../cmps/img-cld-upload';
+import imgUpload from "@/cmps/img-upload.cmp";
+
 // const Swal = require('sweetalert2')
 
 export default {
@@ -110,7 +112,8 @@ export default {
     },
     components: {
     addYachtAmenities,
-    imgCldUpload
+    imgCldUpload,
+    imgUpload,
   },
 };
 </script>
