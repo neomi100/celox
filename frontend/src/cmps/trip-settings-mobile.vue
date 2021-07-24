@@ -9,7 +9,7 @@
             <span class="star-container">
               <p class="star-txt">
                 <i class="fas fa-star"></i>
-                <span class="avg-rate">{{ avgRateFromAllReviewers }}</span>
+                <span class="avg-rate">{{ rateFromAllReviewers }}</span>
                 <span class="review-num">
                   ({{ yacht.reviews.length }} reviews)</span>
               </p>
@@ -112,10 +112,10 @@ export default {
       this.mouseX = e.offsetX;
       this.mouseY = e.offsetY;
     },
-    avgRateFromAllReviewers() {
+    rateFromAllReviewers() {
       if (this.yacht.reviews) {
         let sum = this.yacht.reviews.reduce((acc, currVal) => {
-          acc += currVal.avgRate;
+          acc += currVal.rate;
           return acc;
         }, 0);
         return parseFloat(sum / this.yacht.reviews.length).toFixed(1);

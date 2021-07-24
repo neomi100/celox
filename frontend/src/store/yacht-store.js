@@ -25,11 +25,8 @@ export const yachtStore = {
             
             const { rate, price} = state.filterBy
             const regex = new RegExp(state.filterBy.txt, 'i')
-            console.log(regex,'yyy');
             let yachts = state.yachts
-            console.log(yachts,'1');
             yachts = yachts.filter((yacht) => yacht.price > price)
-            console.log(yachts,'2');
             // switch (size) {
             //     case 'All' || '':
             //         break;
@@ -63,9 +60,7 @@ export const yachtStore = {
                     yachts = yachts.filter((yacht) => Math.floor(yacht.reviews[0].rate) === 5);
                     break;
             }
-            console.log(yachts,'3');
             yachts = yachts.filter(yacht => regex.test(yacht.loc.country || yacht.loc.city || yacht.loc.address))
-            console.log(yachts,'4');
             return yachts
         },
         sortByPrice(state) {
@@ -97,12 +92,11 @@ export const yachtStore = {
         },
 
         setFilter(state, payload) {
-            console.log('payload.filterBy', payload.filterBy);
             state.filterBy = payload.filterBy
         },
-        updateyachts(state, { updatedyacht }) {
-            const idx = state.yachts.findIndex(({ _id }) => _id === updatedyacht._id);
-            state.yachts.splice(idx, 1, updatedyacht);
+        updateyachts(state, { updatedYacht }) {
+            const idx = state.yachts.findIndex(({ _id }) => _id === updatedYacht._id);
+            state.yachts.splice(idx, 1, updatedYacht);
         },
         updateYacht(state, { yacht }) {
             const idx = state.yachts.findIndex((y) => y._id === yacht._id);
@@ -127,7 +121,6 @@ export const yachtStore = {
             // if(filterBy)
             try {
                 const yachts = await yachtService.query(context.state.filterBy)
-                    // console.log(yachts, 'yachts are??');
                 context.commit({ type: 'getYachts', yachts })
                 return yachts
             } catch (err) {
@@ -153,14 +146,16 @@ export const yachtStore = {
                 commit(payload)
             } catch (error) {
                 console.log('ERROR: could not remove: ', (error))
+                throw error;
+
             }
         },
         async postReview(context, { review }) {
-            console.log(context);
+            console.log(review);
             var newReview = {
-                // curryacht: review.yacht,
+                currYacht: review.yacht,
                 txt: review.txt,
-                avgRate: review.avgRate,
+                rate: review.rate,
                 category: JSON.parse(JSON.stringify(review.category)),
                 id: utilService.makeId(), //Move to backend
                 by: { // move to backend
@@ -170,12 +165,13 @@ export const yachtStore = {
                     time: Date.now()
                 }
             }
-            newReview.curryacht.reviews.unshift(newReview)
+            newReview.currYacht.reviews.unshift(newReview)
+            console.log(newReview);
             try {
-                const updatedyacht = await yachtService.save()
-                    // const updatedyacht= await yachtService.addReview(newReview,curryacht)
-                context.commit({ type: 'updateyachts', updatedyacht })
-                return updatedyacht
+                const updatedYacht = await yachtService.save( newReview.currYacht)
+                    // const updatedYacht= await yachtService.addReview(newReview,currYacht)
+                context.commit({ type: 'updateyachts', updatedYacht })
+                return updatedYacht
             } catch (err) {
                 console.log('from Store: Cannot postReview', err);
                 throw err
@@ -183,14 +179,13 @@ export const yachtStore = {
         },
         async toggleLike(context, { yacht }) {
             const user = context.getters.loggedinUser;
-            console.log(user,"user");
             const favIdx = yacht.favorites && yacht.favorites.findIndex(({ userId }) => user._id === userId);
             if (favIdx >= 0) yacht.favorites.splice(favIdx, 1);
             else yacht.favorites = [{ userId: user._id }];
             try {
-                const updatedyacht = await yachtService.save(yacht)
-                context.commit({ type: 'updateyachts', updatedyacht })
-                return updatedyacht
+                const updatedYacht = await yachtService.save(yacht)
+                context.commit({ type: 'updateyachts', updatedYacht })
+                return updatedYacht
             } catch (err) {
                 console.log('from Store: Cannot toggleLike', err);
                 throw new Error('Cannot toggleLike');

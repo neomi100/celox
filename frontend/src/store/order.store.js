@@ -80,6 +80,7 @@ export const orderStore = {
             }
         },
         async updateOrderStatus({ dispatch }, { order }) {
+            console.log(order.buyer);
             await orderService.save(order)
             dispatch({ type: "loadOwnerOrders", owner: order.buyer });
         },
