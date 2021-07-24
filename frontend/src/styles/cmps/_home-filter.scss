@@ -2,8 +2,8 @@
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     position: relative;
     //padding: 40px 0px;
-    padding: 40px 0px;
-    top: -131px;
+    // padding: 40px 0px;
+    // top: -131px;
 }
 
 .advanced-input {
@@ -119,14 +119,18 @@ width:100%;
 
 
 }
-
-.filter-by-guest {
-    border: none;
+.el-input__inner{
+    padding: 0;
 }
+
+// .filter-by-guest {
+//     border: none;
+// }
 
 .guest-dd {
     width: 90px;
     height: 37px;
+    border: none; 
 }
 
 
