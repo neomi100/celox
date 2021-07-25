@@ -84,7 +84,7 @@ export default {
     this.notifications = user.notifications || [];
     // const _id = this.$route.params.toyId;
     this.topic = user._id;
-    socketService.setup();
+    // socketService.setup();
     socketService.emit("chat topic", this.topic);
     // socketService.on('user typing', this.userTyping)
     socketService.on("chat addMsg", this.addMsg);

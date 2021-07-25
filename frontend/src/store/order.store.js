@@ -1,5 +1,6 @@
 import { yachtService } from '../services/yacht-service.js';
 import { orderService } from '../services/order.service.js';
+import { socketService } from "../services/socket.service.js";
 
 export const orderStore = {
     state: {
@@ -89,9 +90,9 @@ export const orderStore = {
         async setPendingOrder({ dispatch }, { orderSettings }) {
             var owner = orderSettings.currYacht.owner
             await orderService.save(orderSettings)
-            // await socketService.emit('renderOrders', owner)
+            await socketService.emit('renderOrders', owner)
             dispatch({ type: "loadOwnerOrders", owner });
-            // socketService.emit('loadOrders',(newPendingOrder))
+            socketService.emit('loadOrders',(orderSettings))
         },
     }
 }

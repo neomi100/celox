@@ -22,7 +22,7 @@
         </button>
 
         <div v-else class="reservation-summary flex column center">
-          <button v-if="!isReserved" class="special-btn" @click="sendOrderRequest()">
+          <button v-if="!isReserved" class="special-btn" type="button" @click="sendOrderRequest()">
             <span class="middle-level">
               <span class="inner-level" @mousemove="mousemove" :style="mousePos"></span>
             </span>
