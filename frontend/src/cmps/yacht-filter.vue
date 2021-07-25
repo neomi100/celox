@@ -1,6 +1,12 @@
 <template>
   <section class="filter layout-yacht">
-  <home-filter></home-filter>
+      <!-- <div class="filter-yacht-filter">{{title}}</div> -->
+  <div
+        class="filter-container flex justify-center align-center scroll-serarch"
+      >
+        <home-filter></home-filter>
+      </div>
+
     <!-- <div class="right">
       <div class="filter-search">
         <div class="search-input">
@@ -18,7 +24,7 @@
     </div> -->
     <!-- <div class="left"> -->
       <div class="filter-main align-center">
-        <button class="filter-btn" @click="selectDates">Dates</button>
+        <!-- <button class="filter-btn" @click="selectDates">Dates</button>
         <div class="date" :class="openDates">
           <el-date-picker
             v-model="filterBy.dates"
@@ -29,9 +35,9 @@
             size="mini"
           >
           </el-date-picker>
-        </div>
+        </div> -->
 
-        <button class="filter-btn" @click="changeSize">Size</button>
+        <!-- <button class="filter-btn" @click="changeSize">Size</button>
         <div class="size" :class="open">
           <el-radio-group
             v-model="filterBy.size"
@@ -43,7 +49,7 @@
             <el-radio-button label="Medium"></el-radio-button>
             <el-radio-button label="Large"></el-radio-button>
           </el-radio-group>
-        </div>
+        </div> -->
 
         <button class="filter-btn" @click="changeRate">Rate</button>
         <div class="rate" :class="openRate">
@@ -60,6 +66,7 @@
             min="500"
             max="1900"
             step="10"
+            color="red"
             @change="setFilter"
             v-model="filterBy.price"
            
@@ -160,6 +167,9 @@ export default {
     },
   },
   computed: {
+        title(){
+       return this.$store.getters.getTitle;
+    },
     openDates() {
       let date = this.showDates ? "isOpen" : "isClose";
       return date;

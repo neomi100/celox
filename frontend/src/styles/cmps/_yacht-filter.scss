@@ -1,12 +1,21 @@
+.filter-yacht-filter{
+    font-size: 4rem;
+        font-family: BlinkerBold;
+    //     display: flex;
+    //     justify-content: center;
+}
+
 .filter{
 margin-bottom: 7px;
 // font-family: Blinker;
+// display: block;
 display: flex;
-align-items: center;
+align-items: start;
 justify-content: space-between;
 padding-left: 10px;
 padding-right: 10px;
 height: 73px;
+flex-direction: column;
 
 .right{
     display: flex;
@@ -63,7 +72,8 @@ height: 73px;
 // }
   }  
     .filter-main{
-     
+        padding-left: 3px;
+        padding-top: 10px;
     display: flex;
     justify-content: space-between;
     gap: 7px;
@@ -106,8 +116,8 @@ height: 73px;
         box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
         border: 1px solid rgb(221, 221, 221);
         z-index: 15;
-        right: 64px;
-        top: 137px;
+        left: 24px;
+        top: 191px;
     }
     .price{
         background-color: white;
@@ -117,10 +127,10 @@ height: 73px;
         box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
         border: 1px solid rgb(221, 221, 221);
         z-index: 15;
-        right: 10px;
+        left: 96px;
         font-family: BlinkerBold;
         font-size: 1rem;
-        top: 137px;
+        top: 191px;
     }
     .date{
         border-style: none;

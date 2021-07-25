@@ -22,23 +22,28 @@ export const yachtStore = {
             return state.title
         },
         yachtsForShow(state) {
-            const { rate, price, size } = state.filterBy
+            
+            const { rate, price} = state.filterBy
             const regex = new RegExp(state.filterBy.txt, 'i')
+            console.log(regex,'yyy');
             let yachts = state.yachts
+            console.log(yachts,'1');
             yachts = yachts.filter((yacht) => yacht.price > price)
-            switch (size) {
-                case 'All' || '':
-                    break;
-                case 'Small':
-                    yachts = yachts.filter((yacht) => yacht.size === 'small');
-                    break;
-                case 'Medium':
-                    yachts = yachts.filter((yacht) => yacht.size === 'medium');
-                    break;
-                case 'Large':
-                    yachts = yachts.filter((yacht) => yacht.size === 'large');
-                    break;
-            }
+            console.log(yachts,'2');
+            // switch (size) {
+            //     case 'All' || '':
+            //         break;
+            //     case 'Small':
+            //         yachts = yachts.filter((yacht) => yacht.size === 'small');
+            //         break;
+            //     case 'Medium':
+            //         yachts = yachts.filter((yacht) => yacht.size === 'medium');
+            //         break;
+            //     case 'Large':
+            //         yachts = yachts.filter((yacht) => yacht.size === 'large');
+
+            //         break;
+            // }
             switch (rate) {
                 case 'All' || '':
                     break;
@@ -58,7 +63,9 @@ export const yachtStore = {
                     yachts = yachts.filter((yacht) => Math.floor(yacht.reviews[0].rate) === 5);
                     break;
             }
+            console.log(yachts,'3');
             yachts = yachts.filter(yacht => regex.test(yacht.loc.country || yacht.loc.city || yacht.loc.address))
+            console.log(yachts,'4');
             return yachts
         },
         sortByPrice(state) {

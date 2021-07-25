@@ -66,7 +66,7 @@
           <router-link to="/yacht" class="gallery-item-a">
             <div class="gallery-img">
               <div class="txt">
-                <h4>Yacht Charter {{ loc.txt }}</h4>
+                <h4>Yachts Charter {{ loc.txt }}</h4>
                 <p>Starting from ${{ loc.minPrice }}/day</p>
               </div>
             </div>
@@ -76,31 +76,22 @@
     </section>
 
     <section class="top-destinations">
-      <!-- <h3>Top Rated Yachts</h3>
-      <div class="top-yacht-list">
-        <router-link
-          v-for="(yacht, idx) in yachts"
-          :key="idx"
-          class="top-rated-yachts"
-          :to="'/yacht/' + yacht._id"
-        >
-          <img :src="yacht.imgUrls[0]" />
-          <div class="top-yacht-txt">
-            <h3 class="top-yacht-name">{{ yacht.name }}</h3>
-            <h4 class="top-yacht-price">${{ yacht.price }}</h4>
-            <h4 class="top-yacht-city">{{yacht.loc.city}}</h4>
-          </div>
-        </router-link>
-      </div> -->
-      <div class="sailor-picture">
+      <img src="../assets/imgs/destinations.jpg" alt="">
+      <div class="content">
+        <h2>Try hosting</h2>
+        <h4>Earn extra income and unlock new opportunities by sharing your space</h4>
+        <button>Learn more</button>
+      </div>
+      <!-- <div class="sailor-picture">
         <img src="../assets/imgs/sexy-sailor.jpg" />
         <div class="sailor-backdrop">
           <h2>JOIN US AND BECOME A CAPTAIN</h2>
           <h2>Rent Your yacht</h2>
           <button class="rs-inner"></button>
         </div>
-      </div>
+      </div> -->
     </section>
+
   </section>
 </template>
 

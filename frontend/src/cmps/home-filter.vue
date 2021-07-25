@@ -4,15 +4,29 @@
       <span class="box">
         <div class="location">
           <span class="title title-location">Location</span>
-          <advanced-search
-            @input.native="copyData"
-            @select="copyData"
+            <!-- @input.native="copyData" -->
+            <!-- @select="copyData" -->
+          <!-- @input.native="setFilter" -->
+      
+          <!-- <advanced-search
             :options="options"
             v-model="model"
             style="border: none"
             class="advanced-input-section desc"
             :placeholder="filterBy.location || 'Search'"
-          />
+          /> -->
+ <!-- @input="setFilter" -->
+               <div class="search-input">
+          <el-input
+            class="search"
+            size="small "
+            placeholder="Search..."
+            v-model="filterBy.txt"
+           
+          >
+          
+          </el-input>
+        </div>
         </div>
       </span>
       <span class="box">
@@ -41,8 +55,7 @@
       </span>
 
       <div @click="submitSearch" class="search-icon">
-        <div class="btn-search-large">
-        </div>
+        <div class="btn-search-large"></div>
       </div>
     </div>
 
@@ -50,15 +63,25 @@
       <span class="box">
         <div class="location">
           <span class="title">Location</span>
-          <advanced-search
-            v-model="model"
-            @input.native="copyData"
-            @select="copyData"
+           <!-- @input.native="copyData"
+            @select="copyData" -->
+          <!-- <advanced-search
+            v-model="filterBy.txt"
+           
             :options="options"
             style="border: none"
             class="advanced-input-section desc"
             placeholder="Where are we going?"
-          />
+          /> -->
+               <div class="search-input">
+          <el-input
+            class="search"
+             size="small "
+            placeholder="Search..."
+            v-model="filterBy.txt"           
+          >        
+          </el-input>
+        </div>
         </div>
       </span>
       <span class="box">
@@ -87,8 +110,7 @@
       </span>
 
       <div @click="submitSearch" class="search-icon">
-        <div class="btn-search-large">
-        </div>
+        <div class="btn-search-large"></div>
       </div>
     </div>
 
@@ -98,8 +120,7 @@
       </span>
       <span v-else class="title-sticky"> Start Searching</span>
       <div class="search-icon sticy-search-icon">
-        <div class="btn-search">
-        </div>
+        <div class="btn-search"></div>
       </div>
     </div>
   </section>
@@ -107,7 +128,7 @@
 
 <script>
 import datePicker from "./date-picker.vue";
-import AdvancedSearch from "vue-advanced-search";
+// import AdvancedSearch from "vue-advanced-search";
 
 export default {
   name: "yachtFilter",
@@ -117,18 +138,22 @@ export default {
       isSticky: false,
       isOpen: false,
       filterBy: {
+        txt: "",
         location: "",
         startDate: "",
         endDate: "",
         guests: 1,
+        price: 0,
+        size: 'All',
+        rate: 'All',
       },
       isGuests: false,
       model: "",
       options: [
-        { label: "Portugal", value: "portugal" },
-        { label: "Morocco", value: "morocco" },
-        { label: "Guadeloupe", value: "guadeloupe" },
-        { label: "France", value: "france" },
+        { label: "portugal", value: "Portugal" },
+        { label: "morocco", value: "Morocco" },
+        { label: "guadeloupe", value: "Guadeloupe" },
+        { label: "france", value: "France" },
       ],
     };
   },
@@ -142,13 +167,23 @@ export default {
     },
     async submitSearch() {
       // const filterBy = JSON.parse(JSON.stringify(this.filterBy));
-      if (this.$route.path !== "/yacht") await this.$router.push(`/yacht/?location=${this.filterBy.location}`);
-      // await this.$store.dispatch({ type: "loadyachts", filterBy });
+      // var filterBy = JSON.parse(JSON.stringify(this.filterBy));
+    console.log(this.model,'model');
+      var filterBy = this.filterBy;
+      console.log('this.filterBy',this.filterBy);
+      if (this.$route.path !== "/yacht")
+        await this.$router.push(`/yacht/?location=${this.filterBy.txt}`);
+    //   this.$store.dispatch({ type: "searchResults", title: this.filterBy.txt });
+   
+      this.$store.commit({ type: "setFilter", filterBy });
+      return this.$store.getters.yachtsForShow;
+      // this.$store.dispatch({ type: "loadYachts" });
+      // await this.$store.dispatch({ type: "loadYachts", filterBy });
     },
     copyData(ev) {
-      console.log(ev, ev.target, 'copy date');
+      // console.log(ev, ev.target, "copy date");
       var location = ev.target?.value || ev;
-      if(typeof location !== 'string') location = ''
+      if (typeof location !== "string") location = "";
       this.filterBy.location = location;
     },
     checkOffset() {
@@ -169,8 +204,9 @@ export default {
     },
   },
   created() {
-    this.filterBy.location = this.$route.query.location;
-    this.model = this.$route.query.location;
+    this.filterBy.txt = this.$route.query.location;
+    // this.filterBy.txt = this.$route.query.location;
+    // this.model = this.$route.query.location;
     window.onscroll = () => {
       this.checkOffset();
     };
@@ -178,10 +214,8 @@ export default {
   destroyed() {},
   components: {
     datePicker,
-    AdvancedSearch,
+    // AdvancedSearch,
   },
 };
 </script>
-<style
- src="vue-advanced-search/dist/AdvancedSearch.css">
-</style>
+

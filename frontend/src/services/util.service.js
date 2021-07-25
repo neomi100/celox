@@ -4,8 +4,21 @@ export const utilService = {
     makeId,
     debounce,
     saveToStorage,
-loadFromStorage
+loadFromStorage,
+ getAvg
 }
+
+function getAvg(numbers){
+
+    let total = 0;
+for(let i = 0; i < numbers.length; i++) {
+    total += numbers[i];
+}
+
+
+return total / numbers.length;
+}
+
 function saveToStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value) || null);
 }
