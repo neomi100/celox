@@ -460,7 +460,8 @@ html {
 
 .filter-container .wrapper .box:first-child {
     // min-width: 250px;
-    width: 250px;
+    // width: 250px;
+    width: min-content;
 }
 
 .filter-container .wrapper .box:nth-child(2) {
@@ -468,7 +469,7 @@ html {
 }
 
 .filter-container .wrapper .box:nth-child(3) {
-    width: 160px;
+    width: 113px;
 }
 
 .hero .h1-container {
@@ -511,7 +512,7 @@ html {
     padding-bottom: 2px;
     -webkit-padding-end: 60px;
     padding-inline-end: 60px;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .filter-container .wrapper .box .desc {

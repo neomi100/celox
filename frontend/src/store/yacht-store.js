@@ -23,24 +23,29 @@ export const yachtStore = {
         },
         yachtsForShow(state) {
             
-            const { rate, price} = state.filterBy
+            const { rate, price, guests} = state.filterBy
             const regex = new RegExp(state.filterBy.txt, 'i')
+            
             let yachts = state.yachts
+      
             yachts = yachts.filter((yacht) => yacht.price > price)
-            // switch (size) {
-            //     case 'All' || '':
-            //         break;
-            //     case 'Small':
-            //         yachts = yachts.filter((yacht) => yacht.size === 'small');
-            //         break;
-            //     case 'Medium':
-            //         yachts = yachts.filter((yacht) => yacht.size === 'medium');
-            //         break;
-            //     case 'Large':
-            //         yachts = yachts.filter((yacht) => yacht.size === 'large');
 
-            //         break;
-            // }
+            switch (true) {
+                case 'All' || '':
+                    break;
+                case (guests>= 1 && guests<=5):
+                   
+                    yachts = yachts.filter((yacht) => yacht.size === 'small');
+                    break;
+                case (guests>= 6 && guests<=12):
+                   
+                    yachts = yachts.filter((yacht) => yacht.size === 'medium');
+                    break;
+                case ((guests>= 13) && (guests<=25)):
+                    yachts = yachts.filter((yacht) => yacht.size === 'large');
+                    break;
+            }
+
             switch (rate) {
                 case 'All' || '':
                     break;

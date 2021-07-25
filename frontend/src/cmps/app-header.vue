@@ -119,7 +119,7 @@
         <router-link class="router explore-nav" :to="`/yacht`">
           <span @click="reloadYachts" class="txt"> Explore </span>
         </router-link>
-        <span class="new-owner" @click="becomeOwner()">Become a owner</span>
+        <!-- <span class="new-owner" @click="becomeOwner()">Become a owner</span> -->
         <user-selections />
       </div>
     </div>

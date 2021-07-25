@@ -6,15 +6,15 @@
 }
 
 .filter{
-margin-bottom: 7px;
+// margin-bottom: 7px;
 // font-family: Blinker;
 // display: block;
 display: flex;
 align-items: start;
-justify-content: space-between;
-padding-left: 10px;
-padding-right: 10px;
-height: 73px;
+// justify-content: space-between;
+// padding-left: 10px;
+// padding-right: 10px;
+// height: 73px;
 flex-direction: column;
 
 .right{
@@ -85,7 +85,7 @@ flex-direction: column;
         background: none;
         border-radius: 25px;
         cursor: pointer;
-        border: 1px solid;
+        border: 1px solid #387EFF;
     padding: 0.5rem 1rem;
     color: gray;
         // border: none
@@ -131,6 +131,10 @@ flex-direction: column;
         font-family: BlinkerBold;
         font-size: 1rem;
         top: 191px;
+        input[type='range']{
+            color: red;
+            background-color: green;
+        }
     }
     .date{
         border-style: none;
