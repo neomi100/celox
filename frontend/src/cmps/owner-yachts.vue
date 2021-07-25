@@ -7,7 +7,7 @@
           <div class="owner-yacht-img-container">
             <img
               class="owner-yacht-img"
-              :src="yacht.imgUrls"
+              :src="yacht.imgUrls[0]"
               alt="img not found"
             />
           </div>

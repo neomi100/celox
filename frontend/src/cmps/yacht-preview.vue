@@ -26,8 +26,9 @@
           <span class="yacht-price">Daily price: ${{ yacht.price }}</span>
           <p class="rating-container">
           <i class="fas fa-star"></i>
-          <span>{{rate.length}}</span>
+          <span>{{rate.toFixed(1)}}</span>
           </p>
+          <p class="review-lng"> ({{yacht.reviews.length}})</p>
           </div>
           </div>
     <!-- <button class="edit" @click.stop.prevent="edit">Edit</button> -->
@@ -37,6 +38,7 @@
   </section>
 </template>
 <script>
+import { utilService } from '../services/util.service';
 
 export default {
   
@@ -51,17 +53,9 @@ export default {
   },
   computed: {
     rate() {
-      const star = this.yacht.reviews[0].rate;
-      var starStr = "";
-      for (let i = 0; i < 5; i++) {
-        if (i < star) {
-          starStr += "★";
-        } else {
-          starStr += "☆";
-        }
-      }
-      
-      return starStr;
+
+      const rates = this.yacht.reviews.map(({rate})=>rate)
+      return utilService.getAvg(rates)
     },
     capacity() {
       const maxPepole = this.yacht.size;
