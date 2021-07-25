@@ -10,33 +10,38 @@
         </el-carousel-item>
       </el-carousel>
       <div class="yacht-preview">
-          <div class="yacht-up flex space-between" @click="onDetails">
-            <!-- <div class="right-up flex"> -->
-              <p class="full-address"> <span class="country">{{ yacht.loc.country }}</span>, {{yacht.loc.city}}, {{yacht.loc.address}}</p>
-              <p class="max-pepole"><span> {{ capacity }}</span
-              ><span class="icon" title="Max-pepole"></span></p>
-            <!-- </div> -->
-          </div>
-          <div class="yacht-down">
-          <div>
-          <span class="yacht-name">{{ yacht.name }}</span>
-          <div class="bottom-line flex align-center">
-
-          <span class="yacht-price">Daily price: ${{ yacht.price }}</span>
-          <p class="rating-container">
-          <i class="fas fa-star"></i>
-          <span>{{rate.toFixed(1)}}</span>
+        <div class="yacht-up flex space-between" @click="onDetails">
+          <!-- <div class="right-up flex"> -->
+          <p class="full-address">
+            <span class="country">{{ yacht.loc.country }}</span
+            >, {{ yacht.loc.city }}, {{ yacht.loc.address }}
           </p>
-          <p class="review-lng"> ({{yacht.reviews.length}})</p>
+          <p class="max-pepole">
+            <span> {{ capacity }}</span
+            ><span class="icon" title="Max-pepole"></span>
+          </p>
+          <!-- </div> -->
+        </div>
+        <div class="yacht-down">
+          <div>
+            <span class="yacht-name">{{ yacht.name }}</span>
+            <div class="bottom-line flex align-center">
+              <span class="yacht-price">Daily price: ${{ yacht.price }}</span>
+              <p class="rating-container">
+                <i class="fas fa-star"></i>
+                <span>{{ rate.toFixed(1) }}</span>
+              </p>
+              <p class="review-lng">({{ yacht.reviews.length }})</p>
+            </div>
+            <!-- <button class="edit" @click.stop.prevent="edit">Edit</button> -->
           </div>
-          <!-- <button class="edit" @click.stop.prevent="edit">Edit</button> -->
         </div>
       </div>
     </div>
   </section>
 </template>
 <script>
-import { utilService } from '../services/util.service';
+import { utilService } from "../services/util.service";
 
 export default {
   props: {
@@ -46,14 +51,13 @@ export default {
     return {
       imgs: this.yacht.imgUrls,
       isLiked: false,
-      res:''
+      res: "",
     };
   },
   computed: {
     rate() {
-
-      const rates = this.yacht.reviews.map(({rate})=>rate)
-      return utilService.getAvg(rates)
+      const rates = this.yacht.reviews.map(({ rate }) => rate);
+      return utilService.getAvg(rates);
     },
     capacity() {
       const maxPepole = this.yacht.size;
@@ -74,7 +78,6 @@ export default {
     },
   },
   methods: {
-  
     async toggleLike() {
       this.isLiked = !this.isLiked;
       if (this.isLiked) {
@@ -93,5 +96,3 @@ export default {
   },
 };
 </script>
-
-
