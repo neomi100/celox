@@ -29,7 +29,7 @@
               <span class="yacht-price">Daily price: ${{ yacht.price }}</span>
               <p class="rating-container">
                 <i class="fas fa-star"></i>
-                <span>{{ rate }}</span>
+                <span style="font-family: Blinker">{{ rate }}</span>
               </p>
             </div>
           </div>

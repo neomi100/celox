@@ -1,5 +1,5 @@
 <template>
-  <div class="main-footer flex">
+<div :class="`flex  main-footer ${layoutClass} `">
     <div class="footer-rights flex">
       © 2021 Celox, Inc. All rights reserved
     </div>
@@ -18,5 +18,28 @@
     </div>
   </div>
 </template>
+<script>
+
+
+export default {
+    data() {
+    return {
+      layoutClass: "main-layout-home",
+    };
+  },
+    watch: {
+    "$route.path": {
+       immediate: true,
+      handler() {
+        if (this.$route.path === "/yacht/:id") {
+          this.layoutClass = "main-layout";
+        } else {
+          this.layoutClass = "layout-yacht";
+        }
+      },
+    },
+  },
+}
+</script>
 
 
