@@ -23,27 +23,31 @@ export const yachtStore = {
         },
         yachtsForShow(state) {
             
-            const { rate, price} = state.filterBy
+            const { rate, price, guests} = state.filterBy
             const regex = new RegExp(state.filterBy.txt, 'i')
-            console.log(regex,'yyy');
+            
             let yachts = state.yachts
-            console.log(yachts,'1');
+      
             yachts = yachts.filter((yacht) => yacht.price > price)
-            console.log(yachts,'2');
-            // switch (size) {
-            //     case 'All' || '':
-            //         break;
-            //     case 'Small':
-            //         yachts = yachts.filter((yacht) => yacht.size === 'small');
-            //         break;
-            //     case 'Medium':
-            //         yachts = yachts.filter((yacht) => yacht.size === 'medium');
-            //         break;
-            //     case 'Large':
-            //         yachts = yachts.filter((yacht) => yacht.size === 'large');
+            console.log(guests,'bbb');
 
-            //         break;
-            // }
+            switch (true) {
+                case 'All' || '':
+                    break;
+                case (guests>= 1 && guests<=5):
+                    console.log('hi');
+                    yachts = yachts.filter((yacht) => yacht.size === 'small');
+                    break;
+                case (guests>= 6 && guests<=12):
+                    console.log('hihi');
+                    yachts = yachts.filter((yacht) => yacht.size === 'medium');
+                    break;
+                case ((guests>= 13) && (guests<=25)):
+                    yachts = yachts.filter((yacht) => yacht.size === 'large');
+                    break;
+            }
+            console.log(yachts,'3');
+
             switch (rate) {
                 case 'All' || '':
                     break;
@@ -63,9 +67,8 @@ export const yachtStore = {
                     yachts = yachts.filter((yacht) => Math.floor(yacht.reviews[0].rate) === 5);
                     break;
             }
-            console.log(yachts,'3');
             yachts = yachts.filter(yacht => regex.test(yacht.loc.country || yacht.loc.city || yacht.loc.address))
-            console.log(yachts,'4');
+            console.log(yachts,'ייי');
             return yachts
         },
         sortByPrice(state) {
