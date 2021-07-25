@@ -76,7 +76,7 @@
     </section>
 
     <section class="top-destinations">
-      <img src="../assets/imgs/destinations.jpg" alt="">
+      <img src="../assets/imgs/free.jpeg" alt="">
       <div class="content">
         <h2>Try hosting</h2>
         <h4>Earn extra income and unlock new opportunities by sharing your space</h4>
