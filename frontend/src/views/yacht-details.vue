@@ -160,7 +160,7 @@ export default {
         buyer: this.buyer,
         ownerId: this.yacht.owner._id,// will be used in the future for updating owner
         yacht: this.yacht,
-        rate: postedReview.userReviewAvgRate,
+        rate: postedReview.userReviewRate,
         category: {
           Cleanliness: postedReview.categoryMap.Cleanliness,
           Accuracy: postedReview.categoryMap.Accuracy,
