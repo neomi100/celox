@@ -1,8 +1,9 @@
 .main-footer {
+    display: flex;
     padding-top: 24px;
     padding-bottom: 24px;
     border-top: 1px solid #DDDDDD;
-    justify-content: space-evenly;
+    justify-content: space-between;
     background-color: rgb(236, 236, 236);
     padding-left: 10px;
     height: 3rem;

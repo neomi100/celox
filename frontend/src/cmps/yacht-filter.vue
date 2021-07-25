@@ -5,8 +5,8 @@
         class="filter-container flex justify-center align-center scroll-serarch"
       >
         <home-filter></home-filter>
+ 
       </div>
-
     <!-- <div class="right">
       <div class="filter-search">
         <div class="search-input">
@@ -66,13 +66,11 @@
             min="500"
             max="1900"
             step="10"
-            color="red"
             @change="setFilter"
-            v-model="filterBy.price"
-           
+            v-model="filterBy.price"          
           />
         </div>
-      <button class="clear filter-btn" @click="clearFilter">Clear filter</button>
+     <button class="clear filter-btn" @click="clearFilter">Clear filter</button>
       <!-- </div> -->
 
     </div>
@@ -94,6 +92,7 @@ export default {
         dates: "",
         price: 500,
         size: "All",
+        guests: 1
       },
       options: [
         {

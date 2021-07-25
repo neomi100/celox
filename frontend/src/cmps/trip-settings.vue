@@ -28,7 +28,7 @@
             </span>
             <span class="special-btn-txt">Reserve</span>
           </button>
-          <button v-else class="special-btn-reserved">Reserved</button>
+          <button v-else class="special-btn-reserved">Booked</button>
 
           <p>You won't be charged yet</p>
           <div class="price-calc flex space-between">

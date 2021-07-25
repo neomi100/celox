@@ -93,6 +93,7 @@ async function add(yacht) {
 }
 
 async function update(yacht) {
+    // console.log(yacht);
     try {
         // peek only updatable fields!
         const yachtToAdd = {

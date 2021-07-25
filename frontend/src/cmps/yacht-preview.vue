@@ -1,6 +1,5 @@
 <template>
   <section class="continer" @click="onDetails">
-
     <div class="main">
       <el-carousel indicator-position="none" trigger="click" :autoplay="false">
         <el-carousel-item v-for="(img, idx) in imgs" :key="idx">
@@ -30,9 +29,8 @@
           </p>
           <p class="review-lng"> ({{yacht.reviews.length}})</p>
           </div>
-          </div>
-    <!-- <button class="edit" @click.stop.prevent="edit">Edit</button> -->
-    </div>
+          <!-- <button class="edit" @click.stop.prevent="edit">Edit</button> -->
+        </div>
       </div>
     </div>
   </section>
@@ -41,14 +39,14 @@
 import { utilService } from '../services/util.service';
 
 export default {
-  
   props: {
     yacht: Object,
   },
   data() {
     return {
       imgs: this.yacht.imgUrls,
-      isLiked: false
+      isLiked: false,
+      res:''
     };
   },
   computed: {
@@ -61,11 +59,11 @@ export default {
       const maxPepole = this.yacht.size;
       switch (maxPepole) {
         case "small":
-          return "5";
+          return 5;
         case "medium":
-          return "12";
+          return 12;
         case "large":
-          return "35";
+          return 35;
         default:
           return "";
       }
@@ -76,6 +74,7 @@ export default {
     },
   },
   methods: {
+  
     async toggleLike() {
       this.isLiked = !this.isLiked;
       if (this.isLiked) {
@@ -88,9 +87,9 @@ export default {
     onDetails() {
       this.$router.push(`/yacht/` + this.yacht._id);
     },
-    edit(){
+    edit() {
       this.$router.push(`/become-owner/` + this.yacht._id);
-    }
+    },
   },
 };
 </script>

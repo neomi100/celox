@@ -13,7 +13,7 @@ async function getYachts(req, res) {
 
 async function getYachtById(req, res) {
     try {
-        console.log(req.params);
+        // console.log(req.params);
         const yachtId = req.params.yachtId
         const yacht = await yachtService.getById(yachtId)
         res.json(yacht)
@@ -60,6 +60,7 @@ async function addYacht(req, res) {
 }
 
 async function updateYacht(req, res) {
+    console.log(req.body, 'controlre');
     try {
         const { name, price, imgUrls, size, amenities, _id, favorites, owner, loc, reviews, summary } = req.body
         const yacht = { name, price, imgUrls, size, amenities, _id, favorites, owner, loc, reviews, summary }

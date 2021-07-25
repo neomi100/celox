@@ -46,7 +46,7 @@
           <router-link class="router" :to="`/yacht/${yacht._id}`">
             <img
               class="explore-img" 
-              :src= imgLink(yacht.imgUrls[0])
+              :src= "yacht.imgUrls[0]"
             />
           </router-link>
 
