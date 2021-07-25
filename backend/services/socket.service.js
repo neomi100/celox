@@ -9,7 +9,6 @@ var gSocketBySessionIdMap = {}
 
 function connectSockets(http, session) {
     gIo = require('socket.io')(http);
- 
     const sharedSession = require('express-socket.io-session');
     gIo.use(sharedSession(session, {
         autoSave: true
