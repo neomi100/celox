@@ -2001,6 +2001,7 @@ async function remove(id) {
 
 
 async function save(yacht) {
+    console.log(yacht,"service!!!!!!!!!!!!!!!");
     if (yacht._id) {
         return httpService.put(`yacht/${yacht._id}`, yacht)
     } else {

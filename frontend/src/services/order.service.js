@@ -22,9 +22,9 @@ async function query() {
 
 async function save(order) {
 
-    // if (order._id) {
-    //     return httpService.put(`order/${order._id}`, order)
-    // } else {
+    if (order._id) {
+        return httpService.put(`order/${order._id}`, order)
+    } else {
         
         let asd = {
             createdAt: Date.now(),
@@ -47,5 +47,5 @@ async function save(order) {
         }
         return httpService.post('order/', asd)
         
-    // }
+    }
 }

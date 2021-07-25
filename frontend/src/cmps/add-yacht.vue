@@ -1,138 +1,192 @@
 <template>
     <section>
-        <form class="add-yacht-form">
-          <h2>Add a New List:</h2>
-            <div>
-                <span>Yacht Name:</span>
-                <el-input class="add-yacht-name" placeholder="Name" v-model="yacht.name"></el-input>
-            </div>
-            <div>
-                <span>Yacht Summary:</span>
-                <el-input
-                    type="textarea"
-                    placeholder="Enter summary here..."
-                    v-model="yacht.summary"
-                    maxlength="70"
-                    show-word-limit
-                  >
-                </el-input>
-            </div>
-            <div>
-                <span>Yacht Description:</span>
-                <el-input
-                    class="add-yacht-summary"
-                    type="textarea"
-                    :rows="4"
-                    placeholder="Enter description here..."
-                    v-model="tempDescription">
-                </el-input>
-            </div>
-            <div class="flex align-center">
-                <span>Price per night:</span>
-                <el-input class="add-yacht-price" placeholder="Enter price" size=small v-model="yacht.price"></el-input>
-            </div>
-            <div class="capacity">
-                <span class="capacity-title">Capacity:</span>
-                <el-input-number size=small v-model="yacht.capacity"  :min="1" :max="20"></el-input-number>
-            </div>
-            <div>
-              <span class="add-amen"> Choose amenities:</span>
-              <add-yacht-amenities @updateAmenities="updateAmenities()"/>
-            </div>
-            <div>
-            <span>Upload yacht images:</span>
-            <!-- <img-cld-upload class="upload-yacht-img"/> -->
-            </div>
-            <button class="special-btn add-asset-btn" @click="addYacht()">Publish Listing</button>
-        </form>
+         <form @submit.prevent="saveYacht" class="edit-continer">
+      <h2>{{ title }}</h2>
+      <div class="main-continer">
+        <div class="main1">
+          <div>
+            Full name:
+            <input
+              name="txt"
+              type="text"
+              v-model="yachtEdit.owner.fullname"
+              class="input"
+            />
+          </div>
+          <label /> Name of your Yacht:
+          <input
+            name="txt"
+            type="text"
+            v-model="yachtEdit.name"
+            class="input"
+          />
+          <label /> Daily price:
+          <input
+            name="txt"
+            type="number"
+            v-model="yachtEdit.price"
+            class="input"
+            value="1"
+          />
+        </div>
+        <div class="main2">
+          <label /> Country:
+          <input
+            name="txt"
+            type="text"
+            v-model="yachtEdit.loc.country"
+            class="input"
+          />
+          <label /> City:
+          <input
+            name="txt"
+            type="text"
+            v-model="yachtEdit.loc.city"
+            class="input"
+          />
+          <label /> Address:
+          <input
+            name="txt"
+            type="text"
+            v-model="yachtEdit.loc.address"
+            class="input"
+          />
+          <select class="btn" v-model="yachtEdit.size">
+            Size:
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+          <button class="btn" @click.stop.prevent="selectAmenities">
+            Amenities
+          </button>
+          <div class="amenities" :class="openAmenities">
+            <el-checkbox
+              :indeterminate="isIndeterminate"
+              v-model="yachtEdit.amenities"
+              @change="handleCheckAllChange"
+              >Select all</el-checkbox
+            >
+            <el-checkbox-group
+              v-model="checkedAmenities"
+              @change="handleCheckedAmenitiesChange"
+            >
+              <el-checkbox
+                v-for="amenitie in amenities"
+                :label="amenitie"
+                :key="amenitie"
+                >{{ amenitie }}</el-checkbox
+              >
+            </el-checkbox-group>
+          </div>
+        </div>
+      </div>
+      <div class="second">
+        <img-upload @save="saveImg" />
+        <button class="btn save">Save</button>
+        <button type="button" class="btn delete" @click="remove">Delete</button>
+      </div>
+    </form>
     </section>    
 </template>
 
 <script>
-// import { yachtService } from '../services/yacht-service.js';
-import addYachtAmenities from '../cmps/add-yacht-amenities.vue';
-// import imgCldUpload from '../cmps/img-cld-upload.vue';
-// import imgUpload from "@/cmps/img-upload.cmp";
-
-// const Swal = require('sweetalert2')
-
+import { yachtService } from "../services/yacht-service";
+import imgUpload from "@/cmps/img-upload.cmp";
+const amenities = [
+  "TV",
+  "Wifi",
+  "Air-conditioning",
+  "Smoking allowed",
+  "Pets allowed",
+  "Cooking basics",
+  "Washing machine",
+  "work area",
+  "Baby accessories",
+  "Water slide",
+  "Smoke detector",
+];
 export default {
-  name: "add-yacht",
-  props: ['owner' ],
   data() {
     return {
-      tempDescription:'',
-      yacht: {
-        name: "",
-        imgUrls: ["1.1","1.2a","1.2b","1.2c","1.2d"],////////////////////////////////////FIX (temp)
-        price: null,
-        size: null,
-        summary: "",
-        favorites: [],
-        amenities: [],
-        owner: {
-          _id: this.owner._id,
-          fullname: this.owner.fullname,
-          imgUrl: this.owner.imgUrl,
-        },
-        /////////////////////////////////FIX (temp)
-        loc: {
-          country: 'Israel',
-          countryCode: 'IL',
-          address: 'Jerusalem',
-          lat: 31.771959,
-          lng: 35.217018,
-        },
-        ////////////////////////////////////
-        reviews: []
-        }
-    }
-    },
-    methods: {
-    //   handleChange(value) {
-    //   },
-    capacity() {
-      const maxPepole = this.yacht.size;
-      switch (maxPepole) {
-        case "small":
-          return 5;
-        case "medium":
-          return 12;
-        case "large":
-          return 35;
-        default:
-          return "";
-      }
-    },
-      updateAmenities(amenities){
-          this.yacht.amenities=amenities;
-      },
-      async addYacht(){
-        this.$notify.error({
-          title: 'This feature is not active yet but will be implemented soon :)',
-          message: 'Thank'
+      yachtEdit: null,
+      showSelectAmenities: false,
+      checkAll: false,
+      checkedAmenities: [],
+      amenities,
+      isIndeterminate: true,
+    };
+  },
+  methods: {
+    remove() {
+      const id = this.$route.params.id;
+      this.$store.dispatch({ type: "removeYacht", id })
+        .then(() => {
+          console.log("remove");
+           this.$router.push("/yacht");
+          // showMsg('Toy was succesfully removed')
         })
-          // try{
-          //   this.yacht.price=+this.yacht.price;
-          //   await this.$store.dispatch({type:'saveYacht',yacht:this.yacht})
-          //   Swal.fire('Your new yacht was added to listing!')
-          //   this.yacht=yachtService.getEmptyYacht()
-          // } catch(err){
-          //     console.log('yacht was not added:',err);
-          //     Swal.fire('Oops! Something went wrong. Yacht was not added. Try again later.')
-          // }
-      }
+        .catch((err) => {
+          console.log(err);
+          // showMsg('Cannot remove Toy, try again later', 'danger')
+        });
     },
-    components: {
-    addYachtAmenities,
-    // imgCldUpload,
-    // imgUpload,
+    saveImg(imgUrl) {
+      this.yachtEdit.imgUrls.push(imgUrl);
+    },
+    toggle() {
+      this.yachtEdit.inStock = !this.yachtEdit.inStock;
+    },
+    saveYacht() {
+      this.$store.dispatch({ type: "saveYacht", yacht: this.yachtEdit });
+      this.$router.push("/yacht");
+    },
+    selectAmenities() {
+      this.showSelectAmenities = !this.showSelectAmenities;
+    },
+    handleCheckAllChange(val) {
+      this.checkedAmenities = val ? amenities : [];
+      this.isIndeterminate = false;
+    },
+    handleCheckedAmenitiesChange(value) {
+      let checkedCount = value.length;
+      this.checkAll = checkedCount === this.amenities.length;
+      this.isIndeterminate =
+        checkedCount > 0 && checkedCount < this.amenities.length;
+    },
+  },
+  computed: {
+    openAmenities() {
+      let amenities = this.showSelectAmenities ? "isOpen" : "isClose";
+      return amenities;
+    },
+    title() {
+      console.log(this.yachtEdit);
+      return this.yachtEdit.id ? "Edit your yacht " : "Add your Yacht";
+    },
+  },
+  async created() {
+    console.log('hi');
+    const id = this.$route.params.id;
+    console.log(id,'become');
+    if (id) {
+      try {
+        const yacht =  await yachtService.getById(id)
+      console.log(yacht);
+          this.yachtEdit = JSON.parse(JSON.stringify(yacht));
+          console.log(this.yachtEdit);
+      } catch{
+          // console.log("Something has happened", err);
+          // throw err;
+      }
+    } else {
+      console.log(this.yachtEdit, "add");
+      this.yachtEdit = yachtService.getEmptyYacht();
+      console.log(this.yachtEdit, "add after");
+    }
+  },
+  components: {
+    imgUpload,
   },
 };
 </script>
-<style>
-.add-yacht-price{
-  max-width:130px;
-  margin-inline-start: 26px;
-}
-</style>

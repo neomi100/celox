@@ -14,13 +14,14 @@ html {
 body {
     scroll-behavior: smooth;
     margin: 0;
-    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    // font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
     font-size: 14px;
     line-height: 1.43;
     color: #484848;
     background-color: #fff;
     -webkit-font-smoothing: antialiased;
     display: block;
+    font-family: Blinker, Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
     // background-image: url('~@/assets/images/cats-pattern-background_1425-90.jpg');
     // background-size: 180px;
     // background-attachment: fixed;
