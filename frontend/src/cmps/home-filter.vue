@@ -142,7 +142,7 @@ export default {
         location: "",
         startDate: "",
         endDate: "",
-        guests: 1,
+        guests: 0,
         price: 0,
         size: 'All',
         rate: 'All',
