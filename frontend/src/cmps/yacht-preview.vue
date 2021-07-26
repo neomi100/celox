@@ -29,17 +29,20 @@
               <span class="yacht-price">Daily price: ${{ yacht.price }}</span>
               <p class="rating-container">
                 <i class="fas fa-star"></i>
-                <span style="font-family: Blinker">{{ rate }}</span>
+                <span style="font-family: Blinker">{{ rate.toFixed(1) }}</span>
               </p>
+              <p class="review-lng">({{ yacht.reviews.length }})</p>
             </div>
+            <!-- <button class="edit" @click.stop.prevent="edit">Edit</button> -->
           </div>
-          <!-- <button class="edit" @click.stop.prevent="edit">Edit</button> -->
         </div>
       </div>
     </div>
   </section>
 </template>
 <script>
+import { utilService } from "../services/util.service";
+
 export default {
   props: {
     yacht: Object,
@@ -48,32 +51,13 @@ export default {
     return {
       imgs: this.yacht.imgUrls,
       isLiked: false,
-      res:''
+      res: "",
     };
   },
   computed: {
-      rate() {
-      const reviews = this.yacht.reviews;
-      let sum = reviews.reduce((acc, currVal) => {
-        acc += currVal.rate;
-        return acc;
-      }, 0);
-      const res = parseFloat(sum / reviews.length).toFixed(1);
-      // this.res=res
-      console.log(res,'res');
-      return res
-      // Math.floor(res) === 1;
-      // console.log(res, "res");
-      // var starStr = "";
-      // for (let i = 0; i < 5; i++) {
-      //   if (i < res) {
-      //     starStr += "★";
-      //   } else {
-      //     starStr += "☆";
-      //   }
-      // }
-
-      // return starStr;
+    rate() {
+      const rates = this.yacht.reviews.map(({ rate }) => rate);
+      return utilService.getAvg(rates);
     },
     capacity() {
       const maxPepole = this.yacht.size;
@@ -94,7 +78,6 @@ export default {
     },
   },
   methods: {
-  
     async toggleLike() {
       this.isLiked = !this.isLiked;
       if (this.isLiked) {
@@ -113,5 +96,3 @@ export default {
   },
 };
 </script>
-
-

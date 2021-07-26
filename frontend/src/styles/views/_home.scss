@@ -153,15 +153,55 @@ div.random-search {
 
 ///////////////////////////////
 .top-destinations {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-}
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.375rem;
+    h2, h4 {
+        margin: unset;
+    }
+   > img {  
+    width: 100%;
+   }
+   .content {
+       position: absolute;
+       top: 50%;
+       transform: translateY(-50%);
+       left: 7%;
+       width: 280px;
+       color: rgb(255, 255, 255);
+       > h2 {
+           font-size: 48px;
+           margin-bottom: 12px;
+           font-weight: 600;
+        }
+        > h4 {
+           font-weight: 400;
+           font-size: 18px;
+           margin-bottom: 40px;
+       }
+       > button {
+           //clean
+        background: none;
+        color: inherit;
+        border: none;
+        padding: 0;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
 
-.destination {
-    background-color: cornflowerblue;
-    margin: 5px;
-    padding: 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        padding: 14px 24px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(72, 72, 72);
+        font-size: 16px;
+        font-weight: 600;
+
+        &:hover {
+            filter: brightness(0.9);
+        }
+       }
+   }
 }
 
 .yacht {
@@ -171,7 +211,7 @@ div.random-search {
 }
 
 .destinations-imgs-ul {
-    margin: 0;
+    // margin: 0;
     padding: 0;
     display: grid;
     // grid-auto-flow: column;
@@ -740,48 +780,3 @@ html {
 }
 
 .sailor-backdrop{ height: 100%; }
-
-
-// html,body{overflow-x: hidden;}
-// .ocean { 
-//   height: 5%;
-//   width:100%;
-//   position:absolute;
-//   bottom:0;
-//   left:0;
-//   background: #015871;
-// }
-
-// .wave {
-//   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; 
-//   position: absolute;
-//   top: -198px;
-//   width: 6400px;
-//   height: 198px;
-//   animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
-//   transform: translate3d(0, 0, 0);
-// }
-
-// .wave:nth-of-type(2) {
-//   top: -175px;
-//   animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
-//   opacity: 1;
-// }
-
-// @keyframes wave {
-//   0% {
-//     margin-left: 0;
-//   }
-//   100% {
-//     margin-left: -1600px;
-//   }
-// }
-
-// @keyframes swell {
-//   0%, 100% {
-//     transform: translate3d(0,-25px,0);
-//   }
-//   50% {
-//     transform: translate3d(0,5px,0);
-//   }
-// }

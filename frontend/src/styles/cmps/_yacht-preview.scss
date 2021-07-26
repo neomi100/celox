@@ -83,8 +83,9 @@
                   .bottom-line {
                       >*:not(:last-child){
                           margin-inline-end: 1rem;
-                      }
-                      .rating-container {
+                        }
+                        .rating-container {
+                          margin-inline-end: 3px;
                         >*:not(:last-child){
                             margin-inline-end: 0.2rem;
                         }
@@ -126,7 +127,12 @@
               box-shadow: rgba(33, 35, 38, 0.1) 1px 10px 10px -10px;
             }
           }
-         
+ 
+.review-lng{
+    font-family: Blinker;
+    font-size: inherit;
+    
+}
 // }
 .el-carousel{
     margin-bottom: 0;

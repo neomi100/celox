@@ -59,7 +59,7 @@ function getLoggedinUser() {
     // if (!user) {
     //     user = {
     //         "_id": "6058751c94789ab513f04f93",
-    //         "fullname": "Mor Levi",
+    //         "fullname": "Zohar Gold",
     //         "imgUrl": "https://randomuser.me/api/portraits/men/1.jpg",
     //         "isAdmin": true,
     //         "username": "mor97",

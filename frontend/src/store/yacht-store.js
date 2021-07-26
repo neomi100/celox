@@ -12,7 +12,7 @@ export const yachtStore = {
             txt: '',
             startDate: "",
             endDate: "",
-            guests: 1
+            guests: 0
         },
         title: ''
 
