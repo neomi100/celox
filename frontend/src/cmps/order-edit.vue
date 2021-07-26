@@ -106,7 +106,7 @@ export default {
       const end = new Date(endYear, endMonth - 1, endDay).getTime();
 
       this.orderSettings.nightsNum = Math.round(
-      (end - start) / 1000 / 3600 / 24);
+      (end - start) / (1000 * 3600 * 24));
     },
 
     setGuests(value) {
