@@ -97,8 +97,8 @@ export default {
       this.orderSettings.requestedDates = [startDate, endDate];
       this.isTotalPriceClalculable = true;
     },
+
     calcNightsNum(dates) {
-      console.log(dates, 'value');
       const [startDay, startMonth, startYear] = dates[0].split("-");
       const [endDay, endMonth, endYear] = dates[1].split("-");
 
@@ -108,9 +108,11 @@ export default {
       this.orderSettings.nightsNum = Math.round(
       (end - start) / 1000 / 3600 / 24);
     },
+
     setGuests(value) {
       this.orderSettings.guest = value;
     },
+    
     async sendOrderRequest() {
       try {
         await this.$store.dispatch({
