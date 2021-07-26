@@ -4,7 +4,7 @@
       <div
         class="filter-container flex justify-center align-center scroll-serarch top-part"
       >
-      <h2>Let one of our great yachts take you on an adventure</h2>
+      <!-- <h2>Let one of our great yachts take you on an adventure</h2> -->
         <home-filter></home-filter>
       </div>
       <div class="random-search">
