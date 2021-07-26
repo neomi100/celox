@@ -459,14 +459,20 @@ div.random-search {
 }
 
 .hero {
-    margin-bottom: 60px;
-    height: 100vh;
+   
+    height: 94vh;
     width: 100%;
     background-image: linear-gradient(rgba(0, 0, 0, 0.123), rgba(0, 0, 0, 0.178)), url("~@/assets/imgs/new-pic.jpeg");
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+}
+.zayin{
+    font-size: 3em;
+    font-family: OtomanopeeOne;
+    position: relative;
+    left: 50px;
 }
 
 .filter-container {
