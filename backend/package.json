@@ -4,9 +4,10 @@
     "description": "production ready server",
     "main": "server.js",
     "scripts": {
-        "start": "set NODE_ENV=development && nodemon server.js",
-        "server:dev": "set NODE_ENV=development && nodemon server.js",
-        "server:prod": "node server.js"
+        "start": "node server.js",
+        "start2": "set NODE_ENV=development && nodemon server.js",
+        "dev": "set NODE_ENV=development && nodemon server.js",
+        "prod": "node server.js"
     },
     "author": "Me",
     "license": "ISC",

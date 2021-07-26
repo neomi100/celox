@@ -21,7 +21,6 @@ export default {
   methods: {
 
     async loadOrder() {
-    console.log("!!!@!@!@!@!@!@!@!@!");
 
       const owner = this.$store.getters.loggedinUser;
       await this.$store.dispatch({ type: "loadOwnerOrders", owner });
