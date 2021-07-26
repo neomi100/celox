@@ -92,7 +92,7 @@ export default {
         dates: "",
         price: 500,
         size: "All",
-        guests:0
+        guests:null
       },
       options: [
         {

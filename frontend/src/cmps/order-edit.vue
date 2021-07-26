@@ -86,13 +86,16 @@ export default {
       this.orderSettings.requestedDates = [startDate, endDate];
       this.isTotalPriceClalculable = true;
     },
-    calcNightsNum(value) {
-      var start = value[0].split("-");
-      var end = value[1].split("-");
-      start = new Date(start[2], start[1] - 1, start[0]).getTime();
-      end = new Date(end[2], end[1] - 1, end[0]).getTime();
+    calcNightsNum(dates) {
+      console.log(dates, 'value');
+      const [startDay, startMonth, startYear] = dates[0].split("-");
+      const [endDay, endMonth, Year] = dates[1].split("-");
+
+      const start = new Date(startYear, startMonth - 1, startDay).getTime();
+      const end = new Date(endYear, endMonth - 1, endDay).getTime();
+
       this.orderSettings.nightsNum = Math.round(
-        (end - start) / 1000 / 3600 / 24);
+      (end - start) / 1000 / 3600 / 24);
     },
     setGuests(value) {
       this.orderSettings.guest = value;

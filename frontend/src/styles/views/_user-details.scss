@@ -4,10 +4,10 @@
     grid-template-columns:minmax(2rem,1fr) minmax(auto,250px) minmax(auto,850px) minmax( 2rem,1fr);
     padding-top: 1%;
     min-height: 82vh;
-    
+    align-items: unset;
     .user-profile{
         position: sticky;
-        top: 180px;
+        top: 98px;
         grid-column: 2 / 3;
         // grid-row: 1 / 2;
         padding: 10% 10% 15% 10% ;
@@ -72,7 +72,7 @@
        
         .el-tabs__item {
             padding: 0px 9px;
-            font-size: 17px;
+            font-size: 27px;
         }
         
         .el-tabs__nav-prev {

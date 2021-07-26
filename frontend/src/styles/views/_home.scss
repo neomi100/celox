@@ -134,7 +134,7 @@ div.random-search {
         color: seashell;
     }
     .rs-inner {
-        color: seashell;
+        color: rgb(54, 54, 54);;
         margin: 0 auto;
         background-color: #ffc760;
         border: none;
@@ -441,9 +441,9 @@ div.random-search {
 }
 // }
 
-html {
-    overflow: overlay;
-}
+// html {
+//     overflow: overlay;
+// }
 
 .main-layout {
     display: grid;

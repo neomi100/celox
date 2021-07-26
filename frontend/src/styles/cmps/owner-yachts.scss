@@ -2,6 +2,7 @@
     .owner-yachts {
         list-style-type: none;
         margin-bottom: 25px;
+        padding: 0;
         
         .owner-yacht-and-orders{
             border: 1px solid rgba(211, 211, 211, 0.671);
@@ -13,7 +14,7 @@
             .owner-yacht{
                 border-radius: 5px;
                 display: flex;
-                align-items: flex-start;
+                align-items: flex-end;
 
                 .owner-yacht-img{
                     width:150px;
@@ -26,7 +27,8 @@
                     width:100%;
                     
                     h2{
-                        margin-bottom: 20px;
+                        // margin-bottom: 20px;
+                        margin: 0;
                     }
                 }
             }

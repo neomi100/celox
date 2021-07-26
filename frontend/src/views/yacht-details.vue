@@ -71,7 +71,7 @@
       </div>
 
       <div class="trip-cmp">
-        <trip-settings class="trip-settings" :yacht="yacht" />
+        <order-edit class="trip-settings" :yacht="yacht" />
       </div>
     </div>
 
@@ -98,7 +98,7 @@
 <script>
 import yachtAmenities from "../cmps/yacht-amenities.vue";
 import yachtImgGallery from "../cmps/yacht-img-gallery.vue";
-import tripSettings from "../cmps/trip-settings.vue";
+import orderEdit from "../cmps/order-edit.vue";
 import tripSettingsMobile from "../cmps/trip-settings-mobile.vue";
 import reviewList from "../cmps/review-list.vue";
 import reviewCategories from "../cmps/review-categories.vue";
@@ -234,7 +234,7 @@ export default {
   components: {
     yachtImgGallery,
     reviewList,
-    tripSettings,
+    orderEdit,
     tripSettingsMobile,
     yachtMap,
     reviewCategories,

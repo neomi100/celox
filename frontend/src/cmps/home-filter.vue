@@ -41,7 +41,7 @@
           <input
             v-model="filterBy.guests"
             type="text"
-            placeholder="1 Guest"
+            placeholder=""
             class="desc guest-dd"
             @click="openGuests"
           />
@@ -96,7 +96,7 @@
           <input
             v-model="filterBy.guests"
             type="text"
-            placeholder="1 Guest"
+            placeholder= ""
             class="desc"
             @click="openGuests"
           />
@@ -142,7 +142,7 @@ export default {
         location: "",
         startDate: "",
         endDate: "",
-        guests: 0,
+        guests: null,
         price: 0,
         size: 'All',
         rate: 'All',
