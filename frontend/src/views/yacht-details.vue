@@ -63,7 +63,6 @@
             and plasma TV, dining room with independent air conditioning, table
             and sofa, a kitchen equipped with refrigerator, sink,
           </div>
-
           <p class="contact-owner-btn underline">Contact owner</p>
         </div>
         <div>

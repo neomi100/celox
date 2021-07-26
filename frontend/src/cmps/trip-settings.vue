@@ -5,7 +5,7 @@
         <div class="value-for-money flex space-between">
           <span>
             <span class="price">${{ price }}</span>
-            <span>/ night</span>
+            <span>/ day</span>
             </span>
           <star-rating :reviews="yacht.reviews" />
         </div>
@@ -28,11 +28,22 @@
             </span>
             <span class="special-btn-txt">Reserve</span>
           </button>
+           <ShareNetwork v-if="!isReserved" class="facebook-share"
+        network="facebook"
+        url="https://celox.herokuapp.com"
+        title="I've just booked an yacht trip with celox!"
+        description="I'm going to a yacht trip."
+        quote="I've just booked an yacht trip. with celox!"
+        hashtags="celox"
+      >
+        Share on Facebook
+      </ShareNetwork>
+           
           <button v-else class="special-btn-reserved">Booked</button>
 
           <p>You won't be charged yet</p>
           <div class="price-calc flex space-between">
-            <span class="underline">${{ yacht.price }} X {{ orderSettings.nightsNum }} nights</span>
+            <span class="underline">${{ yacht.price }} X {{ orderSettings.nightsNum }} days</span>
             <span>${{ priceCalc }}</span>
           </div>
           <div class="service-fee flex space-between">

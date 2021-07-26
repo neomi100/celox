@@ -131,9 +131,10 @@ div.random-search {
         font-weight: bold;
         margin-bottom: 8px;
         font-size: 20px;
-        color: black;
+        color: seashell;
     }
     .rs-inner {
+        color: seashell;
         margin: 0 auto;
         background-color: #ffc760;
         border: none;
@@ -551,7 +552,7 @@ html {
     line-height: 12px;
     padding-bottom: 2px;
     -webkit-padding-end: 60px;
-    padding-inline-end: 60px;
+    // padding-inline-end: 60px;
     font-size: 14px;
 }
 

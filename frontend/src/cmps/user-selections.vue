@@ -2,10 +2,6 @@
   <section class="user-select">
     <el-dropdown>
       <span class="el-dropdown-link">
-        <img
-          class="user-menu-img burger"
-          :src="require(`@/assets/imgs/icons/hamburger.png`)"
-        />
         <img v-if="loggedInUser" class="user-menu-img" :src="userPic" />
         <img
           v-else
