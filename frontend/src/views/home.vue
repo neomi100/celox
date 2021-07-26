@@ -4,7 +4,7 @@
       <div
         class="filter-container flex justify-center align-center scroll-serarch top-part"
       >
-      <h2>Let one of our great yachts take you on an adventure</h2>
+        <h2 class="highlight">BOOK YOUR NEXT DREAM VECATION</h2>
         <home-filter></home-filter>
       </div>
       <div class="random-search">
@@ -77,11 +77,13 @@
     </section>
 
     <section class="top-destinations">
-      <img src="../assets/imgs/free.jpeg" alt="">
+      <img src="../assets/imgs/free.jpeg" alt="" />
       <div class="content">
         <h2>Try hosting</h2>
-        <h4>Earn extra income and unlock new opportunities by sharing your space</h4>
-        <button>Learn more</button>
+        <h4>
+          Earn extra income and unlock new opportunities by sharing your space
+        </h4>
+        <button>Join Us</button>
       </div>
       <!-- <div class="sailor-picture">
         <img src="../assets/imgs/sexy-sailor.jpg" />
@@ -92,7 +94,6 @@
         </div>
       </div> -->
     </section>
-
   </section>
 </template>
 
