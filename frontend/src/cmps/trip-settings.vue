@@ -5,7 +5,7 @@
         <div class="value-for-money flex space-between">
           <span>
             <span class="price">${{ price }}</span>
-            <span>/ night</span>
+            <span>/ day</span>
             </span>
           <star-rating :reviews="yacht.reviews" />
         </div>
@@ -32,7 +32,7 @@
 
           <p>You won't be charged yet</p>
           <div class="price-calc flex space-between">
-            <span class="underline">${{ yacht.price }} X {{ orderSettings.nightsNum }} nights</span>
+            <span class="underline">${{ yacht.price }} X {{ orderSettings.nightsNum }} days</span>
             <span>${{ priceCalc }}</span>
           </div>
           <div class="service-fee flex space-between">

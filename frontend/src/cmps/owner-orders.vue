@@ -24,7 +24,7 @@
             <p>{{ order.startDate }}-{{ order.endDate }}</p>
           </div>
           <div class="order-details cell-2">
-            <h3>Yacht at:&nbsp;</h3>
+            <h3>Yacht &nbsp;</h3>
             <p>"{{ order.yacht.name }}"</p>
           </div>
           <div class="order-details cell-3">
