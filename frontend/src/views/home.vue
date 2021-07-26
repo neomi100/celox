@@ -1,10 +1,10 @@
 <template>
   <section class="home main-layout-home" v-if="yachts">
     <section class="hero full main-layout">
+      <h2 class="zayin">BOOK YOUR NEXT DREAM</h2> 
       <div
         class="filter-container flex justify-center align-center scroll-serarch top-part"
       >
-        <h2 class="highlight">BOOK YOUR NEXT DREAM VECATION</h2>
         <home-filter></home-filter>
       </div>
       <div class="random-search">
@@ -15,44 +15,7 @@
       </div>
     </section>
     <div class="home-hero full">
-      <!-- <img class="main-img" src="@/assets/imgs/main-img.jpg" /> -->
-      <!-- <div class="searchBox">
-        <div class="sb-input" @click="onSearch">
-          <span class="sb-input-title">Location</span>
-          <span class="sb-input-data">Select Location</span>
-        </div>
-    <div class="sb-input" @click="selectDates">
-      <span class="sb-input-title">Check In</span>
-      <span class="sb-input-data">Add data</span>
-      </div>      
-        <div class="sb-input" @click="selectCheckOut">
-          <span class="sb-input-title">Check Out</span>
-          <span class="sb-input-data">Add data</span>
-        </div>
-        <button class="search-btn" @click="onSearchResults"></button>
-      </div>
-
- <div class="search-input-home" :class="openSearch">
-          <el-input 
-          v-model="title"    
-            size="mini"
-            placeholder="Your next trip to.."
-          >
-          </el-input>
-        </div>
-
-           <div class="dates" :class="openDates">
-    <el-date-picker
-      type="datetime"
-      placeholder="Select date ">
-    </el-date-picker>
-  </div>
-           <div class="check-out" :class="checkOut">
-    <el-date-picker
-      type="datetime"
-      placeholder="Select date ">
-    </el-date-picker>
-  </div> -->
+      
     </div>
 
     <section>
@@ -85,14 +48,6 @@
         </h4>
         <button>Join Us</button>
       </div>
-      <!-- <div class="sailor-picture">
-        <img src="../assets/imgs/sexy-sailor.jpg" />
-        <div class="sailor-backdrop">
-          <h2>JOIN US AND BECOME A CAPTAIN</h2>
-          <h2>Rent Your yacht</h2>
-          <button class="rs-inner"></button>
-        </div>
-      </div> -->
     </section>
   </section>
 </template>

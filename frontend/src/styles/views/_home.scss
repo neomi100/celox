@@ -161,6 +161,8 @@ div.random-search {
     }
    > img {  
     width: 100%;
+    margin-bottom: 15px;
+    margin-top: 10px;
    }
    .content {
        position: absolute;
@@ -471,21 +473,17 @@ div.random-search {
 .zayin{
     font-size: 3em;
     font-family: OtomanopeeOne;
-    position: relative;
-    left: 50px;
+    color: #FCE38A;
+    text-align: center;
 }
 
 .filter-container {
     display: flex;
-    // justify-content: center;
-    // align-content: center;
-    // margin-top: 6vh;
     cursor: pointer;
 }
 
 .scroll-serarch {
     transform-origin: 50% 0 !important;
-    // transform: scale(.42,.69) translateY(-58px)!important;
     transition: transform 0.25s ease, opacity 50ms ease 20ms, visibility 0ms 0.15s !important;
 }
 
