@@ -1,10 +1,10 @@
 <template>
   <section class="home main-layout-home" v-if="yachts">
     <section class="hero full main-layout">
+      <div class="zayin">Let one of our great yachts take you on an adventure</div> 
       <div
         class="filter-container flex justify-center align-center scroll-serarch top-part"
       >
-      <h2>Let one of our great yachts take you on an adventure</h2>
         <home-filter></home-filter>
       </div>
       <div class="random-search">
