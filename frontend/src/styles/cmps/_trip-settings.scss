@@ -115,6 +115,23 @@
     outline: none;
     cursor: not-allowed;
 }
+.facebook-share {
+    border: 1px solid gray;
+    padding: 10px 15px;
+    margin-right: auto;
+    margin-left: auto;
+    color: $clr2;
+    background-color: #135FC2;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.75rem;
+    transition: 0.3s;
+    &:hover {
+      background-color: #3888ff;
+      border-color: #3888ff;
+      color: $clr3;
+    }
+  }
 
 //         //end of special-btn
 .price {

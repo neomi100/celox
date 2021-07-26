@@ -5,7 +5,7 @@ export const orderService = {
     query,
     save,
     getById,
-    remove //currently not in use 
+    remove 
 }
 
 function getById(id) {

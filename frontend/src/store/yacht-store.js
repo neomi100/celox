@@ -22,26 +22,26 @@ export const yachtStore = {
             return state.title
         },
         yachtsForShow(state) {
-            
-            const { rate, price, guests} = state.filterBy
+
+            const { rate, price, guests } = state.filterBy
             const regex = new RegExp(state.filterBy.txt, 'i')
-            
+
             let yachts = state.yachts
-      
+
             yachts = yachts.filter((yacht) => yacht.price > price)
 
             switch (true) {
                 case 'All' || '':
                     break;
-                case (guests>= 1 && guests<=5):
-                   
+                case (guests >= 1 && guests <= 5):
+
                     yachts = yachts.filter((yacht) => yacht.size === 'small');
                     break;
-                case (guests>= 6 && guests<=12):
-                   
+                case (guests >= 6 && guests <= 12):
+
                     yachts = yachts.filter((yacht) => yacht.size === 'medium');
                     break;
-                case ((guests>= 13) && (guests<=25)):
+                case ((guests >= 13) && (guests <= 25)):
                     yachts = yachts.filter((yacht) => yacht.size === 'large');
                     break;
             }
@@ -173,7 +173,7 @@ export const yachtStore = {
             newReview.currYacht.reviews.unshift(newReview)
             console.log(newReview);
             try {
-                const updatedYacht = await yachtService.save( newReview.currYacht)
+                const updatedYacht = await yachtService.save(newReview.currYacht)
                     // const updatedYacht= await yachtService.addReview(newReview,currYacht)
                 context.commit({ type: 'updateyachts', updatedYacht })
                 return updatedYacht

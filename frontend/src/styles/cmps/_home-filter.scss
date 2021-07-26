@@ -1,6 +1,7 @@
-.hero .wrapper{
+.hero .wrapper {
     top: -37px;
 }
+
 .wrapper {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
     position: relative;
@@ -8,6 +9,16 @@
     //padding: 40px 0px;
     // padding: 40px 0px;
     // top: -131px;
+}
+
+.top-part {
+    flex-direction: column;
+    h2 {
+        font-size: 36px;
+        margin-bottom: 120px;
+        color: #fff;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
 }
 
 .advanced-input {
@@ -34,20 +45,17 @@
 .advanced-search-input .advanced-input-container .advanced-input-section .label span {
     top: 0;
     color: #afafaf;
-    font-family:BlinkerBold;
+    font-family: BlinkerBold;
 }
 
 .advanced-search-input .advanced-input-container .advanced-input-section .advanced-input,
 .advanced-search-input .advanced-input-container .advanced-input-section .label {
     color: #afafaf;
     letter-spacing: 1px;
-
-
 }
 
 .advanced-search-input .search .options .row .option .title {
     font-style: 14px;
-
 }
 
 .el-date-editor .el-range-separator {
@@ -65,7 +73,6 @@
     width: 300px;
     border: 1px solid lightgray;
     transition: .15s ease-in-out;
-
 }
 
 .search-btn-sticky {
@@ -98,53 +105,44 @@
     margin-top: 3px;
 }
 
-
 .el-date-editor .el-range__icon {
     margin-left: -12px;
-
 }
 
 .filter-container .wrapper .box .title {
     margin-top: 6px;
-    margin-left: 2px;
 }
 
 .filter-container .wrapper .box .desc {
-padding-bottom: 3px;
-width:100%;
+    padding-bottom: 3px;
+    width: 100%;
 }
-
-
 
 .secondary {
     position: fixed;
     top: 80px;
     z-index: 1000;
-
-
 }
-.el-input__inner{
+
+.el-input__inner {
     padding: 0;
 }
 
 // .filter-by-guest {
 //     border: none;
 // }
-
 .guest-dd {
     width: 90px;
     height: 36px;
-    border: none; 
+    border: none;
 }
-
-
 
 .title-location {
     line-height: 19px;
 }
 
-.location{
-margin-left: 11px;
+.location {
+    margin-left: 11px;
 }
 
 @media (max-width:440px) {
@@ -152,35 +150,26 @@ margin-left: 11px;
         // background-color: blue;
         // width: fit-content;
         width: 100% !important;
-
     }
-
     .advanced-search-input .advanced-input-container .advanced-input-section .label {
         font-size: 1.1rem !important;
     }
-
     .advanced-search-input .advanced-input-container .advanced-input-section .advanced-input,
     .advanced-search-input .advanced-input-container .advanced-input-section .label {
         font-size: 27px;
     }
-
-
     .title-sticky {
         font-size: 1.5rem !important;
     }
-
     .filter-container .wrapper .box .title {
         font-size: 1.8rem !important;
     }
-
     .filter-container .wrapper .box:nth-child(2) {
         display: none;
     }
-
     .filter-container .wrapper .box:nth-child(3) {
         display: none;
     }
-
     .search-btn-sticky {
         display: none;
         // display: flex;
@@ -198,20 +187,17 @@ margin-left: 11px;
         outline: none;
         color: rgb(185, 184, 184);
     }
-
     .search-btn-sticky {
         top: 10%;
         left: 3%;
     }
-
     .mobail-container {
         width: 100%;
         background-color: red;
     }
-
 }
 
-.filter-date-picker{
+.filter-date-picker {
     margin-left: -48px !important;
 }
 
@@ -219,17 +205,18 @@ margin-left: 11px;
 // // width: 285px !important;
 // // width: 100% !important;
 // }
-
-.date-title-sec{
+.date-title-sec {
     margin-left: 2px;
     margin-left: 36px !important;
 }
 
-.advanced-search-input .advanced-input-container .advanced-input-section .advanced-input span, .advanced-search-input .advanced-input-container .advanced-input-section .label span{
+.advanced-search-input .advanced-input-container .advanced-input-section .advanced-input span,
+.advanced-search-input .advanced-input-container .advanced-input-section .label span {
     margin-left: -2px;
 }
-.date-title{
-    margin-left: -7px;
+
+.date-title {
+    margin-left: 62px;
 }
 
 // .filter-container .wrapper .box:first-child {

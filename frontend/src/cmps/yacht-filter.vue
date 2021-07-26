@@ -95,10 +95,10 @@ export default {
         guests:null
       },
       options: [
-        {
-          value: "All",
-          label: "All",
-        },
+        // {
+        //   value: "All",
+        //   label: "All",
+        // },
         {
           value: 1,
           label: "★",

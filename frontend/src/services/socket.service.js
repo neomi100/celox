@@ -12,7 +12,6 @@ window.socketService = socketService
 function createSocketService() {
     var socket
     const socketService = {
-        // socket is lazily created
         setup() {
             socket = io(baseUrl)
         },
