@@ -100,7 +100,7 @@ export default {
     calcNightsNum(dates) {
       console.log(dates, 'value');
       const [startDay, startMonth, startYear] = dates[0].split("-");
-      const [endDay, endMonth, Year] = dates[1].split("-");
+      const [endDay, endMonth, endYear] = dates[1].split("-");
 
       const start = new Date(startYear, startMonth - 1, startDay).getTime();
       const end = new Date(endYear, endMonth - 1, endDay).getTime();

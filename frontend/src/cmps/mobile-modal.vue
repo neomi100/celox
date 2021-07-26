@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import tripSettings from './order-edit.vue';
+import orderEdit from './order-edit.vue';
 export default {
   props: {
     yacht: Object,
@@ -18,7 +18,7 @@ export default {
     }
   },
   components:{
-      tripSettings
+      orderEdit
   }
 }
 </script>
