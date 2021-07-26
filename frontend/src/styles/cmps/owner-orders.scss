@@ -1,7 +1,9 @@
 .reservations-title{
     margin-bottom: 15px;
 }
-
+h2{
+    font-size: 25px;
+}
 .owner-orders{
     height: fit-content;
     border: 1px solid rgba(211, 211, 211, 0.671);
@@ -11,6 +13,7 @@
     
     .owner-order:last-child{
         border-bottom: none;
+       
     }
     .owner-order {
         display: grid;
@@ -46,14 +49,15 @@
             
             p {
                 padding: 1%;
-                font-size: 14px;
+                font-size: 18px;
             }
             
             h3 {
                 padding: 1%;
                 width: fit-content;
                 padding-bottom: 1%;
-                margin-bottom: 1%;
+                margin-bottom: 18%;
+                font-size: 21px;
             }
             .response-dates{
                 display: none;

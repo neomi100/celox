@@ -13,8 +13,8 @@
         <div class="yacht-up flex space-between" @click="onDetails">
           <!-- <div class="right-up flex"> -->
           <p class="full-address">
-            <span class="country">{{ yacht.loc.country }}</span
-            >, {{ yacht.loc.city }}, {{ yacht.loc.address }}
+            <span class="country">{{ yacht.loc.country }}</span>,
+            <span class="gray">{{ yacht.loc.city }}, {{ yacht.loc.address }}</span> 
           </p>
           <p class="max-pepole">
             <span> {{ capacity }}</span
@@ -23,15 +23,17 @@
           <!-- </div> -->
         </div>
         <div class="yacht-down">
-          <div>
+          <div style="width:100%" >
             <span class="yacht-name">{{ yacht.name }}</span>
-            <div class="bottom-line flex align-center">
+            <div class="bottom-line flex align-center space-between">
               <span class="yacht-price">Daily price: ${{ yacht.price }}</span>
-              <p class="rating-container">
+<!-- <span class="rateT"> -->
+              <div class="rating-container flex align-center">
                 <i class="fas fa-star"></i>
                 <span style="font-family: Blinker">{{ rate.toFixed(1) }}</span>
-              </p>
-              <p class="review-lng">({{ yacht.reviews.length }})</p>
+               <p class="review-lng">({{ yacht.reviews.length }})</p>
+              </div>
+<!-- </span> -->
             </div>
             <!-- <button class="edit" @click.stop.prevent="edit">Edit</button> -->
           </div>
