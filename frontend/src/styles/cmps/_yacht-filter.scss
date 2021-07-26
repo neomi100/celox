@@ -16,7 +16,9 @@ align-items: start;
 // padding-right: 10px;
 // height: 73px;
 flex-direction: column;
-
+padding-top: 20px;
+padding-bottom: 20px;
+// margin-top: 20px;
 .right{
     display: flex;
     align-items: center;
@@ -73,7 +75,7 @@ flex-direction: column;
   }  
     .filter-main{
         padding-left: 3px;
-        padding-top: 10px;
+        padding-top: 13px;
     display: flex;
     justify-content: space-between;
     gap: 7px;
